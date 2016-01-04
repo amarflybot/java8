@@ -26,20 +26,21 @@ public class ParentDeserializationTest {
             ObjectInputStream ois = new ObjectInputStream(bais);
             System.out.println("---------------------------------------------------");
             System.out.println("Deserializing...");
-            Child c1 = (Child)ois.readObject();
-            System.out.println("c1.i="+c1.getI());
-            System.out.println("c1.field="+c1.getField());
-            Child1 child1 = (Child1)ois.readObject();
-            System.out.println("child1.i="+child1.getI());
-            System.out.println("child1.field="+child1.getField());
-        } catch (IOException ex){
+            Child c1 = (Child) ois.readObject();
+            System.out.println("c1.i=" + c1.getI());
+            System.out.println("c1.field=" + c1.getField());
+            Child1 child1 = (Child1) ois.readObject();
+            System.out.println("child1.i=" + child1.getI());
+            System.out.println("child1.field=" + child1.getField());
+        } catch (IOException ex) {
             ex.printStackTrace();
-        } catch (ClassNotFoundException ex){
+        } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         }
     }
+}
 
-    public static class Parent {
+    class Parent {
         protected int field;
         protected Parent(){
             System.out.println("Parent::Constructor");
@@ -49,7 +50,7 @@ public class ParentDeserializationTest {
         }
     }
 
-    public static class Child extends Parent implements Serializable{
+    class Child extends Parent implements Serializable{
         protected int i;
 
         public Child() {
@@ -65,7 +66,7 @@ public class ParentDeserializationTest {
         }
     }
 
-    private static class Child1 extends Child {
+    class Child1 extends Child {
         protected int i;
 
         public Child1() {
@@ -80,4 +81,4 @@ public class ParentDeserializationTest {
             return i;
         }
     }
-}
+
