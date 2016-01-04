@@ -10,11 +10,14 @@ public class ParentDeserializationTest {
         try {
             System.out.println("Creating...");
             Child c = new Child(1);
+            Child child = new Child1(11);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ObjectOutputStream oos = new ObjectOutputStream(baos);
             c.field = 10;
+            child.field = 20;
             System.out.println("Serializing...");
             oos.writeObject(c);
+            oos.writeObject(child);
             oos.flush();
             baos.flush();
             oos.close();
@@ -26,6 +29,9 @@ public class ParentDeserializationTest {
             Child c1 = (Child)ois.readObject();
             System.out.println("c1.i="+c1.getI());
             System.out.println("c1.field="+c1.getField());
+            Child1 child1 = (Child1)ois.readObject();
+            System.out.println("child1.i="+child1.getI());
+            System.out.println("child1.field="+child1.getField());
         } catch (IOException ex){
             ex.printStackTrace();
         } catch (ClassNotFoundException ex){
@@ -36,7 +42,6 @@ public class ParentDeserializationTest {
     public static class Parent {
         protected int field;
         protected Parent(){
-            field = 5;
             System.out.println("Parent::Constructor");
         }
         public int getField() {
@@ -54,6 +59,22 @@ public class ParentDeserializationTest {
         public Child(int i){
             this.i = i;
             System.out.println("Child::Constructor");
+        }
+        public int getI() {
+            return i;
+        }
+    }
+
+    private static class Child1 extends Child {
+        protected int i;
+
+        public Child1() {
+            System.out.println("Child1::Default Constructor");
+        }
+
+        public Child1(int i){
+            this.i = i;
+            System.out.println("Child1::Constructor");
         }
         public int getI() {
             return i;
