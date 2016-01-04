@@ -1,4 +1,7 @@
-package amar;
+package amar.reflection;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * @author Amarendra Kumar
@@ -13,14 +16,33 @@ public class TestBaseClasses {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        System.out.println(concreteClass.getCanonicalName()); // amar.ConcreteClass
+        Object object = null;
         try {
-            concreteClass.newInstance();
+            object = concreteClass.newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
+        System.out.println(concreteClass.getCanonicalName()); // amar.ConcreteClass
+        Method[] methods = concreteClass.getMethods();
+        System.out.println(methods.toString());
+        System.out.println(concreteClass.getFields().toString());
+        try {
+            methods[0].invoke(object, null);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+        /*try {
+            concreteClass.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }*/
         Class<?> booleanClass = boolean.class;
         System.out.println(booleanClass.getCanonicalName()); // prints boolean
 
