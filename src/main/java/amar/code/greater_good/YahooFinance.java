@@ -9,10 +9,7 @@ import java.util.*;
 public class YahooFinance {
   public static double getPriceOrig(final String ticker) {
     try {
-        // Set the http proxy to proxy.cat.com:8080
-      System.setProperty("http.proxyHost", "proxy.cat.com");
-      System.setProperty("http.proxyPort", "8080");
-      final URL url = 
+      final URL url =
         new URL("http://ichart.finance.yahoo.com/table.csv?s=" + ticker);
       final BufferedReader reader = 
         new BufferedReader(new InputStreamReader(url.openStream()));
