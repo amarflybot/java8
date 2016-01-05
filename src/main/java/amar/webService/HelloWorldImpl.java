@@ -10,7 +10,10 @@ import javax.jws.WebService;
 @WebService(endpointInterface = "amar.webService.HelloWorld")
 public class HelloWorldImpl implements  HelloWorld {
     @Override
-    public String getHelloWorldAsString(String name) {
-        return "Hello World JAX-WS " + name;
+    public Student getHelloWorldAsString(String name, Integer roll) {
+        Student student = new Student();
+        student.setName(name);
+        student.setRoll(roll);
+        return student;
     }
 }

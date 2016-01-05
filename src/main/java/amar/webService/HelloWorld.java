@@ -14,6 +14,6 @@ import javax.jws.soap.SOAPBinding;
     public interface HelloWorld{
 
         @WebMethod
-        String getHelloWorldAsString(String name);
+        Student getHelloWorldAsString(String name, Integer roll);
 
     }
