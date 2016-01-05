@@ -46,6 +46,10 @@ public class BinaryTree {
         binaryTree.addNode(58, "Boss58");
         binaryTree.addNode(59, "Boss59");
         binaryTree.addNode(23, "Boss23");
+        binaryTree.addNode(47, "Boss47");
+        binaryTree.addNode(42, "Boss42");
+        binaryTree.addNode(56, "Boss56");
+
 
         System.out.println("====================inOrderTraverseTree======================");
         binaryTree.inOrderTraverseTree(binaryTree.root);
@@ -54,7 +58,7 @@ public class BinaryTree {
         System.out.println("====================postOrderTraverseTree======================");
         binaryTree.postOrderTraverseTree(binaryTree.root);
         System.out.println("====================findNode======================");
-        System.out.println(binaryTree.findNode(599));
+        System.out.println(binaryTree.findNode(59));
 
     }
 
