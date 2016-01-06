@@ -24,4 +24,9 @@ public class Student {
     public void setRoll(Integer roll) {
         this.roll = roll;
     }
+
+    @Override
+    public String toString() {
+        return "Name "+name+" Roll "+roll;
+    }
 }
