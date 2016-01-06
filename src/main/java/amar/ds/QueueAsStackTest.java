@@ -1,5 +1,6 @@
 package amar.ds;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -38,7 +39,7 @@ public class QueueAsStackTest {
     }
 }
 
-class QueueAsStack<T>{
+class QueueAsStack<T> implements Serializable, Cloneable{
 
     private Queue<T> queue1 = new LinkedList<>();
     private Queue<T> queue2 = new LinkedList<>();

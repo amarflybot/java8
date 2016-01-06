@@ -1,5 +1,6 @@
 package amar.ds;
 
+import java.io.Serializable;
 import java.util.Stack;
 
 /**
@@ -28,7 +29,7 @@ public class StackAsQueueTest {
 
 }
 
-class StackAsQueue<T> {
+class StackAsQueue<T> implements Serializable, Cloneable{
 
     private Stack<T> stack1 = new Stack<>();
 
