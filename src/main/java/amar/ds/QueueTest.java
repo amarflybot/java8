@@ -9,7 +9,7 @@ import java.util.Queue;
 public class QueueTest {
 
     public static void main(String[] args) {
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList();
         queue.add(1);
         queue.add(2);
         queue.add(3);
@@ -17,15 +17,23 @@ public class QueueTest {
         queue.add(5);
         queue.add(6);
 
-        System.out.println(queue);
+        System.out.println("1 "+queue);
 
-        System.out.println(queue.peek());
+        System.out.println("2 "+queue.peek());
 
-        System.out.println(queue);
+        System.out.println("3 "+queue);
 
-        System.out.println(queue.poll());
+        System.out.println("4 "+queue.poll());
 
-        System.out.println(queue);
+        System.out.println("5 "+queue);
+
+        System.out.println("6 "+queue.remove());
+
+        System.out.println("7 "+queue);
+
+        System.out.println("8 "+queue.remove(4));
+
+        System.out.println("9 "+queue);
     }
 
 }
