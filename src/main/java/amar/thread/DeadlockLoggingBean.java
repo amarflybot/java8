@@ -1,6 +1,7 @@
 package amar.thread;
 
 /**
+ * This can be put into a Spring Bean
  * Created by kumarao on 19-01-2016.
  */
 public class DeadlockLoggingBean implements Runnable {
