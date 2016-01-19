@@ -1,6 +1,7 @@
 package amar.thread;
 
 /**
+ * This class shows the detection of deadlock
  * Created by amarendra on 09/01/16.
  */
 public class Mythread {
