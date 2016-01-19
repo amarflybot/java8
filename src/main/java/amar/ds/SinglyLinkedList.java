@@ -62,6 +62,7 @@ public class SinglyLinkedList<T> {
 class Node<T> implements Comparable<T>{
     Node next;
     T data;
+    Node random;
 
     @Override
     public int compareTo(T o) {
