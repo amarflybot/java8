@@ -45,6 +45,33 @@ public class SinglyLinkedList<T> {
         return newNode;
     }
 
+    public Node<T> cloneRandom(Node<T> orgNode, Node<T> cloneNode, Node<T> cloneNodeConst){
+
+        if(cloneNode == null){
+            return null;
+        }
+
+        //Node<T> newNode = new Node<>();
+        cloneNode.random = findNodeInClone(orgNode.random, cloneNodeConst);
+        cloneRandom(orgNode.next, cloneNode.next, cloneNodeConst);
+
+        return cloneNode;
+    }
+
+    private Node findNodeInClone(Node random, Node<T> cloneNode) {
+        if (cloneNode == null){
+           return null;
+        }
+        else if(random.data == cloneNode.data){
+            return cloneNode;
+        }
+        else {
+            cloneNode = cloneNode.next;
+            return findNodeInClone(random, cloneNode);
+        }
+
+    }
+
     public static void main(String[] args) {
 
         SinglyLinkedList<Integer> singlyLinkedList = new SinglyLinkedList<>();
@@ -60,6 +87,7 @@ public class SinglyLinkedList<T> {
 
         singlyLinkedList.transverse();
         Node<Integer> clone = singlyLinkedList.clone(singlyLinkedList.head);
+        Node<Integer> cloneRandom = singlyLinkedList.cloneRandom(singlyLinkedList.head, clone, clone);
         System.out.println(clone);
     }
 
