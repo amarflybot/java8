@@ -52,6 +52,12 @@ public class SinglyLinkedList<T> {
         singlyLinkedList.add(2);
         singlyLinkedList.add(4);
         singlyLinkedList.add(3);
+
+        singlyLinkedList.head.random                = singlyLinkedList.head.next.next;
+        singlyLinkedList.head.next.random           = singlyLinkedList.head.next.next.next;
+        singlyLinkedList.head.next.next.random      = singlyLinkedList.head.next;
+        singlyLinkedList.head.next.next.next.random = singlyLinkedList.head;
+
         singlyLinkedList.transverse();
         Node<Integer> clone = singlyLinkedList.clone(singlyLinkedList.head);
         System.out.println(clone);
@@ -59,18 +65,8 @@ public class SinglyLinkedList<T> {
 
 }
 
-class Node<T> implements Comparable<T>{
+class Node<T> {
     Node next;
     T data;
     Node random;
-
-    @Override
-    public int compareTo(T o) {
-        if(o == this.data){
-            return 0;
-        }
-        else {
-            return 1;
-        }
-    }
 }
