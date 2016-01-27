@@ -1,5 +1,7 @@
 package amar.thread;
 
+import java.util.Random;
+
 /**
  * Created by amarendra on 15/01/16.
  */
@@ -11,20 +13,21 @@ class Counter {
 // This class implements Runnable interface
 // Its run method increments the counter three times
 class UseCounter implements Runnable {
-    Object object = new Object();
-    public void increment() {
-        // increments the counter and prints the value
-        // of the counter shared between threads
-        synchronized (object) {
-            Counter.count++;
-            System.out.println(Thread.currentThread().getName() +" "+ Counter.count + "  ");
-        }
-    }
+    private ThreadLocal<Integer> threadLocal =
+            new ThreadLocal<Integer>();
+
+    @Override
     public void run() {
-        increment();
-        increment();
-        increment();
-    } }
+        threadLocal.set( (int) (Math.random() * 100D) );
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+        }
+
+        System.out.println(threadLocal.get());
+    }
+}
 // This class creates three threads
 public class DataRace {
 

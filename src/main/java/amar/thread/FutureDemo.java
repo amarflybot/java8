@@ -1,5 +1,8 @@
 package amar.thread;
 
+import amar.io.FileReaderTest;
+
+import java.io.IOException;
 import java.util.concurrent.*;
 
 /**
@@ -7,15 +10,27 @@ import java.util.concurrent.*;
  */
 public class FutureDemo {
 
-    private static final ExecutorService executor = Executors.newFixedThreadPool(3);
+    private static final ThreadFactory EXECUTOR = Executors.defaultThreadFactory();
+    private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(3);
+    private static final ScheduledExecutorService SCHEDULED_EXECUTOR_SERVICE = Executors.newScheduledThreadPool(3);
+    private static final ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-
+        Future<Integer> submit = cachedThreadPool.submit(new Callable<Integer>() {
+            @Override
+            public Integer call() throws Exception {
+                return 1;
+            }
+        });
+        boolean done = submit.isDone();
+        Integer integer = submit.get();
+        System.out.println(done);
+        System.out.println(integer);
         long startTime = System.currentTimeMillis();
         FactorialCalculator factorialCalculatorTask = new FactorialCalculator(10);
 
         System.out.println("Submitting Task ...");
-        Future<Long> future = executor.submit(factorialCalculatorTask);
+        Future<Long> future = SCHEDULED_EXECUTOR_SERVICE.submit(factorialCalculatorTask);
         System.out.println("Submitted Task");
 
         while (!future.isDone()) {
@@ -27,7 +42,7 @@ public class FutureDemo {
         System.out.println("Task is completed, let's check result");
         Long factorial = future.get();
         System.out.println("Factorial of 100 is : " + factorial);
-        executor.shutdown();
+        SCHEDULED_EXECUTOR_SERVICE.shutdown();
         long endTime = System.currentTimeMillis();
         System.out.println("Time Taken: "+(endTime - startTime));
     }
@@ -60,6 +75,12 @@ class FactorialCalculator implements Callable{
         while (number > 0) {
             Thread.sleep(100); // adding delay for example
             result = result * number;
+            FileReaderTest fileReaderTest = new FileReaderTest();
+            try {
+                fileReaderTest.main(new String[2]);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             number--;
         }
         return result;

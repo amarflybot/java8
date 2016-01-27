@@ -16,6 +16,9 @@ public class ThreadManagement {
 
     private static String INDENT = "    ";
 
+    /**
+     * @return
+     */
     public static String detectDeadlocks() {
         ThreadMXBean threadBean = getThreadMXBean();
         long[] tids;

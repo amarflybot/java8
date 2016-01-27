@@ -45,6 +45,12 @@ public class SinglyLinkedList<T> {
         return newNode;
     }
 
+    /**
+     * @param orgNode
+     * @param cloneNode
+     * @param cloneNodeConst
+     * @return
+     */
     public Node<T> cloneRandom(Node<T> orgNode, Node<T> cloneNode, Node<T> cloneNodeConst){
 
         if(cloneNode == null){

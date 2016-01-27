@@ -21,6 +21,13 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-c3p0</artifactId>
+          <version>5.0.7.Final</version>
+      </dependency>
+
   </dependencies>
 
     <build>
