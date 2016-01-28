@@ -1,6 +1,8 @@
 package amar.designPattern.immutable;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by amarendra on 27/01/16.
@@ -23,10 +25,12 @@ public class ImmutableTest {
 final class Person{
     final private Roll roll;
     final private Date date;
+    final private ArrayList<Roll> rollList;
 
-    public Person(Roll roll, Date date) {
+    public Person(Roll roll, Date date, ArrayList<Roll> rollList) {
         this.roll = new Roll(roll.getInteger());
-        this.date = date;
+        this.date = new Date(date.getTime());
+        this.rollList = (ArrayList<Roll>) rollList.clone();
     }
 
     public Roll getRoll() {
@@ -35,6 +39,10 @@ final class Person{
 
     public Date getDate() {
         return new Date(this.date.getTime());
+    }
+
+    public ArrayList<Roll> getRollList() {
+        return (ArrayList<Roll>) rollList.clone();
     }
 
     @Override
