@@ -28,6 +28,8 @@ public class ImmutableTest {
         person.getRoll().setInteger(2);
         person.getDate().setTime(new Date().getTime());
         person.getRollList().add(new Roll(21));
+        Roll roll1 = person.getRollList().get(0);
+        roll1.setInteger(45);
         System.out.println(person);
 
     }
@@ -41,7 +43,7 @@ final class Person{
     public Person(Roll roll, Date date, ArrayList<Roll> rollList) {
         this.roll = new Roll(roll.getInteger());
         this.date = new Date(date.getTime());
-        this.rollList = (ArrayList<Roll>) rollList.clone();
+        this.rollList = getRollsList(rollList);
     }
 
     public Roll getRoll() {
@@ -53,7 +55,16 @@ final class Person{
     }
 
     public ArrayList<Roll> getRollList() {
-        return (ArrayList<Roll>) rollList.clone();
+        ArrayList<Roll> rollArrayList = getRollsList(rollList);
+        return rollArrayList;
+    }
+
+    private ArrayList<Roll> getRollsList(ArrayList<Roll> rollListnew) {
+        ArrayList<Roll> rollArrayList = new ArrayList<>();
+        for(Roll roll : rollListnew){
+            rollArrayList.add(new Roll(roll.getInteger()));
+        }
+        return rollArrayList;
     }
 
     @Override
