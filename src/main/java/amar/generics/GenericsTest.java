@@ -17,7 +17,7 @@ public class GenericsTest {
 
         //sup.add(f);
 
-        sup.add(new Fruit());
+        sup.add(new Mango());
 
         GenericsTest genericsTest = new GenericsTest();
         //genericsTest.m1(new ArrayList<Mango>());
