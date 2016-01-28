@@ -22,11 +22,10 @@ public class GenericsTest {
         GenericsTest genericsTest = new GenericsTest();
         //genericsTest.m1(new ArrayList<Mango>());
         genericsTest.m2(new ArrayList<Eatable>());
-        List<Fruit> fruitList = new ArrayList<>();
-        fruitList.add(new Fruit());
-        fruitList.add(new Mango());
-        fruitList.add(new Grapes());
-        genericsTest.m3(fruitList);
+        sup.add(new Fruit());
+        sup.add(new Mango());
+        sup.add(new Grapes());
+        genericsTest.m2(sup);
 
     }
 
