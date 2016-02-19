@@ -26,6 +26,8 @@ public class GenericsTest {
         sup.add(new Mango());
         sup.add(new Grapes());
         genericsTest.m2(sup);
+        Fruit mango = new Mango();
+        mango.method1(mango);
 
     }
 
@@ -61,6 +63,10 @@ class Fruit extends Eatable{
     @Override
     public String toString() {
         return "Fruit{}";
+    }
+
+    public void method1(Fruit mango){
+
     }
 }
 
