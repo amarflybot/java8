@@ -10,13 +10,13 @@ public class ConsumerProducerTest {
         Object lock = new Object();
         RunEven runEven = new RunEven();
         runEven.setLock(lock);
-        Thread tOdd = new Thread( runEven, "runEven");
+        Thread tEven = new Thread( runEven, "runEven");
         /*Thread tOdd1 = new Thread( runEven);
         Thread tOdd2 = new Thread( runEven);*/
 
         RunOdd runOdd  = new RunOdd();
         runOdd.setLock(lock);
-        Thread tEven = new Thread( runOdd , "runOdd");
+        Thread tOdd = new Thread( runOdd , "runOdd");
         /*Thread tEven1 = new Thread( runOdd);
         Thread tEven2 = new Thread( runOdd);
 */
@@ -27,7 +27,7 @@ public class ConsumerProducerTest {
         tOdd.start();
         //tOdd1.start();
         //tOdd2.start();
-        tEven.join();
+        tOdd.join();
         System.out.println("All printing Done !! ");
 
     }
