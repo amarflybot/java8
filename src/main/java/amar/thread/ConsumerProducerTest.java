@@ -17,17 +17,21 @@ public class ConsumerProducerTest {
         RunOdd runOdd  = new RunOdd();
         runOdd.setLock(lock);
         Thread tOdd = new Thread( runOdd , "runOdd");
+        RunEven.getAnInt(1);
+        RunOdd.getAnInt(9);
         /*Thread tEven1 = new Thread( runOdd);
         Thread tEven2 = new Thread( runOdd);
 */
         tEven.start();
+        RunEven.getAnInt(4);
         //tEven1.start();
         //tEven2.start();
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         tOdd.start();
+        RunOdd.getAnInt(5);
         //tOdd1.start();
         //tOdd2.start();
-        tOdd.join();
+        tEven.join();
         System.out.println("All printing Done !! ");
 
     }
@@ -35,7 +39,8 @@ public class ConsumerProducerTest {
 
 class RunOdd implements Runnable{
 
-    private Object lock;
+    private static Object lock;
+    private static int iOdd = 1;
 
     public Object getLock() {
         return lock;
@@ -47,10 +52,10 @@ class RunOdd implements Runnable{
 
     @Override
     public void run() {
-        for (int i = 1; i<10 ;){
+        for (; iOdd <10 ;){
             synchronized (lock) {
-                System.out.println(Thread.currentThread().getName() +" prints "+ i);
-                i = i+2;
+                System.out.println(Thread.currentThread().getName() +" prints "+ iOdd);
+                iOdd = getAnInt(iOdd);
                 lock.notify();
                 try {
                     lock.wait();
@@ -59,13 +64,22 @@ class RunOdd implements Runnable{
                 }
             }
         }
+    }
+
+    public static int getAnInt(int i) {
+        int i1;
+        synchronized (lock) {
+            i1 = i + 2;
+            iOdd = i1;
+        }
+        return i1;
     }
 }
 
 class RunEven implements Runnable{
 
-    private Object lock;
-
+    private static Object lock;
+    private static int iEven = 0;
     public Object getLock() {
         return lock;
     }
@@ -76,10 +90,10 @@ class RunEven implements Runnable{
 
     @Override
     public void run() {
-        for (int i = 0; i<10 ; ){
+        for (; iEven <10 ; ){
             synchronized (lock) {
-                System.out.println(Thread.currentThread().getName() +" prints "+ i);
-                i = i+2;
+                System.out.println(Thread.currentThread().getName() +" prints "+ iEven);
+                iEven = getAnInt(iEven);
                 lock.notify();
                 try {
                     lock.wait();
@@ -88,5 +102,14 @@ class RunEven implements Runnable{
                 }
             }
         }
+    }
+
+    public static int getAnInt(int i) {
+        int i1;
+        synchronized (lock) {
+            i1 = i + 2;
+            iEven = i1;
+        }
+        return i1;
     }
 }
