@@ -8,7 +8,7 @@ import java.io.*;
 public class FileReaderTest {
 
     public static void main(String[] args) throws IOException {
-        File file = new File("/Users/amarendra/IdeaProjects/java8/src/main/res/amar.txt");
+        File file = new File("C:\\sandbox\\java8\\src\\main\\res\\amar.txt");
         InputStreamReader inputStreamReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String readLine = bufferedReader.readLine();

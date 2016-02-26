@@ -35,13 +35,13 @@ public class FutureDemo {
 
         while (!future.isDone()) {
             System.out.println("Task is not completed yet....");
-            Thread.sleep(1);
+            Thread.sleep(100);
             //sleep for 1 millisecond before checking again
             }
 
         System.out.println("Task is completed, let's check result");
         Long factorial = future.get();
-        System.out.println("Factorial of 100 is : " + factorial);
+        System.out.println("Factorial of 10 is : " + factorial);
         SCHEDULED_EXECUTOR_SERVICE.shutdown();
         long endTime = System.currentTimeMillis();
         System.out.println("Time Taken: "+(endTime - startTime));
