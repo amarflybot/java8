@@ -17,18 +17,18 @@ public class ConsumerProducerTest {
         RunOdd runOdd  = new RunOdd();
         runOdd.setLock(lock);
         Thread tOdd = new Thread( runOdd , "runOdd");
-        RunEven.getAnInt(1);
-        RunOdd.getAnInt(9);
+        //RunEven.getAnInt(1);
+        //RunOdd.getAnInt(9);
         /*Thread tEven1 = new Thread( runOdd);
         Thread tEven2 = new Thread( runOdd);
 */
         tEven.start();
-        RunEven.getAnInt(4);
+        //RunEven.getAnInt(4);
         //tEven1.start();
         //tEven2.start();
         //Thread.sleep(1000);
         tOdd.start();
-        RunOdd.getAnInt(5);
+        //RunOdd.getAnInt(5);
         //tOdd1.start();
         //tOdd2.start();
         tEven.join();
@@ -42,10 +42,6 @@ class RunOdd implements Runnable{
     private static Object lock;
     private static int iOdd = 1;
 
-    public Object getLock() {
-        return lock;
-    }
-
     public void setLock(Object lock) {
         this.lock = lock;
     }
@@ -55,7 +51,8 @@ class RunOdd implements Runnable{
         for (; iOdd <10 ;){
             synchronized (lock) {
                 System.out.println(Thread.currentThread().getName() +" prints "+ iOdd);
-                iOdd = getAnInt(iOdd);
+                //iOdd = getAnInt(iOdd);
+                iOdd = iOdd + 2;
                 lock.notify();
                 try {
                     lock.wait();
@@ -80,9 +77,6 @@ class RunEven implements Runnable{
 
     private static Object lock;
     private static int iEven = 0;
-    public Object getLock() {
-        return lock;
-    }
 
     public void setLock(Object lock) {
         this.lock = lock;
@@ -93,10 +87,12 @@ class RunEven implements Runnable{
         for (; iEven <10 ; ){
             synchronized (lock) {
                 System.out.println(Thread.currentThread().getName() +" prints "+ iEven);
-                iEven = getAnInt(iEven);
+                //iEven = getAnInt(iEven);
+                iEven= iEven+2;
                 lock.notify();
                 try {
                     lock.wait();
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

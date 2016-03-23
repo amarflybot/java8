@@ -4,7 +4,6 @@ package amar.reflection;
  * @author Amarendra Kumar
  * @date 04-01-2016 AM 11:24.
  */
-@Deprecated
 public class ConcreteClass extends BaseClass implements BaseInterface {
 
     public int publicInt;
@@ -12,14 +11,14 @@ public class ConcreteClass extends BaseClass implements BaseInterface {
     protected boolean protectedBoolean;
     Object defaultObject;
 
-    public ConcreteClass() {
+    private ConcreteClass() {
         System.out.println("ConcreteClass :: Default Constructor");
     }
 
-    public ConcreteClass(int i){
+    /*private ConcreteClass(int i){
         this.publicInt=i;
         System.out.println("ConcreteClass :: Parametrized Constructor");
-    }
+    }*/
 
     @Override
     public void method1() {
@@ -39,7 +38,7 @@ public class ConcreteClass extends BaseClass implements BaseInterface {
     }
 
     public int method5(int i){
-        System.out.println("Method4 overriden.");
+        System.out.println("Method4 overriden. " + i);
         return 0;
     }
 
