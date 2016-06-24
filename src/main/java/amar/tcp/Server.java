@@ -1,0 +1,29 @@
+package amar.tcp;
+
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+/**
+ * Created by kumarao on 17-06-2016.
+ */
+public class Server {
+    public static void main(String args[]) {
+        String data = "Toobie ornaught toobie";
+        try {
+            ServerSocket srvr = new ServerSocket(1234);
+            Socket skt = srvr.accept();
+            System.out.print("Server has connected!\n");
+            PrintWriter out = new PrintWriter(skt.getOutputStream(), true);
+            System.out.print("Sending string: '" + data + "'\n");
+            out.print(data);
+            out.close();
+            skt.close();
+            srvr.close();
+        }
+        catch(Exception e) {
+            System.out.print("Whoops! It didn't work!\n");
+        }
+    }
+
+}
