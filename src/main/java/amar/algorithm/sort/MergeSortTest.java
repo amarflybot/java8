@@ -23,7 +23,13 @@ public class MergeSortTest {
         System.out.println("Before Sorting");
         printGrid(grid);
         mergeSortGrid(grid);
-        System.out.println("After Sorting");
+        System.out.println("after 1st merge sort");
+        printGrid(grid);
+        grid = trasposeGrid(grid);
+        System.out.println("after transpose");
+        printGrid(grid);
+        mergeSortGrid(grid);
+        System.out.println("After 2nd Sorting");
         printGrid(grid);
     }
 
@@ -104,5 +110,23 @@ public class MergeSortTest {
             }
             System.out.println();
         }
+    }
+
+    public static int[][] trasposeGrid(int[][] matrix)
+    {
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int[][] trasposedMatrix = new int[n][m];
+
+        for(int x = 0; x < n; x++)
+        {
+            for(int y = 0; y < m; y++)
+            {
+                trasposedMatrix[x][y] = matrix[y][x];
+            }
+        }
+
+        return trasposedMatrix;
     }
 }
