@@ -2,6 +2,7 @@ package amar.test;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by amarendra on 22/04/16.
@@ -10,46 +11,77 @@ public class Test {
 
     public static void main(String[] args) {
 
-        Map<Student, String> hm = new HashMap<>();
-        Student s1 = new Student("Ashish");
-        Student s2 = new Student("Ashish");
+        /*Object lock = new Object();
+        Odd odd = new Odd();
+        odd.setLock(lock);
+        Even even = new Even();
+        even.setLock(lock);
 
-        hm.put(s1,"One");
-        hm.put(s2,"Two");
+        Thread threadEven = new Thread(even);
+        Thread threadOdd = new Thread(odd);
 
-        System.out.println(hm.get(new Student("Ashish")));
+        threadEven.start();
+        threadOdd.start();*/
+        String str = new String ("A");
+        String str1 = "A";
+        str.intern();
+
+        System.out.println(str.equals(str1));
+        System.out.println(str == str1);
+
     }
 }
 
-class Student{
-    private String name;
+class Odd implements Runnable {
 
-    public String getName() {
-        return name;
-    }
+    private Object lock;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Student(String name) {
-        this.name = name;
+    public void setLock(Object lock) {
+        this.lock = lock;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public void run() {
 
-        Student student = (Student) o;
+        for (int i = 1; i < 11; i = i + 2) {
+            synchronized (lock) {
+                System.out.println(i + " "+Thread.currentThread().getName());
+                try {
+                    lock.notify();
+                    lock.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
-        return name != null ? name.equals(student.name) : student.name == null;
-        //return false;
+        Thread.currentThread().interrupt();
+    }
+}
 
+class Even implements Runnable{
+
+    private Object lock;
+
+    public void setLock(Object lock) {
+        this.lock = lock;
     }
 
     @Override
-    public int hashCode() {
-        return name != null ? name.hashCode() : 0;
+    public void run() {
+
+        for(int i=0 ; i< 10; i = i+2){
+            synchronized (lock){
+                System.out.println(i + " "+Thread.currentThread().getName());
+                try {
+                    lock.notify();
+                    lock.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        Thread.currentThread().interrupt();
     }
 }
