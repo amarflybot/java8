@@ -12,15 +12,22 @@ public class MergeSortTest {
 
         System.out.println("Before sorting");
         printList(list);
+        System.out.println();
         System.out.println("After sorting");
         mergeSort(list);
         printList(list);
 
         //2D
-
+        System.out.println();
+        int[][] grid = generateGrid(8, 8);
+        System.out.println("Before Sorting");
+        printGrid(grid);
+        mergeSortGrid(grid);
+        System.out.println("After Sorting");
+        printGrid(grid);
     }
 
-    public static void mergeSort2D(int [][] grid){
+    public static void mergeSortGrid(int [][] grid){
         for (int i = 0; i < grid.length; i++) {
             int[] list = grid[i];
             mergeSort(list);
@@ -88,5 +95,14 @@ public class MergeSortTest {
             }
         }
         return grid;
+    }
+
+    public static void printGrid(int [][] grid){
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                System.out.print(grid[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
