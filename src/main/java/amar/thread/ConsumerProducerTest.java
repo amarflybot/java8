@@ -33,7 +33,8 @@ public class ConsumerProducerTest {
         //tOdd2.start();
         tEven.join();
         System.out.println("All printing Done !! ");
-
+        tEven.interrupt();
+        tOdd.interrupt();
     }
 }
 
@@ -57,7 +58,7 @@ class RunOdd implements Runnable{
                 try {
                     lock.wait();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
                 }
             }
         }
@@ -94,7 +95,7 @@ class RunEven implements Runnable{
                     lock.wait();
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
                 }
             }
         }
