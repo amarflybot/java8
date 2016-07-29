@@ -35,7 +35,9 @@ public class ExecutorStringTest {
         int i = 0;
         for(Future<String> future : futureList){
             try {
-                System.out.println("Date " + new Date() + " Thread Name - "+future.get() + " Count = " + i++);
+                if (future.isDone()) {
+                    System.out.println("Date " + new Date() + " Thread Name - "+future.get() + " Count = " + i++);
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {

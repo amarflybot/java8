@@ -58,7 +58,7 @@ class RunOdd implements Runnable{
                 try {
                     lock.wait();
                 } catch (InterruptedException e) {
-                    //e.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }
@@ -95,7 +95,7 @@ class RunEven implements Runnable{
                     lock.wait();
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    //e.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }
