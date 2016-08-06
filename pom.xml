@@ -38,6 +38,13 @@
   </dependencies>
 
     <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/res</directory>
+            </resource>
+        </resources>
+        <testSourceDirectory>src/main/</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
