@@ -13,5 +13,6 @@ public class Test {
         mammal.walk(2);
         AtomicInteger atomicInteger = new AtomicInteger(8);
         int addAndGet = atomicInteger.addAndGet(6);
+        System.out.println(mammal.getNumber());
     }
 }
