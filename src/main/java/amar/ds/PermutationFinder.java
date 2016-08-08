@@ -8,6 +8,7 @@ import java.util.Set;
  * Created by amarendra on 16/02/16.
  */
 public class PermutationFinder {
+
     public static Set<String> permutationFinder(String str) {
         Set<String> perm = new HashSet<>();
         //Handling error scenarios
