@@ -53,9 +53,4 @@ public class PermutationFinderTest extends TestCase{
         return begin + initial + end;
     }
 
-    public void testForFindPerm(){
-        Set<String> perm = permutationFinder.findPerm("ABC");
-        assertEquals(6, perm.size());
-    }
-
 }
