@@ -13,6 +13,7 @@ class Blocking {
         public void run() {
             for (String author : authors) {
                 gangOfFour.add(author);
+
                 try {
                     // take time to add
                     Thread.sleep(1000);

@@ -12,6 +12,8 @@ public class StringHelperTest extends TestCase {
         String reversed = stringHelper.reverseLast2Chars("AB");
         assertEquals("BA", reversed);
 
+
+
     }
 
     public void testForAllWordsSwap(){
