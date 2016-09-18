@@ -22,4 +22,10 @@ public class StringHelperTest extends TestCase {
         assertEquals("ANLI", reversed);
 
     }
+
+    public void testString(){
+        System.out.println(Math.toIntExact((long) (Math.random() * 100)));
+        String str = "A".substring(0,0);
+        System.out.println(str);
+    }
 }
