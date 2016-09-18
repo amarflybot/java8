@@ -41,7 +41,7 @@ public class PermutationFinder {
     }
 
     public static void main(String[] args) {
-        String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String s = "ABCDEFG";
         long startTime = new Date().getTime();
         logger.info("Started Permutation at "+ new Date());
         logger.info(("Permutations for " + s + " are: " + permutationFinder(s)));
