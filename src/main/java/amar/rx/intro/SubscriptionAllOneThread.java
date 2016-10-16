@@ -32,7 +32,7 @@ public class SubscriptionAllOneThread {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        System.out.println("Parallel thread in " + Thread.currentThread().getName());
+                        System.out.println("Parallel thread out " + Thread.currentThread().getName());
                     }))
                     //.subscribeOn(Schedulers.io())
                     //.observeOn(Schedulers.io())
