@@ -85,6 +85,6 @@ public class Test {
 
 }
 class Outer {           // an outer class has a static nested class
-    static interface Inner {}
+    interface Inner {}
 }
 

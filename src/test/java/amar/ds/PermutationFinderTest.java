@@ -13,7 +13,7 @@ public class PermutationFinderTest extends TestCase{
     PermutationFinder permutationFinder = new PermutationFinder();
 
     public void testFor2Chars(){
-        Set<String> stringSet = permutationFinder.permutationFinder("AB");
+        Set<String> stringSet = PermutationFinder.permutationFinder("AB");
         assertEquals(2, stringSet.size());
         assertEquals(true, stringSet.contains("AB"));
         assertEquals(true, stringSet.contains("BA"));

@@ -44,7 +44,7 @@ class RunOdd implements Runnable{
     private static int iOdd = 1;
 
     public void setLock(Object lock) {
-        this.lock = lock;
+        RunOdd.lock = lock;
     }
 
     @Override
@@ -80,7 +80,7 @@ class RunEven implements Runnable{
     private static int iEven = 0;
 
     public void setLock(Object lock) {
-        this.lock = lock;
+        RunEven.lock = lock;
     }
 
     @Override

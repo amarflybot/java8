@@ -45,7 +45,7 @@ public class Combinations {
                 // Initially, pass term as both key and value
                 context.write(term, term);
             }
-        };
+        }
     }
 
     // Inherit Reducer class, this will be executed on multiple nodes and write
@@ -78,7 +78,7 @@ public class Combinations {
             }
             // Write term as key and its combinations to output
             context.write(key, new Text(Arrays.toString(list.toArray())));
-        };
+        }
     }
 
     public static void main(String[] args) throws Exception {

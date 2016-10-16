@@ -34,10 +34,10 @@ public interface HelloWorld {
     @WebMethod
     @WebResult(partName = "return")
     @Action(input = "http://webService.amar/HelloWorld/getHelloWorldAsStringRequest", output = "http://webService.amar/HelloWorld/getHelloWorldAsStringResponse")
-    public Student getHelloWorldAsString(
+    Student getHelloWorldAsString(
             @WebParam(name = "arg0", partName = "arg0")
-            String arg0,
+                    String arg0,
             @WebParam(name = "arg1", partName = "arg1")
-            int arg1);
+                    int arg1);
 
 }

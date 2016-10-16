@@ -5,7 +5,7 @@ package amar.designPattern.factoryPattern;
  */
 
 interface Shape{
-    public void draw();
+    void draw();
 }
 
 class Circle implements Shape{
@@ -25,7 +25,7 @@ class Square implements Shape{
 }
 
 interface Color{
-    public void draw();
+    void draw();
 }
 
 class Red implements Color{

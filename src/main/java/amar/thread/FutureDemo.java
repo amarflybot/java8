@@ -77,7 +77,7 @@ class FactorialCalculator implements Callable{
             result = result * number;
             FileReaderTest fileReaderTest = new FileReaderTest();
             try {
-                fileReaderTest.main(new String[2]);
+                FileReaderTest.main(new String[2]);
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -10,10 +10,10 @@ public class Binding {
     public static void main(String[] args) {
 
         A a1 = new A();
-        a1.method();
+        A.method();
 
         A b1 = new B();
-        b1.method();
+        A.method();
 
     }
 }
