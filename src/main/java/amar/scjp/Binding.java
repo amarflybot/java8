@@ -1,6 +1,5 @@
 package amar.scjp;
 
-import amar.thread.ThreadManagement;
 
 /**
  * Created by amarendra on 22/03/16.
