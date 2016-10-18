@@ -62,4 +62,14 @@ public class DataGenerator {
 
         return strings;
     }
+
+    public static List<Integer> generatorFibonacciList(int num) {
+        List<Integer> integerList = new ArrayList<>();
+        integerList.add(0);
+        integerList.add(1);
+        for(int i=2; i < num; i++){
+            integerList.add(integerList.get(i-1) + integerList.get(i-2));
+        }
+        return integerList;
+    }
 }

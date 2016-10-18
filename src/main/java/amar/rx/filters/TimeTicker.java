@@ -34,14 +34,14 @@ public class TimeTicker {
         }
 
         //make sure the pause flag is false
-        unpause();
+        unPause();
 
         tickerThread = new Thread(()->{
             try {
                 while (Thread.interrupted() == false){
 
                     try {
-                        Thread.sleep(5);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                         //e.printStackTrace();
                         break;
@@ -77,7 +77,7 @@ public class TimeTicker {
         }
     }
 
-    private void unpause() {
+    private void unPause() {
         this.paused = false;
     }
 

@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * Created by Amarendra Kumar on 10/18/2016.
  */
 public class BufferExample {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         TimeTicker timeTicker = new TimeTicker(100);
         timeTicker.start();
@@ -25,5 +25,11 @@ public class BufferExample {
                             }
                         }
                 );
+
+        Thread.sleep(5000);
+
+        timeTicker.stop();
+
+        System.exit(0);
     }
 }
