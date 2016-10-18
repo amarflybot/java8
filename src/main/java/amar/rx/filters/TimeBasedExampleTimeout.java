@@ -1,6 +1,7 @@
 package amar.rx.filters;
 
-import java.util.Date;
+import amar.rx.helper.TimeTicker;
+
 import java.util.concurrent.TimeUnit;
 
 /**

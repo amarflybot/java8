@@ -1,4 +1,4 @@
-package amar.rx.filters;
+package amar.rx.helper;
 
 import rx.Observable;
 import rx.subjects.BehaviorSubject;
@@ -41,7 +41,7 @@ public class TimeTicker {
                 while (Thread.interrupted() == false){
 
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(5);
                     } catch (InterruptedException e) {
                         //e.printStackTrace();
                         break;
@@ -55,7 +55,7 @@ public class TimeTicker {
                     lastTick = currentTime;
                     tickerSubject.onNext(lastTick);
                 }
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 tickerSubject.onError(e);
             }
 

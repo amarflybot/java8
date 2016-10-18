@@ -1,0 +1,37 @@
+package amar.rx.transformer;
+
+import amar.rx.helper.TimeTicker;
+import amar.rx.helper.DataGenerator;
+import amar.rx.helper.TimedEventSequence;
+import rx.Observable;
+import rx.functions.Func1;
+import rx.schedulers.TimeInterval;
+
+import java.util.concurrent.TimeUnit;
+
+/**
+ * Created by Amarendra Kumar on 10/18/2016.
+ */
+public class ConditionalSkipUntilExample {
+
+    public static void main(String[] args) throws InterruptedException {
+
+
+        TimedEventSequence<String> sequence1 = new TimedEventSequence<>(DataGenerator.generateGreekAlphabet(), 50);
+        TimeTicker ticker = new TimeTicker(3000);
+
+        sequence1.toObservable()
+                .skipUntil(ticker.toObservable())
+                .subscribe(ch -> {
+                    System.out.println(ch);
+                });
+
+        ticker.start();
+        sequence1.start();
+
+        Thread.sleep(6000);
+
+        sequence1.stop();
+        System.exit(0);
+    }
+}

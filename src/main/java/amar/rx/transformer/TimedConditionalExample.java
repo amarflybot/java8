@@ -1,10 +1,8 @@
 package amar.rx.transformer;
 
-import amar.rx.intro.DataGenerator;
+import amar.rx.helper.TimedEventSequence;
+import amar.rx.helper.DataGenerator;
 import rx.Observable;
-import rx.functions.Func1;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Amarendra Kumar on 10/18/2016.
@@ -14,36 +12,23 @@ public class TimedConditionalExample {
     public static void main(String[] args) throws InterruptedException {
 
 
-        Observable<String> observable1 = Observable.interval(50,TimeUnit.MILLISECONDS)
-                .repeat()
-                .flatMap(new Func1<Long, Observable<String>>() {
-                    @Override
-                    public Observable<String> call(Long aLong) {
-                        return Observable.from(DataGenerator.generateGreekAlphabet());
-                    }
-                });
-
-        Observable<String> observable2 = Observable.interval(100,TimeUnit.MILLISECONDS)
-                .repeat()
-                .flatMap(new Func1<Long, Observable<String>>() {
-                    @Override
-                    public Observable<String> call(Long aLong) {
-                        return Observable.from(DataGenerator.generateEnglishAlphabet());
-                    }
-                });
+        TimedEventSequence<String> sequence1 = new TimedEventSequence<>(DataGenerator.generateGreekAlphabet(), 50);
+        TimedEventSequence<String> sequence2 = new TimedEventSequence<>(DataGenerator.generateEnglishAlphabet(), 100);
 
 
         // Depending upon who has more frequency that takes precedence.
-        Observable.amb(observable1,observable2)
+        Observable.amb(sequence1.toObservable(),sequence2.toObservable())
                 .subscribe(s -> {
                     System.out.println(s);
                 });
 
-        observable1.startWith("Amar");
-        observable2.startWith("Nagendra");
+        sequence1.start();
+        sequence2.start();
 
         Thread.sleep(4000);
 
+        sequence1.stop();
+        sequence2.stop();
 
         System.exit(0);
     }

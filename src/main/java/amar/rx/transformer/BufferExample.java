@@ -1,6 +1,6 @@
 package amar.rx.transformer;
 
-import amar.rx.filters.TimeTicker;
+import amar.rx.helper.TimeTicker;
 
 import java.util.concurrent.TimeUnit;
 

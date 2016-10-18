@@ -1,9 +1,10 @@
-package amar.rx.intro;
+package amar.rx.helper;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.Future;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class DataGenerator {
 
@@ -21,11 +22,7 @@ public class DataGenerator {
 
     public static List<Integer> generateBigIntegerList() {
 
-        List<Integer> integerList = new ArrayList<>();
-        for(int i=0 ; i< 200; i++){
-            integerList.add(i);
-        }
-        return integerList;
+        return IntStream.range(0, 199).boxed().collect(Collectors.toList());
     }
 
     public static List<String> generateGreekAlphabet() {

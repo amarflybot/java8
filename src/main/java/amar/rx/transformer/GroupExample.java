@@ -1,6 +1,6 @@
 package amar.rx.transformer;
 
-import amar.rx.intro.DataGenerator;
+import amar.rx.helper.DataGenerator;
 import rx.Observable;
 
 import java.util.ArrayList;

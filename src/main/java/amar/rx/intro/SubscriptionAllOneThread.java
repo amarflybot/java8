@@ -1,5 +1,6 @@
 package amar.rx.intro;
 
+import amar.rx.helper.DataGenerator;
 import rx.Observable;
 import rx.schedulers.Schedulers;
 
