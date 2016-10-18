@@ -80,4 +80,8 @@ public class TimeTicker {
     private void unpause() {
         this.paused = false;
     }
+
+    public void pause() {
+        this.paused = true;
+    }
 }

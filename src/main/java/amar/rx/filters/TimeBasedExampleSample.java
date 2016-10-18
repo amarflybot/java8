@@ -1,6 +1,5 @@
 package amar.rx.filters;
 
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -18,7 +17,7 @@ public class TimeBasedExampleSample {
             timeTicker.toObservable()
                     .sample(1, TimeUnit.SECONDS)
                     .subscribe((t) -> {
-                        System.out.println("Tick: " + new Date(t));
+                        System.out.println("Tick: " + t);
                     });
 
             Thread.sleep(10000);
