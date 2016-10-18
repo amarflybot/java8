@@ -3,6 +3,7 @@ package amar.rx.intro;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.Future;
 
 public class DataGenerator {
 
@@ -71,5 +72,25 @@ public class DataGenerator {
             integerList.add(integerList.get(i-1) + integerList.get(i-2));
         }
         return integerList;
+    }
+
+    public static List<String> generateEnglishAlphabet() {
+        List<String> strings = new ArrayList<>();
+        strings.add("A");
+        strings.add("B");
+        strings.add("C");
+        strings.add("d");
+        strings.add("q");
+        strings.add("w");
+        strings.add("e");
+        strings.add("r");
+        strings.add("t");
+        strings.add("y");
+        strings.add("u");
+        strings.add("h");
+        strings.add("g");
+        strings.add("f");
+
+        return strings;
     }
 }

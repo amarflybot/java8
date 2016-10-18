@@ -2,12 +2,6 @@ package amar.rx.transformer;
 
 import amar.rx.intro.DataGenerator;
 import rx.Observable;
-import rx.functions.Func2;
-import rx.functions.Function;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by Amarendra Kumar on 10/18/2016.
