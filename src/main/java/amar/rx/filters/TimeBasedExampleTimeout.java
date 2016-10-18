@@ -34,6 +34,7 @@ public class TimeBasedExampleTimeout {
             System.out.println("Pausing Ticker.");
             timeTicker.pause();
 
+            // Wait for another 5 seconds when 3 seconds are there for timeout.
             Thread.sleep(5000);
 
         } catch (InterruptedException e) {
