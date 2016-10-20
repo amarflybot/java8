@@ -51,9 +51,10 @@ public class TimeTicker {
                     }
 
                     long currentTime = System.currentTimeMillis();
-                    if (currentTime - lastTick > interval)
-                    lastTick = currentTime;
-                    tickerSubject.onNext(lastTick);
+                    if (currentTime - lastTick > interval) {
+                        lastTick = currentTime;
+                        tickerSubject.onNext(lastTick);
+                    }
                 }
             } catch (Throwable e) {
                 tickerSubject.onError(e);
