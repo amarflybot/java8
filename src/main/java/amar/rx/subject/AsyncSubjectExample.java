@@ -2,25 +2,20 @@ package amar.rx.subject;
 
 import amar.rx.helper.DataGenerator;
 import rx.Observable;
-import rx.schedulers.Schedulers;
+import rx.subjects.AsyncSubject;
 import rx.subjects.BehaviorSubject;
 
 /**
  * Created by amarendra on 20/10/16.
  */
-public class BehaviourSubjectExample2 {
+public class AsyncSubjectExample {
 
     public static void main(String[] args) {
 
-        BehaviorSubject<String> subject = BehaviorSubject.create("Start State");
+        AsyncSubject<String> subject = AsyncSubject.create();
 
         subject.subscribe((letter) -> {
             System.out.println("Subscribe 1: " + letter);
-
-        });
-
-        subject.subscribe((letter) -> {
-            System.out.println("Subscribe 2: " + letter);
 
         });
 
