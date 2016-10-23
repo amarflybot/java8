@@ -21,7 +21,7 @@ public class EdgeServiceSimulation {
 
         synchronized (waitMonitor){
 
-            Observable<Customer> customerData = customerService.fetchCustomersWithAddressesAndOwnedProducts(1);
+            Observable<Customer> customerData = customerService.fetchCustomersWithAddressesAndOwnedProducts(3);
 
             customerData
                     .subscribeOn(Schedulers.newThread())
