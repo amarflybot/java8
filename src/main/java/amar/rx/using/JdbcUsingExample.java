@@ -18,7 +18,7 @@ public class JdbcUsingExample {
 
         TestDatabase.init();
 
-        Func0<ConnectionSubscription> resourceFactory = () -> new ConnectionSubscription(TestDatabase.createConnection());
+        Func0<ConnectionSubscription> resourceFactory = () -> new ConnectionSubscription(TestDatabase.createConnection("jdbc:derby:rxJavaTest"));
 
         Func1<ConnectionSubscription, Observable<String>> geekAlphabetList =
                 (connectionSubscription -> TestDatabase.selectGreekAlphabet(connectionSubscription));
