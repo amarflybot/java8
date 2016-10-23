@@ -23,9 +23,7 @@ public class TestDatabaseProcedures {
                 {
                     try {
                         return SqlHelper.executeQuery(connectionSubscription, "SELECT ID, USERNAME FROM CUSTOMER",
-                                (resultSet) -> {
-                                    return new Customer(resultSet.getLong("ID"), resultSet.getString("USERNAME"));
-                                });
+                                (resultSet) -> new Customer(resultSet.getLong("ID"), resultSet.getString("USERNAME")));
 
                     }
                     catch (SQLException e) {
@@ -43,9 +41,7 @@ public class TestDatabaseProcedures {
                 {
                     try {
                         return SqlHelper.executeQuery(connectionSubscription, "SELECT ID, USERNAME FROM CUSTOMER WHERE ID = " + customerID,
-                                (resultSet) -> {
-                                    return new Customer(resultSet.getLong("ID"), resultSet.getString("USERNAME"));
-                                });
+                                (resultSet) -> new Customer(resultSet.getLong("ID"), resultSet.getString("USERNAME")));
 
                     }
                     catch (SQLException e) {
@@ -64,9 +60,7 @@ public class TestDatabaseProcedures {
                 {
                     try {
                         return SqlHelper.executeQuery(connectionSubscription, "SELECT ID, ADDRESS1 FROM ADDRESS WHERE CUSTOMERID = " + customerId,
-                                (resultSet) -> {
-                                    return new Address(resultSet.getLong("ID"), resultSet.getString("ADDRESS1"));
-                                });
+                                (resultSet) -> new Address(resultSet.getLong("ID"), resultSet.getString("ADDRESS1")));
 
                     }
                     catch (SQLException e) {
@@ -85,9 +79,7 @@ public class TestDatabaseProcedures {
                     try {
                         return SqlHelper.executeQuery(connectionSubscription, "SELECT CUSTOMERID, PRODUCTID, NAME FROM CUSTOMER_PRODUCT CP " +
                                         "JOIN PRODUCT P ON P.ID = CP.PRODUCTID  WHERE CUSTOMERID = " + customerId,
-                                (resultSet) -> {
-                                    return new Product(resultSet.getLong("CUSTOMERID"), resultSet.getLong("PRODUCTID"), resultSet.getString("NAME"));
-                                });
+                                (resultSet) -> new Product(resultSet.getLong("CUSTOMERID"), resultSet.getLong("PRODUCTID"), resultSet.getString("NAME")));
 
                     }
                     catch (SQLException e) {
