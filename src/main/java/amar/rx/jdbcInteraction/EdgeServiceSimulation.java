@@ -16,6 +16,12 @@ public class EdgeServiceSimulation {
         TestDatabase.init2();
 
         CustomerService customerService = new CustomerService();
+        Observable<Customer> customerObservable = customerService.fetchCustomer(1);
+        customerObservable.subscribe((customer) -> System.out.println(customer));
+
+        Observable<Customer> customerObservable1 = customerService.fetchCustomersWithAddressesAndOwnedProducts(1);
+        customerObservable1.subscribe(customer -> customer.getAddresses().forEach(address -> System.out.println(address)));
+
 
         Object waitMonitor = new Object();
 
