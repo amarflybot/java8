@@ -10,22 +10,31 @@ public class GenericsTest {
 
     public static void main(String[] args) {
 
-        List<? extends Fruit> ext = new ArrayList<>();
-        List<? super Fruit> sup = new ArrayList<>();
+        List<? extends Fruit> producer = null;
+        List<? super Fruit> consumer = new ArrayList<>();
 
-        //ext.add();
 
-        //sup.add(f);
+        List<Fruit> fruits = new ArrayList<>();
+        fruits.add(new Fruit());
+        fruits.add(new Mango());
+        fruits.add(new Grapes());
 
-        sup.add(new Mango());
+        producer = fruits;
+
+        producer.forEach(fruit -> {
+            Mango mango = (Mango) fruit;
+            System.out.println(mango);
+        });
+
+        consumer.add(new Mango());
 
         GenericsTest genericsTest = new GenericsTest();
         //genericsTest.m1(new ArrayList<Mango>());
         genericsTest.m2(new ArrayList<Eatable>());
-        sup.add(new Fruit());
-        sup.add(new Mango());
-        sup.add(new Grapes());
-        genericsTest.m2(sup);
+        consumer.add(new Fruit());
+        consumer.add(new Mango());
+        consumer.add(new Grapes());
+        genericsTest.m2(consumer);
         Fruit mango = new Mango();
         mango.method1(mango);
 

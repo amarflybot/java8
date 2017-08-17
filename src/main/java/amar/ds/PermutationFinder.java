@@ -29,7 +29,7 @@ public class PermutationFinder {
                 perm.add(charInsert(strNew, initial, i));
             }
         });
-        logger.info("Perm size == "+perm.size());
+        //logger.info("Perm size == "+perm.size());
         return perm;
     }
 
@@ -41,7 +41,7 @@ public class PermutationFinder {
     }
 
     public static void main(String[] args) {
-        String s = "ABCDEFG";
+        String s = "ABC";
         long startTime = new Date().getTime();
         logger.info("Started Permutation at "+ new Date());
         logger.info(("Permutations for " + s + " are: " + permutationFinder(s)));

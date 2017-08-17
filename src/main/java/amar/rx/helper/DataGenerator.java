@@ -1,5 +1,7 @@
 package amar.rx.helper;
 
+import org.apache.commons.math3.random.RandomDataGenerator;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -28,20 +30,12 @@ public class DataGenerator {
     public static List<String> generateGreekAlphabet() {
 
         List<String> strings = new ArrayList<>();
-        strings.add("alpha");
-        strings.add("beta");
-        strings.add("gamma");
-        strings.add("delta");
-        strings.add("eta");
-        strings.add("theta");
-        strings.add("iota");
-        strings.add("kappa");
-        strings.add("lambda");
-        strings.add("mu");
-        strings.add("omega");
-        strings.add("nu");
-        strings.add("rho");
-        strings.add("tau");
+        RandomDataGenerator generator = new RandomDataGenerator();
+
+        for (int i = 0; i < 1000; i++) {
+            String string = generator.nextHexString(10);
+            strings.add(string);
+        }
 
         return strings;
     }

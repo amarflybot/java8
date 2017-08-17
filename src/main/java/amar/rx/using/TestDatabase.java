@@ -157,12 +157,18 @@ public class TestDatabase {
             ResultSet rs = s.executeQuery("SELECT LETTER FROM GREEK_ALPHABET");
             connectionSubscription.registerResourceForClose(rs);
 
-            List<String> returnList = new ArrayList<>();
+            ObservableList<String> returnList = new ObservableList<>();
             while(rs.next()) {
                 returnList.add(rs.getString("LETTER"));
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
 
-            return Observable.from(returnList);
+
+            return returnList.getObservable();
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
