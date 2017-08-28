@@ -1,5 +1,6 @@
 package java8;
 
+import javax.annotation.Nonnull;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -12,7 +13,7 @@ public class MapTest {
     public static void main(String[] args) {
 
         List<Person> personList = new ArrayList<>();
-        Stream.of("1,Amar,28","2,Vicky,26","3,Alka,27")
+        Stream.of("1,Amar,28","2,Vicky,26","3,Alka,27","4,Alka1,27")
                 .map(x -> x.split(","))
                 .forEach(tuple -> personList.add(new Person(Long.parseLong(tuple[0]),tuple[1],Integer.parseInt(tuple[2]))));
 
@@ -49,11 +50,26 @@ public class MapTest {
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
         System.out.println(collect1);
+
+        Map<Integer, String> collectAsMap = personList.stream()
+                .collect(Collectors.toMap(person -> person.getAge(), person -> person.getName(), (u, u2) -> u2));
+        System.out.println(collectAsMap);
+        String aDefault = collectAsMap.getOrDefault(24, "Default");
+        System.out.println(aDefault);
+        collectAsMap.remove(26, "Vicky1");
+        System.out.println(collectAsMap);
+        String name = "  vicky ";
+        System.out.println(name);
+        System.out.println(trimPersonName(name));
+    }
+
+    public static String trimPersonName(String name){
+        return name.trim();
     }
 }
 
 class Person{
-    private Long id;
+    @Nonnull  private Long id;
     private String name;
     private Integer age;
 
