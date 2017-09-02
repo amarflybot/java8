@@ -12,4 +12,15 @@ public class Person extends Mammal {
     public Integer getNumber() {
         return 10;
     }
+
+    public static void main(String[] args) {
+        String str = new String("ABC");
+        String str1 = "ABC";
+        System.out.println(str == str1);
+
+        final String intern = str.intern();
+
+        System.out.println(intern == str1);
+    }
+
 }

@@ -30,15 +30,14 @@ public class GenericsTest {
 
         GenericsTest genericsTest = new GenericsTest();
         //genericsTest.m1(new ArrayList<Mango>());
-        genericsTest.m2(new ArrayList<Eatable>());
         consumer.add(new Fruit());
         consumer.add(new Mango());
         consumer.add(new Grapes());
-        genericsTest.m2(consumer);
         Fruit mango = new Mango();
         mango.method1(mango);
 
     }
+
 
     private void m1(List <? extends Fruit> list){
 
@@ -46,12 +45,6 @@ public class GenericsTest {
 
         }
 
-    }
-
-    private void m2(List <? super Fruit> objs){
-        for(Object obj : objs){
-
-        }
     }
 
     private void m3(List<Fruit> object){
