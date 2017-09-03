@@ -1,4 +1,4 @@
-package amar.algorithm;
+package amar.algorithm.general;
 
 import java.util.Arrays;
 

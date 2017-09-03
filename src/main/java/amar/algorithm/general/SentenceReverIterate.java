@@ -1,4 +1,4 @@
-package amar.algorithm;
+package amar.algorithm.general;
 
 /**
  * Created by amarendrakumar on 03/06/17.
