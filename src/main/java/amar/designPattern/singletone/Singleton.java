@@ -6,29 +6,37 @@ package amar.designPattern.singletone;
 public class Singleton {
 
     private static Singleton singleton;
+    private final Integer integer;
 
-    private Singleton() {
+    private Singleton(final int i) {
+        this.integer = i;
     }
 
-    private static class InnerSingleton{
-        public static Singleton getInstance(){
+    private static class SingletonHelper{
 
-            if(singleton == null) {
-                synchronized (Singleton.class){
-                    if(singleton == null){
-                        singleton = new Singleton();
+        private static Singleton getInstance(final int i){
+            if (singleton == null) {
+                synchronized (Singleton.class) {
+                    if (singleton == null) {
+                        singleton = new Singleton(i);
                     }
                 }
             }
-
             return singleton;
         }
     }
 
+    public Integer getInteger() {
+        return integer;
+    }
 
     @Override
     public String toString() {
         return "Singleton Instance";
+    }
+
+    public static Singleton getInstance(final int i) {
+        return SingletonHelper.getInstance(i);
     }
 }
 
