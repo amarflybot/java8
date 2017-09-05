@@ -1,8 +1,7 @@
-package amar.designPattern.immutable;
+package amar.designPattern.creational.immutable;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by amarendra on 27/01/16.

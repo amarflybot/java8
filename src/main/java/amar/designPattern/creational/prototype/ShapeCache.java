@@ -1,4 +1,4 @@
-package amar.designPattern.prototype;
+package amar.designPattern.creational.prototype;
 
 import java.util.Hashtable;
 
@@ -11,7 +11,7 @@ public class ShapeCache {
 
     public static Shape getShape(String shapeId) {
         Shape cachedShape = shapeMap.get(shapeId);
-        return (Shape) cachedShape.clone();
+        return cachedShape.clone();
     }
 
     // for each shape run database query and create shape

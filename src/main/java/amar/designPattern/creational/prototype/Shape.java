@@ -1,4 +1,4 @@
-package amar.designPattern.prototype;
+package amar.designPattern.creational.prototype;
 
 /**
  * Created by kumarao on 06-08-2016.
@@ -7,6 +7,8 @@ public abstract class Shape implements Cloneable {
 
     private String id;
     protected String type;
+
+    private Record record = new Record();
 
     abstract void draw();
 
@@ -22,16 +24,20 @@ public abstract class Shape implements Cloneable {
         this.id = id;
     }
 
-    public Object clone() {
-        Object clone = null;
+    public Shape clone() {
+        Shape clone = null;
 
         try {
-            clone = super.clone();
+            clone = (Shape) super.clone();
 
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
 
         return clone;
+    }
+
+    public Record getRecord() {
+        return record;
     }
 }

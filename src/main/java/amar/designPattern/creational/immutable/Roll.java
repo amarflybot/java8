@@ -1,4 +1,4 @@
-package amar.designPattern.immutable;
+package amar.designPattern.creational.immutable;
 
 class Roll {
     private Integer integer;

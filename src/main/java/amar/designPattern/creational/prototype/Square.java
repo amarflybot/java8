@@ -1,4 +1,4 @@
-package amar.designPattern.prototype;
+package amar.designPattern.creational.prototype;
 
 /**
  * Created by kumarao on 06-08-2016.
