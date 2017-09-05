@@ -13,6 +13,9 @@ public class EnumedFactory {
 
         ShapeE square = ShapeFactoryE.INSTANCE.getShape(ShapeTypeE.SQUARE, 10);
         square.draw();
+
+        ShapeE triangle = ShapeFactoryE.INSTANCE.getShape(ShapeTypeE.TRIANGLE, 10);
+        triangle.draw();
         //System.out.println(square.area());
     }
 
@@ -57,6 +60,22 @@ enum ShapeTypeE{
         public ShapeE getInstance(Integer size) {
             return new SquareE(size);
         }
+    }, TRIANGLE{
+        @Override
+        public ShapeE getInstance(final Integer size) {
+            return new ShapeE(size) {
+
+                @Override
+                void draw() {
+                    System.out.println("Drawing a Triangle of color " + getColor() + " of Area " + area());
+                }
+
+                @Override
+                Double area() {
+                    return (0.5 * getSize() * getSize());
+                }
+            };
+        }
     };
 
     public abstract ShapeE getInstance(Integer size);
@@ -67,7 +86,9 @@ abstract class ShapeE {
     private Integer size;
     private String color;
 
-    abstract void draw();
+    void draw() {
+        System.out.println("Drawing a " + getClass().getSimpleName() +" of color " + getColor() + " of Area " + area());
+    }
 
     public ShapeE(final Integer size) {
         this.size = size;
