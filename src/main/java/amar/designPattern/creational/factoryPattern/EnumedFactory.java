@@ -31,6 +31,10 @@ enum ShapeFactoryE{
 
     INSTANCE;
 
+    /**
+     * This takes care of the serialization Issues in Enum Singleton
+     * @return
+     */
     protected Object readResolve(){
         return INSTANCE;
     }
