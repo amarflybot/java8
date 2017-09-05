@@ -1,4 +1,4 @@
-package amar.designPattern.singletone;
+package amar.designPattern.singleton;
 
 /**
  * Created by amarendra on 04/09/17.
