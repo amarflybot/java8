@@ -1,4 +1,4 @@
-package amar.designPattern.observer;
+package amar.designPattern.behavioural.observer;
 
 /**
  * Created by amarendra on 01/09/17.

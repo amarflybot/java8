@@ -1,4 +1,4 @@
-package amar.designPattern.observer;
+package amar.designPattern.behavioural.observer;
 
 import java.util.Observable;
 
