@@ -18,11 +18,13 @@ public class InterpreterDemo {
     private static Expression buildInterpreterTree() {
 
         Expression expression = new TerminalExpression("Lions");
-        Expression expression1 = new TerminalExpression("goat");
+        Expression expression1 = new TerminalExpression("bears");
+        Expression expression2 = new TerminalExpression("giraffe");
 
         Expression expressionAnd = new AndExpression(expression,expression1);
+        Expression expressionAnd1 = new AndExpression(expressionAnd,expression2);
         Expression expressionOr = new AndExpression(expression,expression1);
 
-        return expressionAnd;
+        return expressionAnd1;
     }
 }
