@@ -22,9 +22,9 @@ public class InterpreterDemo {
         Expression expression2 = new TerminalExpression("giraffe");
 
         Expression expressionAnd = new AndExpression(expression,expression1);
-        Expression expressionAnd1 = new AndExpression(expressionAnd,expression2);
+        Expression alteration1 = new AndExpression(expressionAnd,expression2);
         Expression expressionOr = new AndExpression(expression,expression1);
 
-        return expressionAnd1;
+        return alteration1;
     }
 }

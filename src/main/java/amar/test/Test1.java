@@ -1,7 +1,8 @@
 package amar.test;
 
 
-import java.util.Date;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,34 +15,64 @@ public class Test1 {
 
         List<Person> personList = new LinkedList<>();
 
-        for (int i = 0; i < 1000000; i++) {
-            personList.add(new Person(String.valueOf(i)));
-        }
+        personList.add(new Person("Amar",12));
+        personList.add(new Person("Vicky",10));
+        personList.add(new Person("Papa",42));
 
-        Date date = new Date();
+        System.out.println(personList);
 
-        for (int i = 0; i < 1000000; i++) {
-            personList.get(999999);
-        }
+        Collections.sort(personList);
 
-        Date endDate = new Date();
+        System.out.println("Natural Order -> "+ personList);
 
-        System.out.println("Time taken : " + (endDate.getTime() - date.getTime()));
+        Collections.sort(personList, new Comparator<Person>() {
+            @Override
+            public int compare(final Person o1, final Person o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
 
+        System.out.println("Order by Name -> "+ personList);
     }
 
 }
 
 
-class Person{
+class Person implements Comparable<Person>{
 
     private String name;
+    private Integer age;
 
-    public Person(final String name) {
+    public Person(final String name, final Integer age) {
         this.name = name;
+        this.age = age;
     }
 
     public String getName() {
         return name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+
+    @Override
+    public int compareTo(final Person o) {
+        if (this.age > o.getAge()){
+            return 1;
+        }
+        if (this.age<o.getAge()){
+            return -1;
+        }
+        return 0;
     }
 }
