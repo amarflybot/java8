@@ -1,4 +1,4 @@
-package amar.designPattern.strategy;
+package amar.designPattern.structural;
 
 /**
  * Created by amarendra on 03/09/17.

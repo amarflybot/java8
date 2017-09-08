@@ -1,44 +1,60 @@
 package amar.test;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 /**
  * Created by amarendra on 05/09/17.
  */
 public class Test2 {
 
-    public static void main(String[] args) {
-        List<String> names = new ArrayList<>();
-        names.add("Amar");
-        names.add("Alka");
-        names.add("Vicky");
-        names.add("Deepak");
+    public static void main(String[] args) throws InterruptedException {
 
-        /*for (String name: names ) {
-            System.out.println(name);
-            names.remove("Deepak");
-        }*/
+        /*Mammal mammal = new Mammal(4);
+        System.out.println(mammal);
+        mammal.getSomething();
+        some(mammal);
+        System.out.println(mammal);*/
 
-        /*names.forEach(name -> {
-            System.out.println(name);
-            names.remove("Deepak");
-        });*/
-        System.out.println("Before -> " +names);
+        /*String str = "ABC";
+        String str1 = "BCA";
+        System.out.println(str.hashCode());
+        System.out.println(str1.hashCode());*/
+    }
 
-        final Iterator<String> iterator = names.iterator();
+    private static void some(Mammal mammal) {
+        mammal = new Mammal(3);
+        System.out.println(mammal);
+    }
+}
 
-        while (iterator.hasNext()) {
-            final String next = iterator.next();
-            if (next == "Deepak") {
-                iterator.remove();
-            } else
-                System.out.println(next);
-        }
+class Person1 extends Mammal{
 
-        System.out.println("After -> " +names);
+    public Person1(final Integer i) {
+        super(i);
+        getSomething();
+    }
+
+
+}
+
+class Mammal{
+
+    private Integer i ;
+
+    public Mammal(final Integer i) {
+        this.i = i;
+    }
+
+    void getSomething(){
 
     }
 
+    public Integer getI() {
+        return i;
+    }
+
+    @Override
+    public String toString() {
+        return "Mammal{" +
+                "i=" + i +
+                '}';
+    }
 }

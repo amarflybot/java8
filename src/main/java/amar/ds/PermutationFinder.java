@@ -24,7 +24,7 @@ public class PermutationFinder {
         char initial = str.charAt(0); // first character
         String rem = str.substring(1); // Full string without first character
         Set<String> words = permutationFinder(rem);
-        words.parallelStream().forEach(strNew -> {
+        words.stream().forEach(strNew -> {
             for (int i = 0;i<=strNew.length();i++){
                 perm.add(charInsert(strNew, initial, i));
             }

@@ -1,12 +1,16 @@
 package amar.thread;
 
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
 /**
  * Created by amarendra on 27/01/16.
  */
 public class ConsumerProducerTest {
 
     public static void main(String[] args) throws InterruptedException {
-
+        List<String> list = new CopyOnWriteArrayList<>();
+        list.add("");
         Object lock = new Object();
         RunEven runEven = new RunEven();
         runEven.setLock(lock);
