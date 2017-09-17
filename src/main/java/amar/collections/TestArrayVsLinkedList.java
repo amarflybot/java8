@@ -28,7 +28,7 @@ public class TestArrayVsLinkedList {
         startDate = new Date();
         for (int i = 0; i < 100000; i++) {
             final Person person = personArrayList.get(i);
-            System.out.println(person);
+            //System.out.println(person);
         }
         endDate = new Date();
         System.out.println("Time Taken to get from Array List-> "+ (endDate.getTime()-startDate.getTime()));
@@ -42,7 +42,7 @@ public class TestArrayVsLinkedList {
         }
         System.out.println("personLinkedList.size " + personArrayList.size());
         endDate = new Date();
-        System.out.println("Time Taken -> "+ (endDate.getTime()-startDate.getTime()));
+        System.out.println("Time Taken to add into Linked List-> "+ (endDate.getTime()-startDate.getTime()));
 
         startDate = new Date();
         for (int i = 0; i < 100000; i++) {

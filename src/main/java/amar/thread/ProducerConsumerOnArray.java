@@ -76,7 +76,7 @@ class ConsumerThread implements Runnable{
                 System.out.println(this.integers[1]);
                 start.notify();
                 try {
-                    start.wait();
+                    start.wait(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

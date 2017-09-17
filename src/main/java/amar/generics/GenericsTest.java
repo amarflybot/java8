@@ -14,17 +14,13 @@ public class GenericsTest {
         List<? super Fruit> consumer = new ArrayList<>();
 
 
-        List<Fruit> fruits = new ArrayList<>();
-        fruits.add(new Fruit());
-        fruits.add(new Mango());
-        fruits.add(new Grapes());
+        consumer.add(new Fruit());
+        consumer.add(new Mango());
+        consumer.add(new Grapes());
 
-        producer = fruits;
+        producer = (List<? extends Fruit>) consumer;
 
-        producer.forEach(fruit -> {
-            Mango mango = (Mango) fruit;
-            System.out.println(mango);
-        });
+        producer.forEach(System.out::println);
 
         consumer.add(new Mango());
 

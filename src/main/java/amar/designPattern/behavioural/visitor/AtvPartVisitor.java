@@ -12,4 +12,6 @@ public interface AtvPartVisitor {
     void visit(Oil oil);
 
     void visit(PartsOrder partsOrder);
+
+    void visit(AtvPart atvPart);
 }

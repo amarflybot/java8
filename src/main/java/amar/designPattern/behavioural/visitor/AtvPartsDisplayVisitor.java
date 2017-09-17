@@ -23,4 +23,9 @@ public class AtvPartsDisplayVisitor implements AtvPartVisitor {
     public void visit(final PartsOrder partsOrder) {
         System.out.println("Displaying Orders");
     }
+
+    @Override
+    public void visit(final AtvPart atvPart) {
+        System.out.println("Displaying Generic ATVPart");
+    }
 }

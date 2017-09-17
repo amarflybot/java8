@@ -9,15 +9,18 @@ public class EnumSerialization {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        //serialize();
+        if (!(args[0].equals("S") || args[0].equals("D"))){
+            System.out.println("Pass S and D to proceed");
+            return;
+        }
+        Process.valueOf(args[0]).invoke();
 
-        deserialize();
     }
 
     public static void serialize() throws IOException {
         FileOutputStream byteArrayOutputStream = new FileOutputStream(new File("/Users/amarendra/Documents/file.ser"));
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-        Person person = new Person(1L,"Amar");
+        PersonSingleton person = PersonSingleton.getInstance();
         System.out.println(person);
         objectOutputStream.writeObject(person);
         byteArrayOutputStream.close();
@@ -29,7 +32,7 @@ public class EnumSerialization {
     public static void deserialize() throws IOException, ClassNotFoundException {
         FileInputStream inputStream = new FileInputStream(new File("/Users/amarendra/Documents/file.ser"));
         ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-        Person singleton = (Person) objectInputStream.readObject();
+        PersonSingleton singleton = (PersonSingleton) objectInputStream.readObject();
         System.out.println(singleton);
         inputStream.close();
         objectInputStream.close();
@@ -38,14 +41,15 @@ public class EnumSerialization {
 
 }
 
-/*enum Singleton implements Serializable{
-    INSATNCE;
+enum Singleton {
 
-    protected Object readResolve(){
-        return INSATNCE;
-    }
+    INSTANCE(12);
 
     private Integer integer;
+
+    Singleton(final Integer integer) {
+        this.integer = integer;
+    }
 
     public void setInteger(final Integer integer) {
         this.integer = integer;
@@ -55,13 +59,45 @@ public class EnumSerialization {
         return integer;
     }
 
+    private Object readResolve() throws java.io.ObjectStreamException{
+        return INSTANCE;
+    }
+
     @Override
     public String toString() {
         return "Singleton{" +
                 "integer=" + integer +
+                " , hashcode="+this.hashCode()+
                 '}';
     }
-}*/
+}
+
+enum Process{
+    S {
+        @Override
+        void invoke() {
+            try {
+                EnumSerialization.serialize();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    },
+    D {
+        @Override
+        void invoke() {
+            try {
+                EnumSerialization.deserialize();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+    abstract void invoke();
+}
 
 class Person implements Serializable{
 
@@ -70,8 +106,6 @@ class Person implements Serializable{
     private Long id;
     private String name;
     private String roll;
-
-    private static Person person;
 
     public String getRoll() {
         return roll;
@@ -101,6 +135,32 @@ class Person implements Serializable{
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", hashcode="+ hashCode()+
                 '}';
+    }
+}
+
+class PersonSingleton implements Serializable{
+
+    private static PersonSingleton personSingleton;
+
+    public static PersonSingleton getInstance(){
+        if (personSingleton == null){
+            synchronized (PersonSingleton.class){
+                if (personSingleton == null) {
+                    personSingleton = new PersonSingleton();
+                }
+            }
+        }
+        return personSingleton;
+    }
+
+    protected Object readResolve(){
+        return getInstance();
+    }
+
+    @Override
+    public String toString() {
+        return "PersonSingleton{ hascode: "+ hashCode()+ "}";
     }
 }

@@ -38,4 +38,10 @@ public class AtvPartsShippingVisitor implements AtvPartVisitor{
 
         System.out.println("Total Shipping amount is: " + shippingAmount);
     }
+
+    @Override
+    public void visit(final AtvPart atvPart) {
+        System.out.println("If you buy generic Items.");
+        shippingAmount+=4;
+    }
 }

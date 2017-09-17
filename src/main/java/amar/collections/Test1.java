@@ -39,7 +39,7 @@ enum People{
     OLA
 }
 
-class Person{
+class Person implements Comparable<Person>{
     private Long id;
     private String name;
 
@@ -91,5 +91,10 @@ class Person{
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(final Person o) {
+        return this.id.compareTo(o.getId());
     }
 }
