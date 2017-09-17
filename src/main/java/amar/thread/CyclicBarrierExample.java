@@ -32,7 +32,7 @@ public class CyclicBarrierExample {
             t1.start();
 
         }
-        //t1.join();
+        System.out.println("counterSync.getI() -> "+ counterSync.getI());
         System.out.println("CyclicBarrierExample ending!!");
     }
 
@@ -65,17 +65,17 @@ class CyclicWorker implements Runnable {
 
 class CounterSync{
 
-    private AtomicInteger i = new AtomicInteger(0);
+    private int i;
 
     public int getI() {
-        return i.get();
+        return i;
     }
 
     public void reSetI() {
-        this.i.set(0);
+        this.i=0;
     }
 
     public void incrementI(){
-        this.i.incrementAndGet();
+        ++this.i;
     }
 }
