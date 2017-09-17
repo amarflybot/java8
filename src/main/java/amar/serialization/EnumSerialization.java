@@ -9,7 +9,7 @@ public class EnumSerialization {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        if (!(args[0].equals("S") || args[0].equals("D"))){
+        if (!(args[0].equals("S") || args[0].equals("D") || args[0].equals("SD"))){
             System.out.println("Pass S and D to proceed");
             return;
         }
@@ -20,7 +20,7 @@ public class EnumSerialization {
     public static void serialize() throws IOException {
         FileOutputStream byteArrayOutputStream = new FileOutputStream(new File("/Users/amarendra/Documents/file.ser"));
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-        PersonSingleton person = PersonSingleton.getInstance();
+        Singleton person = Singleton.INSTANCE;
         System.out.println(person);
         objectOutputStream.writeObject(person);
         byteArrayOutputStream.close();
@@ -32,7 +32,7 @@ public class EnumSerialization {
     public static void deserialize() throws IOException, ClassNotFoundException {
         FileInputStream inputStream = new FileInputStream(new File("/Users/amarendra/Documents/file.ser"));
         ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-        PersonSingleton singleton = (PersonSingleton) objectInputStream.readObject();
+        Singleton singleton = (Singleton) objectInputStream.readObject();
         System.out.println(singleton);
         inputStream.close();
         objectInputStream.close();
@@ -57,10 +57,6 @@ enum Singleton {
 
     public Integer getInteger() {
         return integer;
-    }
-
-    private Object readResolve() throws java.io.ObjectStreamException{
-        return INSTANCE;
     }
 
     @Override
@@ -91,6 +87,19 @@ enum Process{
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    },
+    SD{
+        @Override
+        void invoke() {
+            try {
+                EnumSerialization.serialize();
+                EnumSerialization.deserialize();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
@@ -161,6 +170,6 @@ class PersonSingleton implements Serializable{
 
     @Override
     public String toString() {
-        return "PersonSingleton{ hascode: "+ hashCode()+ "}";
+        return "PersonSingleton{ hashCode: "+ hashCode()+ "}";
     }
 }
