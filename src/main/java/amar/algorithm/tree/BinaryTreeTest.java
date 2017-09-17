@@ -16,11 +16,11 @@ public class BinaryTreeTest {
         integerBinaryNode.add(5);
         integerBinaryNode.add(7);
 
-        System.out.println("========================");
+        System.out.println("===========preOrderTraversal=============");
         integerBinaryNode.preOrderTraversal();
-        System.out.println("========================");
+        System.out.println("===========inOrderTraversal=============");
         integerBinaryNode.inOrderTraversal();
-        System.out.println("========================");
+        System.out.println("===========postOrderTraversal=============");
         integerBinaryNode.postOrderTraversal();
         System.out.println("========================");
 
