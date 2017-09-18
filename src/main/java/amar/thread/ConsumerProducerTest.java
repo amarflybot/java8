@@ -6,9 +6,9 @@ package amar.thread;
 public class ConsumerProducerTest {
 
     public static void main(String[] args) throws InterruptedException {
-        Object lock = new Object();
-        Thread even = new Thread(new EvenRunner(lock), "EvenThread");
-        Thread odd = new Thread(new OddRunner(lock), "OddThread");
+        int[] array = new int[2];
+        Thread even = new Thread(new EvenRunner(array), "EvenThread");
+        Thread odd = new Thread(new OddRunner(array), "OddThread");
         even.start();
         odd.start();
         even.join();
@@ -20,21 +20,24 @@ public class ConsumerProducerTest {
 
 class EvenRunner implements Runnable {
 
-    private Object lock;
+    private int[] array;
 
-    public EvenRunner(final Object lock) {
-        this.lock = lock;
+    public EvenRunner(final int[] array) {
+        this.array = array;
     }
 
     @Override
     public void run() {
 
         for (int i = 0; i <= 10; ) {
-            synchronized (lock) {
-                System.out.println("Thread Name: " + Thread.currentThread().getName() + " - "+i);
-                lock.notify();
+            synchronized (array) {
+                array[0] = i;
+                array[1] = i+1;
+                System.out.println("Added by Thread Name: " + Thread.currentThread().getName() + " - "+array[0]);
+                System.out.println("Added by Thread Name: " + Thread.currentThread().getName() + " - "+array[1]);
+                array.notify();
                 try {
-                    lock.wait(1000);
+                    array.wait(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -47,25 +50,32 @@ class EvenRunner implements Runnable {
 
 class OddRunner implements Runnable {
 
-    private Object lock;
+    private int[] array;
 
-    public OddRunner(final Object lock) {
-        this.lock = lock;
+    public OddRunner(final int[] array) {
+        this.array = array;
     }
 
     @Override
     public void run() {
-        for (int i = 1; i <= 10; ) {
-            synchronized (lock) {
-                System.out.println("Thread Name: " + Thread.currentThread().getName() + " - "+i);
-                lock.notify();
+        while (array[0] != 0 || array[1] != 0){
+            synchronized (array) {
+                System.out.println("Removed by Thread Name: " + Thread.currentThread().getName() + " - "+array[0]);
+                System.out.println("Removed By Thread Name: " + Thread.currentThread().getName() + " - "+array[1]);
+                array[0] = 0;
+                array[1] = 0;
                 try {
-                    lock.wait();
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                array.notify();
+                try {
+                    array.wait(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            i = i + 2;
         }
     }
 }
