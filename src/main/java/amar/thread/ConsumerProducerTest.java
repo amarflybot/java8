@@ -1,63 +1,63 @@
 package amar.thread;
 
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 /**
  * Created by amarendra on 27/01/16.
  */
 public class ConsumerProducerTest {
 
     public static void main(String[] args) throws InterruptedException {
-        List<String> list = new CopyOnWriteArrayList<>();
-        list.add("");
         Object lock = new Object();
-        RunEven runEven = new RunEven();
-        runEven.setLock(lock);
-        Thread tEven = new Thread( runEven, "runEven");
-        /*Thread tOdd1 = new Thread( runEven);
-        Thread tOdd2 = new Thread( runEven);*/
+        Thread even = new Thread(new EvenRunner(lock), "EvenThread");
+        Thread odd = new Thread(new OddRunner(lock), "OddThread");
+        even.start();
+        odd.start();
+        even.join();
+        odd.join();
 
-        RunOdd runOdd  = new RunOdd();
-        runOdd.setLock(lock);
-        Thread tOdd = new Thread( runOdd , "runOdd");
-        //RunEven.getAnInt(1);
-        //RunOdd.getAnInt(9);
-        /*Thread tEven1 = new Thread( runOdd);
-        Thread tEven2 = new Thread( runOdd);
-*/
-        tEven.start();
-        //RunEven.getAnInt(4);
-        //tEven1.start();
-        //tEven2.start();
-        //Thread.sleep(1000);
-        tOdd.start();
-        //RunOdd.getAnInt(5);
-        //tOdd1.start();
-        //tOdd2.start();
-        tEven.join();
-        System.out.println("All printing Done !! ");
-        tEven.interrupt();
-        tOdd.interrupt();
+        System.out.println("All done !!");
     }
 }
 
-class RunOdd implements Runnable{
+class EvenRunner implements Runnable {
 
-    private static Object lock;
-    private static int iOdd = 1;
+    private Object lock;
 
-    public void setLock(Object lock) {
-        RunOdd.lock = lock;
+    public EvenRunner(final Object lock) {
+        this.lock = lock;
     }
 
     @Override
     public void run() {
-        for (; iOdd <10 ;){
+
+        for (int i = 0; i <= 10; ) {
             synchronized (lock) {
-                System.out.println(Thread.currentThread().getName() +" prints "+ iOdd);
-                //iOdd = getAnInt(iOdd);
-                iOdd = iOdd + 2;
+                System.out.println("Thread Name: " + Thread.currentThread().getName() + " - "+i);
+                lock.notify();
+                try {
+                    lock.wait(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            i = i + 2;
+        }
+
+    }
+}
+
+class OddRunner implements Runnable {
+
+    private Object lock;
+
+    public OddRunner(final Object lock) {
+        this.lock = lock;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 1; i <= 10; ) {
+            synchronized (lock) {
+                System.out.println("Thread Name: " + Thread.currentThread().getName() + " - "+i);
                 lock.notify();
                 try {
                     lock.wait();
@@ -65,52 +65,7 @@ class RunOdd implements Runnable{
                     e.printStackTrace();
                 }
             }
+            i = i + 2;
         }
-    }
-
-    public static int getAnInt(int i) {
-        int i1;
-        synchronized (lock) {
-            i1 = i + 2;
-            iOdd = i1;
-        }
-        return i1;
-    }
-}
-
-class RunEven implements Runnable{
-
-    private static Object lock;
-    private static int iEven = 0;
-
-    public void setLock(Object lock) {
-        RunEven.lock = lock;
-    }
-
-    @Override
-    public void run() {
-        for (; iEven <10 ; ){
-            synchronized (lock) {
-                System.out.println(Thread.currentThread().getName() +" prints "+ iEven);
-                //iEven = getAnInt(iEven);
-                iEven= iEven+2;
-                lock.notify();
-                try {
-                    lock.wait();
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static int getAnInt(int i) {
-        int i1;
-        synchronized (lock) {
-            i1 = i + 2;
-            iEven = i1;
-        }
-        return i1;
     }
 }
