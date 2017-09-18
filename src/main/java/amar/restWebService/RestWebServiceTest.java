@@ -2,7 +2,6 @@ package amar.restWebService;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -22,7 +21,7 @@ public class RestWebServiceTest {
         HttpURLConnection connection =
                 (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
-        connection.setRequestProperty("Accept", MediaType.APPLICATION_JSON);
+        //connection.setRequestProperty("Accept", MediaType.APPLICATION_JSON);
         InputStream inputStream = connection.getInputStream();
         ObjectMapper objectMapper = new ObjectMapper();
         Object readValue = objectMapper.readValue(inputStream, Object.class);

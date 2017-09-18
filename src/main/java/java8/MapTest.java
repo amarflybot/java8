@@ -1,6 +1,6 @@
 package java8;
 
-import javax.annotation.Nonnull;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -69,7 +69,7 @@ public class MapTest {
 }
 
 class Person{
-    @Nonnull  private Long id;
+    private Long id;
     private String name;
     private Integer age;
 
