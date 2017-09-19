@@ -39,7 +39,6 @@ public class QuickSortTest {
      */
     private static int partition(int[] arr, int startIndex, int endIndex) {
         int pivot = arr[endIndex];
-        System.out.println("Considering pivot as: "+ pivot);
         int pIndex = startIndex;
         for (int i = startIndex; i < endIndex; i++) {
             if (arr[i] <= pivot){
