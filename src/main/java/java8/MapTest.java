@@ -2,6 +2,7 @@ package java8;
 
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -68,7 +69,7 @@ public class MapTest {
     }
 }
 
-class Person{
+class Person extends AtomicReference<Person>{
     private Long id;
     private String name;
     private Integer age;

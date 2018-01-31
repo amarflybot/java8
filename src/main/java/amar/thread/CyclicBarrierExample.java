@@ -1,7 +1,8 @@
 package amar.thread;
 
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -21,7 +22,7 @@ public class CyclicBarrierExample {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println("Since all threads are good not, Let's start");
+                System.out.println("Since all threads are good now, Let's start");
             }
         });
 

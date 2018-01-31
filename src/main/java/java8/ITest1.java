@@ -5,7 +5,7 @@ package java8;
  */
 public interface ITest1 {
 
-    default public Integer run(Integer i){
-        return null;
-    };
+    default Integer run(Integer i){
+        return 789;
+    }
 }
