@@ -51,8 +51,8 @@ public class SqlHelper {
         return resultSet;
     }
 
-    public static <T> Observable<T> executeQuery (ConnectionSubscription connectionSubscription,
-                                                  String sqlString, RowMapper<T> rowMapper) throws SQLException {
+    public static <T> Observable<T> executeQuery(ConnectionSubscription connectionSubscription,
+                                                 String sqlString, RowMapper<T> rowMapper) throws SQLException {
         List<T> workList = new ArrayList<T>();
 
         Statement statement = connectionSubscription.getConnection().createStatement();
@@ -60,7 +60,7 @@ public class SqlHelper {
         ResultSet resultSet = statement.executeQuery(sqlString);
         connectionSubscription.registerResourceForClose(resultSet);
 
-        while (resultSet.next()){
+        while (resultSet.next()) {
             workList.add(rowMapper.call(resultSet));
         }
 

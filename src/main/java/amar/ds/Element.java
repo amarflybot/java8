@@ -1,6 +1,6 @@
 package amar.ds;
 
-public class Element{
+public class Element {
 
     private Integer integer;
 

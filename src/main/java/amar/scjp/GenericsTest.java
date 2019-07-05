@@ -21,6 +21,6 @@ public class GenericsTest {
     }
 }
 
-class Stud{
+class Stud {
 
 }

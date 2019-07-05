@@ -24,8 +24,8 @@ public class PublishSubjectExample {
 
                 ThreadUtils.sleep(500);
 
-                if(letter.equals("eta")){
-                    synchronized (signal){
+                if (letter.equals("eta")) {
+                    synchronized (signal) {
                         signal.notify();
                     }
                 }
@@ -40,10 +40,10 @@ public class PublishSubjectExample {
                             (t) -> {
                                 subject.onError(t);
                             },
-                            ()->{
+                            () -> {
                                 System.out.println("Subscriber 1: Completed");
                                 subject.onCompleted();
-                                synchronized (signal){
+                                synchronized (signal) {
                                     signal.notify();
                                 }
                             });
@@ -56,7 +56,7 @@ public class PublishSubjectExample {
                     (t) -> {
                         subject.onError(t);
                     },
-                    ()->{
+                    () -> {
                         System.out.println("Subscriber 2: Completed");
                     });
 

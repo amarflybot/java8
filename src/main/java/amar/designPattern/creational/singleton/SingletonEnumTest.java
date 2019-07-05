@@ -26,13 +26,13 @@ public class SingletonEnumTest {
 
         final Constructor<?>[] declaredConstructors = aClass.getDeclaredConstructors();
 
-        for (Constructor constructor: declaredConstructors) {
-            if (Modifier.isPrivate(constructor.getModifiers())){
+        for (Constructor constructor : declaredConstructors) {
+            if (Modifier.isPrivate(constructor.getModifiers())) {
                 constructor.setAccessible(true);
             }
             final SingletonEnum newInstance = (SingletonEnum) constructor.newInstance();
 
-            System.out.println("newInstance.getInteger() " +newInstance.getInteger());
+            System.out.println("newInstance.getInteger() " + newInstance.getInteger());
             System.out.println(System.identityHashCode(newInstance));
         }
 

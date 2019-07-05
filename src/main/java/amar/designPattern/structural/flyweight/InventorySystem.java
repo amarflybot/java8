@@ -17,14 +17,14 @@ public class InventorySystem {
         orderList.add(order);
     }
 
-    void process(){
+    void process() {
         orderList.forEach(order -> {
             order.process();
             orderList.remove(order);
         });
     }
 
-    String report(){
+    String report() {
         return "\n Total item objects made : " + catalog.totalItemsMade();
     }
 }

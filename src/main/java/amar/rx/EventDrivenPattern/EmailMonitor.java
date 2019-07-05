@@ -16,9 +16,9 @@ public class EmailMonitor {
         userService.subscribeToUserEvents(this::handleUserEvent);
     }
 
-    private void handleUserEvent(UserEvent event){
+    private void handleUserEvent(UserEvent event) {
         System.out.println("EmailMonitorServiceImpl::handleUserEvent - " +
-        Thread.currentThread().getName());
+                Thread.currentThread().getName());
 
         List<String> recipList = new ArrayList<>();
         recipList.add(event.getEmailAddress());

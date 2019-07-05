@@ -11,7 +11,7 @@ public class UserService {
 
     private final List<User> userList;
 
-    public UserService(){
+    public UserService() {
         userList = new ArrayList<>();
 
         userList.add(new User("Amar", "amar@gmail.com", UserSecurityStatus.ADMIN));
@@ -21,7 +21,7 @@ public class UserService {
         userList.add(new User("Kalyan", "kalyan@gmail.com", UserSecurityStatus.MODERATOR));
     }
 
-    public List<User> fetchUserList(){
+    public List<User> fetchUserList() {
         return Collections.unmodifiableList(userList);
     }
 }

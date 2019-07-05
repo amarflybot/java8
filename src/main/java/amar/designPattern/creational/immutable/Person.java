@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Created by kumarao on 06-08-2016.
  */
-final class Person{
+final class Person {
     final private Roll roll;
     final private Date date;
     final private ArrayList<Roll> rollList;
@@ -32,7 +32,7 @@ final class Person{
 
     private ArrayList<Roll> getRollsList(ArrayList<Roll> rollListnew) {
         ArrayList<Roll> rollArrayList = new ArrayList<>();
-        for(Roll roll : rollListnew){
+        for (Roll roll : rollListnew) {
             rollArrayList.add(new Roll(roll.getInteger()));
         }
         return rollArrayList;

@@ -10,19 +10,19 @@ public abstract class Subject {
 
     private List<Observer> observers = new ArrayList();
 
-    abstract void setState(String state);
-
     abstract String getState();
 
-    public void attach(Observer observer){
+    abstract void setState(String state);
+
+    public void attach(Observer observer) {
         observers.add(observer);
     }
 
-    public void detach(Observer observer){
+    public void detach(Observer observer) {
         observers.remove(observer);
     }
 
-    public void notifyAllObservers(){
+    public void notifyAllObservers() {
         observers.forEach(observer -> {
             observer.update();
         });

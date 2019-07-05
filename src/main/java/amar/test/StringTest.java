@@ -12,7 +12,7 @@ public class StringTest {
 
         String rev = "";
         for (int i = 1; i <= str1.length(); i++) {
-            rev = rev.concat(String.valueOf(str1.charAt(str1.length()-i)));
+            rev = rev.concat(String.valueOf(str1.charAt(str1.length() - i)));
         }
 
         System.out.println(str1);

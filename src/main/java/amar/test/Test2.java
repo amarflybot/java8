@@ -25,7 +25,7 @@ public class Test2 {
     }
 }
 
-class Person1 extends Mammal{
+class Person1 extends Mammal {
 
     public Person1(final Integer i) {
         super(i);
@@ -35,15 +35,15 @@ class Person1 extends Mammal{
 
 }
 
-class Mammal{
+class Mammal {
 
-    private Integer i ;
+    private Integer i;
 
     public Mammal(final Integer i) {
         this.i = i;
     }
 
-    void getSomething(){
+    void getSomething() {
 
     }
 

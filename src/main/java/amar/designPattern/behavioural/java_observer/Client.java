@@ -5,9 +5,8 @@ import java.util.Observer;
 
 /**
  * Created by amarendra on 05/09/17.
- *
  */
-public class Client implements Observer{
+public class Client implements Observer {
 
     private String name;
 

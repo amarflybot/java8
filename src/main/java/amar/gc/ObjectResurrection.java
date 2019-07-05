@@ -1,13 +1,12 @@
 package amar.gc;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
 
 /**
  * Created by amarendra on 05/09/17.
  * While it's a good idea to avoid using finalize(), it is a small comfort to know it will only be called once it the object is resurrected.
- https://dzone.com/articles/object-resurrection
+ * https://dzone.com/articles/object-resurrection
  */
 public class ObjectResurrection {
 
@@ -29,7 +28,7 @@ public class ObjectResurrection {
 
     }
 
-static class PersonSts{
+    static class PersonSts {
 
         private Integer id;
 

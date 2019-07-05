@@ -8,8 +8,8 @@ public class Light {
 
     private boolean isOn;
 
-    public void toggle(){
-        if (isOn){
+    public void toggle() {
+        if (isOn) {
             off();
             isOn = false;
         } else {
@@ -18,11 +18,11 @@ public class Light {
         }
     }
 
-    public void on(){
+    public void on() {
         System.out.println("Light switch on");
     }
 
-    public void off(){
+    public void off() {
         System.out.println("Light switch off");
     }
 }

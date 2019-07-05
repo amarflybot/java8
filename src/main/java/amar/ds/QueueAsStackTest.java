@@ -39,18 +39,18 @@ public class QueueAsStackTest {
     }
 }
 
-class QueueAsStack<T> implements Serializable, Cloneable{
+class QueueAsStack<T> implements Serializable, Cloneable {
 
     private Queue<T> queue1 = new LinkedList<>();
     private Queue<T> queue2 = new LinkedList<>();
 
-    public void push(T t){
+    public void push(T t) {
         queue1.add(t);
     }
 
-    public T poll(){
+    public T poll() {
         int size = queue1.size();
-        for(int i = 0; i < size-1; i++){
+        for (int i = 0; i < size - 1; i++) {
             if (size > 1) {
                 queue2.add(queue1.peek());
             }

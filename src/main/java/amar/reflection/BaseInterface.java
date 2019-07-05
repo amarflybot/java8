@@ -6,7 +6,7 @@ package amar.reflection;
  */
 public interface BaseInterface {
 
-    int interfaceInt=0;
+    int interfaceInt = 0;
 
     void method1();
 

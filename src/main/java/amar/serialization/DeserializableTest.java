@@ -1,6 +1,11 @@
 package amar.serialization;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
  * Created by amarendra on 04/01/16.
@@ -13,8 +18,8 @@ public class DeserializableTest {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
             Elephant elephant = new Elephant();
-            elephant.i=888;
-            elephant.j=999;
+            elephant.i = 888;
+            elephant.j = 999;
             objectOutputStream.writeObject(elephant);
             objectOutputStream.close();
             objectOutputStream.flush();
@@ -24,7 +29,7 @@ public class DeserializableTest {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
             ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
             Elephant elephant1 = (Elephant) objectInputStream.readObject();
-            System.out.println(elephant1.i + " ----- " +elephant1.j);
+            System.out.println(elephant1.i + " ----- " + elephant1.j);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -43,7 +48,7 @@ class Animal {
     }
 }
 
-class Elephant extends Animal implements Serializable{
+class Elephant extends Animal implements Serializable {
     int j = 5;
 
     public Elephant() {

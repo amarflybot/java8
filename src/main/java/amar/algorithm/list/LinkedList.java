@@ -5,13 +5,12 @@ import java.util.AbstractList;
 /**
  * Created by amarendra on 02/09/17.
  */
-public class LinkedList<T> extends AbstractList<T>{
+public class LinkedList<T> extends AbstractList<T> {
 
     private Node<T> head;
 
     private Node<T> tail;
     private int count;
-
 
 
     public Node<T> getHead() {
@@ -43,37 +42,35 @@ public class LinkedList<T> extends AbstractList<T>{
     public void addLast(Node<T> value) {
         if (count == 0) {
             head = tail;
-        }
-        else {
+        } else {
             tail.setNext(value);
         }
         tail = value;
         count++;
     }
 
-    public T removeFirst(){
+    public T removeFirst() {
         T temp = head.getVal();
         if (count != 0) {
             head = head.getNext();
             count--;
-            if (count == 0){
+            if (count == 0) {
                 tail = null;
             }
         }
         return temp;
     }
 
-    public T removeLast(){
+    public T removeLast() {
         T temp = tail.getVal();
         if (count != 0) {
             if (count == 1) {
                 head = null;
                 tail = null;
-            }
-            else {
+            } else {
 
                 Node<T> currentNode = head;
-                while (currentNode.getNext() != tail){
+                while (currentNode.getNext() != tail) {
                     currentNode = currentNode.getNext();
                 }
                 // This is one node before tail node.
@@ -88,15 +85,15 @@ public class LinkedList<T> extends AbstractList<T>{
     @Override
     public T get(final int index) {
         if (index > count && index < 0) {
-            throw new IllegalArgumentException("Wrong parameter, try between 0 and "+ count);
+            throw new IllegalArgumentException("Wrong parameter, try between 0 and " + count);
         }
         Node<T> currentNode = head;
         int i = 0;
-        while (i <= index){
+        while (i <= index) {
             if (i == index) {
                 return currentNode.getVal();
             }
-            i ++;
+            i++;
             currentNode = currentNode.getNext();
         }
         return null;

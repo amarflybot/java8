@@ -1,7 +1,12 @@
 package java8;
 
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -14,9 +19,9 @@ public class MapTest {
     public static void main(String[] args) {
 
         List<Person> personList = new ArrayList<>();
-        Stream.of("1,Amar,28","2,Vicky,26","3,Alka,27","4,Alka1,27")
+        Stream.of("1,Amar,28", "2,Vicky,26", "3,Alka,27", "4,Alka1,27")
                 .map(x -> x.split(","))
-                .forEach(tuple -> personList.add(new Person(Long.parseLong(tuple[0]),tuple[1],Integer.parseInt(tuple[2]))));
+                .forEach(tuple -> personList.add(new Person(Long.parseLong(tuple[0]), tuple[1], Integer.parseInt(tuple[2]))));
 
         List<Integer> integerList = new ArrayList<>();
         personList.stream()
@@ -27,10 +32,10 @@ public class MapTest {
         System.out.println(max);
         Integer sum = integerList.stream()
                 .reduce(0, Integer::sum);
-        System.out.println("Sum -> "+ sum);
+        System.out.println("Sum -> " + sum);
 
         String collected = personList.stream()
-                .filter(person -> person.getAge() >26)
+                .filter(person -> person.getAge() > 26)
                 .map(person -> person.getName())
                 .collect(Collectors.joining(","));
 
@@ -64,15 +69,21 @@ public class MapTest {
         System.out.println(trimPersonName(name));
     }
 
-    public static String trimPersonName(String name){
+    public static String trimPersonName(String name) {
         return name.trim();
     }
 }
 
-class Person extends AtomicReference<Person>{
+class Person extends AtomicReference<Person> {
     private Long id;
     private String name;
     private Integer age;
+
+    public Person(Long id, String name, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
 
     public Long getId() {
         return id;
@@ -84,12 +95,6 @@ class Person extends AtomicReference<Person>{
 
     public Integer getAge() {
         return age;
-    }
-
-    public Person(Long id, String name, Integer age) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
     }
 
     @Override

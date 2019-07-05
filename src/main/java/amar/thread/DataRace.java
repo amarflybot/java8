@@ -1,15 +1,14 @@
 package amar.thread;
 
-import java.util.Random;
-
 /**
  * Created by amarendra on 15/01/16.
  */
 // This class exposes a publicly accessible counter
 // to help demonstrate data race problem
 class Counter {
-    public static long count=0;
+    public static long count = 0;
 }
+
 // This class implements Runnable interface
 // Its run method increments the counter three times
 class UseCounter implements Runnable {
@@ -18,7 +17,7 @@ class UseCounter implements Runnable {
 
     @Override
     public void run() {
-        threadLocal.set( (int) (Math.random() * 100D) );
+        threadLocal.set((int) (Math.random() * 100D));
 
         try {
             Thread.sleep(2000);
@@ -28,6 +27,7 @@ class UseCounter implements Runnable {
         System.out.println(threadLocal.get());
     }
 }
+
 // This class creates three threads
 public class DataRace {
 

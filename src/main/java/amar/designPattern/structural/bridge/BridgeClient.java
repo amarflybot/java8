@@ -2,21 +2,21 @@ package amar.designPattern.structural.bridge;
 
 public class BridgeClient {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		Movie movie = new Movie();
-		movie.setClassification("Comedy");
-		movie.setRuntime("2.2hrs");
-		movie.setTitle("Hera Pheri");
-		movie.setYear("1999");
+        Movie movie = new Movie();
+        movie.setClassification("Comedy");
+        movie.setRuntime("2.2hrs");
+        movie.setTitle("Hera Pheri");
+        movie.setYear("1999");
 
-		Formatter formatter = new PrintFormatter();
+        Formatter formatter = new PrintFormatter();
 
-		Printer printer = new MoviePrinter(movie);
+        Printer printer = new MoviePrinter(movie);
 
-		String print = printer.print(formatter);
-		System.out.println("Print -> "+ print);
+        String print = printer.print(formatter);
+        System.out.println("Print -> " + print);
 
-	}
+    }
 
 }

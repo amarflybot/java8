@@ -10,13 +10,13 @@ public enum StatementType {
             return new MiniStatement();
         }
     },
-    DETAILED{
+    DETAILED {
         @Override
         Statement getByType() {
             return new DetailedStatement();
         }
     },
-    DEFAULT{
+    DEFAULT {
         @Override
         Statement getByType() {
             return (final Integer integer) -> System.out.println("Printing Default Statement, integer " + integer);

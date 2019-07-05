@@ -15,19 +15,19 @@ public class MapExample {
         observable.map((letter) -> {
             return letter.toUpperCase();
         })
-        .subscribe((letterString) ->{
-            System.out.println(letterString);
-        });
+                .subscribe((letterString) -> {
+                    System.out.println(letterString);
+                });
         System.out.println("========================================================");
 
         observable.flatMap((letter) -> {
-           String[] returnString = {
-                   letter.toUpperCase(), letter.toLowerCase()
-           };
+            String[] returnString = {
+                    letter.toUpperCase(), letter.toLowerCase()
+            };
             return Observable.from(returnString);
         })
-        .subscribe((letterString) ->{
-            System.out.println(letterString);
-        });
+                .subscribe((letterString) -> {
+                    System.out.println(letterString);
+                });
     }
 }

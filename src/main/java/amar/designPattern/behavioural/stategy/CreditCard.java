@@ -14,7 +14,7 @@ public class CreditCard {
         this.strategy = strategy;
     }
 
-    public boolean isValid(){
+    public boolean isValid() {
         return strategy.isValid(this);
     }
 

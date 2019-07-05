@@ -29,17 +29,17 @@ public class StackAsQueueTest {
 
 }
 
-class StackAsQueue<T> implements Serializable, Cloneable{
+class StackAsQueue<T> implements Serializable, Cloneable {
 
     private Stack<T> stack1 = new Stack<>();
 
-    public void push(T t){
+    public void push(T t) {
         stack1.push(t);
     }
 
-    public T pop(){
+    public T pop() {
         T result = null;
-        if (stack1.size()>0) {
+        if (stack1.size() > 0) {
             result = stack1.get(0);
             stack1.remove(0);
         }

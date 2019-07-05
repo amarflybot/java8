@@ -3,7 +3,13 @@ package amar.thread;
 import amar.io.FileReaderTest;
 
 import java.io.IOException;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadFactory;
 
 /**
  * Created by kumarao on 19-01-2016.
@@ -37,18 +43,18 @@ public class FutureDemo {
             System.out.println("Task is not completed yet....");
             Thread.sleep(100);
             //sleep for 1 millisecond before checking again
-            }
+        }
 
         System.out.println("Task is completed, let's check result");
         Long factorial = future.get();
         System.out.println("Factorial of 10 is : " + factorial);
         SCHEDULED_EXECUTOR_SERVICE.shutdown();
         long endTime = System.currentTimeMillis();
-        System.out.println("Time Taken: "+(endTime - startTime));
+        System.out.println("Time Taken: " + (endTime - startTime));
     }
 }
 
-class FactorialCalculator implements Callable{
+class FactorialCalculator implements Callable {
 
     private int number;
 
@@ -57,10 +63,10 @@ class FactorialCalculator implements Callable{
     }
 
     @Override
-    public Long call(){
+    public Long call() {
         long output = 0;
         try {
-            output =  factorial(number);
+            output = factorial(number);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

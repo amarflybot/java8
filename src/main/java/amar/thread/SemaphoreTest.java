@@ -18,11 +18,11 @@ public class SemaphoreTest {
         System.out.println("Spawning Threads");
         int threadCount = 0;
         Random random = new Random();
-        for(int i=0;i<MAX_THREADS;i++) {
+        for (int i = 0; i < MAX_THREADS; i++) {
             // Threads created will not always be MAX_THREADS
             // Because Threads are created only if Random no is Even.
             // Thus the No of Threads unknown at Semaphore Initialization
-            if(random.nextInt(9999) % 2 == 0) {
+            if (random.nextInt(9999) % 2 == 0) {
                 Thread t = new Thread(new WorkerThread(semaphore, String.format("Thread-%d", i)));
                 t.start();
                 threadCount++;
@@ -53,7 +53,7 @@ public class SemaphoreTest {
                 Thread.sleep(getRandomWaitTime());
                 System.out.printf("%s : Finished work on %s\n", getFormattedDate(sdf), name);
                 semaphore.release();
-            } catch(Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

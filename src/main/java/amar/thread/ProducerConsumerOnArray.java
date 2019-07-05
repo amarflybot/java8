@@ -26,11 +26,10 @@ public class ProducerConsumerOnArray {
     }
 }
 
-class ProducerThread implements Runnable{
-
-    private Boolean start;
+class ProducerThread implements Runnable {
 
     Integer[] integers;
+    private Boolean start;
 
     public ProducerThread(final Boolean start, final Integer[] integers) {
         this.start = start;
@@ -40,10 +39,10 @@ class ProducerThread implements Runnable{
     @Override
     public void run() {
 
-        for (int i = 0; i < 10; i = i+2) {
+        for (int i = 0; i < 10; i = i + 2) {
             synchronized (start) {
                 this.integers[0] = i;
-                this.integers[1] = i+1;
+                this.integers[1] = i + 1;
                 start.notify();
                 try {
                     start.wait();
@@ -58,12 +57,12 @@ class ProducerThread implements Runnable{
     }
 }
 
-class ConsumerThread implements Runnable{
+class ConsumerThread implements Runnable {
 
     private Integer[] integers;
     private Boolean start;
 
-    public ConsumerThread(final Boolean start , final Integer[] integers) {
+    public ConsumerThread(final Boolean start, final Integer[] integers) {
         this.start = start;
         this.integers = integers;
     }
@@ -71,7 +70,7 @@ class ConsumerThread implements Runnable{
     @Override
     public void run() {
         synchronized (start) {
-        while (start) {
+            while (start) {
                 System.out.println(this.integers[0]);
                 System.out.println(this.integers[1]);
                 start.notify();

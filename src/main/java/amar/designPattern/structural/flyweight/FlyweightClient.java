@@ -17,7 +17,7 @@ public class FlyweightClient {
         for (int i = 0; i < 100; i++) {
             list
                     .forEach(name -> {
-                        inventorySystem.takeOrder(name, ThreadLocalRandom.current().nextInt(100,600));
+                        inventorySystem.takeOrder(name, ThreadLocalRandom.current().nextInt(100, 600));
                     });
         }
 

@@ -10,10 +10,10 @@ public class QuickSortTest {
 
     public static void main(String[] args) {
 
-        int[] arr = {7,2,1,6,8,5,3,4};
-        System.out.println("Sorted array: "+ Arrays.toString(arr));
-        quickSort(arr, 0, arr.length-1);
-        System.out.println("Sorted array: "+ Arrays.toString(arr));
+        int[] arr = {7, 2, 1, 6, 8, 5, 3, 4};
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println("Sorted array: " + Arrays.toString(arr));
 
     }
 
@@ -32,6 +32,7 @@ public class QuickSortTest {
 
     /**
      * Its job is to partition the array
+     *
      * @param arr
      * @param startIndex
      * @param endIndex
@@ -41,7 +42,7 @@ public class QuickSortTest {
         int pivot = arr[endIndex];
         int pIndex = startIndex;
         for (int i = startIndex; i < endIndex; i++) {
-            if (arr[i] <= pivot){
+            if (arr[i] <= pivot) {
                 // Swap arr[i] and arr[pIndex] AND increase pIndex++
                 int temp = arr[i];
                 arr[i] = arr[pIndex];

@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by amarendra on 05/09/17.
  */
-public class PartsOrder implements AtvPart{
+public class PartsOrder implements AtvPart {
 
     List<AtvPart> list = new ArrayList<>();
 
@@ -15,13 +15,13 @@ public class PartsOrder implements AtvPart{
         list.add(part);
     }
 
-    public List<AtvPart> getParts(){
+    public List<AtvPart> getParts() {
         return Collections.unmodifiableList(list);
     }
 
     @Override
     public void accept(final AtvPartVisitor visitor) {
-        list.forEach( atvPart -> {
+        list.forEach(atvPart -> {
             atvPart.accept(visitor);
         });
 

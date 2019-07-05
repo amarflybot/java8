@@ -1,6 +1,12 @@
 package amar.ds;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by amarendra on 16/02/16.
@@ -10,9 +16,9 @@ public class MapUtil {
     public static void main(String[] args) {
 
         Map<String, String> testMap = new HashMap<>();
-        testMap.put("Amar","Zasw");
-        testMap.put("Aaaa","Yqwer");
-        testMap.put("Aerw","Wqwer");
+        testMap.put("Amar", "Zasw");
+        testMap.put("Aaaa", "Yqwer");
+        testMap.put("Aerw", "Wqwer");
 
         System.out.println(testMap);
 
@@ -33,7 +39,7 @@ public class MapUtil {
 
         Map<String, String> result = new LinkedHashMap<>();
 
-        for(Map.Entry<String, String> entry : entries){
+        for (Map.Entry<String, String> entry : entries) {
             result.put(entry.getKey(), entry.getValue());
         }
 

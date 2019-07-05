@@ -1,13 +1,8 @@
 package amar.rx.transformer;
 
-import amar.rx.helper.TimeTicker;
 import amar.rx.helper.DataGenerator;
+import amar.rx.helper.TimeTicker;
 import amar.rx.helper.TimedEventSequence;
-import rx.Observable;
-import rx.functions.Func1;
-import rx.schedulers.TimeInterval;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Amarendra Kumar on 10/18/2016.

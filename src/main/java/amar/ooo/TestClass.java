@@ -13,18 +13,18 @@ public class TestClass {
     }
 }
 
-class Parent{
+class Parent {
 
 }
 
-class Child extends Parent{
+class Child extends Parent {
 
 }
 
-class Child1 extends Child{
+class Child1 extends Child {
 
 }
 
-class Child2 extends Child{
+class Child2 extends Child {
 
 }

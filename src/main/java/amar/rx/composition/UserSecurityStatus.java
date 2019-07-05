@@ -5,5 +5,5 @@ package amar.rx.composition;
  */
 public enum UserSecurityStatus {
 
-    GUEST,MODERATOR,ADMIN
+    GUEST, MODERATOR, ADMIN
 }

@@ -9,11 +9,11 @@ public class NQueenProblem {
     public static void main(String[] args) {
 
         int n = 4;
-        System.out.println("For n = "+ n);
+        System.out.println("For n = " + n);
         final Position[] positions = solveNQueenOneSolution(n);
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                for (Position position: positions) {
+                for (Position position : positions) {
                     if (position.row == i && position.col == j) {
                         System.out.print("Q ");
                         break;
@@ -27,7 +27,7 @@ public class NQueenProblem {
 
     }
 
-    public static Position[] solveNQueenOneSolution(int n){
+    public static Position[] solveNQueenOneSolution(int n) {
         Position[] positions = new Position[n];
         boolean hasSolution = solveNQueenOneSolution(n, 0, positions);
         if (hasSolution) {
@@ -38,7 +38,7 @@ public class NQueenProblem {
     }
 
     private static boolean solveNQueenOneSolution(final int n, final int row, final Position[] positions) {
-        
+
         if (n == row) {
             return true;
         }
@@ -49,15 +49,15 @@ public class NQueenProblem {
             for (int queen = 0; queen < row; queen++) {
                 if (positions[queen].col == col ||
                         positions[queen].row == row ||
-                        positions[queen].row-positions[queen].col == row-col ||
-                        positions[queen].row+positions[queen].col == row+col) {
+                        positions[queen].row - positions[queen].col == row - col ||
+                        positions[queen].row + positions[queen].col == row + col) {
                     foundSafe = false;
                     break;
                 }
             }
             if (foundSafe) {
-                positions[row] = new Position(row,col);
-                if (solveNQueenOneSolution(n,row+1, positions)) {
+                positions[row] = new Position(row, col);
+                if (solveNQueenOneSolution(n, row + 1, positions)) {
                     return true;
                 }
             }
@@ -66,7 +66,7 @@ public class NQueenProblem {
     }
 
     static class Position {
-        int row,col;
+        int row, col;
 
         Position(final int row, final int col) {
             this.row = row;

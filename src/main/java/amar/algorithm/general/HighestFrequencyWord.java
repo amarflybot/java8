@@ -1,8 +1,16 @@
 package amar.algorithm.general;
 
-import java.io.*;
-import java.util.*;
-import java.util.function.Predicate;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by amarendra on 23/10/17.
@@ -16,7 +24,7 @@ public class HighestFrequencyWord {
         final long time2 = getTotalTimeOfRun();
 
 
-        System.out.println("Total Average Time taken: " + ((time+time1+time2)/3));
+        System.out.println("Total Average Time taken: " + ((time + time1 + time2) / 3));
 
 
     }

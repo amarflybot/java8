@@ -42,7 +42,9 @@ public class NumberCombination {
         return result;
     }
 
-    /** adds to result all lists made up of firstElement followed by a list from remainingElements */
+    /**
+     * adds to result all lists made up of firstElement followed by a list from remainingElements
+     */
     private static void addAllCombos(List<List<String>> result,
                                      String firstElement, List<List<String>> remainingElements) {
         for (List<String> remCombo : remainingElements) {

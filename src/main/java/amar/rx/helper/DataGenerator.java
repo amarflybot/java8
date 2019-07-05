@@ -59,8 +59,8 @@ public class DataGenerator {
         List<Integer> integerList = new ArrayList<>();
         integerList.add(0);
         integerList.add(1);
-        for(int i=2; i < num; i++){
-            integerList.add(integerList.get(i-1) + integerList.get(i-2));
+        for (int i = 2; i < num; i++) {
+            integerList.add(integerList.get(i - 1) + integerList.get(i - 2));
         }
         return integerList;
     }

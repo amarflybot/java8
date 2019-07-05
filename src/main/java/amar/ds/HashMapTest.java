@@ -2,7 +2,6 @@ package amar.ds;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by amarendra on 18/01/16.
@@ -12,8 +11,8 @@ public class HashMapTest {
     public static void main(String[] args) {
         Map<String, Integer> hm = new HashMap<>();
 
-        final int maxValue = 1 << 30 ;
-        System.out.println(maxValue/10);
+        final int maxValue = 1 << 30;
+        System.out.println(maxValue / 10);
         for (int i = 0; i < (10000000); i++) {
             hm.put(String.valueOf(i), i);
             //System.out.println(i);

@@ -1,22 +1,24 @@
 package amar.algorithm.general;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by amarendra on 08/09/17.
- *
+ * <p>
  * Searching for 555555 from 1000000 elements
  * TreeSet Time Taken: 1705
  * ArrayList Time Taken: 2207
  * Priority Queue Time Taken: 2180
  * HashSet Time Taken: 3719
- *
+ * <p>
  * Searching for 5 from 1000000 elements
  * TreeSet Time Taken: 1670
  * ArrayList Time Taken: 2151
  * Priority Queue Time Taken: 2069
  * HashSet Time Taken: 3829
- *
+ * <p>
  * Searching for 999999 from 1000000 elements
  * TreeSet Time Taken: 1636
  * ArrayList Time Taken: 2076
@@ -31,7 +33,7 @@ public class PriorityQueueTest {
         //List<Person1> list = new ArrayList<>();
         Set<Person1> person1s = new HashSet<>();
         for (int i = 0; i < 1000000; i++) {
-            person1s.add(new Person1(i,String.valueOf(i)));
+            person1s.add(new Person1(i, String.valueOf(i)));
         }
 
 
@@ -40,11 +42,11 @@ public class PriorityQueueTest {
         System.out.println(contains);
         Date end = new Date();
 
-        System.out.println("Time Taken: " + (end.getTime()-start.getTime()));
+        System.out.println("Time Taken: " + (end.getTime() - start.getTime()));
     }
 }
 
-class Person1 implements Comparable<Person1>{
+class Person1 implements Comparable<Person1> {
     private Integer id;
     private String name;
 

@@ -3,7 +3,7 @@ package amar.designPattern.behavioural.observer;
 /**
  * Created by amarendra on 05/09/17.
  */
-public class MailClient extends Observer{
+public class MailClient extends Observer {
 
     private Subject subject;
 
@@ -14,10 +14,10 @@ public class MailClient extends Observer{
 
     @Override
     void update() {
-        System.out.println("Mail Stream: "+ subject.getState());
+        System.out.println("Mail Stream: " + subject.getState());
     }
 
-    public void sendMessage(String str){
+    public void sendMessage(String str) {
         this.subject.setState(str);
     }
 }

@@ -6,8 +6,8 @@ package amar.algorithm.general;
  * There are no duplicates in list.
  * One of the integers is missing in the list. Write an efficient code to find the missing integer.
  * Example:
- *  I/P    [1, 2, 4, ,6, 3, 7, 8]
- *  O/P    5
+ * I/P    [1, 2, 4, ,6, 3, 7, 8]
+ * O/P    5
  */
 public class MissingNumber {
 
@@ -15,14 +15,14 @@ public class MissingNumber {
 
         int[] arr = {1, 2, 4, 6, 3, 7, 8};
         int total = sum(8);
-        System.out.println("total -> "+ total);
+        System.out.println("total -> " + total);
         for (int i = 0; i < arr.length; i++) {
             total = total - arr[i];
         }
-        System.out.println("Missing Number: "+ total);
+        System.out.println("Missing Number: " + total);
     }
 
     private static int sum(final int n) {
-        return n*(n+1)/2;
+        return n * (n + 1) / 2;
     }
 }

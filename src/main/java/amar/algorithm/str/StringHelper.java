@@ -6,9 +6,9 @@ package amar.algorithm.str;
 public class StringHelper {
     public String reverseLast2Chars(String str) {
         int length = str.length();
-        String rest = str.substring(0,length-2);
-        char charAtSecondLast = str.charAt(length-2);
-        char charAtLast = str.charAt(length-1);
-        return rest+charAtLast+charAtSecondLast;
+        String rest = str.substring(0, length - 2);
+        char charAtSecondLast = str.charAt(length - 2);
+        char charAtLast = str.charAt(length - 1);
+        return rest + charAtLast + charAtSecondLast;
     }
 }

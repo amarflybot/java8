@@ -8,7 +8,7 @@ import java.util.List;
 public class EmailServiceImpl implements EmailService {
 
     @Override
-    public void sendEmail(List<String> recipients, String from, String subject, String text){
+    public void sendEmail(List<String> recipients, String from, String subject, String text) {
         System.out.println("Sending Email");
         System.out.println("TO: ");
 
@@ -18,10 +18,10 @@ public class EmailServiceImpl implements EmailService {
             System.out.println("");
         });
 
-        System.out.println("From: "+ from);
-        System.out.println("Subject: "+ subject);
+        System.out.println("From: " + from);
+        System.out.println("Subject: " + subject);
         System.out.println();
-        System.out.println("Text: "+ text);
+        System.out.println("Text: " + text);
         System.out.println();
     }
 }

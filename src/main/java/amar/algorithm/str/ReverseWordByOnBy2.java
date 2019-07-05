@@ -13,16 +13,16 @@ public class ReverseWordByOnBy2 {
         String str = "i like this program very much";
         String[] strings = new String[6];
         final int length = str.length();
-        int k=0,j=0;
+        int k = 0, j = 0;
         for (int i = 0; i < length; i++) {
             String charAt = str.substring(i, i + 1);
-            if (charAt.equals(" ")){
+            if (charAt.equals(" ")) {
                 strings[j] = str.substring(k, i);
                 j++;
-                k = i+1;
+                k = i + 1;
             }
         }
-        strings[j] = str.substring(k,str.length());
+        strings[j] = str.substring(k, str.length());
 
         System.out.println(Arrays.toString(strings));
 

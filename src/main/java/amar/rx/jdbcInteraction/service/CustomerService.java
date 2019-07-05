@@ -1,7 +1,11 @@
 package amar.rx.jdbcInteraction.service;
 
 import amar.rx.jdbcInteraction.TestDatabaseProcedures;
-import amar.rx.jdbcInteraction.dto.*;
+import amar.rx.jdbcInteraction.dto.Address;
+import amar.rx.jdbcInteraction.dto.Customer;
+import amar.rx.jdbcInteraction.dto.CustomerRelatedData;
+import amar.rx.jdbcInteraction.dto.CustomerZipAccumulator;
+import amar.rx.jdbcInteraction.dto.Product;
 import rx.Observable;
 import rx.schedulers.Schedulers;
 
@@ -19,7 +23,7 @@ public class CustomerService {
     public CustomerService() {
     }
 
-    public Observable<Customer> fetchCustomer(long customerId){
+    public Observable<Customer> fetchCustomer(long customerId) {
         try {
             return procedures.toSelectCustomersObservable(customerId);
         } catch (SQLException e) {

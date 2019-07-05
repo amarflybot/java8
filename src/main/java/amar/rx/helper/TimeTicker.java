@@ -23,22 +23,22 @@ public class TimeTicker {
         this.interval = interval;
     }
 
-    public Observable<Long> toObservable(){
+    public Observable<Long> toObservable() {
         return tickerSubject;
     }
 
-    public synchronized  void start(){
+    public synchronized void start() {
 
-        if (tickerThread != null){
+        if (tickerThread != null) {
             return; // the ticker thread is already running;
         }
 
         //make sure the pause flag is false
         unPause();
 
-        tickerThread = new Thread(()->{
+        tickerThread = new Thread(() -> {
             try {
-                while (Thread.interrupted() == false){
+                while (Thread.interrupted() == false) {
 
                     try {
                         Thread.sleep(5);
@@ -46,7 +46,7 @@ public class TimeTicker {
                         //e.printStackTrace();
                         break;
                     }
-                    if(paused){
+                    if (paused) {
                         continue;
                     }
 
@@ -65,8 +65,8 @@ public class TimeTicker {
         tickerThread.start();
     }
 
-    public synchronized void stop(){
-        if (tickerThread == null){
+    public synchronized void stop() {
+        if (tickerThread == null) {
             return;
         }
         tickerThread.interrupt();

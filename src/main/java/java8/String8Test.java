@@ -18,11 +18,11 @@ public class String8Test {
         System.out.println(stringJoiner);
 
         Map<String, String> map = new HashMap<>();
-        map.put(null,"ABC");
+        map.put(null, "ABC");
 
         System.out.println(map.get(null));
 
-        map.put(null,"afsdf");
+        map.put(null, "afsdf");
         System.out.println(map.get(null));
     }
 }

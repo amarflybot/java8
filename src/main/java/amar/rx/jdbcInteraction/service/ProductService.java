@@ -11,7 +11,7 @@ public class ProductService {
 
     private final TestDatabaseProcedures testDatabaseProcedures = new TestDatabaseProcedures();
 
-    public Observable<Product> fetchCustomerProduct(long customerId){
+    public Observable<Product> fetchCustomerProduct(long customerId) {
         return testDatabaseProcedures.toSelectProductObservable(customerId);
     }
 }

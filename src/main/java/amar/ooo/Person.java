@@ -5,14 +5,6 @@ package amar.ooo;
  */
 public class Person extends Mammal {
 
-    public void walk(Integer number) {
-        System.out.println("Walking in Person kms: "+number);
-    }
-
-    public Integer getNumber() {
-        return 10;
-    }
-
     public static void main(String[] args) {
         String str = new String("ABC");
         String str1 = "ABC";
@@ -21,6 +13,14 @@ public class Person extends Mammal {
         final String intern = str.intern();
 
         System.out.println(intern == str1);
+    }
+
+    public void walk(Integer number) {
+        System.out.println("Walking in Person kms: " + number);
+    }
+
+    public Integer getNumber() {
+        return 10;
     }
 
 }

@@ -5,7 +5,7 @@ package java8;
  */
 public interface ITest2 {
 
-    default public Double run(){
+    default public Double run() {
         return null;
     }
 }

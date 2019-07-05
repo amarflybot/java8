@@ -17,19 +17,20 @@ public class Test {
     }
 }
 
-class OperationImpl extends Operation{
+class OperationImpl extends Operation {
 
     @Override
-    public Integer division(final Integer i, final Integer j) throws Exception{
+    public Integer division(final Integer i, final Integer j) throws Exception {
         if (j == 0) {
             throw new FileNotFoundException("");
         }
         return i;
     }
 }
-class Operation{
 
-    public Integer sum(Integer i, Integer j){
+class Operation {
+
+    public Integer sum(Integer i, Integer j) {
         return i + j;
     }
 
@@ -37,7 +38,7 @@ class Operation{
         if (j == 0) {
             throw new Exception("J cannot be 0");
         }
-        return (i/j);
+        return (i / j);
     }
 
 }

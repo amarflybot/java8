@@ -2,10 +2,10 @@ package amar.algorithm.str;
 
 /**
  * Created by amarendra on 02/09/17.
- *
- Reverse words in a given string
-
- Example: Let the input string be “i like this program very much”. The function should change the string to “much very program this like i”
+ * <p>
+ * Reverse words in a given string
+ * <p>
+ * Example: Let the input string be “i like this program very much”. The function should change the string to “much very program this like i”
  */
 public class ReverseWord {
 
@@ -16,16 +16,16 @@ public class ReverseWord {
         String[] strings = new String[6];
         int j = 0;
         int k = 0;
-        for (int i = 0; i < str.length()-1; i++) {
+        for (int i = 0; i < str.length() - 1; i++) {
 
-            String substring = str.substring(i ,i+1);
-            if (substring.equals(" ")){
-                strings[k] = str.substring(j,i);
+            String substring = str.substring(i, i + 1);
+            if (substring.equals(" ")) {
+                strings[k] = str.substring(j, i);
                 k++;
-                j = i+1;
+                j = i + 1;
             }
         }
-        strings[k] = str.substring(j,str.length());
+        strings[k] = str.substring(j, str.length());
         System.out.println(strings);
     }
 }

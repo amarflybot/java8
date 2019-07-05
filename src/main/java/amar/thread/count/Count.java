@@ -13,9 +13,10 @@ import java.util.concurrent.TimeUnit;
 public class Count {
 
     static Map<String, Counter> counterMap = new ConcurrentHashMap();
+
     static void process() {
         final Set<String> stringSet = counterMap.keySet();
-        for (String str: stringSet) {
+        for (String str : stringSet) {
             for (int i = 0; i < 50; i++) {
                 final Counter counter = counterMap.get(str);
                 counter.incrementI();
@@ -23,9 +24,10 @@ public class Count {
             }
         }
     }
+
     public static void main(String[] args) throws InterruptedException {
 
-        counterMap.put("c1",new Counter(0));
+        counterMap.put("c1", new Counter(0));
 
         ExecutorService service = Executors.newFixedThreadPool(3);
         service.submit(Count::process);
@@ -40,13 +42,13 @@ public class Count {
     }
 }
 
-class Counter{
+class Counter {
+
+    private int i = 0;
 
     public Counter(final int i) {
         this.i = i;
     }
-
-    private int i=0;
 
     public int getI() {
         synchronized (Counter.class) {
@@ -60,7 +62,7 @@ class Counter{
         }
     }
 
-    public void incrementI(){
+    public void incrementI() {
         synchronized (Counter.class) {
             this.i++;
         }

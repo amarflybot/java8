@@ -26,8 +26,8 @@ public class ArrayRotation {
 
         for (int i = 0; i < rotationNumber; i++) {
             int temp = array[0];
-            for (int j = 0; j < array.length -1; j++) {
-                array[j] = array[j+1];
+            for (int j = 0; j < array.length - 1; j++) {
+                array[j] = array[j + 1];
             }
             array[array.length - 1] = temp;
         }
@@ -38,7 +38,7 @@ public class ArrayRotation {
 
         for (int i = 0; i < array.length - rotationNumber; i++) {
 
-            array[i] = array[i+ rotationNumber];
+            array[i] = array[i + rotationNumber];
         }
 
         int startPoint = array.length - temp.length;

@@ -9,6 +9,8 @@ import java.util.concurrent.BlockingQueue;
  */
 public class ProdCons {
 
+    private static BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue(10);
+
     public static void main(String[] args) throws InterruptedException {
 
         Thread t1 = new Thread(new Runnable() {
@@ -40,8 +42,6 @@ public class ProdCons {
 
     }
 
-    private static BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue(10);
-
     private static void producer() throws InterruptedException {
         Random random = new Random(100);
         while (true) {
@@ -53,9 +53,9 @@ public class ProdCons {
         Random random = new Random(10);
         while (true) {
             Thread.sleep(100);
-            if(random.nextInt(10) == 0){
+            if (random.nextInt(10) == 0) {
                 Integer taken = blockingQueue.take();
-                System.out.println("Taken out "+ taken + " Queue Size " +blockingQueue.size());
+                System.out.println("Taken out " + taken + " Queue Size " + blockingQueue.size());
             }
         }
     }

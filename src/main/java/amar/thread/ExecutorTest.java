@@ -3,7 +3,12 @@ package amar.thread;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by kumarao on 28-01-2016.
@@ -32,10 +37,10 @@ public class ExecutorTest {
                 e.printStackTrace();
             }
         }
-        System.out.println("Total --> "+sum);
+        System.out.println("Total --> " + sum);
 
         Long endTime = new Date().getTime();
-        System.out.println("Total Time Taken --> "+ (endTime-startTime));
+        System.out.println("Total Time Taken --> " + (endTime - startTime));
         // This will make the executor accept no new threads
         // and finish all existing threads in the queue
         executor.shutdown();

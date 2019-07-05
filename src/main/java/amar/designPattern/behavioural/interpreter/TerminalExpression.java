@@ -19,7 +19,7 @@ public class TerminalExpression implements Expression {
         StringTokenizer stringTokenizer = new StringTokenizer(str);
         while (stringTokenizer.hasMoreTokens()) {
             String test = stringTokenizer.nextToken();
-            if (test.equals(this.str)){
+            if (test.equals(this.str)) {
                 return true;
             }
         }

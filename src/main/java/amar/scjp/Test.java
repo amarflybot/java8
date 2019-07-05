@@ -9,7 +9,11 @@ import java.io.ObjectOutputStream;
  * Created by amarendra on 15/01/16.
  */
 
-class Person{
+class Person {
+    static {
+        System.out.println("IN static Block of Person");
+    }
+
     String name;
     String age;
 
@@ -17,25 +21,24 @@ class Person{
         name = name;
         this.age = age;
     }
-    public void callSomeone(int q, double a){
 
-    }
-    static {
-        System.out.println("IN static Block of Person");
-    }
-
-    public static void inHere(){
+    public static void inHere() {
         System.out.println("IN static inHere of Person");
+    }
+
+    public void callSomeone(int q, double a) {
+
     }
 
 }
 
-class Boy extends Outer{
+class Boy extends Outer {
 
-    String roll;
     static {
         System.out.println("IN static Block of boy");
     }
+
+    String roll;
 
     public Boy(String name, String age, String roll) {
         //super(name, age);
@@ -43,22 +46,24 @@ class Boy extends Outer{
 
     }
 
-    protected void callSomeone(){
-
-    }
-
-    public void callSomeone(int q, double a){
-
-    }
-    public static void inHere(){
+    public static void inHere() {
         System.out.println("IN static inHere of Boy");
     }
 
+    protected void callSomeone() {
+
+    }
+
+    public void callSomeone(int q, double a) {
+
+    }
+
 }
+
 public class Test {
 
     public static void main(String[] args) {
-        Outer.Inner outer = new Outer.Inner(){
+        Outer.Inner outer = new Outer.Inner() {
 
         };
     }
@@ -74,17 +79,17 @@ public class Test {
             ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
             ObjectInputStream ois = new ObjectInputStream(bais);
             return ois.readObject();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
 
-
 }
+
 class Outer {           // an outer class has a static nested class
-    interface Inner {}
+    interface Inner {
+    }
 }
 

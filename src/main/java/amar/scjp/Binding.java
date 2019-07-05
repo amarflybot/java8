@@ -18,14 +18,14 @@ public class Binding {
 }
 
 class A {
-    public static void method(){
+    public static void method() {
         System.out.println("In Class A");
     }
 }
 
 class B extends A {
 
-    public static void method(){
+    public static void method() {
         System.out.println("In Class B");
     }
 }

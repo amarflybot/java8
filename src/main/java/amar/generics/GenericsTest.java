@@ -35,47 +35,47 @@ public class GenericsTest {
     }
 
 
-    private void m1(List <? extends Fruit> list){
+    private void m1(List<? extends Fruit> list) {
 
-        for(Fruit f : list){
+        for (Fruit f : list) {
 
         }
 
     }
 
-    private void m3(List<Fruit> object){
-        for(Fruit fruit : object){
+    private void m3(List<Fruit> object) {
+        for (Fruit fruit : object) {
             System.out.println(fruit);
         }
     }
 }
 
-class Eatable{
+class Eatable {
     @Override
     public String toString() {
         return "Eatable{}";
     }
 }
 
-class Fruit extends Eatable{
+class Fruit extends Eatable {
     @Override
     public String toString() {
         return "Fruit{}";
     }
 
-    public void method1(Fruit mango){
+    public void method1(Fruit mango) {
 
     }
 }
 
-class Mango extends Fruit{
+class Mango extends Fruit {
     @Override
     public String toString() {
         return "Mango{}";
     }
 }
 
-class Grapes extends Fruit{
+class Grapes extends Fruit {
     @Override
     public String toString() {
         return "Grapes{}";

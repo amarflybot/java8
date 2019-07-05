@@ -11,17 +11,17 @@ public class FindNumberInSortedArray {
 
     public static void main(String[] args) {
 
-        int[] arr = {1,2,3,4,5,6,7,8,9};
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int k = 0;
 
-        boolean bool = find(arr,k);
-        System.out.println("Found ? : "+ bool);
-        System.out.println("Total Iterrations -> "+ noOfRounds);
+        boolean bool = find(arr, k);
+        System.out.println("Found ? : " + bool);
+        System.out.println("Total Iterrations -> " + noOfRounds);
 
     }
 
     private static boolean find(final int[] arr, final int k) {
-        System.out.println("Considering Array -> "+ Arrays.toString(arr));
+        System.out.println("Considering Array -> " + Arrays.toString(arr));
         noOfRounds++;
         final int length = arr.length;
         if (length == 0) {
@@ -29,11 +29,10 @@ public class FindNumberInSortedArray {
         }
 
         int midPoint = length / 2;
-        if(k == arr[midPoint]){
+        if (k == arr[midPoint]) {
             return true;
-        }
-        else if (k>arr[midPoint]){
-            return find(Arrays.copyOfRange(arr, midPoint, length ), k);
+        } else if (k > arr[midPoint]) {
+            return find(Arrays.copyOfRange(arr, midPoint, length), k);
         } else {
             return find(Arrays.copyOfRange(arr, 0, midPoint), k);
         }

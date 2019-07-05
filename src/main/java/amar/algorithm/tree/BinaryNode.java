@@ -3,7 +3,7 @@ package amar.algorithm.tree;
 /**
  * Created by amarendra on 03/09/17.
  */
-class BinaryNode<T extends Comparable<T>> implements Comparable<BinaryNode<T>>{
+class BinaryNode<T extends Comparable<T>> implements Comparable<BinaryNode<T>> {
 
     private T value;
     private BinaryNode<T> left;
@@ -44,7 +44,6 @@ class BinaryNode<T extends Comparable<T>> implements Comparable<BinaryNode<T>>{
     }
 
 
-
     @Override
     public int hashCode() {
         return value != null ? value.hashCode() : 0;
@@ -52,7 +51,7 @@ class BinaryNode<T extends Comparable<T>> implements Comparable<BinaryNode<T>>{
 
     @Override
     public String toString() {
-        return "BinaryNode{ "+ value.toString()+" }";
+        return "BinaryNode{ " + value.toString() + " }";
     }
 
 

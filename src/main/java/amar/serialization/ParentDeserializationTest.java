@@ -1,4 +1,11 @@
-package amar.serialization;import java.io.*;import java.io.ByteArrayInputStream;import java.io.ByteArrayOutputStream;import java.io.IOException;import java.io.ObjectInputStream;import java.io.ObjectOutputStream;import java.io.Serializable;import java.lang.ClassNotFoundException;import java.lang.String;import java.lang.System;
+package amar.serialization;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
  * @author Amarendra Kumar
@@ -40,45 +47,49 @@ public class ParentDeserializationTest {
     }
 }
 
-    class Parent {
-        protected int field;
-        protected Parent(){
-            System.out.println("Parent::Constructor");
-        }
-        public int getField() {
-            return field;
-        }
+class Parent {
+    protected int field;
+
+    protected Parent() {
+        System.out.println("Parent::Constructor");
     }
 
-    class Child extends Parent implements Serializable{
-        protected int i;
+    public int getField() {
+        return field;
+    }
+}
 
-        public Child() {
-            System.out.println("Child::Default Constructor");
-        }
+class Child extends Parent implements Serializable {
+    protected int i;
 
-        public Child(int i){
-            this.i = i;
-            System.out.println("Child::Constructor");
-        }
-        public int getI() {
-            return i;
-        }
+    public Child() {
+        System.out.println("Child::Default Constructor");
     }
 
-    class Child1 extends Child {
-        protected int i;
-
-        public Child1() {
-            System.out.println("Child1::Default Constructor");
-        }
-
-        public Child1(int i){
-            this.i = i;
-            System.out.println("Child1::Constructor");
-        }
-        public int getI() {
-            return i;
-        }
+    public Child(int i) {
+        this.i = i;
+        System.out.println("Child::Constructor");
     }
+
+    public int getI() {
+        return i;
+    }
+}
+
+class Child1 extends Child {
+    protected int i;
+
+    public Child1() {
+        System.out.println("Child1::Default Constructor");
+    }
+
+    public Child1(int i) {
+        this.i = i;
+        System.out.println("Child1::Constructor");
+    }
+
+    public int getI() {
+        return i;
+    }
+}
 

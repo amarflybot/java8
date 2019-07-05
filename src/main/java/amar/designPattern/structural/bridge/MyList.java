@@ -13,7 +13,7 @@ public class MyList<T> extends ArrayList<T> {
 
     @Override
     public void sort(final Comparator<? super T> c) {
-        if (oldSort){
+        if (oldSort) {
             super.sort(c);
         }
     }

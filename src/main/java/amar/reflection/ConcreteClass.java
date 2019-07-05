@@ -7,9 +7,9 @@ package amar.reflection;
 public class ConcreteClass extends BaseClass implements BaseInterface {
 
     public int publicInt;
-    private String privateString="private string";
     protected boolean protectedBoolean;
     Object defaultObject;
+    private String privateString = "private string";
 
     private ConcreteClass() {
         System.out.println("ConcreteClass :: Default Constructor");
@@ -32,27 +32,36 @@ public class ConcreteClass extends BaseClass implements BaseInterface {
     }
 
     @Override
-    public int method4(){
+    public int method4() {
         System.out.println("Method4 overriden.");
         return 0;
     }
 
-    public int method5(int i){
+    public int method5(int i) {
         System.out.println("Method4 overriden. " + i);
         return 0;
     }
 
-    // inner classes
-    public class ConcreteClassPublicClass{}
-    private class ConcreteClassPrivateClass{}
-    protected class ConcreteClassProtectedClass{}
-    class ConcreteClassDefaultClass{}
-
     //member enum
-    enum ConcreteClassDefaultEnum{}
-    public enum ConcreteClassPublicEnum{}
+    enum ConcreteClassDefaultEnum {}
+
+    public enum ConcreteClassPublicEnum {}
 
     //member interface
-    public interface ConcreteClassPublicInterface{}
+    public interface ConcreteClassPublicInterface {
+    }
+
+    // inner classes
+    public class ConcreteClassPublicClass {
+    }
+
+    private class ConcreteClassPrivateClass {
+    }
+
+    protected class ConcreteClassProtectedClass {
+    }
+
+    class ConcreteClassDefaultClass {
+    }
 
 }

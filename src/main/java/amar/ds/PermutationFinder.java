@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 public class PermutationFinder {
 
     private final static Logger logger = Logger.getLogger("PermutationFinder");
+
     public static Set<String> permutationFinder(String str) {
         Set<String> perm = new HashSet<>();
         //Handling error scenarios
@@ -25,7 +26,7 @@ public class PermutationFinder {
         String rem = str.substring(1); // Full string without first character
         Set<String> words = permutationFinder(rem);
         words.stream().forEach(strNew -> {
-            for (int i = 0;i<=strNew.length();i++){
+            for (int i = 0; i <= strNew.length(); i++) {
                 perm.add(charInsert(strNew, initial, i));
             }
         });
@@ -43,9 +44,9 @@ public class PermutationFinder {
     public static void main(String[] args) {
         String s = "ABC";
         long startTime = new Date().getTime();
-        logger.info("Started Permutation at "+ new Date());
+        logger.info("Started Permutation at " + new Date());
         logger.info(("Permutations for " + s + " are: " + permutationFinder(s)));
         long endTime = new Date().getTime();
-        logger.info(("Time taken by " + s+ " is " + (endTime - startTime)));
+        logger.info(("Time taken by " + s + " is " + (endTime - startTime)));
     }
 }

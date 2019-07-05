@@ -18,47 +18,12 @@ public class BuilderTest {
 
 }
 
-class Person{
-
-    public static class PersonBuilder{
-        private int id;
-        private String name;
-        private String address;
-        private Integer height;
-
-
-        public PersonBuilder id(final int id) {
-            this.id = id;
-            return this;
-        }
-
-        public PersonBuilder name(final String name) {
-            this.name = name;
-            return this;
-        }
-
-        public PersonBuilder address(final String address) {
-            this.address = address;
-            return this;
-        }
-
-        public PersonBuilder height(final Integer height) {
-            this.height = height;
-            return this;
-        }
-
-
-        public Person build() {
-            return new Person(this);
-        }
-    }
+class Person {
 
     private int id;
     private String name;
     private String address;
     private Integer height;
-
-
     public Person(final PersonBuilder personBuilder) {
         this.id = personBuilder.id;
         this.name = personBuilder.name;
@@ -66,13 +31,12 @@ class Person{
         this.height = personBuilder.height;
     }
 
+    public int getId() {
+        return id;
+    }
 
     public void setId(final int id) {
         this.id = id;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getName() {
@@ -129,5 +93,38 @@ class Person{
         result = 31 * result + (address != null ? address.hashCode() : 0);
         result = 31 * result + (height != null ? height.hashCode() : 0);
         return result;
+    }
+
+    public static class PersonBuilder {
+        private int id;
+        private String name;
+        private String address;
+        private Integer height;
+
+
+        public PersonBuilder id(final int id) {
+            this.id = id;
+            return this;
+        }
+
+        public PersonBuilder name(final String name) {
+            this.name = name;
+            return this;
+        }
+
+        public PersonBuilder address(final String address) {
+            this.address = address;
+            return this;
+        }
+
+        public PersonBuilder height(final Integer height) {
+            this.height = height;
+            return this;
+        }
+
+
+        public Person build() {
+            return new Person(this);
+        }
     }
 }

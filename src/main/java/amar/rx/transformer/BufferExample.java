@@ -20,8 +20,8 @@ public class BufferExample {
                             System.out.println("---------------------------------------------");
                             int count = 1;
                             int size = list.size();
-                            for (int i= 0 ; i< size; i++){
-                                System.out.println(" " +  count++ + " : " + list.get(i));
+                            for (int i = 0; i < size; i++) {
+                                System.out.println(" " + count++ + " : " + list.get(i));
                             }
                         }
                 );

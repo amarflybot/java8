@@ -24,37 +24,39 @@ public class AccountTransfer {
             }
         });
 
-        t1.start();t2.start();
-        t1.join();t2.join();
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
 
         accountRunner.finish();
     }
 
 }
 
-class AccountRunner{
+class AccountRunner {
 
     private Account account1 = new Account();
     private Account account2 = new Account();
 
-    public void firstThread(){
+    public void firstThread() {
         Random random = new Random();
         for (int i = 0; i < 10000; i++) {
-            Account.transfer(account1,account2,random.nextInt(100));
+            Account.transfer(account1, account2, random.nextInt(100));
         }
     }
 
-    public void secondThread(){
+    public void secondThread() {
         Random random = new Random();
         for (int i = 0; i < 10000; i++) {
-            Account.transfer(account2,account1,random.nextInt(100));
+            Account.transfer(account2, account1, random.nextInt(100));
         }
     }
 
-    public void finish(){
-        System.out.println("Account1 : "+ account1);
-        System.out.println("Account2 : "+ account2);
-        System.out.println("Total balance: "+ (account1.getBalance()+account2.getBalance()));
+    public void finish() {
+        System.out.println("Account1 : " + account1);
+        System.out.println("Account2 : " + account2);
+        System.out.println("Total balance: " + (account1.getBalance() + account2.getBalance()));
     }
 
 }
@@ -62,21 +64,21 @@ class AccountRunner{
 class Account {
     private int balance = 10000;
 
-    public void deposit(int amount){
+    public static void transfer(Account account1, Account account2, int amount) {
+        account1.withdraw(amount);
+        account2.deposit(amount);
+    }
+
+    public void deposit(int amount) {
         balance = balance + amount;
     }
 
-    public void withdraw(int amount){
+    public void withdraw(int amount) {
         balance = balance - amount;
     }
 
     public int getBalance() {
         return balance;
-    }
-
-    public static void transfer(Account account1, Account account2, int amount){
-        account1.withdraw(amount);
-        account2.deposit(amount);
     }
 
     @Override

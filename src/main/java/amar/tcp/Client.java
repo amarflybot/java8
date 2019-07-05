@@ -16,13 +16,13 @@ public class Client {
                     InputStreamReader(skt.getInputStream()));
             System.out.print("Received string: '");
 
-            while (!in.ready()) {}
+            while (!in.ready()) {
+            }
             System.out.println(in.readLine()); // Read one line and output it
 
             System.out.print("'\n");
             in.close();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.print("Whoops! It didn't work!\n");
         }
     }

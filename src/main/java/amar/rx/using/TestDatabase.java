@@ -7,7 +7,11 @@ import rx.Observable;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -137,7 +141,7 @@ public class TestDatabase {
         }
     }
 
-    public static ConnectionSubscription createSubscription(){
+    public static ConnectionSubscription createSubscription() {
         return new ConnectionSubscription(createConnection("jdbc:derby:pluralSightTest_DB"));
     }
 
@@ -158,7 +162,7 @@ public class TestDatabase {
             connectionSubscription.registerResourceForClose(rs);
 
             ObservableList<String> returnList = new ObservableList<>();
-            while(rs.next()) {
+            while (rs.next()) {
                 returnList.add(rs.getString("LETTER"));
                 try {
                     Thread.sleep(10);
@@ -183,7 +187,7 @@ public class TestDatabase {
             connectionSubscription.registerResourceForClose(rs);
 
             List<Customer> returnList = new ArrayList<>();
-            while(rs.next()) {
+            while (rs.next()) {
                 Customer customer = new Customer(rs.getLong("ID"), rs.getString("USERNAME"));
                 returnList.add(customer);
             }
@@ -203,7 +207,7 @@ public class TestDatabase {
             connectionSubscription.registerResourceForClose(rs);
 
             List<Customer> returnList = new ArrayList<>();
-            while(rs.next()) {
+            while (rs.next()) {
                 Customer customer = new Customer(rs.getLong("ID"), rs.getString("USERNAME"));
                 returnList.add(customer);
             }

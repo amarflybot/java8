@@ -1,5 +1,30 @@
 package amar.designPattern.structural;
 
+enum Strategy {
+
+    ONE_DAY {
+        @Override
+        public void play() {
+            System.out.println("Playing ONE DAY!!");
+        }
+    }, TEST {
+        @Override
+        public void play() {
+            System.out.println("Playing TEST!!");
+        }
+    }, T20 {
+        @Override
+        public void play() {
+            System.out.println("Playing T20!!");
+        }
+    }, DEFAULT;
+
+    public void play() {
+        System.out.println("Default Play");
+        throw new RuntimeException("Doing Nothing Idiot!!");
+    }
+}
+
 /**
  * Created by amarendra on 03/09/17.
  */
@@ -32,32 +57,7 @@ class Player {
         this.strategy = strategy;
     }
 
-    public void play(){
+    public void play() {
         strategy.play();
-    }
-}
-
-enum Strategy {
-
-    ONE_DAY {
-        @Override
-        public void play() {
-            System.out.println("Playing ONE DAY!!");
-        }
-    }, TEST {
-        @Override
-        public void play() {
-            System.out.println("Playing TEST!!");
-        }
-    }, T20 {
-        @Override
-        public void play() {
-            System.out.println("Playing T20!!");
-        }
-    }, DEFAULT;
-
-    public void play(){
-        System.out.println("Default Play");
-        throw new RuntimeException("Doing Nothing Idiot!!");
     }
 }

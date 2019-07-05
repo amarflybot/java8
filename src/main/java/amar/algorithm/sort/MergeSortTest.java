@@ -47,10 +47,10 @@ public class MergeSortTest {
 
     private static int[] merge(final int[] firstHalf, final int[] secondHalf) {
         int[] array = new int[firstHalf.length + secondHalf.length];
-        int i=0,j=0,k=0;
+        int i = 0, j = 0, k = 0;
 
-        while (i<firstHalf.length && j < secondHalf.length){
-            if (firstHalf[i] < secondHalf[j]){
+        while (i < firstHalf.length && j < secondHalf.length) {
+            if (firstHalf[i] < secondHalf[j]) {
                 array[k] = firstHalf[i];
                 k++;
                 i++;

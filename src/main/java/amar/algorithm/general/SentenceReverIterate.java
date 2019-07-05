@@ -11,14 +11,12 @@ public class SentenceReverIterate {
         StringBuilder sb = new StringBuilder();
         String[] split = args[0].split("\\.");
 
-        for (int i = split.length-1; i >= 0; i--) {
+        for (int i = split.length - 1; i >= 0; i--) {
             sb.append(split[i]).append(".");
 
         }
         String substring = sb.toString().substring(0, sb.toString().length() - 1);
         System.out.println(substring);
-
-
 
 
     }

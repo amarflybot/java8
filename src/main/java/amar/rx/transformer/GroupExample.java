@@ -20,14 +20,14 @@ public class GroupExample {
         Collections.shuffle(iterable);
         Observable.from(iterable)
                 .groupBy((i) -> {
-                    return 0 == (i%2) ? EVEN : "ODD";
+                    return 0 == (i % 2) ? EVEN : "ODD";
                 })
                 // Subscribe to the Observable<GroupedObservable<String, Integer>>
-                .subscribe((groupList) ->{
-                    System.out.println("Key: "+ groupList.getKey() + "-----------------------------------------");
+                .subscribe((groupList) -> {
+                    System.out.println("Key: " + groupList.getKey() + "-----------------------------------------");
 
-                    groupList.subscribe((x) ->{
-                        System.out.println(groupList.getKey() + " : " +x);
+                    groupList.subscribe((x) -> {
+                        System.out.println(groupList.getKey() + " : " + x);
                     });
                 });
 
@@ -38,17 +38,16 @@ public class GroupExample {
 
         Observable.from(iterable)
                 .groupBy((i) -> {
-                    return 0 == (i%2) ? EVEN : "ODD";
+                    return 0 == (i % 2) ? EVEN : "ODD";
                 })
                 // Subscribe to the Observable<GroupedObservable<String, Integer>>
-                .subscribe((groupList) ->{
-                        groupList.subscribe(x -> {
-                            if(groupList.getKey().equals(EVEN)){
-                                evenList.add(x);
-                            }
-                            else {
-                                oddList.add(x);
-                            }
+                .subscribe((groupList) -> {
+                    groupList.subscribe(x -> {
+                        if (groupList.getKey().equals(EVEN)) {
+                            evenList.add(x);
+                        } else {
+                            oddList.add(x);
+                        }
 
                     });
                 });
@@ -58,7 +57,7 @@ public class GroupExample {
         System.out.println("");
 
         System.out.println("Even List -------------------------------------------");
-        evenList.forEach(i ->{
+        evenList.forEach(i -> {
             System.out.println(i);
         });
         System.out.println("");

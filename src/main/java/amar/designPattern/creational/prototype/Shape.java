@@ -5,14 +5,13 @@ package amar.designPattern.creational.prototype;
  */
 public abstract class Shape implements Cloneable {
 
-    private String id;
     protected String type;
-
+    private String id;
     private Record record = new Record();
 
     abstract void draw();
 
-    public String getType(){
+    public String getType() {
         return type;
     }
 

@@ -3,7 +3,7 @@ package amar.designPattern.creational.singleton;
 /**
  * Created by amarendra on 04/09/17.
  */
-public enum  SingletonEnum {
+public enum SingletonEnum {
 
     INSTANCE;
 

@@ -26,7 +26,7 @@ public class TestRaceCondition {
             threads[i].join();
         }
 
-        System.out.println("Value --> "+ longWrapper.getL());
+        System.out.println("Value --> " + longWrapper.getL());
     }
 
 }
@@ -39,11 +39,11 @@ class LongWrapper {
         this.l = l;
     }
 
-    public long getL(){
+    public long getL() {
         return l;
     }
 
-    public synchronized void increment(){
-        l = l+ 1;
+    public synchronized void increment() {
+        l = l + 1;
     }
 }

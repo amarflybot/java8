@@ -11,7 +11,7 @@ public class InterpreterDemo {
 
         Expression define = buildInterpreterTree();
 
-        System.out.println(context + " is "+ define.interpret(context));
+        System.out.println(context + " is " + define.interpret(context));
 
     }
 
@@ -21,9 +21,9 @@ public class InterpreterDemo {
         Expression expression1 = new TerminalExpression("bears");
         Expression expression2 = new TerminalExpression("giraffe");
 
-        Expression expressionAnd = new AndExpression(expression,expression1);
-        Expression alteration1 = new AndExpression(expressionAnd,expression2);
-        Expression expressionOr = new AndExpression(expression,expression1);
+        Expression expressionAnd = new AndExpression(expression, expression1);
+        Expression alteration1 = new AndExpression(expressionAnd, expression2);
+        Expression expressionOr = new AndExpression(expression, expression1);
 
         return alteration1;
     }

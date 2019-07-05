@@ -20,7 +20,7 @@ public class ReadFileInSync {
         List<String> records = new ArrayList<>();
         System.out.println("Starting RecordProcessor");
         for (int i = 0; i < 5; i++) {
-            Thread t1 = new Thread(new RecordProcessor(fileReader,records));
+            Thread t1 = new Thread(new RecordProcessor(fileReader, records));
             t1.start();
         }
 
@@ -34,7 +34,7 @@ public class ReadFileInSync {
     }
 }
 
-class RecordAccumulator implements Runnable{
+class RecordAccumulator implements Runnable {
 
     private List<String> strings;
 
@@ -45,7 +45,7 @@ class RecordAccumulator implements Runnable{
     @Override
     public void run() {
         synchronized (strings) {
-            while (strings.size() >= 10 || strings.size()>0) {
+            while (strings.size() >= 10 || strings.size() > 0) {
                 for (int i = 0; i < strings.size(); i++) {
                     System.out.println("result processing by Thread: " + strings.get(i)
                             + " in thread " + Thread.currentThread().getName());
@@ -62,7 +62,7 @@ class RecordAccumulator implements Runnable{
     }
 }
 
-class RecordProcessor implements Runnable{
+class RecordProcessor implements Runnable {
 
     private FileReaderMy fileReaderMy;
     private List<String> strings;
@@ -97,20 +97,12 @@ class RecordProcessor implements Runnable{
     }
 }
 
-class FileReaderMy{
+class FileReaderMy {
 
     private File file;
 
     private BufferedReader bufferedReader;
     private AtomicBoolean fileOver = new AtomicBoolean(false);
-
-    public File getFile() {
-        return file;
-    }
-
-    public boolean isFileover() {
-        return fileOver.get();
-    }
 
     public FileReaderMy(final File file) {
         this.file = file;
@@ -121,6 +113,14 @@ class FileReaderMy{
             e.printStackTrace();
         }
         this.bufferedReader = new BufferedReader(fileReader);
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public boolean isFileover() {
+        return fileOver.get();
     }
 
     public String readLine() throws IOException {

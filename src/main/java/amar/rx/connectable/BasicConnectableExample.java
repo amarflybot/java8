@@ -19,7 +19,7 @@ public class BasicConnectableExample {
 
         connectable
                 .subscribe((t) -> {
-                    System.out.println("Tick: " + Thread.currentThread().getName() + " "+ t);
+                    System.out.println("Tick: " + Thread.currentThread().getName() + " " + t);
                 });
 
         System.out.println("Sleep for 3 seconds");

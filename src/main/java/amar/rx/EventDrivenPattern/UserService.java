@@ -9,6 +9,8 @@ import rx.functions.Action1;
 public interface UserService {
 
     void addUser(String username, String emailID);
+
     void subscribeToUserEvents(Observer<UserEvent> subscriber);
+
     void subscribeToUserEvents(Action1<UserEvent> onNext);
 }

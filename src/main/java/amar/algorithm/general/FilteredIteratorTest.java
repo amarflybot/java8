@@ -9,6 +9,10 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+interface Filter<T> {
+    boolean matches(T element);
+}
+
 /**
  * Created by amarendra on 15/09/17.
  * Write a program to implement filtered Iterator which will take Iterator and condition as inputs.
@@ -19,18 +23,18 @@ public class FilteredIteratorTest {
 
     public static void main(String[] args) {
 
-        final List<Person> personList = Stream.of("1,Amar", "3,Vicky", "4,Papa", "4,Mom","2,Alka")
+        final List<Person> personList = Stream.of("1,Amar", "3,Vicky", "4,Papa", "4,Mom", "2,Alka")
                 .map(string -> string.split(","))
                 .map(parameters -> new Person(Integer.valueOf(parameters[0]), parameters[1]))
                 .collect(Collectors.toList());
 
-        personList.add(new Manager(12,"Merlin"));
-        personList.add(new Manager(13,"Deepesh"));
+        personList.add(new Manager(12, "Merlin"));
+        personList.add(new Manager(13, "Deepesh"));
 
         Filter<Person> personFilter = new PersonCondition();
-        Iterator<Person> personIterator = new FilteredIterator(personList.iterator(),personFilter);
+        Iterator<Person> personIterator = new FilteredIterator(personList.iterator(), personFilter);
 
-        while (personIterator.hasNext()){
+        while (personIterator.hasNext()) {
             System.out.println(personIterator.next());
         }
 
@@ -38,15 +42,15 @@ public class FilteredIteratorTest {
 
 }
 
-class PersonCondition implements Filter<Person>{
+class PersonCondition implements Filter<Person> {
 
     @Override
     public boolean matches(final Person person) {
-        return Arrays.asList("Amar","Alka","Merlin").contains(person.getName());
+        return Arrays.asList("Amar", "Alka", "Merlin").contains(person.getName());
     }
 }
 
-class Manager extends Person{
+class Manager extends Person {
 
     public Manager(final Integer id, final String name) {
         super(id, name);
@@ -57,17 +61,17 @@ class Person {
     private Integer id;
     private String name;
 
+    public Person(final Integer id, final String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
-    }
-
-    public Person(final Integer id, final String name) {
-        this.id = id;
-        this.name = name;
     }
 
     public Integer getId() {
@@ -87,7 +91,7 @@ class Person {
     }
 }
 
-class FilteredIterator<T> implements Iterator<T>{
+class FilteredIterator<T> implements Iterator<T> {
 
     private Iterator<? extends T> iterator;
     private Filter<T> filter;
@@ -119,7 +123,7 @@ class FilteredIterator<T> implements Iterator<T>{
         T oldElement = nextElement;
         while (iterator.hasNext()) {
             T t = iterator.next();
-            if (filter.matches(t)){
+            if (filter.matches(t)) {
                 nextElement = t;
                 hasNext = true;
                 return oldElement;
@@ -128,8 +132,4 @@ class FilteredIterator<T> implements Iterator<T>{
         hasNext = false;
         return oldElement;
     }
-}
-
-interface Filter<T> {
-    boolean matches(T element);
 }

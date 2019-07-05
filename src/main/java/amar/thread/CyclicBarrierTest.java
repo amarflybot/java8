@@ -19,12 +19,12 @@ public class CyclicBarrierTest {
 
             @Override
             public void run() {
-                System.out.println("Cyclic Barrier : "+i++);
+                System.out.println("Cyclic Barrier : " + i++);
             }
         });
 
         System.out.println("Spawning Threads");
-        for(int i=0;i<MAX_THREAD;i++) {
+        for (int i = 0; i < MAX_THREAD; i++) {
             Thread t = new Thread(new WorkerThread(cyclicBarrier, String.format("Thread-%d", i)));
             t.start();
         }
@@ -52,7 +52,7 @@ public class CyclicBarrierTest {
                 System.out.printf("%s : Finished Step 1 work on %s\n", getFormattedDate(sdf), name);
                 int count = cyclicBarrier.await(); // Await returns an int which is the arrival index 1 means first 0 means last
                 System.out.printf("%s : Cyclic Barrier count on %s is %d\n", getFormattedDate(sdf), name, count);
-                if(count == 0) {
+                if (count == 0) {
                     cyclicBarrier.reset();
                 }
                 System.out.printf("%s : Doing Step 2 Batch of Work on %s\n", getFormattedDate(sdf), name);
@@ -62,7 +62,7 @@ public class CyclicBarrierTest {
                 System.out.printf("%s : Finished Step 2 Batch of work on %s\n", getFormattedDate(sdf), name);
                 count = cyclicBarrier.await();
                 System.out.printf("%s : Cyclic Barrier count end of Step 2 Batch of work on %s is %d\n", getFormattedDate(sdf), name, count);
-            } catch(Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

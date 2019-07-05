@@ -5,5 +5,6 @@ package amar.designPattern.behavioural.observer;
  */
 public abstract class Observer {
     protected Subject subject;
+
     abstract void update();
 }

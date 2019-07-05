@@ -5,11 +5,11 @@ import java.util.AbstractList;
 /**
  * Created by amarendra on 02/09/17.
  */
-public class DoublyLinkedList<T> extends AbstractList<T>{
+public class DoublyLinkedList<T> extends AbstractList<T> {
 
+    int count;
     private DoubleNode<T> head;
     private DoubleNode<T> tail;
-    int count;
 
     public DoubleNode<T> getHead() {
         return head;
@@ -30,6 +30,7 @@ public class DoublyLinkedList<T> extends AbstractList<T>{
     public int getCount() {
         return count;
     }
+
     public void addFirst(T value) {
         addFirst(new DoubleNode<>(value));
     }
@@ -55,10 +56,13 @@ public class DoublyLinkedList<T> extends AbstractList<T>{
         }
     }
 
-    public void addLast(T val) {addLast(new DoubleNode<>(val));}
-    public void addLast(DoubleNode<T> node){
+    public void addLast(T val) {
+        addLast(new DoubleNode<>(val));
+    }
 
-        if (count == 0){
+    public void addLast(DoubleNode<T> node) {
+
+        if (count == 0) {
             head = tail;
         } else {
             tail.setNext(node);
@@ -69,9 +73,9 @@ public class DoublyLinkedList<T> extends AbstractList<T>{
 
     }
 
-    public T removeFirst(){
+    public T removeFirst() {
         T t = head.getValue();
-        if (count != 0){
+        if (count != 0) {
             if (count == 1) {
                 head = null;
                 tail = null;
@@ -115,7 +119,7 @@ public class DoublyLinkedList<T> extends AbstractList<T>{
     @Override
     public boolean add(final T t) {
 
-        if (count == 0 ){
+        if (count == 0) {
             addFirst(t);
         } else {
             addLast(t);
@@ -127,7 +131,7 @@ public class DoublyLinkedList<T> extends AbstractList<T>{
     @Override
     public T remove(final int index) {
         final DoubleNode<T> byIndex = getByIndex(index);
-        if (byIndex.getPrevious() == null){
+        if (byIndex.getPrevious() == null) {
             //this is first node
             byIndex.getNext().setPrevious(byIndex.getPrevious());
         } else if (byIndex.getNext() == null) {
@@ -137,15 +141,15 @@ public class DoublyLinkedList<T> extends AbstractList<T>{
             byIndex.getPrevious().setNext(byIndex.getNext());
             byIndex.getNext().setPrevious(byIndex.getPrevious());
         }
-        count --;
+        count--;
         return byIndex.getValue();
     }
 
     public DoubleNode<T> getByIndex(final int index) {
         int i = 0;
         DoubleNode<T> currentNode = head;
-        while (currentNode.getNext() != null){
-            if (i == index){
+        while (currentNode.getNext() != null) {
+            if (i == index) {
                 return currentNode;
             }
             i++;

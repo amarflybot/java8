@@ -3,7 +3,7 @@ package amar.rx.jdbcInteraction.dto;
 /**
  * Created by amarendra on 22/10/16.
  */
-public class Address extends CustomerRelatedData{
+public class Address extends CustomerRelatedData {
 
     private Long id;
     private String address1;

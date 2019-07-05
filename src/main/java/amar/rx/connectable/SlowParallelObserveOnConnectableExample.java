@@ -22,13 +22,13 @@ public class SlowParallelObserveOnConnectableExample {
         connectable
                 .observeOn(Schedulers.computation())
                 .subscribe((t) -> {
-                    System.out.println("Tick1 : " + Thread.currentThread().getName() + " "+ t);
+                    System.out.println("Tick1 : " + Thread.currentThread().getName() + " " + t);
                 });
 
         connectable
                 .observeOn(Schedulers.io())
                 .subscribe((t) -> {
-                    System.out.println("Tick2 : " + Thread.currentThread().getName() + " "+ t);
+                    System.out.println("Tick2 : " + Thread.currentThread().getName() + " " + t);
                     ThreadUtils.sleep(1000);
                 });
 

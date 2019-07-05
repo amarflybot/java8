@@ -23,18 +23,18 @@ public class SubscriptionAllOneThread {
         Object waitMonitor = new Object();
         synchronized (waitMonitor) {
             integerObservable
-                    .flatMap( integer -> Observable.just(integer)
-                    .subscribeOn(Schedulers.io())
-                    .doOnNext((xx) -> {
-                        System.out.println("Parallel thread in " + Thread.currentThread().getName());
-                        System.out.println("Parallel "+xx);
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        System.out.println("Parallel thread out " + Thread.currentThread().getName());
-                    }))
+                    .flatMap(integer -> Observable.just(integer)
+                            .subscribeOn(Schedulers.io())
+                            .doOnNext((xx) -> {
+                                System.out.println("Parallel thread in " + Thread.currentThread().getName());
+                                System.out.println("Parallel " + xx);
+                                try {
+                                    Thread.sleep(100);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                System.out.println("Parallel thread out " + Thread.currentThread().getName());
+                            }))
                     //.subscribeOn(Schedulers.io())
                     //.observeOn(Schedulers.io())
                     .subscribe((i) -> {

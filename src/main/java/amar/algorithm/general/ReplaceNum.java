@@ -29,6 +29,6 @@ public class ReplaceNum {
             digit = 0;
         }
 
-        return findReplace(num/10) * 10 + digit;
+        return findReplace(num / 10) * 10 + digit;
     }
 }

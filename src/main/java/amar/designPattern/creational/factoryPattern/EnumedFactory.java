@@ -1,5 +1,66 @@
 package amar.designPattern.creational.factoryPattern;
 
+enum ShapeFactoryE {
+
+    /*private static ShapeFactoryE shapeFactoryE;
+
+    public static ShapeFactoryE getInstance(){
+        if (shapeFactoryE == null){
+            shapeFactoryE = new ShapeFactoryE();
+        }
+        return shapeFactoryE;
+    }*/
+
+    INSTANCE;
+
+    /**
+     * This takes care of the serialization Issues in Enum Singleton
+     *
+     * @return
+     */
+    protected Object readResolve() {
+        return INSTANCE;
+    }
+
+    public ShapeE getShape(ShapeTypeE shapeTypeE, Integer size) {
+        return shapeTypeE.getInstance(size);
+    }
+
+}
+
+enum ShapeTypeE {
+
+    CIRCLE {
+        @Override
+        public ShapeE getInstance(Integer size) {
+            return new CircleE(size);
+        }
+    }, SQUARE {
+        @Override
+        public ShapeE getInstance(Integer size) {
+            return new SquareE(size);
+        }
+    }, TRIANGLE {
+        @Override
+        public ShapeE getInstance(final Integer size) {
+            return new ShapeE(size) {
+
+                @Override
+                void draw() {
+                    System.out.println("Drawing a Triangle of color " + getColor() + " of Area " + area());
+                }
+
+                @Override
+                Double area() {
+                    return (0.5 * getSize() * getSize());
+                }
+            };
+        }
+    };
+
+    public abstract ShapeE getInstance(Integer size);
+}
+
 /**
  * Created by amarendra on 04/09/17.
  */
@@ -21,78 +82,18 @@ public class EnumedFactory {
 
 }
 
-enum ShapeFactoryE{
-
-    /*private static ShapeFactoryE shapeFactoryE;
-
-    public static ShapeFactoryE getInstance(){
-        if (shapeFactoryE == null){
-            shapeFactoryE = new ShapeFactoryE();
-        }
-        return shapeFactoryE;
-    }*/
-
-    INSTANCE;
-
-    /**
-     * This takes care of the serialization Issues in Enum Singleton
-     * @return
-     */
-    protected Object readResolve(){
-        return INSTANCE;
-    }
-
-    public ShapeE getShape(ShapeTypeE shapeTypeE, Integer size){
-        return shapeTypeE.getInstance(size);
-    }
-
-}
-
-enum ShapeTypeE{
-
-    CIRCLE {
-        @Override
-        public ShapeE getInstance(Integer size) {
-            return new CircleE(size);
-        }
-    },SQUARE {
-        @Override
-        public ShapeE getInstance(Integer size) {
-            return new SquareE(size);
-        }
-    }, TRIANGLE{
-        @Override
-        public ShapeE getInstance(final Integer size) {
-            return new ShapeE(size) {
-
-                @Override
-                void draw() {
-                    System.out.println("Drawing a Triangle of color " + getColor() + " of Area " + area());
-                }
-
-                @Override
-                Double area() {
-                    return (0.5 * getSize() * getSize());
-                }
-            };
-        }
-    };
-
-    public abstract ShapeE getInstance(Integer size);
-}
-
 abstract class ShapeE {
 
     private Integer size;
     private String color;
 
-    void draw() {
-        System.out.println("Drawing a " + getClass().getSimpleName() +" of color " + getColor() + " of Area " + area());
-    }
-
     public ShapeE(final Integer size) {
         this.size = size;
         this.color = "UnDefined";
+    }
+
+    void draw() {
+        System.out.println("Drawing a " + getClass().getSimpleName() + " of color " + getColor() + " of Area " + area());
     }
 
     abstract Double area();
@@ -101,16 +102,16 @@ abstract class ShapeE {
         return size;
     }
 
-    public void setColor(final String color) {
-        this.color = color;
-    }
-
     public String getColor() {
         return color;
     }
+
+    public void setColor(final String color) {
+        this.color = color;
+    }
 }
 
-class CircleE extends ShapeE{
+class CircleE extends ShapeE {
 
     public CircleE(final Integer size) {
         super(size);
@@ -127,7 +128,7 @@ class CircleE extends ShapeE{
     }
 }
 
-class SquareE extends ShapeE{
+class SquareE extends ShapeE {
 
     public SquareE(final Integer size) {
         super(size);
@@ -135,7 +136,7 @@ class SquareE extends ShapeE{
 
     @Override
     public void draw() {
-        System.out.println("Drawing a Square of color " + getColor() + " of Area "+ area());
+        System.out.println("Drawing a Square of color " + getColor() + " of Area " + area());
     }
 
     @Override

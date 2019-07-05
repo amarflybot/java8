@@ -11,22 +11,22 @@ public class QuickSelectTest {
 
     public static void main(String[] args) {
 
-        int[] arr = {7,2,1,6,8,5,3,4};
+        int[] arr = {7, 2, 1, 6, 8, 5, 3, 4};
         int k = 4;
-        System.out.println("Select Element number: "+ k);
+        System.out.println("Select Element number: " + k);
         int kthSmallest = findKthSmallest(arr, k);
         int kthLargest = findKthLargest(arr, k);
-        System.out.println("kth smallest : "+ kthSmallest);
-        System.out.println("kth largest : "+ kthLargest);
+        System.out.println("kth smallest : " + kthSmallest);
+        System.out.println("kth largest : " + kthLargest);
 
     }
 
     public static int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> q = new PriorityQueue<>(k);
-        for(int i: nums){
+        for (int i : nums) {
             q.offer(i);
 
-            if(q.size()>k){
+            if (q.size() > k) {
                 q.poll();
             }
         }
@@ -36,10 +36,10 @@ public class QuickSelectTest {
 
     public static int findKthSmallest(int[] nums, int k) {
         PriorityQueue<Integer> q = new PriorityQueue<>(k, Comparator.reverseOrder());
-        for(int i: nums){
+        for (int i : nums) {
             q.offer(i);
 
-            if(q.size()>k){
+            if (q.size() > k) {
                 q.poll();
             }
         }
@@ -68,6 +68,7 @@ public class QuickSelectTest {
 
     /**
      * Its job is to partition the array
+     *
      * @param arr
      * @param startIndex
      * @param endIndex
@@ -77,7 +78,7 @@ public class QuickSelectTest {
         int pivot = arr[endIndex];
         int pIndex = startIndex;
         for (int i = startIndex; i < endIndex; i++) {
-            if (arr[i] <= pivot){
+            if (arr[i] <= pivot) {
                 // Swap arr[i] and arr[pIndex] AND increase pIndex++
                 int temp = arr[i];
                 arr[i] = arr[pIndex];

@@ -7,7 +7,7 @@ public class VarArgTest {
 
 
     public static void main(String[] args) {
-        dostuff(5,5);
+        dostuff(5, 5);
     }
 
     private static void dostuff(int x, int... var) {

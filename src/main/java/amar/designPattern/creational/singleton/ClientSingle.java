@@ -31,10 +31,10 @@ public class ClientSingle {
         final Constructor<?>[] declaredConstructors = aClass.getDeclaredConstructors();
 
         for (Constructor constructor : declaredConstructors) {
-            if (Modifier.isPrivate(constructor.getModifiers())){
+            if (Modifier.isPrivate(constructor.getModifiers())) {
                 constructor.setAccessible(true);
                 final Singleton newInstance = (Singleton) constructor.newInstance();
-                System.out.println("New Instance by reflection"+ newInstance);
+                System.out.println("New Instance by reflection" + newInstance);
 
                 System.out.println(System.identityHashCode(newInstance));
             }

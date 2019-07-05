@@ -19,17 +19,9 @@ public class StockInfo {
         this.value = value;
     }
 
-    public String getTicket() {
-        return ticket;
-    }
-
-    public double getValue() {
-        return value;
-    }
-
     public static StockInfo fetch(String ticket) {
         StockInfo stockInfo = new StockInfo(ticket, getPriceOrig(ticket));
-        if(Math.random() > .8) {
+        if (Math.random() > .8) {
             throw new RuntimeException();
         }
         return stockInfo;
@@ -46,9 +38,21 @@ public class StockInfo {
             double price = Double.parseDouble(dataItems[dataItems.length - 1]);
             //System.out.println("put(\"" + ticker + "\", " + price + ");");
             return price;
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    public static Observable<? extends StockInfo> getDefaultPrice() {
+        return Observable.empty();
+    }
+
+    public String getTicket() {
+        return ticket;
+    }
+
+    public double getValue() {
+        return value;
     }
 
     @Override
@@ -57,9 +61,5 @@ public class StockInfo {
                 "ticket='" + ticket + '\'' +
                 ", value=" + value +
                 '}';
-    }
-
-    public static Observable<? extends StockInfo> getDefaultPrice() {
-        return Observable.empty();
     }
 }

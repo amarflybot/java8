@@ -1,6 +1,11 @@
 package amar.serialization;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
 /**
  * Created by amarendra on 04/01/16.
@@ -34,8 +39,7 @@ public class NestedDeserializationTest {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -44,16 +48,16 @@ public class NestedDeserializationTest {
 
 }
 
-class Dog implements Serializable{
+class Dog implements Serializable {
     Cat cat = new Cat();
 
 }
 
-class Cat implements Serializable{
+class Cat implements Serializable {
     Rat rat = new Rat();
 }
 
-class Rat implements Serializable{
+class Rat implements Serializable {
     int i = 12;
     transient String passwd = "Abc";
     transient int val = 123123;
@@ -61,17 +65,17 @@ class Rat implements Serializable{
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws Exception {
         objectOutputStream.defaultWriteObject();
-        String eun = "123"+ passwd;
-        int eval = val+123;
+        String eun = "123" + passwd;
+        int eval = val + 123;
         objectOutputStream.writeObject(eun);
         objectOutputStream.writeInt(eval);
     }
 
-    private void readObject(ObjectInputStream objectInputStream) throws Exception{
+    private void readObject(ObjectInputStream objectInputStream) throws Exception {
         objectInputStream.defaultReadObject();
         String dun = (String) objectInputStream.readObject();
         int dval = objectInputStream.readInt();
         passwd = dun.substring(3);
-        val = dval-123;
+        val = dval - 123;
     }
 }

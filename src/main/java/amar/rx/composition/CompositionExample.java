@@ -18,21 +18,21 @@ public class CompositionExample {
 
 
             Observable.from(userService.fetchUserList()) // Fetch the User
-                    .flatMap( User -> Observable.just(User) // for parallel thread
+                    .flatMap(User -> Observable.just(User) // for parallel thread
                             .filter((user) -> { // Filter based in Security Status
                                 return user.getUserSecurity() != UserSecurityStatus.ADMIN; // No admins required
                             })
-                            )
+                    )
                     .toSortedList((user, user2) -> { // Sort based in Security group
                         return user.getUserSecurity().compareTo(user2.getUserSecurity());
                     })
                     .subscribeOn(Schedulers.io()) // Subscribe on IO scheduler
-                    .doOnCompleted(()->{ // Notify the waitMonitor that you are done
-                        synchronized (waitMonitor){
+                    .doOnCompleted(() -> { // Notify the waitMonitor that you are done
+                        synchronized (waitMonitor) {
                             waitMonitor.notify(); // Notify
                         }
                     })
-                    .subscribe( (userList) -> { // Subscribe to Iterate over list and Print
+                    .subscribe((userList) -> { // Subscribe to Iterate over list and Print
                         userList.forEach((user) -> {
                             System.out.println(user);
                         });

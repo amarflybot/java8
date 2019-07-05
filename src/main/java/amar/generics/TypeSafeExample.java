@@ -13,8 +13,8 @@ public class TypeSafeExample {
         Concatanate<Person> personConcatanate = new Concatanate<>(new Person(1L, "One"), 1L);
         final Person person = personConcatanate.get();
         final Long id = personConcatanate.getId();
-        System.out.println("Person -> "+ person);
-        System.out.println("Id -> "+ id);
+        System.out.println("Person -> " + person);
+        System.out.println("Id -> " + id);
         personConcatanate.addToMap(2L, new Person(2L, "Two"));
         personConcatanate.addToMap(3L, new Person(3L, "Three"));
 
@@ -37,11 +37,11 @@ class Concatanate<T> {
         this.map.put(id, t);
     }
 
-    public T getById(Long id){
+    public T getById(Long id) {
         return map.get(id);
     }
 
-    public void addToMap(Long id, T t){
+    public void addToMap(Long id, T t) {
         map.put(id, t);
     }
 

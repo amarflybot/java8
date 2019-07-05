@@ -28,7 +28,7 @@ public class SortEmployeeById {
 
 }
 
-class Employee implements Comparable<Employee>{
+class Employee implements Comparable<Employee> {
     private Long id;
     private String name;
 

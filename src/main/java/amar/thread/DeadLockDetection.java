@@ -6,6 +6,7 @@ package amar.thread;
 public class DeadLockDetection {
     static Object lock = new Object();
     static Object lock2 = new Object();
+
     public static void main(String[] args) {
 
         DeadlockLoggingBean deadlockLoggingBean = new DeadlockLoggingBean();
@@ -41,7 +42,7 @@ public class DeadLockDetection {
                         synchronized (lock) {
                             try {
                                 lock.notify();
-                                if(itr==50)
+                                if (itr == 50)
                                     break;
                                 lock.wait();
                             } catch (InterruptedException e) {

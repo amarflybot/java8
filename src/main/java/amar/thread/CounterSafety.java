@@ -52,13 +52,12 @@ public class CounterSafety {
     }
 }
 
-class Runner
-{
+class Runner {
     private Lock lock = new ReentrantLock();
     private Condition condition = lock.newCondition();
     private int count;
 
-    private void increment(){
+    private void increment() {
         for (int i = 0; i < 10000; i++) {
             count++;
         }
@@ -92,6 +91,6 @@ class Runner
     }
 
     public void finish() {
-        System.out.println("After all done, count = "+ count);
+        System.out.println("After all done, count = " + count);
     }
 }

@@ -40,7 +40,7 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
 
     @Override
     public boolean contains(final Object o) {
-        return this.contains((T)o);
+        return this.contains((T) o);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
 
     @Override
     public boolean remove(final Object o) {
-        return remove((T)o);
+        return remove((T) o);
     }
 
     @Override
@@ -111,38 +111,40 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
     }
 
     @Override
-    public boolean add(final T val){
+    public boolean add(final T val) {
         return add(this.head, new BinaryNode<>(val));
     }
 
-    public boolean add(final BinaryNode<T> node){
+    public boolean add(final BinaryNode<T> node) {
         return add(this.head, node);
     }
 
-    private boolean add(final BinaryNode<T> binaryNode, final BinaryNode<T> toAdd){
+    private boolean add(final BinaryNode<T> binaryNode, final BinaryNode<T> toAdd) {
 
-        if (binaryNode == null){
+        if (binaryNode == null) {
             //This is first node and hence the head node.
             head = toAdd;
             return true;
         }
 
-        if (binaryNode.getValue().compareTo(toAdd.getValue()) > 0){
+        if (binaryNode.getValue().compareTo(toAdd.getValue()) > 0) {
 
             if (binaryNode.getLeft() == null) {
                 binaryNode.setLeft(toAdd);
                 count++;
-                getRightHeight(); getLeftHeight();
+                getRightHeight();
+                getLeftHeight();
                 return true;
             } else {
-                add(binaryNode.getLeft(),toAdd);
+                add(binaryNode.getLeft(), toAdd);
             }
 
         } else {
-            if (binaryNode.getRight() == null){
+            if (binaryNode.getRight() == null) {
                 binaryNode.setRight(toAdd);
                 count++;
-                getRightHeight(); getLeftHeight();
+                getRightHeight();
+                getLeftHeight();
                 return true;
             } else {
                 add(binaryNode.getRight(), toAdd);
@@ -155,18 +157,18 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
         return find(this.head, val) != null;
     }
 
-    private BinaryNode<T> find(BinaryNode<T> binaryNode, T val){
+    private BinaryNode<T> find(BinaryNode<T> binaryNode, T val) {
         BinaryNode<T> ret;
 
         if (binaryNode == null) {
             return null;
         }
 
-        if (binaryNode.getValue().equals(val)){
+        if (binaryNode.getValue().equals(val)) {
             return binaryNode;
         }
 
-        if (binaryNode.getValue().compareTo(val) > 0){
+        if (binaryNode.getValue().compareTo(val) > 0) {
             ret = find(binaryNode.getLeft(), val);
         } else {
             ret = find(binaryNode.getRight(), val);
@@ -175,22 +177,22 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
         return ret;
     }
 
-    public BinaryNode<T> findWithParent(T val){
+    public BinaryNode<T> findWithParent(T val) {
         return findWithParent(this.head, val, this.head);
     }
 
-    private BinaryNode<T> findWithParent(BinaryNode<T> binaryNode, T val, BinaryNode<T> parent){
+    private BinaryNode<T> findWithParent(BinaryNode<T> binaryNode, T val, BinaryNode<T> parent) {
         BinaryNode<T> ret;
 
         if (binaryNode == null) {
             return null;
         }
 
-        if (binaryNode.getValue().equals(val)){
+        if (binaryNode.getValue().equals(val)) {
             return parent;
         }
 
-        if (binaryNode.getValue().compareTo(val) > 0){
+        if (binaryNode.getValue().compareTo(val) > 0) {
             ret = findWithParent(binaryNode.getLeft(), val, binaryNode);
         } else {
             ret = findWithParent(binaryNode.getRight(), val, binaryNode);
@@ -199,9 +201,9 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
         return ret;
     }
 
-    public boolean remove(T val){
+    public boolean remove(T val) {
 
-        BinaryNode<T> current = find(this.head,val);
+        BinaryNode<T> current = find(this.head, val);
 
         BinaryNode<T> parent = findWithParent(val);
 
@@ -211,7 +213,8 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
         }
 
         count--;
-        getRightHeight(); getLeftHeight();
+        getRightHeight();
+        getLeftHeight();
 
         // Case 1: If the current node has no right child, then the current's left replaces the current.
 
@@ -219,8 +222,7 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
 
             if (parent == null) {
                 head = current.getLeft();
-            }
-            else {
+            } else {
                 int compareTo = parent.compareTo(current);
 
                 if (compareTo > 0) {
@@ -231,7 +233,7 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
             }
         }
         // Case 2: If the current node has no left child, then current's right replaces the current.
-        else if (current.getLeft() == null){
+        else if (current.getLeft() == null) {
 
             if (parent == null) {
                 head = current.getRight();
@@ -254,7 +256,7 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
             BinaryNode<T> leftMostParent = current.getRight();
 
             // find the right's left most child.
-            while (leftMost.getLeft() != null){
+            while (leftMost.getLeft() != null) {
                 leftMostParent = leftMost;
                 leftMost = leftMost.getLeft();
             }
@@ -266,11 +268,11 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
             leftMost.setLeft(current.getLeft());
             leftMost.setRight(current.getRight());
 
-            if (parent == null){
+            if (parent == null) {
                 head = leftMost;
             } else {
                 int compareTo = parent.compareTo(current);
-                if (compareTo > 0){
+                if (compareTo > 0) {
                     parent.setLeft(leftMost);
                 } else {
                     parent.setRight(leftMost);
@@ -282,19 +284,19 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
         return true;
     }
 
-    public void postOrderTraversal(){
+    public void postOrderTraversal() {
         postOrderTraversal(head);
     }
 
-    public void inOrderTraversal(){
+    public void inOrderTraversal() {
         inOrderTraversal(head);
     }
 
-    public void preOrderTraversal(){
+    public void preOrderTraversal() {
         preOrderTraversal(head);
     }
 
-    private <T extends Comparable<T>> void postOrderTraversal(BinaryNode<T> node){
+    private <T extends Comparable<T>> void postOrderTraversal(BinaryNode<T> node) {
         if (node == null) {
             return;
         }
@@ -318,7 +320,7 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
         inOrderTraversal(node.getRight());
     }
 
-    private <T extends Comparable<T>> void preOrderTraversal(BinaryNode<T> node){
+    private <T extends Comparable<T>> void preOrderTraversal(BinaryNode<T> node) {
         if (node == null) {
             return;
         }
@@ -344,22 +346,22 @@ public class BalancedBinaryTree<T extends Comparable<T>> implements Collection<T
         return rightHeight;
     }
 
-    private int findMaxChildHeight(BinaryNode<T> node){
+    private int findMaxChildHeight(BinaryNode<T> node) {
 
         if (node == null) {
             return 0;
         } else {
-            return 1 + Math.max(findMaxChildHeight(node.getRight()) , findMaxChildHeight(node.getLeft()));
+            return 1 + Math.max(findMaxChildHeight(node.getRight()), findMaxChildHeight(node.getLeft()));
         }
 
     }
 
-    private int isBalanced(){
+    private int isBalanced() {
         int balance = rightHeight - leftHeight;
-        if (balance <= balance_factor && balance >= (-1*balance_factor)) {
+        if (balance <= balance_factor && balance >= (-1 * balance_factor)) {
             state = TreeState.BALANCED;
             return 0;
-        } else if(balance > 0) {
+        } else if (balance > 0) {
             state = TreeState.RIGHT_HEAVY;
         } else {
             state = TreeState.LEFT_HEAVY;

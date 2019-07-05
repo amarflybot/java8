@@ -21,7 +21,7 @@ public class TestBaseClasses {
         ConcreteClass object = null;
         try {
             Constructor<?>[] constructors = concreteClass.getDeclaredConstructors();
-            for(Constructor constructor : constructors){
+            for (Constructor constructor : constructors) {
                 if (Modifier.isPrivate(constructor.getModifiers())) {
                     constructor.setAccessible(true);
                     object = (ConcreteClass) constructor.newInstance();

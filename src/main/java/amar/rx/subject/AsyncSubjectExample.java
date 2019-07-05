@@ -3,7 +3,6 @@ package amar.rx.subject;
 import amar.rx.helper.DataGenerator;
 import rx.Observable;
 import rx.subjects.AsyncSubject;
-import rx.subjects.BehaviorSubject;
 
 /**
  * Created by amarendra on 20/10/16.
@@ -27,7 +26,7 @@ public class AsyncSubjectExample {
                         (t) -> {
                             subject.onError(t);
                         },
-                        ()->{
+                        () -> {
                             System.out.println("On Completed");
                             subject.onCompleted();
                         });

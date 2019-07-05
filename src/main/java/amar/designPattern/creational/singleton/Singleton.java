@@ -11,9 +11,18 @@ public class Singleton {
 
     }
 
-    private static class SingletonHelper{
+    public static Singleton getInstance() {
+        return SingletonHelper.getInstance();
+    }
 
-        private static Singleton getInstance(){
+    @Override
+    public String toString() {
+        return "Singleton Instance";
+    }
+
+    private static class SingletonHelper {
+
+        private static Singleton getInstance() {
             if (singleton == null) {
                 synchronized (Singleton.class) {
                     if (singleton == null) {
@@ -23,16 +32,6 @@ public class Singleton {
             }
             return singleton;
         }
-    }
-
-
-    @Override
-    public String toString() {
-        return "Singleton Instance";
-    }
-
-    public static Singleton getInstance() {
-        return SingletonHelper.getInstance();
     }
 }
 

@@ -8,16 +8,16 @@ import java.util.Deque;
  */
 public class MessageSubject extends Subject {
 
-    private Deque<String> deque  = new ArrayDeque<>();
+    private Deque<String> deque = new ArrayDeque<>();
+
+    @Override
+    String getState() {
+        return this.deque.getLast();
+    }
 
     @Override
     void setState(String state) {
         this.deque.add(state);
         this.notifyAllObservers();
-    }
-
-    @Override
-    String getState() {
-        return this.deque.getLast();
     }
 }

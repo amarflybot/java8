@@ -23,7 +23,7 @@ public class Solution {
         _r = Integer.parseInt(in.nextLine().trim());
 
         res = oddNumbers(_l, _r);
-        for(int res_i=0; res_i < res.length; res_i++) {
+        for (int res_i = 0; res_i < res.length; res_i++) {
             bw.write(String.valueOf(res[res_i]));
             bw.newLine();
         }
@@ -32,20 +32,20 @@ public class Solution {
     }
 
     private static int[] oddNumbers(int l, int r) {
-        int max = (r - l)/2 + 1;
+        int max = (r - l) / 2 + 1;
         int[] arr = new int[max];
-        int j=0;
-        if (l % 2 == 0){
-            l=l+1;
-            for (int i = l; i <= r; i=i+2) {
+        int j = 0;
+        if (l % 2 == 0) {
+            l = l + 1;
+            for (int i = l; i <= r; i = i + 2) {
                 arr[j] = l;
-                l=l+2;
+                l = l + 2;
                 j++;
             }
         } else {
-            for (int i = l; i <= r; i=i+2) {
+            for (int i = l; i <= r; i = i + 2) {
                 arr[j] = l;
-                l=l+2;
+                l = l + 2;
                 j++;
             }
         }

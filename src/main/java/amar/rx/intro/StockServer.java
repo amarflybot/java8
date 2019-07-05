@@ -19,8 +19,7 @@ public class StockServer {
 
                     sleep(1000);
                 }
-            }
-            catch (Exception ex){
+            } catch (Exception ex) {
                 subscriber.onError(ex);
             }
         });

@@ -12,7 +12,7 @@ public class VisitorDemo {
         order.addPart(new Fender());
         order.addPart(new Oil());
 
-        order.addPart(new AtvPart(){
+        order.addPart(new AtvPart() {
             @Override
             public void accept(final AtvPartVisitor visitor) {
                 visitor.visit(this);
@@ -22,7 +22,6 @@ public class VisitorDemo {
         order.accept(new AtvPartsShippingVisitor());
         order.accept(new AtvPartsDisplayVisitor());
 
-        
 
     }
 }

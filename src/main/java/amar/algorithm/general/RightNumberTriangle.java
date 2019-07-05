@@ -2,25 +2,24 @@ package amar.algorithm.general;
 
 /**
  * Created by amarendra on 02/09/17.
- *
- Maximum sum of a path in a Right Number Triangle
-
- Given a right triangle of numbers, find the largest of the sum of numbers that appear on the paths starting
- from the top towards the base, so that on each path the next number is located directly below or below-and-one-place-to-the-right.
-
- Input :1
-        1 2
-        4 1 2
-        2 3 1 1
- Output : 9
- Explanation : 1 + 1 + 4 + 3
-
- Input :2
-        4 1
-        1 2 7
- Output : 10
- Explanation : 2 + 1 + 7
-
+ * <p>
+ * Maximum sum of a path in a Right Number Triangle
+ * <p>
+ * Given a right triangle of numbers, find the largest of the sum of numbers that appear on the paths starting
+ * from the top towards the base, so that on each path the next number is located directly below or below-and-one-place-to-the-right.
+ * <p>
+ * Input :1
+ * 1 2
+ * 4 1 2
+ * 2 3 1 1
+ * Output : 9
+ * Explanation : 1 + 1 + 4 + 3
+ * <p>
+ * Input :2
+ * 4 1
+ * 1 2 7
+ * Output : 10
+ * Explanation : 2 + 1 + 7
  */
 public class RightNumberTriangle {
 
@@ -48,7 +47,7 @@ public class RightNumberTriangle {
         for (int i = 0; i <= 3; i++) {
             int max = 0;
             for (int j = 0; j <= i; j++) {
-                if (max < triangle[i][j]){
+                if (max < triangle[i][j]) {
                     max = triangle[i][j];
                 }
             }
@@ -56,7 +55,7 @@ public class RightNumberTriangle {
             res = res + max;
         }
 
-        System.out.println("Result -> "+ res);
+        System.out.println("Result -> " + res);
     }
 
 }

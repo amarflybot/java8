@@ -2,7 +2,6 @@ package amar.rx.subject;
 
 import amar.rx.helper.DataGenerator;
 import rx.Observable;
-import rx.schedulers.Schedulers;
 import rx.subjects.BehaviorSubject;
 
 /**
@@ -32,7 +31,7 @@ public class BehaviourSubjectExample2 {
                         (t) -> {
                             subject.onError(t);
                         },
-                        ()->{
+                        () -> {
                             System.out.println("On Completed");
                             subject.onCompleted();
                         });

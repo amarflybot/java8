@@ -1,9 +1,22 @@
 package amar.collections;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.IdentityHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.StringJoiner;
 
-import static java.util.Comparator.*;
 import static java.util.Comparator.comparing;
+
+enum People {
+    AMAR,
+    ALKA,
+    VICKY,
+    DEEPAK,
+    OLA
+}
 
 /**
  * Created by amarendra on 28/08/17.
@@ -11,7 +24,6 @@ import static java.util.Comparator.comparing;
 public class Test1 {
 
     public static void main(String[] args) {
-
 
 
         Map<Person, Long> personMap = new IdentityHashMap<>();
@@ -27,24 +39,14 @@ public class Test1 {
         System.out.println(personSet);
 
 
-
     }
 }
 
-enum People{
-    AMAR,
-    ALKA,
-    VICKY,
-    DEEPAK,
-    OLA
-}
-
-class Person implements Comparable<Person>{
-    private Long id;
-    private String name;
-
+class Person implements Comparable<Person> {
     public final static Comparator<Person> BY_NAME = comparing(Person::getName);
     public final static Comparator<Person> BY_KEY = comparing(Person::getId);
+    private Long id;
+    private String name;
 
     public Person(Long id, String name) {
         this.id = id;
@@ -55,12 +57,12 @@ class Person implements Comparable<Person>{
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setId(final Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(final String name) {

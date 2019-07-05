@@ -2,7 +2,7 @@ package amar.primitive;
 
 /**
  * Created by amarendra on 17/09/17.
- *
+ * <p>
  * "bsilfd"
  */
 public class PrimitivesTest {
@@ -27,18 +27,18 @@ public class PrimitivesTest {
         boolean b1 = true;
         char ch1 = 'c';
 
-        System.out.println("Byte: "+ b);
-        System.out.println("Short: "+ sh);
-        System.out.println("Short: "+ sh1);
-        System.out.println("Int: "+ in);
-        System.out.println("Long: "+ ln);
-        System.out.println("Long1: "+ ln1);
-        System.out.println("Float: "+ fl);
-        System.out.println("Float1: "+ fl1);
-        System.out.println("Double: "+ db);
-        System.out.println("Double1: "+ db1);
-        System.out.println("Boolean: "+ b1);
-        System.out.println("Char: "+ ch1);
+        System.out.println("Byte: " + b);
+        System.out.println("Short: " + sh);
+        System.out.println("Short: " + sh1);
+        System.out.println("Int: " + in);
+        System.out.println("Long: " + ln);
+        System.out.println("Long1: " + ln1);
+        System.out.println("Float: " + fl);
+        System.out.println("Float1: " + fl1);
+        System.out.println("Double: " + db);
+        System.out.println("Double1: " + db1);
+        System.out.println("Boolean: " + b1);
+        System.out.println("Char: " + ch1);
 
 
     }

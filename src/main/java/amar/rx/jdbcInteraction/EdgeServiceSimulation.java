@@ -25,7 +25,7 @@ public class EdgeServiceSimulation {
 
         Object waitMonitor = new Object();
 
-        synchronized (waitMonitor){
+        synchronized (waitMonitor) {
 
             Observable<Customer> customerData = customerService.fetchCustomersWithAddressesAndOwnedProducts(3);
 
@@ -41,7 +41,7 @@ public class EdgeServiceSimulation {
                             }
                             ,
                             () -> {
-                                synchronized (waitMonitor){
+                                synchronized (waitMonitor) {
                                     waitMonitor.notify();
                                 }
                             }

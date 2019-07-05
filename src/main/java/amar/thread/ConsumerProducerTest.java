@@ -32,9 +32,9 @@ class EvenRunner implements Runnable {
         for (int i = 0; i <= 10; ) {
             synchronized (array) {
                 array[0] = i;
-                array[1] = i+1;
-                System.out.println("Added by Thread Name: " + Thread.currentThread().getName() + " - "+array[0]);
-                System.out.println("Added by Thread Name: " + Thread.currentThread().getName() + " - "+array[1]);
+                array[1] = i + 1;
+                System.out.println("Added by Thread Name: " + Thread.currentThread().getName() + " - " + array[0]);
+                System.out.println("Added by Thread Name: " + Thread.currentThread().getName() + " - " + array[1]);
                 array.notify();
                 try {
                     array.wait(1000);
@@ -58,10 +58,10 @@ class OddRunner implements Runnable {
 
     @Override
     public void run() {
-        while (array[0] != 0 || array[1] != 0){
+        while (array[0] != 0 || array[1] != 0) {
             synchronized (array) {
-                System.out.println("Removed by Thread Name: " + Thread.currentThread().getName() + " - "+array[0]);
-                System.out.println("Removed By Thread Name: " + Thread.currentThread().getName() + " - "+array[1]);
+                System.out.println("Removed by Thread Name: " + Thread.currentThread().getName() + " - " + array[0]);
+                System.out.println("Removed By Thread Name: " + Thread.currentThread().getName() + " - " + array[1]);
                 array[0] = 0;
                 array[1] = 0;
                 try {

@@ -32,9 +32,10 @@ public class TestVolatile {
     }
 }
 
-class TestRun implements Callable<Integer>{
+class TestRun implements Callable<Integer> {
 
     Test.Counter test;
+
     public TestRun(Test.Counter test) {
         this.test = test;
     }
@@ -47,7 +48,7 @@ class TestRun implements Callable<Integer>{
     }
 }
 
-class Test{
+class Test {
 
     public static class Counter {
 

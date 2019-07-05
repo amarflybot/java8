@@ -17,10 +17,10 @@ public class EvenOdd {
         StringBuilder stringBuilder = new StringBuilder();
         while ((line = in.readLine()) != null) {
             final String[] numbers = line.split("");
-            for (int i = 0; i < numbers.length-1; i++) {
+            for (int i = 0; i < numbers.length - 1; i++) {
                 String first = numbers[i];
                 String second = numbers[i + 1];
-                if (checkOdd(first) && checkOdd(second)){
+                if (checkOdd(first) && checkOdd(second)) {
                     stringBuilder.append(first).append("-");
                 } else if (checkEven(first) && checkEven(second)) {
                     stringBuilder.append(first).append("*");
@@ -28,16 +28,16 @@ public class EvenOdd {
                     stringBuilder.append(first);
                 }
             }
-            stringBuilder.append(numbers[numbers.length-1]);
+            stringBuilder.append(numbers[numbers.length - 1]);
             System.out.println(stringBuilder);
         }
     }
 
-    private static boolean checkOdd(String str){
+    private static boolean checkOdd(String str) {
         return Integer.parseInt(str) % 2 == 1;
     }
 
-    private static boolean checkEven(String str){
+    private static boolean checkEven(String str) {
         return Integer.parseInt(str) % 2 == 0;
     }
 }

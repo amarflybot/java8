@@ -23,7 +23,7 @@ public class PositionalExampleFirstAndLastEithPredicate {
         }).subscribe(letter -> {
             System.out.println(letter);
         });
-        
+
         System.exit(0);
 
     }

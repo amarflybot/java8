@@ -20,8 +20,6 @@ public class CollectionTest {
         clients.add(new Client("gfjfgj"));
 
 
-
-
         Collections.sort(clients, new Comparator<Client>() {
             @Override
             public int compare(Client o1, Client o2) {
@@ -33,7 +31,7 @@ public class CollectionTest {
     }
 }
 
-final class Client{
+final class Client {
 
     final private String name;
     private List<Client> clients;

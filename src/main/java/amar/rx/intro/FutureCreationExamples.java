@@ -16,18 +16,18 @@ public class FutureCreationExamples {
 
         Observable<List<Integer>> listObservable;
 
-        FutureTask<List<Integer>> futureTask = new FutureTask<List<Integer>>(()-> DataGenerator.generateArrayList());
+        FutureTask<List<Integer>> futureTask = new FutureTask<List<Integer>>(() -> DataGenerator.generateArrayList());
 
         listObservable = Observable.from(futureTask);
 
         Schedulers.computation().createWorker().schedule(() -> {
-           futureTask.run();
+            futureTask.run();
         });
 
         listObservable.subscribe((list) -> {
-           list.forEach((i) -> {
-               System.out.println(i);
-           });
+            list.forEach((i) -> {
+                System.out.println(i);
+            });
         });
     }
 }

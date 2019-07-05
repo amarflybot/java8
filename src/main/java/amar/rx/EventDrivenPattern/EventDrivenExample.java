@@ -13,7 +13,7 @@ public class EventDrivenExample {
 
         new EmailMonitor(emailService, userService);
 
-        userService.addUser("Amar","amar@gmail.com");
+        userService.addUser("Amar", "amar@gmail.com");
 
         Thread.sleep(2000);
 

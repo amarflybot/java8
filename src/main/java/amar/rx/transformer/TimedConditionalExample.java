@@ -1,7 +1,7 @@
 package amar.rx.transformer;
 
-import amar.rx.helper.TimedEventSequence;
 import amar.rx.helper.DataGenerator;
+import amar.rx.helper.TimedEventSequence;
 import rx.Observable;
 
 /**
@@ -17,7 +17,7 @@ public class TimedConditionalExample {
 
 
         // Depending upon who has more frequency that takes precedence.
-        Observable.amb(sequence1.toObservable(),sequence2.toObservable())
+        Observable.amb(sequence1.toObservable(), sequence2.toObservable())
                 .subscribe(s -> {
                     System.out.println(s);
                 });

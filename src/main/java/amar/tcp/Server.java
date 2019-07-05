@@ -20,8 +20,7 @@ public class Server {
             out.close();
             skt.close();
             srvr.close();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.print("Whoops! It didn't work!\n");
         }
     }

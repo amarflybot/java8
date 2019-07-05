@@ -14,12 +14,12 @@ public class FailFastVsFailSafe {
     public static void main(String[] args) {
 
         final List<String> stringList = new ArrayList<>();
-        Arrays.asList("Amar","Vicky")
+        Arrays.asList("Amar", "Vicky")
                 .forEach(name -> stringList.add(name));
 
         final Iterator<String> iterator = stringList.iterator();
         try {
-            while (iterator.hasNext()){
+            while (iterator.hasNext()) {
                 System.out.println(iterator.next());
                 stringList.add("Diff");
             }
@@ -28,17 +28,17 @@ public class FailFastVsFailSafe {
         }
 
         List<String> strings = new CopyOnWriteArrayList<>();
-        Arrays.asList("Amar1","Vicky1")
+        Arrays.asList("Amar1", "Vicky1")
                 .forEach(name -> strings.add(name));
 
         final Iterator<String> stringIterator = strings.iterator();
-        while (stringIterator.hasNext()){
+        while (stringIterator.hasNext()) {
             System.out.println(stringIterator.next());
             strings.add("Diff1");
         }
 
         final Iterator<String> iterator1 = strings.iterator();
-        while (iterator1.hasNext()){
+        while (iterator1.hasNext()) {
             System.out.println(iterator1.next());
         }
     }

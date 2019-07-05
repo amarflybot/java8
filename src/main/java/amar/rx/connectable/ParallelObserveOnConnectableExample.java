@@ -21,13 +21,13 @@ public class ParallelObserveOnConnectableExample {
         connectable
                 .observeOn(Schedulers.computation())
                 .subscribe((t) -> {
-                    System.out.println("Tick1 : " + Thread.currentThread().getName() + " "+ t);
+                    System.out.println("Tick1 : " + Thread.currentThread().getName() + " " + t);
                 });
 
         connectable
                 .observeOn(Schedulers.io())
                 .subscribe((t) -> {
-                    System.out.println("Tick2 : " + Thread.currentThread().getName() + " "+ t);
+                    System.out.println("Tick2 : " + Thread.currentThread().getName() + " " + t);
                 });
 
         System.out.println("Sleep for 3 seconds");

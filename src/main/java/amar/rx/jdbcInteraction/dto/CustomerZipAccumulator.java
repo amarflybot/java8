@@ -21,18 +21,17 @@ public class CustomerZipAccumulator {
 
     public Customer collapseCustomerEvents(Object[] events) {
 
-        for(Object event: events) {
+        for (Object event : events) {
 
             CustomerRelatedData nextData = (CustomerRelatedData) event;
 
-            if(nextData instanceof Customer) {
+            if (nextData instanceof Customer) {
                 customer = (Customer) nextData;
             }
 
-            if(nextData instanceof Address) {
+            if (nextData instanceof Address) {
                 customer.addAddress((Address) nextData);
-            }
-            else if (nextData instanceof  Product) {
+            } else if (nextData instanceof Product) {
                 customer.addProducts((Product) nextData);
             }
         }

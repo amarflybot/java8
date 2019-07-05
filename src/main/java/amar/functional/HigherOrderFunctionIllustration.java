@@ -18,12 +18,12 @@ public class HigherOrderFunctionIllustration {
     private static Supplier<String> createCombineAndTransform(
             final String a, final String b,
             final Function<String, String> transformer
-            ){
+    ) {
         return () -> {
             String aa = a;
             String bb = b;
 
-            if(transformer != null){
+            if (transformer != null) {
                 aa = transformer.apply(a);
                 bb = transformer.apply(b);
             }

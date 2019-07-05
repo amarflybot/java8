@@ -15,15 +15,15 @@ public class Test1 {
 
         List<Person> personList = new LinkedList<>();
 
-        personList.add(new Person("Amar",12));
-        personList.add(new Person("Vicky",10));
-        personList.add(new Person("Papa",42));
+        personList.add(new Person("Amar", 12));
+        personList.add(new Person("Vicky", 10));
+        personList.add(new Person("Papa", 42));
 
         System.out.println(personList);
 
         Collections.sort(personList);
 
-        System.out.println("Natural Order -> "+ personList);
+        System.out.println("Natural Order -> " + personList);
 
         Collections.sort(personList, new Comparator<Person>() {
             @Override
@@ -32,13 +32,13 @@ public class Test1 {
             }
         });
 
-        System.out.println("Order by Name -> "+ personList);
+        System.out.println("Order by Name -> " + personList);
     }
 
 }
 
 
-class Person implements Comparable<Person>{
+class Person implements Comparable<Person> {
 
     private String name;
     private Integer age;
@@ -67,10 +67,10 @@ class Person implements Comparable<Person>{
 
     @Override
     public int compareTo(final Person o) {
-        if (this.age > o.getAge()){
+        if (this.age > o.getAge()) {
             return 1;
         }
-        if (this.age<o.getAge()){
+        if (this.age < o.getAge()) {
             return -1;
         }
         return 0;

@@ -5,24 +5,26 @@ package amar.ds;
  */
 public class FibTest {
 
-    static int n1= 0, n2=1,n3=0;
+    static int n1 = 0, n2 = 1, n3 = 0;
 
     private static void printFib(int count) {
         if (count > 0) {
             n3 = n1 + n2;
-            n1= n2;
-            n2= n3;
+            n1 = n2;
+            n2 = n3;
 
-            System.out.println(" "+ n3);
-            printFib(count-1);
+            System.out.println(" " + n3);
+            printFib(count - 1);
         }
     }
 
-    private static int fact(int n){
+    private static int fact(int n) {
 
-        if(n == 1){return 1;}
+        if (n == 1) {
+            return 1;
+        }
 
-        return fact(n-1) * n;
+        return fact(n - 1) * n;
 
     }
 

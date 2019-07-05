@@ -13,8 +13,8 @@ public class Order {
         this.item = item;
     }
 
-    void process(){
-        System.out.println("Ordering " + item+ " for order number " + orderNumber);
+    void process() {
+        System.out.println("Ordering " + item + " for order number " + orderNumber);
     }
 
     @Override

@@ -9,16 +9,16 @@ public class PrototypePatternDemo {
         ShapeCache.loadCache();
 
         Shape circle = ShapeCache.getShape("1");
-        System.out.println("Shape : " + circle.getType() + " "+ System.identityHashCode(circle));
+        System.out.println("Shape : " + circle.getType() + " " + System.identityHashCode(circle));
 
         Shape square = ShapeCache.getShape("2");
-        System.out.println("Shape : " + square.getType()+ " "+ System.identityHashCode(square));
+        System.out.println("Shape : " + square.getType() + " " + System.identityHashCode(square));
 
         Shape rectangle = ShapeCache.getShape("3");
-        System.out.println("Shape : " + rectangle.getType()+ " "+ System.identityHashCode(rectangle) + " " + rectangle.getRecord().hashCode());
+        System.out.println("Shape : " + rectangle.getType() + " " + System.identityHashCode(rectangle) + " " + rectangle.getRecord().hashCode());
 
         Shape rectangle2 = ShapeCache.getShape("3");
-        System.out.println("Shape : " + rectangle2.getType()+ " "+ System.identityHashCode(rectangle2) + " " + rectangle2.getRecord().hashCode());
+        System.out.println("Shape : " + rectangle2.getType() + " " + System.identityHashCode(rectangle2) + " " + rectangle2.getRecord().hashCode());
     }
 
 }

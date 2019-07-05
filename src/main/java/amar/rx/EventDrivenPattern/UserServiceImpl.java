@@ -1,6 +1,5 @@
 package amar.rx.EventDrivenPattern;
 
-import rx.Observable;
 import rx.Observer;
 import rx.functions.Action1;
 import rx.subjects.PublishSubject;
@@ -8,7 +7,7 @@ import rx.subjects.PublishSubject;
 /**
  * Created by amarendra on 22/10/16.
  */
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private final PublishSubject<UserEvent> userServiceEvent;
 
@@ -19,7 +18,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void addUser(String username, String emailID) {
 
-        System.out.println("UserServiceImpl: addUser "+ username + " , "+ emailID);
+        System.out.println("UserServiceImpl: addUser " + username + " , " + emailID);
 
         UserEvent userEvent = new CreateUserEvent(username, emailID);
 

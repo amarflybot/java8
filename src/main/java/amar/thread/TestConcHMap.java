@@ -27,10 +27,10 @@ public class TestConcHMap {
 
     public static void main(String[] args) throws InterruptedException {
 
-        map.put("Bombay",new AtomicInteger(0));
-        map.put("Delhi",new AtomicInteger(0));
-        map.put("Jamshedpur",new AtomicInteger(0));
-        map.put("Bangalore",new AtomicInteger(0));
+        map.put("Bombay", new AtomicInteger(0));
+        map.put("Delhi", new AtomicInteger(0));
+        map.put("Jamshedpur", new AtomicInteger(0));
+        map.put("Bangalore", new AtomicInteger(0));
 
         final ExecutorService executorService = Executors.newFixedThreadPool(2);
         executorService.submit(TestConcHMap::process);

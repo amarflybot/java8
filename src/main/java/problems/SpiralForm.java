@@ -1,7 +1,5 @@
 package problems;
 
-import java.util.Arrays;
-
 /**
  * Created by amarendra on 19/09/17.
  * Print a given matrix in spiral form
@@ -28,9 +26,9 @@ public class SpiralForm {
 
     public static void main(String[] args) {
         int arr[][] = {{1, 2, 3, 4},
-                       {5, 6, 7, 8},
-                       {9, 10, 11, 12},
-                       {13, 14, 15, 16}
+                {5, 6, 7, 8},
+                {9, 10, 11, 12},
+                {13, 14, 15, 16}
         };
 
         printSpiral(arr, 4, 4);
@@ -38,18 +36,18 @@ public class SpiralForm {
 
     private static void printSpiral(int[][] arr, int m, int n) {
 
-        int i=0, k=0, l=0;
+        int i = 0, k = 0, l = 0;
 
-        while (k < m && l < n){
+        while (k < m && l < n) {
 
             // first line
-            for (i=k;i<n;i++){
+            for (i = k; i < n; i++) {
                 System.out.println(arr[k][i] + " ");
             }
             k++;
 
             // right column line
-            for (i=0;i<m;i++){
+            for (i = 0; i < m; i++) {
                 System.out.println(arr[i][m] + " ");
             }
 

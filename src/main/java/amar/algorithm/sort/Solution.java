@@ -1,7 +1,6 @@
 package amar.algorithm.sort;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -16,7 +15,7 @@ public class Solution {
         _coins_size = Integer.parseInt(in.nextLine().trim());
         long[] _coins = new long[_coins_size];
         long _coins_item;
-        for(int _coins_i = 0; _coins_i < _coins_size; _coins_i++) {
+        for (int _coins_i = 0; _coins_i < _coins_size; _coins_i++) {
             _coins_item = Long.parseLong(in.nextLine().trim());
             _coins[_coins_i] = _coins_item;
         }
@@ -31,21 +30,20 @@ public class Solution {
     }
 
     private static void internalLoop(long coin, int no, boolean out) {
-        for (long i =1; i<=coin ; i++){
-            for (long j =1 ; j<=i; j++){
+        for (long i = 1; i <= coin; i++) {
+            for (long j = 1; j <= i; j++) {
                 int check = no++;
-                if((check == coin) && (i !=j )){
-                    System.out.println(i-1);
+                if ((check == coin) && (i != j)) {
+                    System.out.println(i - 1);
                     out = true;
                     break;
-                }
-                else if ((check == coin) && (i == j)){
+                } else if ((check == coin) && (i == j)) {
                     System.out.println(i);
                     out = true;
                     break;
                 }
             }
-            if(out){
+            if (out) {
                 break;
             }
         }

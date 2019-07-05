@@ -14,20 +14,20 @@ public class ConditionalExample {
 
         Observable.empty()
                 .defaultIfEmpty("Hello World")
-                .subscribe((str) ->{
+                .subscribe((str) -> {
                     System.out.println(str);
                 });
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         Observable.from(DataGenerator.generateGreekAlphabet())
                 .defaultIfEmpty("Hello World")
-                .subscribe(str ->{
+                .subscribe(str -> {
                     System.out.println(str);
                 });
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
         integerObservable
                 .skipWhile(i -> {
-                    return i<8;
+                    return i < 8;
                 })
                 .subscribe(integer -> {
                     System.out.println(integer);
@@ -35,7 +35,7 @@ public class ConditionalExample {
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         integerObservable
                 .takeWhile(integer -> {
-                    return integer <8;
+                    return integer < 8;
                 })
                 .subscribe(integer -> {
                     System.out.println(integer);

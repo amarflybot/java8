@@ -9,7 +9,7 @@ public class Test {
 
     public static void main(String[] args) {
 
-        char [] chars =  new char[7];
+        char[] chars = new char[7];
         chars[0] = '5';
         chars[1] = '6';
         chars[2] = '7';
@@ -30,7 +30,7 @@ public class Test {
                 stack.push(anInt);
             } catch (NumberFormatException e) {
                 // This is an operator
-                char right = Character.forDigit(stack.pop(),10);
+                char right = Character.forDigit(stack.pop(), 10);
                 char left = Character.forDigit(stack.pop(), 10);
                 char operator = chars[i];
                 int operated = operate(operator, left, right);
@@ -43,7 +43,7 @@ public class Test {
 
     }
 
-    public static int operate(char operator, char left, char right){
+    public static int operate(char operator, char left, char right) {
 
         switch (operator) {
             case '+':

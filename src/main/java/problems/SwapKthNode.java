@@ -1,13 +1,10 @@
 package problems;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by amarendra on 19/09/17.
- *
+ * <p>
  * Swap Kth node from beginning with Kth node from end in a Linked List
- *
+ * <p>
  * Given a singly linked list, swap kth node from beginning with kth node from end.
  * Swapping of data is not allowed, only pointers should be changed.
  * This requirement may be logical in many situations where the linked list data part is huge
@@ -43,28 +40,34 @@ class SinglyLinkedList<T> {
             head = new Node(data);
         } else {
             Node nodeCurr = head;
-            while (nodeCurr.getNext() != null) { nodeCurr = nodeCurr.getNext(); }
+            while (nodeCurr.getNext() != null) {
+                nodeCurr = nodeCurr.getNext();
+            }
             nodeCurr.setNext(new Node(data));
         }
         count++;
     }
 
     public void removeLast() {
-        if (head == null) { throw new IllegalArgumentException("This list is null");}
-        else {
+        if (head == null) {
+            throw new IllegalArgumentException("This list is null");
+        } else {
             Node nodeCurr = head;
-            while (nodeCurr.getNext().getNext() != null) { nodeCurr = nodeCurr.getNext(); }
+            while (nodeCurr.getNext().getNext() != null) {
+                nodeCurr = nodeCurr.getNext();
+            }
             nodeCurr.setNext(null);
         }
         count--;
     }
 
-    public Node<T>[] elementFromStart(int k){
+    public Node<T>[] elementFromStart(int k) {
         Node<T>[] arr = new Node[2];
-        if (head == null) { throw new IllegalArgumentException("The List is null");}
-        else {
+        if (head == null) {
+            throw new IllegalArgumentException("The List is null");
+        } else {
             Node node = head;
-            for (int i = 1; i < k ; i++) {
+            for (int i = 1; i < k; i++) {
                 arr[0] = node;
                 arr[1] = node.getNext();
                 node = node.getNext();
@@ -73,12 +76,13 @@ class SinglyLinkedList<T> {
         }
     }
 
-    public Node<T>[] elementFromEnd(int k){
+    public Node<T>[] elementFromEnd(int k) {
         Node<T>[] arr = new Node[2];
-        if (head == null) { throw new IllegalArgumentException("The List is null");}
-        else {
+        if (head == null) {
+            throw new IllegalArgumentException("The List is null");
+        } else {
             Node node = head;
-            for (int i = 0; i < (count-k) ; i++) {
+            for (int i = 0; i < (count - k); i++) {
                 arr[0] = node;
                 arr[1] = node.getNext();
                 node = node.getNext();
@@ -87,22 +91,21 @@ class SinglyLinkedList<T> {
         }
     }
 
-    public void printList(){
+    public void printList() {
         Node node = head;
-        while (node!=null){
+        while (node != null) {
             System.out.println(node);
             node = node.getNext();
         }
     }
 
-    public void swap(int k ) {
+    public void swap(int k) {
         // Find the kth node from beginning of linked list.
         // We also find previous of kth node because we need
         // to update next pointer of the previous.
         Node x = head;
         Node x_prev = null;
-        for (int i = 1; i < k; i++)
-        {
+        for (int i = 1; i < k; i++) {
             x_prev = x;
             x = x.next;
         }
@@ -112,8 +115,7 @@ class SinglyLinkedList<T> {
         // from beginning
         Node y = head;
         Node y_prev = null;
-        for (int i = 1; i < count - k + 1; i++)
-        {
+        for (int i = 1; i < count - k + 1; i++) {
             y_prev = y;
             y = y.next;
         }
@@ -152,8 +154,12 @@ class SinglyLinkedList<T> {
 }
 
 class Node<T> {
-    private T data;
     Node next;
+    private T data;
+
+    public Node(final T data) {
+        this.data = data;
+    }
 
     @Override
     public String toString() {
@@ -162,16 +168,12 @@ class Node<T> {
                 '}';
     }
 
-    public Node(final T data) {
-        this.data = data;
+    public T getData() {
+        return data;
     }
 
     public void setData(final T data) {
         this.data = data;
-    }
-
-    public T getData() {
-        return data;
     }
 
     public Node getNext() {

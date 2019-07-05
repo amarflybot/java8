@@ -34,8 +34,8 @@ public class BalancedBinaryTreeTest {
         BinaryNode<Integer> findWithParent = integerBinaryNode.findWithParent(4);
         System.out.println(findWithParent);
 
-        System.out.println("Left Height -> "+integerBinaryNode.getLeftHeight());
-        System.out.println("Right Height -> "+integerBinaryNode.getRightHeight());
+        System.out.println("Left Height -> " + integerBinaryNode.getLeftHeight());
+        System.out.println("Right Height -> " + integerBinaryNode.getRightHeight());
 
     }
 }

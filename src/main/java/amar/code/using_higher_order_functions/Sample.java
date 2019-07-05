@@ -1,9 +1,7 @@
 package amar.code.using_higher_order_functions;
 
-import java.util.*;
-import java.util.function.*;
-import java.util.stream.*;
-import static java.util.stream.Collectors.*;
+import java.util.function.IntPredicate;
+import java.util.stream.IntStream;
 
 public class Sample {
 //  public static boolean isPrime(int number) {
@@ -16,18 +14,18 @@ public class Sample {
 //    }
 //    return false;
 //  }
-  
-  public static boolean isPrime(int number) {
-    IntPredicate indexDividesNumber = i -> number % i == 0;
-    
-    return number > 1 && 
-      IntStream.range(2, number).noneMatch(indexDividesNumber);
-  }
-  
-  public static void main(String[] args) {
-    for(int i = 1; i <= 10; i++) {
-      System.out.printf("%d is prime? %b\n", i, isPrime(i));
+
+    public static boolean isPrime(int number) {
+        IntPredicate indexDividesNumber = i -> number % i == 0;
+
+        return number > 1 &&
+                IntStream.range(2, number).noneMatch(indexDividesNumber);
     }
-  }
+
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.printf("%d is prime? %b\n", i, isPrime(i));
+        }
+    }
 }
 

@@ -1,14 +1,54 @@
 package amar.designPattern.creational.factoryPattern;
 
+enum ColorType {
+    RED {
+        @Override
+        public void draw() {
+            System.out.println("Draw Red");
+        }
+    }, GREEN {
+        @Override
+        public void draw() {
+            System.out.println("Draw Green");
+        }
+    };
+
+    public void draw() {
+        System.out.println("Draw color");
+    }
+}
+
+enum ShapeType {
+    CIRCLE {
+        @Override
+        public void draw() {
+            System.out.println("Draw Circle");
+        }
+    }, SQUARE {
+        @Override
+        public void draw() {
+            System.out.println("Draw Square");
+        }
+    };
+
+    public void draw() {
+        System.out.println("Draw Shape");
+    }
+}
+
 /**
  * Created by amarendra on 15/01/16.
  */
 
-interface Shape{
+interface Shape {
     void draw();
 }
 
-class Circle implements Shape{
+interface Color {
+    void draw();
+}
+
+class Circle implements Shape {
 
     @Override
     public void draw() {
@@ -16,7 +56,7 @@ class Circle implements Shape{
     }
 }
 
-class Square implements Shape{
+class Square implements Shape {
 
     @Override
     public void draw() {
@@ -24,11 +64,7 @@ class Square implements Shape{
     }
 }
 
-interface Color{
-    void draw();
-}
-
-class Red implements Color{
+class Red implements Color {
 
     @Override
     public void draw() {
@@ -36,28 +72,31 @@ class Red implements Color{
     }
 }
 
-class Green implements Color{
+class Green implements Color {
 
     @Override
     public void draw() {
         System.out.println("Drawing green");
     }
 }
-abstract class Factory{
+
+abstract class Factory {
     abstract Shape getShape(ShapeType shape);
+
     abstract Color getColor(ColorType color);
 }
-class ShapeFactory extends Factory{
 
-     Shape getShape(ShapeType shape){
-         switch (shape){
-             case CIRCLE:
-                 return new Circle();
-             case SQUARE:
-                 return new Square();
-             default:
-                 return null;
-         }
+class ShapeFactory extends Factory {
+
+    Shape getShape(ShapeType shape) {
+        switch (shape) {
+            case CIRCLE:
+                return new Circle();
+            case SQUARE:
+                return new Square();
+            default:
+                return null;
+        }
     }
 
     @Override
@@ -66,15 +105,15 @@ class ShapeFactory extends Factory{
     }
 }
 
-class ColorFactory extends Factory{
+class ColorFactory extends Factory {
 
     @Override
     Shape getShape(ShapeType shape) {
         return null;
     }
 
-    Color getColor(ColorType color){
-        switch (color){
+    Color getColor(ColorType color) {
+        switch (color) {
             case RED:
                 return new Red();
             case GREEN:
@@ -85,11 +124,11 @@ class ColorFactory extends Factory{
     }
 }
 
-class FactoryImpl{
+class FactoryImpl {
     Factory colorFactory = new ColorFactory();
     Factory shapeFactory = new ShapeFactory();
 
-    public void drawShape(ShapeType shape, ColorType color){
+    public void drawShape(ShapeType shape, ColorType color) {
         try {
             //colorFactory.getColor(color).draw();
             //shapeFactory.getShape(shape).draw();
@@ -101,44 +140,8 @@ class FactoryImpl{
     }
 }
 
-enum ColorType{
-    RED {
-        @Override
-        public void draw() {
-            System.out.println("Draw Red");
-        }
-    },GREEN {
-        @Override
-        public void draw() {
-            System.out.println("Draw Green");
-        }
-    };
-
-    public void draw(){
-        System.out.println("Draw color");
-    }
-}
-
-enum ShapeType{
-    CIRCLE {
-        @Override
-        public void draw() {
-            System.out.println("Draw Circle");
-        }
-    },SQUARE{
-        @Override
-        public void draw() {
-            System.out.println("Draw Square");
-        }
-    };
-
-    public void draw(){
-        System.out.println("Draw Shape");
-    }
-}
-
 public class FactoryPattern {
     public static void main(String[] args) {
-        new FactoryImpl().drawShape(ShapeType.CIRCLE,ColorType.GREEN);
+        new FactoryImpl().drawShape(ShapeType.CIRCLE, ColorType.GREEN);
     }
 }

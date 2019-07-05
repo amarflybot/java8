@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * Created by amarendra on 23/10/17.
@@ -35,7 +33,7 @@ public class FIleProcessor {
         lineReaderThread1.start();
         lineReaderThread2.start();
         lineReaderThread3.start();
-       //lineProcessorThread2.start();
+        //lineProcessorThread2.start();
         //lineProcessorThread3.start();
         lineProcessorThread.start();
         /*for (int i = 0; i < 10; i++) {
@@ -99,14 +97,14 @@ class LineReader implements Runnable {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        while (true){
+        while (true) {
             synchronized (list) {
                 if (list.size() > 3) {
                     String line;
                     try {
                         assert bufferedReader != null;
                         line = bufferedReader.readLine();
-                        System.out.println("Line Read: " + line +" by thread " + Thread.currentThread().getName());
+                        System.out.println("Line Read: " + line + " by thread " + Thread.currentThread().getName());
                     } catch (IOException e) {
                         break;
                     }

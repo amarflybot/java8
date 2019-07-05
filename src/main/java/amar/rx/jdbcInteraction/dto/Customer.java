@@ -7,11 +7,11 @@ import java.util.List;
 /**
  * Created by amarendra on 22/10/16.
  */
-public class Customer extends CustomerRelatedData{
+public class Customer extends CustomerRelatedData {
 
-    private String username;
     private final List<Address> addresses = new ArrayList<>();
     private final List<Product> products = new ArrayList<>();
+    private String username;
 
     public Customer(Long id, String username) {
         super(id);
@@ -25,11 +25,11 @@ public class Customer extends CustomerRelatedData{
         return username;
     }
 
-    public void addAddress(Address address){
+    public void addAddress(Address address) {
         addresses.add(address);
     }
 
-    public void addProducts(Product product){
+    public void addProducts(Product product) {
         products.add(product);
     }
 

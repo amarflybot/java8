@@ -24,7 +24,7 @@ public class TimeBasedExampleTimeout {
                     .subscribe((t) -> {
                                 System.out.println("Tick: " + t);
                             },
-                            (exception) ->{
+                            (exception) -> {
                                 System.out.println("TIMEOUT!");
                                 exception.printStackTrace();
                             }

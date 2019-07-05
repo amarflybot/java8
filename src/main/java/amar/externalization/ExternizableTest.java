@@ -1,6 +1,13 @@
 package amar.externalization;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 
 /**
  * Created by amarendra on 04/01/16.
@@ -11,7 +18,7 @@ public class ExternizableTest {
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-            Account account = new Account(2,"MyName");
+            Account account = new Account(2, "MyName");
             System.out.println("Account Object Created");
             objectOutputStream.writeObject(account);
             System.out.println("Externalized");
@@ -31,7 +38,7 @@ public class ExternizableTest {
     }
 }
 
-class Account implements Externalizable{
+class Account implements Externalizable {
     int no;
     String name;
 

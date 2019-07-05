@@ -5,11 +5,11 @@ package amar.ooo;
  */
 public abstract class Mammal {
 
-    public void walk(Number number){
-        System.out.println("Walking in Mammal kms: "+number);
+    public void walk(Number number) {
+        System.out.println("Walking in Mammal kms: " + number);
     }
 
-    public Number getNumber(){
+    public Number getNumber() {
         return 9;
     }
 

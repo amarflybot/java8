@@ -12,21 +12,21 @@ public class ScanExample {
 
         Observable<String> observable = Observable.from(DataGenerator.generateGreekAlphabet());
 
-        observable.scan(new StringBuilder(), (accumBuffer , nextLetter) ->{
+        observable.scan(new StringBuilder(), (accumBuffer, nextLetter) -> {
             return accumBuffer.append(" ").append(nextLetter);
         })
-                .subscribe((letter) ->{
-                    System.out.println("Scan Event: " +letter);
+                .subscribe((letter) -> {
+                    System.out.println("Scan Event: " + letter);
                 });
 
         System.out.println("===========================================================");
 
-        observable.scan(new StringBuilder() , (accumBuffer, nextLetter) -> {
+        observable.scan(new StringBuilder(), (accumBuffer, nextLetter) -> {
             return accumBuffer.append(" ").append(nextLetter);
         })
                 .last()
                 .subscribe((letter) -> {
-                    System.out.println("Scan Event: "+ letter);
+                    System.out.println("Scan Event: " + letter);
                 });
 
         System.out.println("===========================================================");

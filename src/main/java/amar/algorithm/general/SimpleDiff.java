@@ -18,7 +18,7 @@ public class SimpleDiff {
 
         int diffRes = array[1] - array[0];
 
-        for (int i = 0; i < array.length - 1 ; i++) {
+        for (int i = 0; i < array.length - 1; i++) {
             int diff = array[i + 1] - array[i];
             if (diff < 0) {
                 diff = diff * -1;
@@ -26,7 +26,7 @@ public class SimpleDiff {
             if (diff <= diffRes) {
                 diffRes = diff;
                 pair[0] = array[i];
-                pair[1] = array[i+1];
+                pair[1] = array[i + 1];
             }
         }
 

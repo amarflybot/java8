@@ -1,11 +1,18 @@
 package amar.scjp;
 
 
-import java.util.*;
+import java.util.Deque;
 import java.util.concurrent.LinkedBlockingDeque;
 
 class Blocking {
     Deque<String> gangOfFour = new LinkedBlockingDeque<String>();
+
+    public static void main(String[] args) {
+        Blocking blocking = new Blocking();
+        blocking.new Consumer().start();
+        blocking.new Producer().start();
+
+    }
 
     class Producer extends Thread {
         String[] authors = {"E Gamma", "R Johnson", "R Helm", "J Vlissides"};
@@ -22,6 +29,7 @@ class Blocking {
             }
         }
     }
+
     class Consumer extends Thread {
         int numOfAuthors = 4;
         // ignore it
@@ -34,12 +42,6 @@ class Blocking {
                 processedAuthors++;
             }
         }
-    }
-    public static void main(String []args) {
-        Blocking blocking = new Blocking();
-        blocking.new Consumer().start();
-        blocking.new Producer().start();
-
     }
 }
 

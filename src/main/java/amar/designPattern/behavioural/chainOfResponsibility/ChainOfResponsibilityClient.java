@@ -7,7 +7,7 @@ public class ChainOfResponsibilityClient {
 
     public static void main(String[] args) {
 
-        Director bryan  = new Director();
+        Director bryan = new Director();
         VP crystal = new VP();
         CEO jeff = new CEO();
 

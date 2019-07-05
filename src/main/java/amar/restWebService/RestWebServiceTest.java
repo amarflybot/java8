@@ -31,19 +31,18 @@ public class RestWebServiceTest {
     }
 
     private static void readObject(final Object object) {
-        if (object instanceof List){
+        if (object instanceof List) {
             List list = (List) object;
-            list.forEach( o -> {
+            list.forEach(o -> {
                 readObject(o);
             });
-        } else if (object instanceof Map){
+        } else if (object instanceof Map) {
             Map map = (Map) object;
-            map.forEach((k,v) -> {
-                System.out.println("Key -> "+ k + " || Value -> "+ v);
+            map.forEach((k, v) -> {
+                System.out.println("Key -> " + k + " || Value -> " + v);
             });
             System.out.println("-------------");
-        }
-        else {
+        } else {
             throw new RuntimeException("Neither a map nor a list");
         }
     }

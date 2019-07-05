@@ -11,7 +11,7 @@ import java.util.HashSet;
 /**
  * Created by amarendra on 20/10/16.
  */
-public class ConnectionSubscription implements Subscription{
+public class ConnectionSubscription implements Subscription {
 
     private final Connection connection;
     private final HashSet<Statement> statements = new HashSet<>();
@@ -27,17 +27,26 @@ public class ConnectionSubscription implements Subscription{
 
         for (ResultSet rs : resultSets) {
             System.out.println(" Closing ResultSet -> " + rs.toString());
-            try {rs.close();} catch (SQLException t) {}
+            try {
+                rs.close();
+            } catch (SQLException t) {
+            }
         }
 
         for (Statement s : statements) {
             System.out.println(" Closing Statement -> " + s.toString());
-            try {s.close();} catch (SQLException t) {}
+            try {
+                s.close();
+            } catch (SQLException t) {
+            }
         }
 
         if (connection != null) {
             System.out.println(" Closing Connection -> " + connection.toString());
-            try {connection.close();} catch (SQLException e) {}
+            try {
+                connection.close();
+            } catch (SQLException e) {
+            }
         }
 
     }
@@ -45,7 +54,7 @@ public class ConnectionSubscription implements Subscription{
     @Override
     public boolean isUnsubscribed() {
 
-        boolean result1 =  statements.stream().filter(s -> {
+        boolean result1 = statements.stream().filter(s -> {
             try {
                 return !s.isClosed();
             } catch (SQLException e) {
@@ -54,7 +63,7 @@ public class ConnectionSubscription implements Subscription{
             return false;
         }).findFirst().isPresent();
 
-        boolean result2 =  resultSets.stream().filter(s -> {
+        boolean result2 = resultSets.stream().filter(s -> {
             try {
                 return !s.isClosed();
             } catch (SQLException e) {

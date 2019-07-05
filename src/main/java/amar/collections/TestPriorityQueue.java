@@ -24,19 +24,23 @@ public class TestPriorityQueue {
     }
 }
 
-class Element implements Comparable<Element>{
+class Element implements Comparable<Element> {
+
+    private Integer integer;
+
+    public Element(final Integer integer) {
+        this.integer = integer;
+    }
+
+    public static Comparator<Element> reverseComparator() {
+        return (o1, o2) -> o2.integer.compareTo(o1.integer);
+    }
 
     @Override
     public String toString() {
         return "Element{" +
                 "integer=" + integer +
                 '}';
-    }
-
-    private Integer integer;
-
-    public Element(final Integer integer) {
-        this.integer = integer;
     }
 
     @Override
@@ -48,14 +52,10 @@ class Element implements Comparable<Element>{
             }
         });
     }
-
-    public static Comparator<Element> reverseComparator() {
-        return (o1, o2) -> o2.integer.compareTo(o1.integer);
-    }
 }
 
 class LivingBeing {
-    public void move() throws ClassCastException{
+    public void move() throws ClassCastException {
 
     }
 }

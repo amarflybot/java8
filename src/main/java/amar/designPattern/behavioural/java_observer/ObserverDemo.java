@@ -1,7 +1,5 @@
 package amar.designPattern.behavioural.java_observer;
 
-import java.util.Collections;
-
 /**
  * Created by amarendra on 05/09/17.
  */

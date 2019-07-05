@@ -8,26 +8,18 @@ public class ATMFactoryImpl implements ATMFactory {
     //private static ATMFactory atmFactory;
     private static Integer integer;
 
+    private ATMFactoryImpl() {
+    }
+
+    private ATMFactoryImpl(Integer integer) {
+        this.integer = integer;
+    }
+
     public static Integer getInteger() {
         return integer;
     }
 
-    private ATMFactoryImpl() {
-    }
-
-    private ATMFactoryImpl(Integer integer){
-        this.integer = integer;
-    }
-
-    private static class ATMFactoryImplHelper{
-        private static ATMFactory atmFactory;
-        private static ATMFactory getInstance(Integer integer){
-             if (atmFactory == null) atmFactory = new ATMFactoryImpl(integer);
-             return atmFactory;
-        }
-    }
-
-    public static ATMFactory getInstance(Integer integer){
+    public static ATMFactory getInstance(Integer integer) {
         /*
         // This is double locking way of implementing Singleton
         if (atmFactory == null ){
@@ -46,5 +38,14 @@ public class ATMFactoryImpl implements ATMFactory {
     @Override
     public void createStatements(final Statement statement) {
         statement.printStatement(getInteger());
+    }
+
+    private static class ATMFactoryImplHelper {
+        private static ATMFactory atmFactory;
+
+        private static ATMFactory getInstance(Integer integer) {
+            if (atmFactory == null) atmFactory = new ATMFactoryImpl(integer);
+            return atmFactory;
+        }
     }
 }

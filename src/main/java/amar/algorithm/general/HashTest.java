@@ -10,7 +10,7 @@ public class HashTest {
         String str = "zeebra";
 
         int hashCode = str.hashCode();
-        int hash = ((hashCode) ^ (hashCode >>> 16))%16;
+        int hash = ((hashCode) ^ (hashCode >>> 16)) % 16;
 
         System.out.println(hash);
 

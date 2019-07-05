@@ -19,11 +19,11 @@ public class TestArrayVsLinkedList {
         Date startDate = new Date();
         for (int i = 0; i < 100000; i++) {
             final long id = Long.parseLong(Integer.valueOf(i).toString());
-            personArrayList.add(new Person(id, "Name"+id));
+            personArrayList.add(new Person(id, "Name" + id));
         }
         System.out.println("personArrayList.size " + personArrayList.size());
         Date endDate = new Date();
-        System.out.println("Time Taken to Add to Array List-> "+ (endDate.getTime()-startDate.getTime()));
+        System.out.println("Time Taken to Add to Array List-> " + (endDate.getTime() - startDate.getTime()));
 
         startDate = new Date();
         for (int i = 0; i < 100000; i++) {
@@ -31,18 +31,18 @@ public class TestArrayVsLinkedList {
             //System.out.println(person);
         }
         endDate = new Date();
-        System.out.println("Time Taken to get from Array List-> "+ (endDate.getTime()-startDate.getTime()));
+        System.out.println("Time Taken to get from Array List-> " + (endDate.getTime() - startDate.getTime()));
 
         System.out.println("-----------------====================---------------------");
 
         startDate = new Date();
         for (int i = 0; i < 100000; i++) {
             final long id = Long.parseLong(Integer.valueOf(i).toString());
-            personLinkedList.add(new Person(id, "Name"+id));
+            personLinkedList.add(new Person(id, "Name" + id));
         }
         System.out.println("personLinkedList.size " + personArrayList.size());
         endDate = new Date();
-        System.out.println("Time Taken to add into Linked List-> "+ (endDate.getTime()-startDate.getTime()));
+        System.out.println("Time Taken to add into Linked List-> " + (endDate.getTime() - startDate.getTime()));
 
         startDate = new Date();
         for (int i = 0; i < 100000; i++) {
@@ -50,6 +50,6 @@ public class TestArrayVsLinkedList {
             //System.out.println(person);
         }
         endDate = new Date();
-        System.out.println("Time Taken to get from Linked List-> "+ (endDate.getTime()-startDate.getTime()));
+        System.out.println("Time Taken to get from Linked List-> " + (endDate.getTime() - startDate.getTime()));
     }
 }

@@ -18,6 +18,6 @@ public class SimpleObserver implements Observer<String> {
 
     @Override
     public void onNext(String string) {
-        System.out.println("onNext " +string);
+        System.out.println("onNext " + string);
     }
 }
