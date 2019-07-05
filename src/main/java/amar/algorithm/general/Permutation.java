@@ -9,7 +9,7 @@ public class Permutation {
 
     public static void main(String[] args) {
 
-        String str = "I love Alka and Alka loves me India";
+        String str = "I love my india";
 
         Date date = new Date();
         List<String> result =
