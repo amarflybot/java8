@@ -1,5 +1,7 @@
 package amar.reflection;
 
+import javax.annotation.PostConstruct;
+
 /**
  * @author Amarendra Kumar
  * @date 04-01-2016 AM 11:24.
@@ -37,6 +39,7 @@ public class ConcreteClass extends BaseClass implements BaseInterface {
         return 0;
     }
 
+    @PostConstruct
     public int method5(int i) {
         System.out.println("Method4 overriden. " + i);
         return 0;
