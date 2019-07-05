@@ -8,8 +8,8 @@ import java.util.Queue;
  */
 public class QueueTest {
 
-    public static void main(String[] args) {
-        Queue<Integer> queue = new LinkedList();
+    public static void main(final String[] args) {
+        final Queue<Integer> queue = new LinkedList();
         queue.add(1);
         queue.add(2);
         queue.add(3);

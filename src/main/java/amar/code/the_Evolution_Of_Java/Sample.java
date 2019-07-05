@@ -1,8 +1,8 @@
 package amar.code.the_Evolution_Of_Java;
 
 public class Sample {
-    public static void main(String[] args) {
-        Thread thread = new Thread(new Runnable() {
+    public static void main(final String[] args) {
+        final Thread thread = new Thread(new Runnable() {
             public void run() {
                 System.out.println("In another thread");
             }

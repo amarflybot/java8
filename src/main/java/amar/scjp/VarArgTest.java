@@ -6,11 +6,11 @@ package amar.scjp;
 public class VarArgTest {
 
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         dostuff(5, 5);
     }
 
-    private static void dostuff(int x, int... var) {
+    private static void dostuff(final int x, final int... var) {
         System.out.println(var[0]);
         System.out.println(x);
     }

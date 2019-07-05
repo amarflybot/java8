@@ -5,19 +5,19 @@ package amar.algorithm.general;
  */
 public class HashTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        String str = "zeebra";
+        final String str = "zeebra";
 
-        int hashCode = str.hashCode();
-        int hash = ((hashCode) ^ (hashCode >>> 16)) % 16;
+        final int hashCode = str.hashCode();
+        final int hash = ((hashCode) ^ (hashCode >>> 16)) % 16;
 
         System.out.println(hash);
 
     }
 
-    static final int hash(Object key) {
-        int h;
+    static final int hash(final Object key) {
+        final int h;
         return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
     }
 }

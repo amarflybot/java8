@@ -11,7 +11,7 @@ public class TestTest {
     @org.junit.Test
     public void testOperate(){
 
-        int result = Test.operate('+', '1', '2');
+        final int result = Test.operate('+', '1', '2');
 
         System.out.println(result);
 
@@ -22,7 +22,7 @@ public class TestTest {
     @org.junit.Test
     public void testOperate2(){
 
-        int result = Test.operate('*', '7', '6');
+        final int result = Test.operate('*', '7', '6');
 
         System.out.println(result);
 
@@ -33,7 +33,7 @@ public class TestTest {
     @org.junit.Test(expected = RuntimeException.class)
     public void testOperateException(){
 
-        int result = Test.operate('/', '1', '2');
+        final int result = Test.operate('/', '1', '2');
 
         Assert.assertEquals(3, result);
 

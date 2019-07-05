@@ -8,8 +8,8 @@ import junit.framework.TestCase;
 public class StringHelperTest extends TestCase {
 
     public void testFor2WordsSwap(){
-        StringHelper stringHelper = new StringHelper();
-        String reversed = stringHelper.reverseLast2Chars("AB");
+        final StringHelper stringHelper = new StringHelper();
+        final String reversed = stringHelper.reverseLast2Chars("AB");
         assertEquals("BA", reversed);
 
 
@@ -17,15 +17,15 @@ public class StringHelperTest extends TestCase {
     }
 
     public void testForAllWordsSwap(){
-        StringHelper stringHelper = new StringHelper();
-        String reversed = stringHelper.reverseLast2Chars("ANIL");
+        final StringHelper stringHelper = new StringHelper();
+        final String reversed = stringHelper.reverseLast2Chars("ANIL");
         assertEquals("ANLI", reversed);
 
     }
 
     public void testString(){
         System.out.println(Math.toIntExact((long) (Math.random() * 100)));
-        String str = "A".substring(0,0);
+        final String str = "A".substring(0,0);
         System.out.println(str);
     }
 }

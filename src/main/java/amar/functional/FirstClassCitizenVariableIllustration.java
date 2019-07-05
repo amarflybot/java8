@@ -8,11 +8,11 @@ import java.util.function.Function;
  */
 public class FirstClassCitizenVariableIllustration {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         System.out.println(concatAndTransform("Hello ", "World Upper", (s) -> s.toUpperCase()));
 
-        Function<String, String> transformLower = (s) -> s.toLowerCase();
+        final Function<String, String> transformLower = (s) -> s.toLowerCase();
 
         System.out.println(concatAndTransform("Hello ", "World Lower", transformLower));
 
@@ -25,17 +25,17 @@ public class FirstClassCitizenVariableIllustration {
         concatFunction = FirstClassCitizenVariableIllustration::concatStrings;
         System.out.println(concatFunction.apply("Hello ", "World 2"));
 
-        FirstClassCitizenVariableIllustration firstClassCitizenVariableIllustration =
+        final FirstClassCitizenVariableIllustration firstClassCitizenVariableIllustration =
                 new FirstClassCitizenVariableIllustration();
         concatFunction = firstClassCitizenVariableIllustration::concatStrings1;
         System.out.println(concatFunction.apply("Hello ", "World 3"));
     }
 
-    private static String concatStrings(String s, String s1) {
+    private static String concatStrings(final String s, final String s1) {
         return s + s1;
     }
 
-    private static String concatAndTransform(String s1, String s2, Function<String, String> stringTransform) {
+    private static String concatAndTransform(String s1, String s2, final Function<String, String> stringTransform) {
 
         if (stringTransform != null) {
             s1 = stringTransform.apply(s1);
@@ -44,7 +44,7 @@ public class FirstClassCitizenVariableIllustration {
         return s1 + s2;
     }
 
-    private String concatStrings1(String s, String s1) {
+    private String concatStrings1(final String s, final String s1) {
         return s + s1;
     }
 }

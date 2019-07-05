@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class TimeBasedExampleSample {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         TimeTicker timeTicker = null;
         try {
@@ -23,7 +23,7 @@ public class TimeBasedExampleSample {
                     });
 
             Thread.sleep(10000);
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             //Do nothing
         } finally {
             timeTicker.stop();

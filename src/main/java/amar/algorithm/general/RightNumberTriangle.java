@@ -23,9 +23,9 @@ package amar.algorithm.general;
  */
 public class RightNumberTriangle {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int[][] triangle = new int[4][4];
+        final int[][] triangle = new int[4][4];
         triangle[0][0] = 1;
         triangle[1][0] = 1;
         triangle[1][1] = 2;

@@ -8,7 +8,7 @@ public class Product extends CustomerRelatedData {
     private Long id;
     private String name;
 
-    public Product(long customerId, Long id, String name) {
+    public Product(final long customerId, final Long id, final String name) {
         super(customerId);
         this.id = id;
         this.name = name;

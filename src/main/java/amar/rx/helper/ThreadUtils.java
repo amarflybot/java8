@@ -5,18 +5,18 @@ package amar.rx.helper;
  */
 public class ThreadUtils {
 
-    public static void wait(Object object) {
+    public static void wait(final Object object) {
         try {
             object.wait();
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static void sleep(long time) {
+    public static void sleep(final long time) {
         try {
             Thread.sleep(time);
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             // ignore
         }
     }

@@ -11,9 +11,9 @@ import java.nio.charset.StandardCharsets;
  */
 public class CommonSuffix {
 
-    public static void main(String[] args) throws IOException {
-        InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
-        BufferedReader in = new BufferedReader(reader);
+    public static void main(final String[] args) throws IOException {
+        final InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
+        final BufferedReader in = new BufferedReader(reader);
         String line;
         StringBuilder res = new StringBuilder();
         while ((line = in.readLine()) != null) {
@@ -22,7 +22,7 @@ public class CommonSuffix {
             final String second = strings[1];
             int total = 0;
             int end = 0;
-            int[][] number = new int[first.length()][second.length()];
+            final int[][] number = new int[first.length()][second.length()];
             if (first.contains("M")) {
                 res.append("NULL");
             } else {
@@ -38,7 +38,7 @@ public class CommonSuffix {
                             if (number[i][j] > total) {
                                 total = number[i][j];
 
-                                int start = i - number[i][j] + 1;
+                                final int start = i - number[i][j] + 1;
 
                                 if (end == start) {
                                     res.append(first.charAt(i));

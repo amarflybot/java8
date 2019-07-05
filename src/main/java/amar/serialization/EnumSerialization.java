@@ -41,7 +41,7 @@ enum Process {
         void invoke() {
             try {
                 EnumSerialization.serialize();
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 e.printStackTrace();
             }
         }
@@ -51,9 +51,9 @@ enum Process {
         void invoke() {
             try {
                 EnumSerialization.deserialize();
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 e.printStackTrace();
-            } catch (ClassNotFoundException e) {
+            } catch (final ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
@@ -64,9 +64,9 @@ enum Process {
             try {
                 EnumSerialization.serialize();
                 EnumSerialization.deserialize();
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 e.printStackTrace();
-            } catch (ClassNotFoundException e) {
+            } catch (final ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
@@ -80,7 +80,7 @@ enum Process {
  */
 public class EnumSerialization {
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(final String[] args) throws IOException, ClassNotFoundException {
 
         if (!(args[0].equals("S") || args[0].equals("D") || args[0].equals("SD"))) {
             System.out.println("Pass S and D to proceed");
@@ -91,9 +91,9 @@ public class EnumSerialization {
     }
 
     public static void serialize() throws IOException {
-        FileOutputStream byteArrayOutputStream = new FileOutputStream(new File("/Users/amarendra/Documents/file.ser"));
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-        Singleton person = Singleton.INSTANCE;
+        final FileOutputStream byteArrayOutputStream = new FileOutputStream(new File("/Users/amarendra/Documents/file.ser"));
+        final ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+        final Singleton person = Singleton.INSTANCE;
         System.out.println(person);
         objectOutputStream.writeObject(person);
         byteArrayOutputStream.close();
@@ -103,9 +103,9 @@ public class EnumSerialization {
     }
 
     public static void deserialize() throws IOException, ClassNotFoundException {
-        FileInputStream inputStream = new FileInputStream(new File("/Users/amarendra/Documents/file.ser"));
-        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
-        Singleton singleton = (Singleton) objectInputStream.readObject();
+        final FileInputStream inputStream = new FileInputStream(new File("/Users/amarendra/Documents/file.ser"));
+        final ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+        final Singleton singleton = (Singleton) objectInputStream.readObject();
         System.out.println(singleton);
         inputStream.close();
         objectInputStream.close();

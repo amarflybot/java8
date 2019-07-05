@@ -8,14 +8,14 @@ import java.util.Arrays;
  */
 public class ReverseWordByOnBy2 {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        String str = "i like this program very much";
-        String[] strings = new String[6];
+        final String str = "i like this program very much";
+        final String[] strings = new String[6];
         final int length = str.length();
         int k = 0, j = 0;
         for (int i = 0; i < length; i++) {
-            String charAt = str.substring(i, i + 1);
+            final String charAt = str.substring(i, i + 1);
             if (charAt.equals(" ")) {
                 strings[j] = str.substring(k, i);
                 j++;
@@ -27,7 +27,7 @@ public class ReverseWordByOnBy2 {
         System.out.println(Arrays.toString(strings));
 
         for (int i = 0; i < strings.length / 2; i++) {
-            String temp = strings[i];
+            final String temp = strings[i];
             final int i1 = strings.length - 1 - i;
             strings[i] = strings[i1];
             strings[i1] = temp;

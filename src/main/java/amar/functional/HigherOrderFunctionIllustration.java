@@ -8,9 +8,9 @@ import java.util.function.Supplier;
  */
 public class HigherOrderFunctionIllustration {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Supplier<String> combineAndTransform = createCombineAndTransform("Hello ", "World ", (s) -> s.toUpperCase());
+        final Supplier<String> combineAndTransform = createCombineAndTransform("Hello ", "World ", (s) -> s.toUpperCase());
         System.out.println(combineAndTransform.get());
 
     }

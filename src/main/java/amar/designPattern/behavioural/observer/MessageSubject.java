@@ -16,7 +16,7 @@ public class MessageSubject extends Subject {
     }
 
     @Override
-    void setState(String state) {
+    void setState(final String state) {
         this.deque.add(state);
         this.notifyAllObservers();
     }

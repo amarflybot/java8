@@ -7,25 +7,25 @@ package amar.primitive;
  */
 public class PrimitivesTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        byte b = 127;
-        short sh = b;
-        short sh1 = 32767;
+        final byte b = 127;
+        final short sh = b;
+        final short sh1 = 32767;
 
-        int in = sh1;
+        final int in = sh1;
 
-        long ln = in;
-        long ln1 = 123l;
+        final long ln = in;
+        final long ln1 = 123l;
 
-        float fl = ln1;
-        float fl1 = 123456f;
+        final float fl = ln1;
+        final float fl1 = 123456f;
 
-        double db = fl1;
-        double db1 = 123123d;
+        final double db = fl1;
+        final double db1 = 123123d;
 
-        boolean b1 = true;
-        char ch1 = 'c';
+        final boolean b1 = true;
+        final char ch1 = 'c';
 
         System.out.println("Byte: " + b);
         System.out.println("Short: " + sh);

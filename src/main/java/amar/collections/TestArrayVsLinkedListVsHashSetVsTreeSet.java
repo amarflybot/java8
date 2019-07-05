@@ -13,13 +13,13 @@ import java.util.TreeSet;
  */
 public class TestArrayVsLinkedListVsHashSetVsTreeSet {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
 
-        List<Person> personArrayList = new ArrayList<>();
-        List<Person> personLinkedList = new LinkedList<>();
-        Set<Person> personHashSet = new HashSet<>();
-        Set<Person> personTreeSet = new TreeSet<>();
+        final List<Person> personArrayList = new ArrayList<>();
+        final List<Person> personLinkedList = new LinkedList<>();
+        final Set<Person> personHashSet = new HashSet<>();
+        final Set<Person> personTreeSet = new TreeSet<>();
 
         Date startDate = new Date();
         for (int i = 0; i < 100000; i++) {

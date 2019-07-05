@@ -7,12 +7,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Test {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Mammal mammal = new Person();
+        final Mammal mammal = new Person();
         mammal.walk(2);
-        AtomicInteger atomicInteger = new AtomicInteger(8);
-        int addAndGet = atomicInteger.addAndGet(6);
+        final AtomicInteger atomicInteger = new AtomicInteger(8);
+        final int addAndGet = atomicInteger.addAndGet(6);
         System.out.println(mammal.getNumber());
     }
 }

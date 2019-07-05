@@ -5,13 +5,13 @@ package amar.common;
  */
 public class JavaExtendTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        C c1 = new C();
-        B b = c1;
+        final C c1 = new C();
+        final B b = c1;
         System.out.println("b=" + b);
-        B b1 = new B();
-        C c2 = (C) b1;
+        final B b1 = new B();
+        final C c2 = (C) b1;
         System.out.println("c2=" + c2);
 
     }

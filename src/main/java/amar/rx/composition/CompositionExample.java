@@ -8,13 +8,13 @@ import rx.schedulers.Schedulers;
  */
 public class CompositionExample {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
-        Object waitMonitor = new Object();
+        final Object waitMonitor = new Object();
         synchronized (waitMonitor) {
 
             //UserService
-            UserService userService = new UserService();
+            final UserService userService = new UserService();
 
 
             Observable.from(userService.fetchUserList()) // Fetch the User

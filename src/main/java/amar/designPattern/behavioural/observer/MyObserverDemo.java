@@ -5,13 +5,13 @@ package amar.designPattern.behavioural.observer;
  */
 public class MyObserverDemo {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
 
-        Subject subject = new MessageSubject();
+        final Subject subject = new MessageSubject();
 
-        PhoneClient phoneClient = new PhoneClient(subject);
-        MailClient mailClient = new MailClient(subject);
+        final PhoneClient phoneClient = new PhoneClient(subject);
+        final MailClient mailClient = new MailClient(subject);
 
         phoneClient.addMessage("Here is a new message from Phone Client");
         mailClient.sendMessage("New message from Mail Client");

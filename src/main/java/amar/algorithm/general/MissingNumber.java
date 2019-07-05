@@ -11,9 +11,9 @@ package amar.algorithm.general;
  */
 public class MissingNumber {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int[] arr = {1, 2, 4, 6, 3, 7, 8};
+        final int[] arr = {1, 2, 4, 6, 3, 7, 8};
         int total = sum(8);
         System.out.println("total -> " + total);
         for (int i = 0; i < arr.length; i++) {

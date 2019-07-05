@@ -13,7 +13,7 @@ public class Customer extends CustomerRelatedData {
     private final List<Product> products = new ArrayList<>();
     private String username;
 
-    public Customer(Long id, String username) {
+    public Customer(final Long id, final String username) {
         super(id);
         this.username = username;
     }
@@ -25,11 +25,11 @@ public class Customer extends CustomerRelatedData {
         return username;
     }
 
-    public void addAddress(Address address) {
+    public void addAddress(final Address address) {
         addresses.add(address);
     }
 
-    public void addProducts(Product product) {
+    public void addProducts(final Product product) {
         products.add(product);
     }
 

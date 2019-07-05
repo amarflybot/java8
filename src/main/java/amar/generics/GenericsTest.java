@@ -8,10 +8,10 @@ import java.util.List;
  */
 public class GenericsTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         List<? extends Fruit> producer = null;
-        List<? super Fruit> consumer = new ArrayList<>();
+        final List<? super Fruit> consumer = new ArrayList<>();
 
 
         consumer.add(new Fruit());
@@ -24,27 +24,27 @@ public class GenericsTest {
 
         consumer.add(new Mango());
 
-        GenericsTest genericsTest = new GenericsTest();
+        final GenericsTest genericsTest = new GenericsTest();
         //genericsTest.m1(new ArrayList<Mango>());
         consumer.add(new Fruit());
         consumer.add(new Mango());
         consumer.add(new Grapes());
-        Fruit mango = new Mango();
+        final Fruit mango = new Mango();
         mango.method1(mango);
 
     }
 
 
-    private void m1(List<? extends Fruit> list) {
+    private void m1(final List<? extends Fruit> list) {
 
-        for (Fruit f : list) {
+        for (final Fruit f : list) {
 
         }
 
     }
 
-    private void m3(List<Fruit> object) {
-        for (Fruit fruit : object) {
+    private void m3(final List<Fruit> object) {
+        for (final Fruit fruit : object) {
             System.out.println(fruit);
         }
     }
@@ -63,7 +63,7 @@ class Fruit extends Eatable {
         return "Fruit{}";
     }
 
-    public void method1(Fruit mango) {
+    public void method1(final Fruit mango) {
 
     }
 }

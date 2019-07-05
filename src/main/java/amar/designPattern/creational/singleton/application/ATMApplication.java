@@ -5,7 +5,7 @@ package amar.designPattern.creational.singleton.application;
  */
 public class ATMApplication {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         ATMFactoryImpl.getInstance(12).createStatements(StatementType.MINI.getByType());
         ATMFactoryImpl.getInstance(22).createStatements(StatementType.DETAILED.getByType());

@@ -11,12 +11,12 @@ import java.io.Serializable;
  * Created by amarendra on 04/01/16.
  */
 public class NestedDeserializationTest {
-    public static void main(String[] args) {
-        Dog dog = new Dog();
+    public static void main(final String[] args) {
+        final Dog dog = new Dog();
 
         try {
-            ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteOutputStream);
+            final ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
+            final ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteOutputStream);
             objectOutputStream.writeObject(dog);
             System.out.println(dog.cat.rat.i);
             System.out.println(dog.cat.rat.passwd);
@@ -26,20 +26,20 @@ public class NestedDeserializationTest {
             byteOutputStream.close();
             byteOutputStream.flush();
 
-            ByteArrayInputStream byteInputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
-            ObjectInputStream objectInputStream = new ObjectInputStream(byteInputStream);
-            Dog dog1 = (Dog) objectInputStream.readObject();
-            Cat cat = dog1.cat;
-            Rat rat = cat.rat;
+            final ByteArrayInputStream byteInputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
+            final ObjectInputStream objectInputStream = new ObjectInputStream(byteInputStream);
+            final Dog dog1 = (Dog) objectInputStream.readObject();
+            final Cat cat = dog1.cat;
+            final Rat rat = cat.rat;
             System.out.println(rat.i);
             System.out.println(rat.passwd);
             System.out.println(rat.val);
             objectInputStream.close();
             byteInputStream.close();
 
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (final ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -63,18 +63,18 @@ class Rat implements Serializable {
     transient int val = 123123;
 
 
-    private void writeObject(ObjectOutputStream objectOutputStream) throws Exception {
+    private void writeObject(final ObjectOutputStream objectOutputStream) throws Exception {
         objectOutputStream.defaultWriteObject();
-        String eun = "123" + passwd;
-        int eval = val + 123;
+        final String eun = "123" + passwd;
+        final int eval = val + 123;
         objectOutputStream.writeObject(eun);
         objectOutputStream.writeInt(eval);
     }
 
-    private void readObject(ObjectInputStream objectInputStream) throws Exception {
+    private void readObject(final ObjectInputStream objectInputStream) throws Exception {
         objectInputStream.defaultReadObject();
-        String dun = (String) objectInputStream.readObject();
-        int dval = objectInputStream.readInt();
+        final String dun = (String) objectInputStream.readObject();
+        final int dval = objectInputStream.readInt();
         passwd = dun.substring(3);
         val = dval - 123;
     }

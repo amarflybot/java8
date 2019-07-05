@@ -8,9 +8,9 @@ public class BinaryTree {
 
     Node root;
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        BinaryTree binaryTree = new BinaryTree();
+        final BinaryTree binaryTree = new BinaryTree();
         binaryTree.addNode(50, "Boss50");
         binaryTree.addNode(45, "Boss45");
         binaryTree.addNode(40, "Boss40");
@@ -33,9 +33,9 @@ public class BinaryTree {
 
     }
 
-    public void addNode(int key, String name) {
+    public void addNode(final int key, final String name) {
 
-        Node newNode = new Node(key, name);
+        final Node newNode = new Node(key, name);
 
         if (root == null) {
             root = newNode;
@@ -61,7 +61,7 @@ public class BinaryTree {
         }
     }
 
-    public void inOrderTraverseTree(Node focusNode) {
+    public void inOrderTraverseTree(final Node focusNode) {
 
         if (focusNode != null) {
             inOrderTraverseTree(focusNode.left);
@@ -73,7 +73,7 @@ public class BinaryTree {
     }
 
 
-    public void preOrderTraverseTree(Node focusNode) {
+    public void preOrderTraverseTree(final Node focusNode) {
         if (focusNode != null) {
             System.out.println(focusNode);
             preOrderTraverseTree(focusNode.left);
@@ -81,7 +81,7 @@ public class BinaryTree {
         }
     }
 
-    public void postOrderTraverseTree(Node focusNode) {
+    public void postOrderTraverseTree(final Node focusNode) {
         if (focusNode != null) {
             postOrderTraverseTree(focusNode.left);
             postOrderTraverseTree(focusNode.right);
@@ -89,7 +89,7 @@ public class BinaryTree {
         }
     }
 
-    public Node findNode(int key) {
+    public Node findNode(final int key) {
         Node focusNode = root;
 
         while (focusNode.key != key) {
@@ -113,7 +113,7 @@ class Node {
 
     Node left, right;
 
-    public Node(int key, String name) {
+    public Node(final int key, final String name) {
         this.key = key;
         this.name = name;
     }

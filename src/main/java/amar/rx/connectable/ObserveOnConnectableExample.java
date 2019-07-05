@@ -9,12 +9,12 @@ import rx.schedulers.Schedulers;
  */
 public class ObserveOnConnectableExample {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
-        TimeTicker timeTicker = new TimeTicker(500);
+        final TimeTicker timeTicker = new TimeTicker(500);
         timeTicker.start();
 
-        ConnectableObservable<Long> connectable = timeTicker
+        final ConnectableObservable<Long> connectable = timeTicker
                 .toObservable()
                 .publish();
 

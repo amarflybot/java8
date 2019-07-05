@@ -11,9 +11,9 @@ import java.util.List;
  */
 public class Test1 {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(final String[] args) throws Exception {
 
-        List<Person> personList = new LinkedList<>();
+        final List<Person> personList = new LinkedList<>();
 
         personList.add(new Person("Amar", 12));
         personList.add(new Person("Vicky", 10));

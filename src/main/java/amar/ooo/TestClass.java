@@ -5,10 +5,10 @@ package amar.ooo;
  */
 public class TestClass {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Child2 child2 = new Child2();
-        Child1 child1 = new Child1();
+        final Child2 child2 = new Child2();
+        final Child1 child1 = new Child1();
 
     }
 }

@@ -5,14 +5,14 @@ package amar.exception;
  */
 public class TestException {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         try {
             badMethod();
             System.out.println("A");
-        } catch (RuntimeException e) {
+        } catch (final RuntimeException e) {
             System.out.println("B");
-        } catch (Exception e) {
+        } catch (final Exception e) {
             System.out.println("C");
         } finally {
             System.out.println("D");

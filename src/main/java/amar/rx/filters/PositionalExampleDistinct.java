@@ -8,9 +8,9 @@ import rx.Observable;
  */
 public class PositionalExampleDistinct {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Observable<String> observable = Observable.from(DataGenerator.generateScrambleAndDuppedGreekAlphabet());
+        final Observable<String> observable = Observable.from(DataGenerator.generateScrambleAndDuppedGreekAlphabet());
 
         observable.subscribe(letter -> {
             System.out.println(letter);

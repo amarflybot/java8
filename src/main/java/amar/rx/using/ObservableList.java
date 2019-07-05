@@ -19,7 +19,7 @@ public class ObservableList<T> {
         this.onAdd = PublishSubject.create();
     }
 
-    public void add(T value) {
+    public void add(final T value) {
         list.add(value);
         onAdd.onNext(value);
     }

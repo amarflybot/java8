@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class CreateUserEvent extends UserEvent {
 
-    public CreateUserEvent(String username, String emailID) {
+    public CreateUserEvent(final String username, final String emailID) {
         super(username, emailID, new Date());
     }
 }

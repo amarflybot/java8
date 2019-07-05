@@ -5,15 +5,15 @@ package problems;
  */
 public class BinaryAddition {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        String input0 = "1010";
-        String input1 = "10";
+        final String input0 = "1010";
+        final String input1 = "10";
 
-        int num0 = Integer.parseInt(input0, 2);
-        int num1 = Integer.parseInt(input1, 2);
+        final int num0 = Integer.parseInt(input0, 2);
+        final int num1 = Integer.parseInt(input1, 2);
 
-        int sum = num0 + num1;
+        final int sum = num0 + num1;
 
         System.out.println(sum);
         System.out.println(Integer.toBinaryString(sum));

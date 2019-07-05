@@ -7,17 +7,17 @@ public class ProducerConsumerOnArray {
 
     static volatile Boolean aBoolean = Boolean.FALSE;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
-        Integer[] integers = new Integer[2];
+        final Integer[] integers = new Integer[2];
 
 
-        Runnable producer = new ProducerThread(aBoolean, integers);
-        Runnable consumer = new ConsumerThread(aBoolean, integers);
+        final Runnable producer = new ProducerThread(aBoolean, integers);
+        final Runnable consumer = new ConsumerThread(aBoolean, integers);
 
-        Thread producerThread = new Thread(producer);
+        final Thread producerThread = new Thread(producer);
         producerThread.setName("Producer Thread");
-        Thread consumerThread = new Thread(consumer);
+        final Thread consumerThread = new Thread(consumer);
         consumerThread.setName("Consumer Thread");
         producerThread.start();
         consumerThread.start();
@@ -46,7 +46,7 @@ class ProducerThread implements Runnable {
                 start.notify();
                 try {
                     start.wait();
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -76,7 +76,7 @@ class ConsumerThread implements Runnable {
                 start.notify();
                 try {
                     start.wait(1000);
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }

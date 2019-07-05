@@ -11,7 +11,7 @@ public class ATMFactoryImpl implements ATMFactory {
     private ATMFactoryImpl() {
     }
 
-    private ATMFactoryImpl(Integer integer) {
+    private ATMFactoryImpl(final Integer integer) {
         this.integer = integer;
     }
 
@@ -19,7 +19,7 @@ public class ATMFactoryImpl implements ATMFactory {
         return integer;
     }
 
-    public static ATMFactory getInstance(Integer integer) {
+    public static ATMFactory getInstance(final Integer integer) {
         /*
         // This is double locking way of implementing Singleton
         if (atmFactory == null ){
@@ -43,7 +43,7 @@ public class ATMFactoryImpl implements ATMFactory {
     private static class ATMFactoryImplHelper {
         private static ATMFactory atmFactory;
 
-        private static ATMFactory getInstance(Integer integer) {
+        private static ATMFactory getInstance(final Integer integer) {
             if (atmFactory == null) atmFactory = new ATMFactoryImpl(integer);
             return atmFactory;
         }

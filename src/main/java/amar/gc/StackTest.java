@@ -9,8 +9,8 @@ import java.util.Map;
  */
 public class StackTest {
 
-    public static void main(String[] args) {
-        Map m = new HashMap();
+    public static void main(final String[] args) {
+        final Map m = new HashMap();
         while (true)
             for (int i = 0; i < 10000; i++)
                 if (!m.containsKey(new KeylessEntry.Key(i)))

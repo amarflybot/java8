@@ -15,31 +15,31 @@ import java.util.List;
  * @date 04-01-2016 AM 11:27.
  */
 public class TestBaseClasses {
-    public static void main(String[] args) throws InvocationTargetException {
+    public static void main(final String[] args) throws InvocationTargetException {
         // Get Class using reflection
         Class<?> concreteClass = null;
         try {
             concreteClass = Class.forName("amar.reflection.ConcreteClass");
-        } catch (ClassNotFoundException e) {
+        } catch (final ClassNotFoundException e) {
             e.printStackTrace();
         }
         ConcreteClass object = null;
         try {
-            Constructor<?>[] constructors = concreteClass.getDeclaredConstructors();
-            for (Constructor constructor : constructors) {
+            final Constructor<?>[] constructors = concreteClass.getDeclaredConstructors();
+            for (final Constructor constructor : constructors) {
                 if (Modifier.isPrivate(constructor.getModifiers())) {
                     constructor.setAccessible(true);
                     object = (ConcreteClass) constructor.newInstance();
                 }
                 //System.out.println(constructor.getModifiers());
             }
-        } catch (InstantiationException e) {
+        } catch (final InstantiationException e) {
             e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (final IllegalAccessException e) {
             e.printStackTrace();
         }
         System.out.println(concreteClass.getCanonicalName()); // amar.ConcreteClass
-        Method[] methods = concreteClass.getMethods();
+        final Method[] methods = concreteClass.getMethods();
         System.out.println(methods.toString());
         System.out.println(concreteClass.getFields().toString());
         try {
@@ -47,13 +47,13 @@ public class TestBaseClasses {
             if (methods[0].getName().equals("method5")) {
                 methods[0].invoke(object, 3);
             }
-        } catch (IllegalAccessException e) {
+        } catch (final IllegalAccessException e) {
             e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (final InvocationTargetException e) {
             e.printStackTrace();
         }
 
-        List<Method> methodsAnnotatedWith = getMethodsAnnotatedWith(concreteClass, PostConstruct.class);
+        final List<Method> methodsAnnotatedWith = getMethodsAnnotatedWith(concreteClass, PostConstruct.class);
         methodsAnnotatedWith.forEach(method -> {
             System.out.println("Method with Annotations: "+ method);
         });
@@ -65,21 +65,21 @@ public class TestBaseClasses {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }*/
-        Class<?> booleanClass = boolean.class;
+        final Class<?> booleanClass = boolean.class;
         System.out.println(booleanClass.getCanonicalName()); // prints boolean
 
-        Class<?> cDouble = Double.TYPE;
+        final Class<?> cDouble = Double.TYPE;
         System.out.println(cDouble.getCanonicalName()); // prints double
 
         Class<?> cDoubleArray = null;
         try {
             cDoubleArray = Class.forName("[D");
-        } catch (ClassNotFoundException e) {
+        } catch (final ClassNotFoundException e) {
             e.printStackTrace();
         }
         System.out.println(cDoubleArray.getCanonicalName()); //prints double[]
 
-        Class<?> twoDStringArray = String[][].class;
+        final Class<?> twoDStringArray = String[][].class;
         System.out.println(twoDStringArray.getCanonicalName()); // prints java.lang.String[][]
     }
 
@@ -91,7 +91,7 @@ public class TestBaseClasses {
             final List<Method> allMethods = new ArrayList<>(Arrays.asList(klass.getDeclaredMethods()));
             for (final Method method : allMethods) {
                 if (method.isAnnotationPresent(annotation)) {
-                    Annotation annotInstance = method.getAnnotation(annotation);
+                    final Annotation annotInstance = method.getAnnotation(annotation);
                     // TODO process annotInstance
                     methods.add(method);
                 }

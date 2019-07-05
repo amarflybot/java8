@@ -10,13 +10,13 @@ import java.util.List;
  */
 public class SimpleDemo {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         /*List<String> shapeList = Arrays.asList("rectangle", "square", "triangle");
         Observable<String> observableShape = Observable.from(shapeList);
         Subscription subscribe = observableShape.subscribe(new SimpleObserver());*/
-        List<String> symbols = Arrays.asList("AAPL", "GOOG", "ORCL");
+        final List<String> symbols = Arrays.asList("AAPL", "GOOG", "ORCL");
 
-        Observable<StockInfo> feed = StockServer.getFeed(symbols);
+        final Observable<StockInfo> feed = StockServer.getFeed(symbols);
         feed.onErrorResumeNext(throwable -> {
             //System.out.println(throwable);
             return StockInfo.getDefaultPrice();

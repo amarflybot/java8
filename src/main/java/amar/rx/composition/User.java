@@ -9,7 +9,7 @@ public class User {
     private String email;
     private UserSecurityStatus userSecurity;
 
-    public User(String name, String email, UserSecurityStatus userSecurity) {
+    public User(final String name, final String email, final UserSecurityStatus userSecurity) {
         this.name = name;
         this.email = email;
         this.userSecurity = userSecurity;

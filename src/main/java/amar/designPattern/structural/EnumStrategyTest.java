@@ -29,9 +29,9 @@ enum Strategy {
  * Created by amarendra on 03/09/17.
  */
 public class EnumStrategyTest {
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Player ctx = new Player(Strategy.T20);
+        final Player ctx = new Player(Strategy.T20);
         ctx.play();
 
         ctx.setStrategy(Strategy.ONE_DAY);

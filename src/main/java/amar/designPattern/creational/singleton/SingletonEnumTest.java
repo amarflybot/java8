@@ -9,7 +9,7 @@ import java.lang.reflect.Modifier;
  */
 public class SingletonEnumTest {
 
-    public static void main(String[] args) throws IllegalAccessException, InvocationTargetException, InstantiationException, ClassNotFoundException {
+    public static void main(final String[] args) throws IllegalAccessException, InvocationTargetException, InstantiationException, ClassNotFoundException {
 
         final SingletonEnum instance = SingletonEnum.INSTANCE;
         instance.setInteger(3);
@@ -26,7 +26,7 @@ public class SingletonEnumTest {
 
         final Constructor<?>[] declaredConstructors = aClass.getDeclaredConstructors();
 
-        for (Constructor constructor : declaredConstructors) {
+        for (final Constructor constructor : declaredConstructors) {
             if (Modifier.isPrivate(constructor.getModifiers())) {
                 constructor.setAccessible(true);
             }

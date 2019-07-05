@@ -13,8 +13,8 @@ public class PermutationFinder {
 
     private final static Logger logger = Logger.getLogger("PermutationFinder");
 
-    public static Set<String> permutationFinder(String str) {
-        Set<String> perm = new HashSet<>();
+    public static Set<String> permutationFinder(final String str) {
+        final Set<String> perm = new HashSet<>();
         //Handling error scenarios
         if (str == null) {
             return null;
@@ -22,9 +22,9 @@ public class PermutationFinder {
             perm.add("");
             return perm;
         }
-        char initial = str.charAt(0); // first character
-        String rem = str.substring(1); // Full string without first character
-        Set<String> words = permutationFinder(rem);
+        final char initial = str.charAt(0); // first character
+        final String rem = str.substring(1); // Full string without first character
+        final Set<String> words = permutationFinder(rem);
         words.stream().forEach(strNew -> {
             for (int i = 0; i <= strNew.length(); i++) {
                 perm.add(charInsert(strNew, initial, i));
@@ -34,19 +34,19 @@ public class PermutationFinder {
         return perm;
     }
 
-    public static String charInsert(String str, char c, int j) {
-        String begin = str.substring(0, j);
-        String end = str.substring(j);
-        String string = begin + c + end;
+    public static String charInsert(final String str, final char c, final int j) {
+        final String begin = str.substring(0, j);
+        final String end = str.substring(j);
+        final String string = begin + c + end;
         return string;
     }
 
-    public static void main(String[] args) {
-        String s = "ABC";
-        long startTime = new Date().getTime();
+    public static void main(final String[] args) {
+        final String s = "ABC";
+        final long startTime = new Date().getTime();
         logger.info("Started Permutation at " + new Date());
         logger.info(("Permutations for " + s + " are: " + permutationFinder(s)));
-        long endTime = new Date().getTime();
+        final long endTime = new Date().getTime();
         logger.info(("Time taken by " + s + " is " + (endTime - startTime)));
     }
 }

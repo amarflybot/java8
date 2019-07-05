@@ -18,14 +18,14 @@ public class TestConcHMap {
     static void process() {
         final Set<String> stringSet = map.keySet();
 
-        for (String city : stringSet) {
+        for (final String city : stringSet) {
             for (int i = 0; i < 50; i++) {
                 map.get(city).getAndIncrement();
             }
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
         map.put("Bombay", new AtomicInteger(0));
         map.put("Delhi", new AtomicInteger(0));

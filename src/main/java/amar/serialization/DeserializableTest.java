@@ -11,13 +11,13 @@ import java.io.Serializable;
  * Created by amarendra on 04/01/16.
  */
 public class DeserializableTest {
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         try {
             System.out.println("=====================Serialization=====================");
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-            Elephant elephant = new Elephant();
+            final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            final ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            final Elephant elephant = new Elephant();
             elephant.i = 888;
             elephant.j = 999;
             objectOutputStream.writeObject(elephant);
@@ -26,13 +26,14 @@ public class DeserializableTest {
             byteArrayOutputStream.close();
             byteArrayOutputStream.flush();
             System.out.println("=====================Deserialization=====================");
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-            ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-            Elephant elephant1 = (Elephant) objectInputStream.readObject();
+            final ByteArrayInputStream byteArrayInputStream =
+                    new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+            final ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+            final Elephant elephant1 = (Elephant) objectInputStream.readObject();
             System.out.println(elephant1.i + " ----- " + elephant1.j);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (final ClassNotFoundException e) {
             e.printStackTrace();
         }
 

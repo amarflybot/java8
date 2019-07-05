@@ -5,12 +5,12 @@ package amar.designPattern.behavioural.java_observer;
  */
 public class ObserverDemo {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        TwitterStream twitterStream = new TwitterStream();
+        final TwitterStream twitterStream = new TwitterStream();
 
-        Client client = new Client("Amar");
-        Client client1 = new Client("Alka");
+        final Client client = new Client("Amar");
+        final Client client1 = new Client("Alka");
 
         twitterStream.addObserver(client);
         twitterStream.addObserver(client1);

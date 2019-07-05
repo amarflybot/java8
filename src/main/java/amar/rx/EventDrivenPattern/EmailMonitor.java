@@ -10,19 +10,19 @@ public class EmailMonitor {
 
     private EmailService emailService;
 
-    public EmailMonitor(EmailService emailService, UserService userService) {
+    public EmailMonitor(final EmailService emailService, final UserService userService) {
         this.emailService = emailService;
 
         userService.subscribeToUserEvents(this::handleUserEvent);
     }
 
-    private void handleUserEvent(UserEvent event) {
+    private void handleUserEvent(final UserEvent event) {
         System.out.println("EmailMonitorServiceImpl::handleUserEvent - " +
                 Thread.currentThread().getName());
 
-        List<String> recipList = new ArrayList<>();
+        final List<String> recipList = new ArrayList<>();
         recipList.add(event.getEmailAddress());
-        String text = "Hi " + event.getUsername() + "Welcome to PluralSight";
+        final String text = "Hi " + event.getUsername() + "Welcome to PluralSight";
         emailService.sendEmail(recipList, "noReply@gmail.com", "Welcome to PluralSight", text);
     }
 

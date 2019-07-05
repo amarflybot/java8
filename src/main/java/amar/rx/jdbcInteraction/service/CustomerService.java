@@ -23,31 +23,31 @@ public class CustomerService {
     public CustomerService() {
     }
 
-    public Observable<Customer> fetchCustomer(long customerId) {
+    public Observable<Customer> fetchCustomer(final long customerId) {
         try {
             return procedures.toSelectCustomersObservable(customerId);
-        } catch (SQLException e) {
+        } catch (final SQLException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
     }
 
-    public Observable<Customer> fetchCustomersWithAddressesAndOwnedProducts(long customerId) {
-        Observable<Customer> customerObservable = fetchCustomer(customerId);
-        Observable<Address> addressObservable = addressService.fetchCustomerAddress(customerId);
-        Observable<Product> productObservable = productService.fetchCustomerProduct(customerId);
+    public Observable<Customer> fetchCustomersWithAddressesAndOwnedProducts(final long customerId) {
+        final Observable<Customer> customerObservable = fetchCustomer(customerId);
+        final Observable<Address> addressObservable = addressService.fetchCustomerAddress(customerId);
+        final Observable<Product> productObservable = productService.fetchCustomerProduct(customerId);
 
-        Observable<CustomerRelatedData> dataObservable = Observable.concat(
+        final Observable<CustomerRelatedData> dataObservable = Observable.concat(
                 customerObservable,
                 addressObservable,
                 productObservable)
                 .observeOn(Schedulers.computation());
 
-        Observable<Observable<CustomerRelatedData>> wrapperDataObservable =
+        final Observable<Observable<CustomerRelatedData>> wrapperDataObservable =
                 Observable.just(dataObservable);
 
-        CustomerZipAccumulator zipAccumulator = new CustomerZipAccumulator();
+        final CustomerZipAccumulator zipAccumulator = new CustomerZipAccumulator();
 
-        Observable<Customer> last = Observable
+        final Observable<Customer> last = Observable
                 .zip(wrapperDataObservable, zipAccumulator::collapseCustomerEvents)
                 .last();
 

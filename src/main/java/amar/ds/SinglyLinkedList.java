@@ -8,9 +8,9 @@ public class SinglyLinkedList<T> {
     private Node<T> head;
     private Node<T> tail;
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        SinglyLinkedList<Integer> singlyLinkedList = new SinglyLinkedList<>();
+        final SinglyLinkedList<Integer> singlyLinkedList = new SinglyLinkedList<>();
         singlyLinkedList.add(1);
         singlyLinkedList.add(2);
         singlyLinkedList.add(4);
@@ -22,13 +22,13 @@ public class SinglyLinkedList<T> {
         singlyLinkedList.head.next.next.next.random = singlyLinkedList.head;
 
         singlyLinkedList.transverse();
-        Node<Integer> clone = singlyLinkedList.clone(singlyLinkedList.head);
-        Node<Integer> cloneRandom = singlyLinkedList.cloneRandom(singlyLinkedList.head, clone, clone);
+        final Node<Integer> clone = singlyLinkedList.clone(singlyLinkedList.head);
+        final Node<Integer> cloneRandom = singlyLinkedList.cloneRandom(singlyLinkedList.head, clone, clone);
         System.out.println(clone);
     }
 
-    public void add(T element) {
-        Node<T> nd = new Node<T>();
+    public void add(final T element) {
+        final Node<T> nd = new Node<T>();
         nd.data = element;
 
         if (head == null) {
@@ -51,13 +51,13 @@ public class SinglyLinkedList<T> {
         }
     }
 
-    public Node<T> clone(Node<T> node) {
+    public Node<T> clone(final Node<T> node) {
 
         if (node == null) {
             return null;
         }
 
-        Node<T> newNode = new Node<>();
+        final Node<T> newNode = new Node<>();
         newNode.data = node.data;
         newNode.next = clone(node.next);
 
@@ -70,7 +70,7 @@ public class SinglyLinkedList<T> {
      * @param cloneNodeConst
      * @return
      */
-    public Node<T> cloneRandom(Node<T> orgNode, Node<T> cloneNode, Node<T> cloneNodeConst) {
+    public Node<T> cloneRandom(final Node<T> orgNode, final Node<T> cloneNode, final Node<T> cloneNodeConst) {
 
         if (cloneNode == null) {
             return null;
@@ -83,7 +83,7 @@ public class SinglyLinkedList<T> {
         return cloneNode;
     }
 
-    private Node findNodeInClone(Node random, Node<T> cloneNode) {
+    private Node findNodeInClone(final Node random, Node<T> cloneNode) {
         if (cloneNode == null) {
             return null;
         } else if (random.data == cloneNode.data) {

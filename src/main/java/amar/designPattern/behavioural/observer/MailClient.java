@@ -17,7 +17,7 @@ public class MailClient extends Observer {
         System.out.println("Mail Stream: " + subject.getState());
     }
 
-    public void sendMessage(String str) {
+    public void sendMessage(final String str) {
         this.subject.setState(str);
     }
 }

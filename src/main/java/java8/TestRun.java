@@ -5,9 +5,9 @@ package java8;
  */
 public class TestRun {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Test test = new Test();
+        final Test test = new Test();
 
     }
 }

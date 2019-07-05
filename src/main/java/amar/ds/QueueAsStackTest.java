@@ -9,9 +9,9 @@ import java.util.Queue;
  */
 public class QueueAsStackTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        QueueAsStack<Integer> queueAsStack = new QueueAsStack();
+        final QueueAsStack<Integer> queueAsStack = new QueueAsStack();
         queueAsStack.push(1);
         queueAsStack.push(2);
         queueAsStack.push(3);
@@ -44,19 +44,19 @@ class QueueAsStack<T> implements Serializable, Cloneable {
     private Queue<T> queue1 = new LinkedList<>();
     private Queue<T> queue2 = new LinkedList<>();
 
-    public void push(T t) {
+    public void push(final T t) {
         queue1.add(t);
     }
 
     public T poll() {
-        int size = queue1.size();
+        final int size = queue1.size();
         for (int i = 0; i < size - 1; i++) {
             if (size > 1) {
                 queue2.add(queue1.peek());
             }
             queue1.remove();
         }
-        T result = queue1.poll();
+        final T result = queue1.poll();
         queue1 = queue2;
         return result;
     }

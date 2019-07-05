@@ -8,11 +8,11 @@ import java.util.Map;
  */
 public class FindNumberByDiff {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int[] array = {1, 2, 5, 6};
+        final int[] array = {1, 2, 5, 6};
 
-        int k = 1;
+        final int k = 1;
         final int count = findCount(array, k);
         System.out.println(count);
     }
@@ -21,7 +21,7 @@ public class FindNumberByDiff {
         int count = 0;
 
         // Get all elements in hashmap as Key and value as true, this can also avoid duplicates.
-        Map<Integer, Boolean> integerBooleanMap = new HashMap<>();
+        final Map<Integer, Boolean> integerBooleanMap = new HashMap<>();
         for (final int anArray : array) {
             integerBooleanMap.put(anArray, true);
         }

@@ -10,9 +10,9 @@ import rx.subjects.BehaviorSubject;
  */
 public class BehaviourSubjectExample {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        BehaviorSubject<String> subject = BehaviorSubject.create("Start State");
+        final BehaviorSubject<String> subject = BehaviorSubject.create("Start State");
 
         subject.subscribe((letter) -> {
             System.out.println("Subscribe 1: " + letter);

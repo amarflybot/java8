@@ -15,12 +15,12 @@ import java.util.concurrent.ThreadFactory;
  */
 public class ExecutorStringTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        ExecutorService executor = Executors.newCachedThreadPool(new ThreadFactory() {
+        final ExecutorService executor = Executors.newCachedThreadPool(new ThreadFactory() {
             @Override
-            public Thread newThread(Runnable r) {
-                Thread thread = new Thread(new Runnable() {
+            public Thread newThread(final Runnable r) {
+                final Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
                         System.out.println(Thread.currentThread().getName());
@@ -30,22 +30,22 @@ public class ExecutorStringTest {
             }
         });
 
-        List<Future<String>> futureList = new ArrayList<>();
+        final List<Future<String>> futureList = new ArrayList<>();
 
-        Callable<String> stringCallable = new StringRunnable();
+        final Callable<String> stringCallable = new StringRunnable();
 
         for (int i = 0; i < 100; i++) {
             futureList.add(executor.submit(stringCallable));
         }
         int i = 0;
-        for (Future<String> future : futureList) {
+        for (final Future<String> future : futureList) {
             try {
                 if (future.isDone()) {
                     System.out.println("Date " + new Date() + " Thread Name - " + future.get() + " Count = " + i++);
                 }
-            } catch (InterruptedException e) {
+            } catch (final InterruptedException e) {
                 e.printStackTrace();
-            } catch (ExecutionException e) {
+            } catch (final ExecutionException e) {
                 e.printStackTrace();
             }
         }

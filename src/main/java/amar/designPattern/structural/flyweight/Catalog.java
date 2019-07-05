@@ -10,7 +10,7 @@ public class Catalog {
 
     private Map<String, Item> itemMap = new HashMap<>();
 
-    public Item lookUp(String itemName) {
+    public Item lookUp(final String itemName) {
         if (!itemMap.containsKey(itemName)) {
             itemMap.put(itemName, new Item(itemName));
         }

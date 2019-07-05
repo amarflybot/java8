@@ -5,10 +5,10 @@ package amar.test;
  */
 public class StringTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        String str1 = "ABC";
-        String str2 = "BAC";
+        final String str1 = "ABC";
+        final String str2 = "BAC";
 
         String rev = "";
         for (int i = 1; i <= str1.length(); i++) {

@@ -28,7 +28,7 @@ public class ConcreteClass extends BaseClass implements BaseInterface {
     }
 
     @Override
-    public int method2(String str) {
+    public int method2(final String str) {
         System.out.println("Method2 impl.");
         return 0;
     }
@@ -40,7 +40,7 @@ public class ConcreteClass extends BaseClass implements BaseInterface {
     }
 
     @PostConstruct
-    public int method5(int i) {
+    public int method5(final int i) {
         System.out.println("Method4 overriden. " + i);
         return 0;
     }

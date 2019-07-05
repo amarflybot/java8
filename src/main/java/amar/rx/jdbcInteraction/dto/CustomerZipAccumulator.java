@@ -7,11 +7,11 @@ public class CustomerZipAccumulator {
 
     private Customer customer;
 
-    public void addAddress(Address address) {
+    public void addAddress(final Address address) {
         customer.addAddress(address);
     }
 
-    public void addOwnedProduct(Product ownedProduct) {
+    public void addOwnedProduct(final Product ownedProduct) {
         customer.addProducts(ownedProduct);
     }
 
@@ -19,11 +19,11 @@ public class CustomerZipAccumulator {
         return customer;
     }
 
-    public Customer collapseCustomerEvents(Object[] events) {
+    public Customer collapseCustomerEvents(final Object[] events) {
 
-        for (Object event : events) {
+        for (final Object event : events) {
 
-            CustomerRelatedData nextData = (CustomerRelatedData) event;
+            final CustomerRelatedData nextData = (CustomerRelatedData) event;
 
             if (nextData instanceof Customer) {
                 customer = (Customer) nextData;

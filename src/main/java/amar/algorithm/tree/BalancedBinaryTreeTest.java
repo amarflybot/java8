@@ -5,9 +5,9 @@ package amar.algorithm.tree;
  */
 public class BalancedBinaryTreeTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        BalancedBinaryTree<Integer> integerBinaryNode = new BalancedBinaryTree<>();
+        final BalancedBinaryTree<Integer> integerBinaryNode = new BalancedBinaryTree<>();
         /*integerBinaryNode.add(4);
         integerBinaryNode.add(2);
         integerBinaryNode.add(1);
@@ -31,7 +31,7 @@ public class BalancedBinaryTreeTest {
         integerBinaryNode.postOrderTraversal();
         System.out.println("========================");
 
-        BinaryNode<Integer> findWithParent = integerBinaryNode.findWithParent(4);
+        final BinaryNode<Integer> findWithParent = integerBinaryNode.findWithParent(4);
         System.out.println(findWithParent);
 
         System.out.println("Left Height -> " + integerBinaryNode.getLeftHeight());

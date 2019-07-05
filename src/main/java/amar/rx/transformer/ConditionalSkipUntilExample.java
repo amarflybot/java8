@@ -9,11 +9,11 @@ import amar.rx.helper.TimedEventSequence;
  */
 public class ConditionalSkipUntilExample {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
 
-        TimedEventSequence<String> sequence1 = new TimedEventSequence<>(DataGenerator.generateGreekAlphabet(), 50);
-        TimeTicker ticker = new TimeTicker(3000);
+        final TimedEventSequence<String> sequence1 = new TimedEventSequence<>(DataGenerator.generateGreekAlphabet(), 50);
+        final TimeTicker ticker = new TimeTicker(3000);
 
         sequence1.toObservable()
                 .skipUntil(ticker.toObservable())

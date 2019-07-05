@@ -18,34 +18,34 @@ import java.util.Map;
  */
 public class PrintNumbers {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        String[] zero = {"####", //H=0
+        final String[] zero = {"####", //H=0
                 "#  #", //H=1
                 "#  #", //H=2
                 "#  #", //H=3
                 "####"}; //H=4
-        String[] one = {"   # ",
+        final String[] one = {"   # ",
                 "  ## ",
                 "   # ",
                 "   # ",
                 " ####"};
 
-        String[] nine = {" ####",
+        final String[] nine = {" ####",
                 " #  #",
                 " ####",
                 "    #",
                 " ####"};
 
-        String[] four = {" #  #",
+        final String[] four = {" #  #",
                 " #  #",
                 " ####",
                 "    #",
                 "    #"};
 
-        String digit = "0194";
+        final String digit = "0194";
 
-        Map<String, String[]> map = new HashMap<>();
+        final Map<String, String[]> map = new HashMap<>();
         map.put("0", zero);
         map.put("1", one);
         map.put("9", nine);
@@ -54,7 +54,7 @@ public class PrintNumbers {
         while (h < 5) {
 
             for (int i = 0; i < digit.length(); i++) {
-                String string = String.valueOf(digit.charAt(i));
+                final String string = String.valueOf(digit.charAt(i));
                 final String[] obj = map.get(string);
                 System.out.print(obj[h]);
             }

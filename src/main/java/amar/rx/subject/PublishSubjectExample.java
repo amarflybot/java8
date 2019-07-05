@@ -11,13 +11,13 @@ import rx.subjects.PublishSubject;
  */
 public class PublishSubjectExample {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Object signal = new Object();
+        final Object signal = new Object();
 
         synchronized (signal) {
 
-            PublishSubject<String> subject = PublishSubject.create();
+            final PublishSubject<String> subject = PublishSubject.create();
 
             subject.subscribe((letter) -> {
                 System.out.println("Subscribe 1: " + letter);

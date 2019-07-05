@@ -7,9 +7,9 @@ import java.util.Arrays;
  */
 public class BubbleSortTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int[] ints = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+        final int[] ints = {9, 8, 7, 6, 5, 4, 3, 2, 1};
         System.out.println("Before Sort -> " + Arrays.toString(ints));
 
         bubbleSort(ints);
@@ -23,7 +23,7 @@ public class BubbleSortTest {
             for (int j = 0; j < length - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     // Then Swap
-                    int temp = arr[j + 1];
+                    final int temp = arr[j + 1];
                     arr[j + 1] = arr[j];
                     arr[j] = temp;
                 }

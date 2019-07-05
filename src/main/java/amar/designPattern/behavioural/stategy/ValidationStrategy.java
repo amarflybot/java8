@@ -7,7 +7,7 @@ public abstract class ValidationStrategy {
 
     public abstract boolean isValid(CreditCard creditCard);
 
-    public boolean passesLuhn(String ccNumber) {
+    public boolean passesLuhn(final String ccNumber) {
         int sum = 0;
         boolean alternate = false;
         for (int i = ccNumber.length() - 1; i >= 0; i--) {

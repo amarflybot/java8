@@ -21,22 +21,22 @@ public class FutureDemo {
     private static final ScheduledExecutorService SCHEDULED_EXECUTOR_SERVICE = Executors.newScheduledThreadPool(3);
     private static final ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
-        Future<Integer> submit = cachedThreadPool.submit(new Callable<Integer>() {
+    public static void main(final String[] args) throws InterruptedException, ExecutionException {
+        final Future<Integer> submit = cachedThreadPool.submit(new Callable<Integer>() {
             @Override
             public Integer call() throws Exception {
                 return 1;
             }
         });
-        boolean done = submit.isDone();
-        Integer integer = submit.get();
+        final boolean done = submit.isDone();
+        final Integer integer = submit.get();
         System.out.println(done);
         System.out.println(integer);
-        long startTime = System.currentTimeMillis();
-        FactorialCalculator factorialCalculatorTask = new FactorialCalculator(10);
+        final long startTime = System.currentTimeMillis();
+        final FactorialCalculator factorialCalculatorTask = new FactorialCalculator(10);
 
         System.out.println("Submitting Task ...");
-        Future<Long> future = SCHEDULED_EXECUTOR_SERVICE.submit(factorialCalculatorTask);
+        final Future<Long> future = SCHEDULED_EXECUTOR_SERVICE.submit(factorialCalculatorTask);
         System.out.println("Submitted Task");
 
         while (!future.isDone()) {
@@ -46,10 +46,10 @@ public class FutureDemo {
         }
 
         System.out.println("Task is completed, let's check result");
-        Long factorial = future.get();
+        final Long factorial = future.get();
         System.out.println("Factorial of 10 is : " + factorial);
         SCHEDULED_EXECUTOR_SERVICE.shutdown();
-        long endTime = System.currentTimeMillis();
+        final long endTime = System.currentTimeMillis();
         System.out.println("Time Taken: " + (endTime - startTime));
     }
 }
@@ -58,7 +58,7 @@ class FactorialCalculator implements Callable {
 
     private int number;
 
-    public FactorialCalculator(int number) {
+    public FactorialCalculator(final int number) {
         this.number = number;
     }
 
@@ -67,7 +67,7 @@ class FactorialCalculator implements Callable {
         long output = 0;
         try {
             output = factorial(number);
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             e.printStackTrace();
         }
         return output;
@@ -81,10 +81,10 @@ class FactorialCalculator implements Callable {
         while (number > 0) {
             Thread.sleep(100); // adding delay for example
             result = result * number;
-            FileReaderTest fileReaderTest = new FileReaderTest();
+            final FileReaderTest fileReaderTest = new FileReaderTest();
             try {
                 FileReaderTest.main(new String[2]);
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 e.printStackTrace();
             }
             number--;

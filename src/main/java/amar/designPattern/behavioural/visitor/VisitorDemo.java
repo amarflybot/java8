@@ -5,9 +5,9 @@ package amar.designPattern.behavioural.visitor;
  */
 public class VisitorDemo {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        PartsOrder order = new PartsOrder();
+        final PartsOrder order = new PartsOrder();
         order.addPart(new Wheel());
         order.addPart(new Fender());
         order.addPart(new Oil());

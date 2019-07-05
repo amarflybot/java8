@@ -10,24 +10,24 @@ import rx.functions.Func1;
  */
 public class JdbcUsingExample {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Action1<Throwable> errorHandler = (t) -> {
+        final Action1<Throwable> errorHandler = (t) -> {
             t.printStackTrace();
         };
 
         TestDatabase.init();
 
-        Func0<ConnectionSubscription> resourceFactory = () -> new ConnectionSubscription(TestDatabase.createConnection("jdbc:derby:rxJavaTest"));
+        final Func0<ConnectionSubscription> resourceFactory = () -> new ConnectionSubscription(TestDatabase.createConnection("jdbc:derby:rxJavaTest"));
 
-        Func1<ConnectionSubscription, Observable<String>> geekAlphabetList =
+        final Func1<ConnectionSubscription, Observable<String>> geekAlphabetList =
                 (connectionSubscription -> TestDatabase.selectGreekAlphabet(connectionSubscription));
 
-        Action1<ConnectionSubscription> dispose = (connectionSubscription) -> {
+        final Action1<ConnectionSubscription> dispose = (connectionSubscription) -> {
             connectionSubscription.unsubscribe();
         };
 
-        Observable<String> using = Observable.using(resourceFactory, geekAlphabetList, dispose);
+        final Observable<String> using = Observable.using(resourceFactory, geekAlphabetList, dispose);
 
         using.subscribe((letter) -> {
                     System.out.println(Thread.currentThread().getName() + " - " + letter);

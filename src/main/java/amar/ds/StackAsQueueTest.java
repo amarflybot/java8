@@ -8,9 +8,9 @@ import java.util.Stack;
  */
 public class StackAsQueueTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        StackAsQueue<Integer> stackAsQueue = new StackAsQueue();
+        final StackAsQueue<Integer> stackAsQueue = new StackAsQueue();
         stackAsQueue.push(1);
         stackAsQueue.push(2);
         stackAsQueue.push(3);
@@ -33,7 +33,7 @@ class StackAsQueue<T> implements Serializable, Cloneable {
 
     private Stack<T> stack1 = new Stack<>();
 
-    public void push(T t) {
+    public void push(final T t) {
         stack1.push(t);
     }
 

@@ -11,7 +11,7 @@ public class UserEvent {
     private final String emailAddress;
     private final Date eventDate;
 
-    public UserEvent(String username, String emailAddress, Date eventDate) {
+    public UserEvent(final String username, final String emailAddress, final Date eventDate) {
         this.username = username;
         this.emailAddress = emailAddress;
         this.eventDate = eventDate;

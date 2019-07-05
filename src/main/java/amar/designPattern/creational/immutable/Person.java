@@ -11,7 +11,7 @@ final class Person {
     final private Date date;
     final private ArrayList<Roll> rollList;
 
-    public Person(Roll roll, Date date, ArrayList<Roll> rollList) {
+    public Person(final Roll roll, final Date date, final ArrayList<Roll> rollList) {
         this.roll = new Roll(roll.getInteger());
         this.date = new Date(date.getTime());
         this.rollList = getRollsList(rollList);
@@ -26,13 +26,13 @@ final class Person {
     }
 
     public ArrayList<Roll> getRollList() {
-        ArrayList<Roll> rollArrayList = getRollsList(rollList);
+        final ArrayList<Roll> rollArrayList = getRollsList(rollList);
         return rollArrayList;
     }
 
-    private ArrayList<Roll> getRollsList(ArrayList<Roll> rollListnew) {
-        ArrayList<Roll> rollArrayList = new ArrayList<>();
-        for (Roll roll : rollListnew) {
+    private ArrayList<Roll> getRollsList(final ArrayList<Roll> rollListnew) {
+        final ArrayList<Roll> rollArrayList = new ArrayList<>();
+        for (final Roll roll : rollListnew) {
             rollArrayList.add(new Roll(roll.getInteger()));
         }
         return rollArrayList;

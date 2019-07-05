@@ -11,9 +11,9 @@ public class CyclicBarrierTest {
 
     private static int MAX_THREAD = 5;
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(MAX_THREAD, new Runnable() {
+        final CyclicBarrier cyclicBarrier = new CyclicBarrier(MAX_THREAD, new Runnable() {
 
             private int i;
 
@@ -25,7 +25,7 @@ public class CyclicBarrierTest {
 
         System.out.println("Spawning Threads");
         for (int i = 0; i < MAX_THREAD; i++) {
-            Thread t = new Thread(new WorkerThread(cyclicBarrier, String.format("Thread-%d", i)));
+            final Thread t = new Thread(new WorkerThread(cyclicBarrier, String.format("Thread-%d", i)));
             t.start();
         }
         System.out.println("Spawning Finished");
@@ -37,14 +37,14 @@ public class CyclicBarrierTest {
 
         private String name;
 
-        public WorkerThread(CyclicBarrier cyclicBarrier, String name) {
+        public WorkerThread(final CyclicBarrier cyclicBarrier, final String name) {
             this.name = name;
             this.cyclicBarrier = cyclicBarrier;
         }
 
         public void run() {
             try {
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 System.out.printf("%s : Doing Step 1 Work on %s\n", getFormattedDate(sdf), name);
                 Thread.sleep(getRandomWaitTime());
                 System.out.printf("%s : Doing Step 1 more work on %s\n", getFormattedDate(sdf), name);
@@ -62,12 +62,12 @@ public class CyclicBarrierTest {
                 System.out.printf("%s : Finished Step 2 Batch of work on %s\n", getFormattedDate(sdf), name);
                 count = cyclicBarrier.await();
                 System.out.printf("%s : Cyclic Barrier count end of Step 2 Batch of work on %s is %d\n", getFormattedDate(sdf), name, count);
-            } catch (Exception e) {
+            } catch (final Exception e) {
                 e.printStackTrace();
             }
         }
 
-        private String getFormattedDate(SimpleDateFormat sdf) {
+        private String getFormattedDate(final SimpleDateFormat sdf) {
             return sdf.format(new Date());
         }
 

@@ -27,9 +27,9 @@ public class NaiveStringSearchAlgoTest {
     @Test
     public void test() throws Exception {
 
-        String toFind = "PHIL DROPPED HIS PHONE";
-        String search = "DROP";
-        Collection<SearchMatch> matches = searchAlgo.search(toFind, search);
+        final String toFind = "PHIL DROPPED HIS PHONE";
+        final String search = "DROP";
+        final Collection<SearchMatch> matches = searchAlgo.search(toFind, search);
 
         Assert.assertEquals(1, matches.size());
 

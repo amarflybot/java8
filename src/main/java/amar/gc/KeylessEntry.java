@@ -8,7 +8,7 @@ class KeylessEntry {
     static class Key {
         Integer id;
 
-        Key(Integer id) {
+        Key(final Integer id) {
             this.id = id;
         }
 

@@ -7,16 +7,16 @@ import java.util.Arrays;
  */
 public class SelectionSort {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int[] arr = {64, 25, 12, 22, 11};
+        final int[] arr = {64, 25, 12, 22, 11};
         System.out.println("Array: " + Arrays.toString(arr));
         selectionSort(arr);
         System.out.println("Sorted Array: " + Arrays.toString(arr));
     }
 
-    private static int[] selectionSort(int[] arr) {
-        int n = arr.length;
+    private static int[] selectionSort(final int[] arr) {
+        final int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             int minPosition = i;
             for (int j = i + 1; j < n; j++) {
@@ -24,7 +24,7 @@ public class SelectionSort {
                     minPosition = j;
                 }
             }
-            int temp = arr[minPosition];
+            final int temp = arr[minPosition];
             arr[minPosition] = arr[i];
             arr[i] = temp;
         }

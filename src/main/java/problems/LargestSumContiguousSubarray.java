@@ -10,12 +10,12 @@ package problems;
  */
 public class LargestSumContiguousSubarray {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
 
-        int[] arr = {-2, -3, 4, -1, -2, 1, 5, -3};
+        final int[] arr = {-2, -3, 4, -1, -2, 1, 5, -3};
 
-        int tot = calculate(arr);
+        final int tot = calculate(arr);
 
         System.out.println(tot);
     }

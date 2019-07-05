@@ -21,12 +21,12 @@ public class LinkedList<T> extends AbstractList<T> {
         return tail;
     }
 
-    public void addFirst(T value) {
+    public void addFirst(final T value) {
         addFirst(new Node<>(value));
     }
 
-    public void addFirst(Node<T> value) {
-        Node<T> temp = head;
+    public void addFirst(final Node<T> value) {
+        final Node<T> temp = head;
         head = value;
         head.setNext(temp);
         count++;
@@ -35,11 +35,11 @@ public class LinkedList<T> extends AbstractList<T> {
         }
     }
 
-    public void addLast(T value) {
+    public void addLast(final T value) {
         addLast(new Node<>(value));
     }
 
-    public void addLast(Node<T> value) {
+    public void addLast(final Node<T> value) {
         if (count == 0) {
             head = tail;
         } else {
@@ -50,7 +50,7 @@ public class LinkedList<T> extends AbstractList<T> {
     }
 
     public T removeFirst() {
-        T temp = head.getVal();
+        final T temp = head.getVal();
         if (count != 0) {
             head = head.getNext();
             count--;
@@ -62,7 +62,7 @@ public class LinkedList<T> extends AbstractList<T> {
     }
 
     public T removeLast() {
-        T temp = tail.getVal();
+        final T temp = tail.getVal();
         if (count != 0) {
             if (count == 1) {
                 head = null;

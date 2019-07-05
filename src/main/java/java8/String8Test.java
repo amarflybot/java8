@@ -9,15 +9,15 @@ import java.util.StringJoiner;
  */
 public class String8Test {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        StringJoiner stringJoiner = new StringJoiner(",", "[", "]");
+        final StringJoiner stringJoiner = new StringJoiner(",", "[", "]");
         stringJoiner.add("One");
         stringJoiner.add("Two");
         stringJoiner.add("Three");
         System.out.println(stringJoiner);
 
-        Map<String, String> map = new HashMap<>();
+        final Map<String, String> map = new HashMap<>();
         map.put(null, "ABC");
 
         System.out.println(map.get(null));

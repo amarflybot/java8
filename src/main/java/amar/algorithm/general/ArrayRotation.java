@@ -9,11 +9,11 @@ import java.util.Arrays;
  */
 public class ArrayRotation {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         final int rotationNumber = 2;
 
-        int[] array = {1, 2, 3, 4, 5, 6, 7};
+        final int[] array = {1, 2, 3, 4, 5, 6, 7};
 
         System.out.println(Arrays.toString(array));
 
@@ -25,7 +25,7 @@ public class ArrayRotation {
     private static void rotateOneByOne(final int rotationNumber, final int[] array) {
 
         for (int i = 0; i < rotationNumber; i++) {
-            int temp = array[0];
+            final int temp = array[0];
             for (int j = 0; j < array.length - 1; j++) {
                 array[j] = array[j + 1];
             }
@@ -34,7 +34,7 @@ public class ArrayRotation {
     }
 
     public static void rotateByTempArray(final int rotationNumber, final int[] array) {
-        int[] temp = Arrays.copyOf(array, rotationNumber);
+        final int[] temp = Arrays.copyOf(array, rotationNumber);
 
         for (int i = 0; i < array.length - rotationNumber; i++) {
 

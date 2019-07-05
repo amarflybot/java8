@@ -8,7 +8,7 @@ public class Address extends CustomerRelatedData {
     private Long id;
     private String address1;
 
-    public Address(Long id, long customerID, String address1) {
+    public Address(final Long id, final long customerID, final String address1) {
         super(customerID);
         this.id = id;
         this.address1 = address1;
@@ -17,7 +17,7 @@ public class Address extends CustomerRelatedData {
     public Address() {
     }
 
-    public Address(long id, String address1) {
+    public Address(final long id, final String address1) {
         this.id = id;
         this.address1 = address1;
     }

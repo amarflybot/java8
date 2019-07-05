@@ -27,11 +27,11 @@ import java.util.Set;
  */
 public class PriorityQueueTest {
 
-    public static void main(String[] args) {
-        Date start = new Date();
+    public static void main(final String[] args) {
+        final Date start = new Date();
         //Queue<Person1> person1Queue = new PriorityQueue<>();
         //List<Person1> list = new ArrayList<>();
-        Set<Person1> person1s = new HashSet<>();
+        final Set<Person1> person1s = new HashSet<>();
         for (int i = 0; i < 1000000; i++) {
             person1s.add(new Person1(i, String.valueOf(i)));
         }
@@ -40,7 +40,7 @@ public class PriorityQueueTest {
         //boolean offer = person1Queue.offer(new Person1(555555, String.valueOf(555555)));
         final boolean contains = person1s.contains(new Person1(999999, String.valueOf(999999)));
         System.out.println(contains);
-        Date end = new Date();
+        final Date end = new Date();
 
         System.out.println("Time Taken: " + (end.getTime() - start.getTime()));
     }

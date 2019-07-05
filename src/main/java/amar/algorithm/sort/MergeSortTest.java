@@ -7,14 +7,14 @@ import java.util.Arrays;
  */
 public class MergeSortTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         //1D
-        int[] arr = {3, 8, 4, 1, 2, 9, 5, 6};
+        final int[] arr = {3, 8, 4, 1, 2, 9, 5, 6};
 
         System.out.println("UnSorted arr -> " + Arrays.toString(arr));
 
-        int[] sort = mergeSort(arr);
+        final int[] sort = mergeSort(arr);
 
         System.out.println("Sorted arr -> " + Arrays.toString(sort));
 
@@ -29,14 +29,14 @@ public class MergeSortTest {
         }
 
         // Find Midpoint
-        int length = arr.length;
-        int midPoint = length / 2;
+        final int length = arr.length;
+        final int midPoint = length / 2;
 
-        int[] firstHalf = Arrays.copyOfRange(arr, 0, midPoint);
-        int[] secondHalf = Arrays.copyOfRange(arr, midPoint, length);
+        final int[] firstHalf = Arrays.copyOfRange(arr, 0, midPoint);
+        final int[] secondHalf = Arrays.copyOfRange(arr, midPoint, length);
 
-        int[] left = mergeSort(firstHalf);
-        int[] right = mergeSort(secondHalf);
+        final int[] left = mergeSort(firstHalf);
+        final int[] right = mergeSort(secondHalf);
 
         arr = merge(left, right);
 
@@ -46,7 +46,7 @@ public class MergeSortTest {
     }
 
     private static int[] merge(final int[] firstHalf, final int[] secondHalf) {
-        int[] array = new int[firstHalf.length + secondHalf.length];
+        final int[] array = new int[firstHalf.length + secondHalf.length];
         int i = 0, j = 0, k = 0;
 
         while (i < firstHalf.length && j < secondHalf.length) {

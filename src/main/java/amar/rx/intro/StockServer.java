@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class StockServer {
 
-    public static Observable<StockInfo> getFeed(List<String> symbols) {
+    public static Observable<StockInfo> getFeed(final List<String> symbols) {
         return Observable.create(subscriber -> {
             try {
                 while (true) {
@@ -19,16 +19,16 @@ public class StockServer {
 
                     sleep(1000);
                 }
-            } catch (Exception ex) {
+            } catch (final Exception ex) {
                 subscriber.onError(ex);
             }
         });
     }
 
-    private static void sleep(int i) {
+    private static void sleep(final int i) {
         try {
             Thread.sleep(i);
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             e.printStackTrace();
         }
     }

@@ -6,7 +6,7 @@ public class EmployeeLDAP {
     private String firstname;
     private String roll;
 
-    public EmployeeLDAP(String cname, String firstName, String roll) {
+    public EmployeeLDAP(final String cname, final String firstName, final String roll) {
         this.cname = cname;
         this.firstname = firstName;
         this.roll = roll;

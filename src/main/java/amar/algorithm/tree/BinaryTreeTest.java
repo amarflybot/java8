@@ -5,9 +5,9 @@ package amar.algorithm.tree;
  */
 public class BinaryTreeTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        BinaryTree<Integer> integerBinaryNode = new BinaryTree<>();
+        final BinaryTree<Integer> integerBinaryNode = new BinaryTree<>();
         integerBinaryNode.add(4);
         integerBinaryNode.add(2);
         integerBinaryNode.add(1);
@@ -24,7 +24,7 @@ public class BinaryTreeTest {
         integerBinaryNode.postOrderTraversal();
         System.out.println("========================");
 
-        BinaryNode<Integer> findWithParent = integerBinaryNode.findWithParent(4);
+        final BinaryNode<Integer> findWithParent = integerBinaryNode.findWithParent(4);
         System.out.println(findWithParent);
 
 

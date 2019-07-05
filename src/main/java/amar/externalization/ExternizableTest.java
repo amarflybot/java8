@@ -14,24 +14,24 @@ import java.io.ObjectOutputStream;
  */
 public class ExternizableTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         try {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-            Account account = new Account(2, "MyName");
+            final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            final ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            final Account account = new Account(2, "MyName");
             System.out.println("Account Object Created");
             objectOutputStream.writeObject(account);
             System.out.println("Externalized");
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-            ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+            final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+            final ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
             System.out.println("DeExternalization Started");
-            Account account1 = (Account) objectInputStream.readObject();
+            final Account account1 = (Account) objectInputStream.readObject();
             System.out.println("DeExternalization Done");
             System.out.println(account1.no);
             System.out.println(account1.name);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (final ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -47,13 +47,13 @@ class Account implements Externalizable {
         System.out.println("In Default Constructor :: Account");
     }
 
-    public Account(int no, String name) {
+    public Account(final int no, final String name) {
         this.no = no;
         this.name = name;
     }
 
     @Override
-    public void writeExternal(ObjectOutput out) throws IOException {
+    public void writeExternal(final ObjectOutput out) throws IOException {
         System.out.println("in writeExternal");
         out.writeObject(no);
         out.writeObject(name);
@@ -61,7 +61,7 @@ class Account implements Externalizable {
     }
 
     @Override
-    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+    public void readExternal(final ObjectInput in) throws IOException, ClassNotFoundException {
         System.out.println("in readExternal");
         no = (int) in.readObject();
         name = (String) in.readObject();

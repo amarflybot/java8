@@ -21,7 +21,7 @@ class UseCounter implements Runnable {
 
         try {
             Thread.sleep(2000);
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
         }
 
         System.out.println(threadLocal.get());
@@ -31,11 +31,11 @@ class UseCounter implements Runnable {
 // This class creates three threads
 public class DataRace {
 
-    public static void main(String args[]) throws InterruptedException {
-        UseCounter c = new UseCounter();
-        Thread t1 = new Thread(c);
-        Thread t2 = new Thread(c);
-        Thread t3 = new Thread(c);
+    public static void main(final String[] args) throws InterruptedException {
+        final UseCounter c = new UseCounter();
+        final Thread t1 = new Thread(c);
+        final Thread t2 = new Thread(c);
+        final Thread t3 = new Thread(c);
         t1.start();
         t2.start();
         t2.join();

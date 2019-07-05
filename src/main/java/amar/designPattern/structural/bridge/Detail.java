@@ -6,7 +6,7 @@ public class Detail {
     private String value;
 
 
-    public Detail(String label, String value) {
+    public Detail(final String label, final String value) {
         this.label = label;
         this.value = value;
     }

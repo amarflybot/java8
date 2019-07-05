@@ -13,13 +13,13 @@ import java.io.Serializable;
  */
 public class ParentDeserializationTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         try {
             System.out.println("Creating...");
-            Child c = new Child(1);
-            Child child = new Child1(11);
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            final Child c = new Child(1);
+            final Child child = new Child1(11);
+            final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            final ObjectOutputStream oos = new ObjectOutputStream(baos);
             c.field = 10;
             child.field = 20;
             System.out.println("Serializing...");
@@ -29,19 +29,19 @@ public class ParentDeserializationTest {
             baos.flush();
             oos.close();
             baos.close();
-            ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-            ObjectInputStream ois = new ObjectInputStream(bais);
+            final ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+            final ObjectInputStream ois = new ObjectInputStream(bais);
             System.out.println("---------------------------------------------------");
             System.out.println("Deserializing...");
-            Child c1 = (Child) ois.readObject();
+            final Child c1 = (Child) ois.readObject();
             System.out.println("c1.i=" + c1.getI());
             System.out.println("c1.field=" + c1.getField());
-            Child1 child1 = (Child1) ois.readObject();
+            final Child1 child1 = (Child1) ois.readObject();
             System.out.println("child1.i=" + child1.getI());
             System.out.println("child1.field=" + child1.getField());
-        } catch (IOException ex) {
+        } catch (final IOException ex) {
             ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
+        } catch (final ClassNotFoundException ex) {
             ex.printStackTrace();
         }
     }
@@ -66,7 +66,7 @@ class Child extends Parent implements Serializable {
         System.out.println("Child::Default Constructor");
     }
 
-    public Child(int i) {
+    public Child(final int i) {
         this.i = i;
         System.out.println("Child::Constructor");
     }
@@ -83,7 +83,7 @@ class Child1 extends Child {
         System.out.println("Child1::Default Constructor");
     }
 
-    public Child1(int i) {
+    public Child1(final int i) {
         this.i = i;
         System.out.println("Child1::Constructor");
     }

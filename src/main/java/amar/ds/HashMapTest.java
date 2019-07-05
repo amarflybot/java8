@@ -8,8 +8,8 @@ import java.util.Map;
  */
 public class HashMapTest {
 
-    public static void main(String[] args) {
-        Map<String, Integer> hm = new HashMap<>();
+    public static void main(final String[] args) {
+        final Map<String, Integer> hm = new HashMap<>();
 
         final int maxValue = 1 << 30;
         System.out.println(maxValue / 10);

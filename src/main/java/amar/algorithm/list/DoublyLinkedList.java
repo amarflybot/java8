@@ -31,11 +31,11 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         return count;
     }
 
-    public void addFirst(T value) {
+    public void addFirst(final T value) {
         addFirst(new DoubleNode<>(value));
     }
 
-    public void addFirst(DoubleNode<T> node) {
+    public void addFirst(final DoubleNode<T> node) {
 
         if (count == 0) {
             head = node;
@@ -44,7 +44,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
             return;
         }
 
-        DoubleNode<T> temp = head;
+        final DoubleNode<T> temp = head;
 
         head = node;
         head.setNext(temp);
@@ -56,11 +56,11 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         }
     }
 
-    public void addLast(T val) {
+    public void addLast(final T val) {
         addLast(new DoubleNode<>(val));
     }
 
-    public void addLast(DoubleNode<T> node) {
+    public void addLast(final DoubleNode<T> node) {
 
         if (count == 0) {
             head = tail;
@@ -74,7 +74,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
     }
 
     public T removeFirst() {
-        T t = head.getValue();
+        final T t = head.getValue();
         if (count != 0) {
             if (count == 1) {
                 head = null;
@@ -89,7 +89,7 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
     }
 
     public T removeLast() {
-        T val = tail.getValue();
+        final T val = tail.getValue();
         if (count != 0) {
             if (count == 1) {
                 head = null;

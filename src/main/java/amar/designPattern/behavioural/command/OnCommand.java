@@ -8,7 +8,7 @@ public class OnCommand implements Command {
 
     private Light light;
 
-    public OnCommand(Light light) {
+    public OnCommand(final Light light) {
         this.light = light;
     }
 

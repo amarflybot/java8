@@ -7,12 +7,12 @@ public class DeadLockDetection {
     static Object lock = new Object();
     static Object lock2 = new Object();
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        DeadlockLoggingBean deadlockLoggingBean = new DeadlockLoggingBean();
+        final DeadlockLoggingBean deadlockLoggingBean = new DeadlockLoggingBean();
         deadlockLoggingBean.init();
 
-        Thread t1 = new Thread(new Runnable() {
+        final Thread t1 = new Thread(new Runnable() {
             public void run() {
 
                 for (int itr = 1; itr < 51; itr = itr + 2) {
@@ -24,7 +24,7 @@ public class DeadLockDetection {
                                 lock.notify();
                                 lock.wait();
                                 Thread.sleep(1000);
-                            } catch (InterruptedException e) {
+                            } catch (final InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
@@ -32,7 +32,7 @@ public class DeadLockDetection {
                 }
             }
         }, "Thread1");
-        Thread t2 = new Thread(new Runnable() {
+        final Thread t2 = new Thread(new Runnable() {
             public void run() {
 
                 for (int itr = 2; itr < 51; itr = itr + 2) {
@@ -45,7 +45,7 @@ public class DeadLockDetection {
                                 if (itr == 50)
                                     break;
                                 lock.wait();
-                            } catch (InterruptedException e) {
+                            } catch (final InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
@@ -58,7 +58,7 @@ public class DeadLockDetection {
             t2.start();
             t1.join();
             System.out.println("\nPrinting over");
-        } catch (Exception e) {
+        } catch (final Exception e) {
 
         }
     }

@@ -16,23 +16,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void addUser(String username, String emailID) {
+    public void addUser(final String username, final String emailID) {
 
         System.out.println("UserServiceImpl: addUser " + username + " , " + emailID);
 
-        UserEvent userEvent = new CreateUserEvent(username, emailID);
+        final UserEvent userEvent = new CreateUserEvent(username, emailID);
 
         userServiceEvent.onNext(userEvent);
 
     }
 
     @Override
-    public void subscribeToUserEvents(Observer<UserEvent> subscriber) {
+    public void subscribeToUserEvents(final Observer<UserEvent> subscriber) {
         userServiceEvent.subscribe(subscriber);
     }
 
     @Override
-    public void subscribeToUserEvents(Action1<UserEvent> onNext) {
+    public void subscribeToUserEvents(final Action1<UserEvent> onNext) {
         userServiceEvent.subscribe(onNext);
     }
 }

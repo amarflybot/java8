@@ -12,11 +12,11 @@ import java.util.concurrent.FutureTask;
  */
 public class FutureCreationExamples {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Observable<List<Integer>> listObservable;
+        final Observable<List<Integer>> listObservable;
 
-        FutureTask<List<Integer>> futureTask = new FutureTask<List<Integer>>(() -> DataGenerator.generateArrayList());
+        final FutureTask<List<Integer>> futureTask = new FutureTask<List<Integer>>(() -> DataGenerator.generateArrayList());
 
         listObservable = Observable.from(futureTask);
 

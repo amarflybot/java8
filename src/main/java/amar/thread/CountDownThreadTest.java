@@ -9,12 +9,12 @@ public class CountDownThreadTest {
 
     private static int MAX_THREAD = 5;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
-        CountDownLatch latch = new CountDownLatch(MAX_THREAD);
+        final CountDownLatch latch = new CountDownLatch(MAX_THREAD);
 
         for (int i = 0; i < MAX_THREAD; i++) {
-            Thread thread = new Thread(new Runnable() {
+            final Thread thread = new Thread(new Runnable() {
 
                 @Override
                 public void run() {

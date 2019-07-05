@@ -17,7 +17,7 @@ class Person {
     String name;
     String age;
 
-    public Person(String name, String age) {
+    public Person(String name, final String age) {
         name = name;
         this.age = age;
     }
@@ -26,7 +26,7 @@ class Person {
         System.out.println("IN static inHere of Person");
     }
 
-    public void callSomeone(int q, double a) {
+    public void callSomeone(final int q, final double a) {
 
     }
 
@@ -40,7 +40,7 @@ class Boy extends Outer {
 
     String roll;
 
-    public Boy(String name, String age, String roll) {
+    public Boy(final String name, final String age, final String roll) {
         //super(name, age);
         this.roll = roll;
 
@@ -54,7 +54,7 @@ class Boy extends Outer {
 
     }
 
-    public void callSomeone(int q, double a) {
+    public void callSomeone(final int q, final double a) {
 
     }
 
@@ -62,8 +62,8 @@ class Boy extends Outer {
 
 public class Test {
 
-    public static void main(String[] args) {
-        Outer.Inner outer = new Outer.Inner() {
+    public static void main(final String[] args) {
+        final Outer.Inner outer = new Outer.Inner() {
 
         };
     }
@@ -71,15 +71,15 @@ public class Test {
     /**
      * This method makes a "deep clone" of any Java object it is given.
      */
-    public static Object deepClone(Object object) {
+    public static Object deepClone(final Object object) {
         try {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            final ObjectOutputStream oos = new ObjectOutputStream(baos);
             oos.writeObject(object);
-            ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-            ObjectInputStream ois = new ObjectInputStream(bais);
+            final ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+            final ObjectInputStream ois = new ObjectInputStream(bais);
             return ois.readObject();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
             return null;
         }

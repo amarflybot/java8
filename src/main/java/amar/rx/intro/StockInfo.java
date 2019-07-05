@@ -14,13 +14,13 @@ public class StockInfo {
     private String ticket;
     private double value;
 
-    public StockInfo(String ticket, double value) {
+    public StockInfo(final String ticket, final double value) {
         this.ticket = ticket;
         this.value = value;
     }
 
-    public static StockInfo fetch(String ticket) {
-        StockInfo stockInfo = new StockInfo(ticket, getPriceOrig(ticket));
+    public static StockInfo fetch(final String ticket) {
+        final StockInfo stockInfo = new StockInfo(ticket, getPriceOrig(ticket));
         if (Math.random() > .8) {
             throw new RuntimeException();
         }
@@ -35,10 +35,10 @@ public class StockInfo {
                     new BufferedReader(new InputStreamReader(url.openStream()));
             final String data = reader.lines().skip(1).limit(1).findFirst().get();
             final String[] dataItems = data.split(",");
-            double price = Double.parseDouble(dataItems[dataItems.length - 1]);
+            final double price = Double.parseDouble(dataItems[dataItems.length - 1]);
             //System.out.println("put(\"" + ticker + "\", " + price + ");");
             return price;
-        } catch (Exception ex) {
+        } catch (final Exception ex) {
             throw new RuntimeException(ex);
         }
     }

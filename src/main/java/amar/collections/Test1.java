@@ -23,11 +23,11 @@ enum People {
  */
 public class Test1 {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
 
-        Map<Person, Long> personMap = new IdentityHashMap<>();
-        List<Person> personSet = new ArrayList<>();
+        final Map<Person, Long> personMap = new IdentityHashMap<>();
+        final List<Person> personSet = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             final Long key = Long.valueOf(Integer.valueOf(i).toString());
             final Person person = new Person(key, new StringJoiner(":", "Name", String.valueOf(10L - key)).toString());
@@ -48,7 +48,7 @@ class Person implements Comparable<Person> {
     private Long id;
     private String name;
 
-    public Person(Long id, String name) {
+    public Person(final Long id, final String name) {
         this.id = id;
         this.name = name;
     }

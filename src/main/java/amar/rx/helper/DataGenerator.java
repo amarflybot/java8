@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 public class DataGenerator {
 
     public static List<Integer> generateArrayList() {
-        List<Integer> integerList = new ArrayList<>();
+        final List<Integer> integerList = new ArrayList<>();
         integerList.add(1);
         integerList.add(2);
         integerList.add(3);
@@ -29,11 +29,11 @@ public class DataGenerator {
 
     public static List<String> generateGreekAlphabet() {
 
-        List<String> strings = new ArrayList<>();
-        RandomDataGenerator generator = new RandomDataGenerator();
+        final List<String> strings = new ArrayList<>();
+        final RandomDataGenerator generator = new RandomDataGenerator();
 
         for (int i = 0; i < 1000; i++) {
-            String string = generator.nextHexString(10);
+            final String string = generator.nextHexString(10);
             strings.add(string);
         }
 
@@ -43,7 +43,7 @@ public class DataGenerator {
 
     public static List<String> generateScrambleAndDuppedGreekAlphabet() {
 
-        List<String> strings = new ArrayList<>();
+        final List<String> strings = new ArrayList<>();
 
         strings.addAll(generateGreekAlphabet());
         strings.addAll(generateGreekAlphabet());
@@ -55,8 +55,8 @@ public class DataGenerator {
         return strings;
     }
 
-    public static List<Integer> generatorFibonacciList(int num) {
-        List<Integer> integerList = new ArrayList<>();
+    public static List<Integer> generatorFibonacciList(final int num) {
+        final List<Integer> integerList = new ArrayList<>();
         integerList.add(0);
         integerList.add(1);
         for (int i = 2; i < num; i++) {
@@ -66,7 +66,7 @@ public class DataGenerator {
     }
 
     public static List<String> generateEnglishAlphabet() {
-        List<String> strings = new ArrayList<>();
+        final List<String> strings = new ArrayList<>();
         strings.add("A");
         strings.add("B");
         strings.add("C");

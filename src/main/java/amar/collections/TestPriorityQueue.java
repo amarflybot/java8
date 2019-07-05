@@ -10,15 +10,15 @@ import java.util.Queue;
  */
 public class TestPriorityQueue {
 
-    public static void main(String[] args) {
-        Queue<Element> queue = new PriorityQueue<>(Element.reverseComparator());
+    public static void main(final String[] args) {
+        final Queue<Element> queue = new PriorityQueue<>(Element.reverseComparator());
         queue.add(new Element(2));
         queue.add(new Element(1));
 
         System.out.println(queue);
 
-        Cat c = new Cat();
-        Animal b = (Animal) c;
+        final Cat c = new Cat();
+        final Animal b = (Animal) c;
 
         System.out.println(b);
     }

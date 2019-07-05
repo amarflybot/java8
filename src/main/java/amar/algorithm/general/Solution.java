@@ -10,16 +10,16 @@ import java.util.Scanner;
  */
 public class Solution {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(final String[] args) throws IOException {
 
-        Scanner in = new Scanner(System.in);
-        String fileName = "/Volumes/win2/sandbox/java8/src/main/res/Output003.txt";
-        BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
-        int[] res;
-        int _l;
+        final Scanner in = new Scanner(System.in);
+        final String fileName = "/Volumes/win2/sandbox/java8/src/main/res/Output003.txt";
+        final BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+        final int[] res;
+        final int _l;
         _l = Integer.parseInt(in.nextLine().trim());
 
-        int _r;
+        final int _r;
         _r = Integer.parseInt(in.nextLine().trim());
 
         res = oddNumbers(_l, _r);
@@ -31,9 +31,9 @@ public class Solution {
         bw.close();
     }
 
-    private static int[] oddNumbers(int l, int r) {
-        int max = (r - l) / 2 + 1;
-        int[] arr = new int[max];
+    private static int[] oddNumbers(int l, final int r) {
+        final int max = (r - l) / 2 + 1;
+        final int[] arr = new int[max];
         int j = 0;
         if (l % 2 == 0) {
             l = l + 1;

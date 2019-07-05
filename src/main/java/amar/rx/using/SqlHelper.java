@@ -12,38 +12,38 @@ import java.util.List;
 
 public class SqlHelper {
 
-    public static void execute(Connection c, String sql) {
+    public static void execute(final Connection c, final String sql) {
         Statement s = null;
         try {
             s = c.createStatement();
             s.execute(sql);
-        } catch (SQLException e) {
+        } catch (final SQLException e) {
             e.printStackTrace();
         } finally {
             if (s != null) {
                 try {
                     s.close();
-                } catch (SQLException e) {
+                } catch (final SQLException e) {
 
                 }
             }
         }
     }
 
-    public static ResultSet executeQuery(Connection c, String sql) {
+    public static ResultSet executeQuery(final Connection c, final String sql) {
         Statement s = null;
         ResultSet resultSet = null;
         try {
             s = c.createStatement();
             resultSet = s.executeQuery(sql);
             return resultSet;
-        } catch (SQLException e) {
+        } catch (final SQLException e) {
             e.printStackTrace();
         } finally {
             if (s != null) {
                 try {
                     s.close();
-                } catch (SQLException e) {
+                } catch (final SQLException e) {
 
                 }
             }
@@ -51,13 +51,13 @@ public class SqlHelper {
         return resultSet;
     }
 
-    public static <T> Observable<T> executeQuery(ConnectionSubscription connectionSubscription,
-                                                 String sqlString, RowMapper<T> rowMapper) throws SQLException {
-        List<T> workList = new ArrayList<T>();
+    public static <T> Observable<T> executeQuery(final ConnectionSubscription connectionSubscription,
+                                                 final String sqlString, final RowMapper<T> rowMapper) throws SQLException {
+        final List<T> workList = new ArrayList<T>();
 
-        Statement statement = connectionSubscription.getConnection().createStatement();
+        final Statement statement = connectionSubscription.getConnection().createStatement();
         connectionSubscription.registerResourceForClose(statement);
-        ResultSet resultSet = statement.executeQuery(sqlString);
+        final ResultSet resultSet = statement.executeQuery(sqlString);
         connectionSubscription.registerResourceForClose(resultSet);
 
         while (resultSet.next()) {

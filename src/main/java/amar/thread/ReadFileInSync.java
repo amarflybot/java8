@@ -13,19 +13,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class ReadFileInSync {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
-        File file = new File("/Users/amarendra/IdeaProjects/java8/src/main/res/sample.csv");
-        FileReaderMy fileReader = new FileReaderMy(file);
-        List<String> records = new ArrayList<>();
+        final File file = new File("/Users/amarendra/IdeaProjects/java8/src/main/res/sample.csv");
+        final FileReaderMy fileReader = new FileReaderMy(file);
+        final List<String> records = new ArrayList<>();
         System.out.println("Starting RecordProcessor");
         for (int i = 0; i < 5; i++) {
-            Thread t1 = new Thread(new RecordProcessor(fileReader, records));
+            final Thread t1 = new Thread(new RecordProcessor(fileReader, records));
             t1.start();
         }
 
         System.out.println("Starting RecordAccumulator");
-        Thread t1 = new Thread(new RecordAccumulator(records), "Thread-RecordAccumulator:");
+        final Thread t1 = new Thread(new RecordAccumulator(records), "Thread-RecordAccumulator:");
         t1.start();
         t1.join();
 
@@ -54,7 +54,7 @@ class RecordAccumulator implements Runnable {
                 strings.notify();
                 try {
                     strings.wait(1000);
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -79,7 +79,7 @@ class RecordProcessor implements Runnable {
                 String line = null;
                 try {
                     line = fileReaderMy.readLine();
-                } catch (IOException e) {
+                } catch (final IOException e) {
                     e.printStackTrace();
                 }
                 System.out.println("Processing line by Thread name -> " + Thread.currentThread().getName());
@@ -88,7 +88,7 @@ class RecordProcessor implements Runnable {
                     strings.notify();
                     try {
                         strings.wait(1000);
-                    } catch (InterruptedException e) {
+                    } catch (final InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -109,7 +109,7 @@ class FileReaderMy {
         java.io.FileReader fileReader = null;
         try {
             fileReader = new java.io.FileReader(this.file);
-        } catch (FileNotFoundException e) {
+        } catch (final FileNotFoundException e) {
             e.printStackTrace();
         }
         this.bufferedReader = new BufferedReader(fileReader);

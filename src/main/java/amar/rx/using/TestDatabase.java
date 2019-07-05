@@ -21,28 +21,28 @@ import java.util.List;
 public class TestDatabase {
 
     public static void init() {
-        File databaseDirectory = new File("./rxJavaTest");
+        final File databaseDirectory = new File("./rxJavaTest");
         System.out.println(databaseDirectory.getAbsolutePath());
         try {
             FileUtils.deleteDirectory(databaseDirectory);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new RuntimeException(e.getMessage());
         }
 
-        String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+        final String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 
         try {
             Class.forName(driver).newInstance();
-        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+        } catch (final InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             throw new RuntimeException(e.getMessage());
         }
 
-        Connection c;
+        final Connection c;
 
         try {
             DriverManager.getConnection("jdbc:derby:rxJavaTest;create=true");
             c = DriverManager.getConnection("jdbc:derby:rxJavaTest");
-        } catch (SQLException e) {
+        } catch (final SQLException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
 
@@ -55,17 +55,17 @@ public class TestDatabase {
 
             int id = 1;
 
-            for (String nextLetter : DataGenerator.generateGreekAlphabet()) {
+            for (final String nextLetter : DataGenerator.generateGreekAlphabet()) {
                 sql = "INSERT INTO GREEK_ALPHABET (ID, LETTER) VALUES (" + (id++) + ", '" + nextLetter + "')";
                 s.execute(sql);
             }
-        } catch (SQLException e) {
+        } catch (final SQLException e) {
             e.printStackTrace();
         } finally {
             if (s != null) {
                 try {
                     s.close();
-                } catch (SQLException e) {
+                } catch (final SQLException e) {
 
                 }
             }
@@ -73,7 +73,7 @@ public class TestDatabase {
             if (c != null) {
                 try {
                     c.close();
-                } catch (SQLException e) {
+                } catch (final SQLException e) {
 
                 }
             }
@@ -81,28 +81,28 @@ public class TestDatabase {
     }
 
     public static void init2() {
-        File databaseDirectory = new File("./pluralSightTest_DB");
+        final File databaseDirectory = new File("./pluralSightTest_DB");
         System.out.println(databaseDirectory.getAbsolutePath());
         try {
             FileUtils.deleteDirectory(databaseDirectory);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new RuntimeException(e.getMessage());
         }
 
-        String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+        final String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 
         try {
             Class.forName(driver).newInstance();
-        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+        } catch (final InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             throw new RuntimeException(e.getMessage());
         }
 
-        Connection c;
+        final Connection c;
 
         try {
             DriverManager.getConnection("jdbc:derby:pluralSightTest_DB;create=true");
             c = DriverManager.getConnection("jdbc:derby:pluralSightTest_DB");
-        } catch (SQLException e) {
+        } catch (final SQLException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
 
@@ -135,7 +135,7 @@ public class TestDatabase {
         if (c != null) {
             try {
                 c.close();
-            } catch (SQLException e) {
+            } catch (final SQLException e) {
 
             }
         }
@@ -145,75 +145,75 @@ public class TestDatabase {
         return new ConnectionSubscription(createConnection("jdbc:derby:pluralSightTest_DB"));
     }
 
-    public static Connection createConnection(String url) {
+    public static Connection createConnection(final String url) {
         try {
             return DriverManager.getConnection(url);
-        } catch (SQLException e) {
+        } catch (final SQLException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
     }
 
-    public static Observable<String> selectGreekAlphabet(ConnectionSubscription connectionSubscription) {
+    public static Observable<String> selectGreekAlphabet(final ConnectionSubscription connectionSubscription) {
         try {
-            Statement s = connectionSubscription.getConnection().createStatement();
+            final Statement s = connectionSubscription.getConnection().createStatement();
             connectionSubscription.registerResourceForClose(s);
 
-            ResultSet rs = s.executeQuery("SELECT LETTER FROM GREEK_ALPHABET");
+            final ResultSet rs = s.executeQuery("SELECT LETTER FROM GREEK_ALPHABET");
             connectionSubscription.registerResourceForClose(rs);
 
-            ObservableList<String> returnList = new ObservableList<>();
+            final ObservableList<String> returnList = new ObservableList<>();
             while (rs.next()) {
                 returnList.add(rs.getString("LETTER"));
                 try {
                     Thread.sleep(10);
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
 
 
             return returnList.getObservable();
-        } catch (SQLException e) {
+        } catch (final SQLException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
     }
 
-    public static Observable<Customer> selectAllCustomers(ConnectionSubscription connectionSubscription) {
+    public static Observable<Customer> selectAllCustomers(final ConnectionSubscription connectionSubscription) {
         try {
-            Statement s = connectionSubscription.getConnection().createStatement();
+            final Statement s = connectionSubscription.getConnection().createStatement();
             connectionSubscription.registerResourceForClose(s);
 
-            ResultSet rs = s.executeQuery("SELECT ID, USERNAME FROM CUSTOMER");
+            final ResultSet rs = s.executeQuery("SELECT ID, USERNAME FROM CUSTOMER");
             connectionSubscription.registerResourceForClose(rs);
 
-            List<Customer> returnList = new ArrayList<>();
+            final List<Customer> returnList = new ArrayList<>();
             while (rs.next()) {
-                Customer customer = new Customer(rs.getLong("ID"), rs.getString("USERNAME"));
+                final Customer customer = new Customer(rs.getLong("ID"), rs.getString("USERNAME"));
                 returnList.add(customer);
             }
 
             return Observable.from(returnList);
-        } catch (SQLException e) {
+        } catch (final SQLException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
     }
 
-    public static Observable<Customer> selectAllCustomers(ConnectionSubscription connectionSubscription, Long customerID) {
+    public static Observable<Customer> selectAllCustomers(final ConnectionSubscription connectionSubscription, final Long customerID) {
         try {
-            Statement s = connectionSubscription.getConnection().createStatement();
+            final Statement s = connectionSubscription.getConnection().createStatement();
             connectionSubscription.registerResourceForClose(s);
 
-            ResultSet rs = s.executeQuery("SELECT ID, USERNAME FROM CUSTOMER WHERE ID = " + customerID);
+            final ResultSet rs = s.executeQuery("SELECT ID, USERNAME FROM CUSTOMER WHERE ID = " + customerID);
             connectionSubscription.registerResourceForClose(rs);
 
-            List<Customer> returnList = new ArrayList<>();
+            final List<Customer> returnList = new ArrayList<>();
             while (rs.next()) {
-                Customer customer = new Customer(rs.getLong("ID"), rs.getString("USERNAME"));
+                final Customer customer = new Customer(rs.getLong("ID"), rs.getString("USERNAME"));
                 returnList.add(customer);
             }
 
             return Observable.from(returnList);
-        } catch (SQLException e) {
+        } catch (final SQLException e) {
             throw new RuntimeException(e.getMessage(), e);
         }
     }

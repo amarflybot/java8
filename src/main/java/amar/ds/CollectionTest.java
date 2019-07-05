@@ -10,9 +10,9 @@ import java.util.List;
  */
 public class CollectionTest {
 
-    public static void main(String[] args) {
-        List<Client> clients = new ArrayList<>();
-        Client client = new Client("x");
+    public static void main(final String[] args) {
+        final List<Client> clients = new ArrayList<>();
+        final Client client = new Client("x");
         String name = client.getName();
         name = "Amar";
         clients.add(client);
@@ -22,7 +22,7 @@ public class CollectionTest {
 
         Collections.sort(clients, new Comparator<Client>() {
             @Override
-            public int compare(Client o1, Client o2) {
+            public int compare(final Client o1, final Client o2) {
                 return o1.getName().compareTo(o2.getName());
             }
         });
@@ -36,7 +36,7 @@ final class Client {
     final private String name;
     private List<Client> clients;
 
-    Client(String name) {
+    Client(final String name) {
         this.name = name;
     }
 

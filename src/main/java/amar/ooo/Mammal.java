@@ -5,7 +5,7 @@ package amar.ooo;
  */
 public abstract class Mammal {
 
-    public void walk(Number number) {
+    public void walk(final Number number) {
         System.out.println("Walking in Mammal kms: " + number);
     }
 

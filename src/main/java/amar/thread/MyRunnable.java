@@ -8,7 +8,7 @@ import java.util.concurrent.Callable;
 public class MyRunnable implements Callable<Long> {
     private final long countUntil;
 
-    MyRunnable(long countUntil) {
+    MyRunnable(final long countUntil) {
         this.countUntil = countUntil;
     }
 
@@ -18,7 +18,7 @@ public class MyRunnable implements Callable<Long> {
         for (long i = 1; i < countUntil; i++) {
             try {
                 Thread.sleep(10);
-            } catch (InterruptedException e) {
+            } catch (final InterruptedException e) {
                 e.printStackTrace();
             }
             sum += i;

@@ -9,11 +9,11 @@ import java.util.concurrent.Executors;
  */
 public class Future8Test {
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        CompletableFuture<String> async = calculateAsync();
+    public static void main(final String[] args) throws ExecutionException, InterruptedException {
+        final CompletableFuture<String> async = calculateAsync();
         System.out.println("async.before.isCancelled() -> " + async.isCancelled());
         System.out.println("async.before.isDone() -> " + async.isDone());
-        String str = async.get();
+        final String str = async.get();
         System.out.println(str);
         System.out.println("async.after.isCancelled() -> " + async.isCancelled());
         System.out.println("async.after.isDone() -> " + async.isDone());
@@ -22,12 +22,12 @@ public class Future8Test {
     }
 
     public static CompletableFuture<String> calculateAsync() {
-        CompletableFuture<String> completableFuture = new CompletableFuture<>();
+        final CompletableFuture<String> completableFuture = new CompletableFuture<>();
 
         Executors.newCachedThreadPool().submit(() -> {
             try {
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {
+            } catch (final InterruptedException e) {
                 e.printStackTrace();
             }
             completableFuture.complete("Hello " + Thread.currentThread().getName());

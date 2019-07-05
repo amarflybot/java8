@@ -14,9 +14,9 @@ public class GroupExample {
 
     public static final String EVEN = "EVEN";
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        List<Integer> iterable = DataGenerator.generateBigIntegerList();
+        final List<Integer> iterable = DataGenerator.generateBigIntegerList();
         Collections.shuffle(iterable);
         Observable.from(iterable)
                 .groupBy((i) -> {
@@ -33,8 +33,8 @@ public class GroupExample {
 
         System.out.println("===============================================================================");
 
-        List<Integer> oddList = new ArrayList<>();
-        List<Integer> evenList = new ArrayList<>();
+        final List<Integer> oddList = new ArrayList<>();
+        final List<Integer> evenList = new ArrayList<>();
 
         Observable.from(iterable)
                 .groupBy((i) -> {

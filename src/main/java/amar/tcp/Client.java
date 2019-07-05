@@ -9,10 +9,10 @@ import java.net.Socket;
  */
 public class Client {
 
-    public static void main(String args[]) {
+    public static void main(final String[] args) {
         try {
-            Socket skt = new Socket("localhost", 1234);
-            BufferedReader in = new BufferedReader(new
+            final Socket skt = new Socket("localhost", 1234);
+            final BufferedReader in = new BufferedReader(new
                     InputStreamReader(skt.getInputStream()));
             System.out.print("Received string: '");
 
@@ -22,7 +22,7 @@ public class Client {
 
             System.out.print("'\n");
             in.close();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             System.out.print("Whoops! It didn't work!\n");
         }
     }

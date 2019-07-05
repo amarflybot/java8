@@ -5,7 +5,7 @@ package amar.test;
  */
 public class Test {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         /*Object lock = new Object();
         Odd odd = new Odd();
@@ -18,8 +18,8 @@ public class Test {
 
         threadEven.start();
         threadOdd.start();*/
-        String str = new String("A");
-        String str1 = "A";
+        final String str = new String("A");
+        final String str1 = "A";
         str.intern();
 
         System.out.println(str.equals(str1));
@@ -32,7 +32,7 @@ class Odd implements Runnable {
 
     private Object lock;
 
-    public void setLock(Object lock) {
+    public void setLock(final Object lock) {
         this.lock = lock;
     }
 
@@ -45,7 +45,7 @@ class Odd implements Runnable {
                 try {
                     lock.notify();
                     lock.wait();
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -59,7 +59,7 @@ class Even implements Runnable {
 
     private Object lock;
 
-    public void setLock(Object lock) {
+    public void setLock(final Object lock) {
         this.lock = lock;
     }
 
@@ -72,7 +72,7 @@ class Even implements Runnable {
                 try {
                     lock.notify();
                     lock.wait();
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }

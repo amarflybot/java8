@@ -6,18 +6,18 @@ import java.util.Random;
  * Created by amarendra on 17/09/17.
  */
 public class AccountTransfer {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
-        AccountRunner accountRunner = new AccountRunner();
+        final AccountRunner accountRunner = new AccountRunner();
 
-        Thread t1 = new Thread(new Runnable() {
+        final Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 accountRunner.firstThread();
             }
         });
 
-        Thread t2 = new Thread(new Runnable() {
+        final Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 accountRunner.secondThread();
@@ -40,14 +40,14 @@ class AccountRunner {
     private Account account2 = new Account();
 
     public void firstThread() {
-        Random random = new Random();
+        final Random random = new Random();
         for (int i = 0; i < 10000; i++) {
             Account.transfer(account1, account2, random.nextInt(100));
         }
     }
 
     public void secondThread() {
-        Random random = new Random();
+        final Random random = new Random();
         for (int i = 0; i < 10000; i++) {
             Account.transfer(account2, account1, random.nextInt(100));
         }
@@ -64,16 +64,16 @@ class AccountRunner {
 class Account {
     private int balance = 10000;
 
-    public static void transfer(Account account1, Account account2, int amount) {
+    public static void transfer(final Account account1, final Account account2, final int amount) {
         account1.withdraw(amount);
         account2.deposit(amount);
     }
 
-    public void deposit(int amount) {
+    public void deposit(final int amount) {
         balance = balance + amount;
     }
 
-    public void withdraw(int amount) {
+    public void withdraw(final int amount) {
         balance = balance - amount;
     }
 

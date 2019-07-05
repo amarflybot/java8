@@ -4,7 +4,7 @@ import java.util.List;
 
 public abstract class Printer {
 
-    public String print(Formatter formatter) {
+    public String print(final Formatter formatter) {
         return formatter.format(getHeader(), getdetails());
     }
 

@@ -5,14 +5,14 @@ package amar.designPattern.behavioural.command;
  */
 public class CommandClient {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Light light = new Light();
+        final Light light = new Light();
 
-        Switch lightSwitch = new Switch();
+        final Switch lightSwitch = new Switch();
 
-        Command onCommand = new OnCommand(light);
-        Command toggleCommand = new ToggleCommand(light);
+        final Command onCommand = new OnCommand(light);
+        final Command toggleCommand = new ToggleCommand(light);
 
         lightSwitch.storeAndExecute(toggleCommand);
         lightSwitch.storeAndExecute(toggleCommand);

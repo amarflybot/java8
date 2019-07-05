@@ -9,12 +9,12 @@ public class FindFloorValueInSortedArray {
 
     static int noOfRounds;
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int[] arr = {1, 3, 6, 9, 12, 45, 67, 78};
-        int k = 11;
+        final int[] arr = {1, 3, 6, 9, 12, 45, 67, 78};
+        final int k = 11;
 
-        int i = floor(arr, k);
+        final int i = floor(arr, k);
         System.out.println("Found ? : " + i);
         System.out.println("Total Iterrations -> " + noOfRounds);
 
@@ -25,13 +25,14 @@ public class FindFloorValueInSortedArray {
         noOfRounds++;
         final int length = arr.length;
 
-        int midPoint = length / 2;
+        final int midPoint = length / 2;
         if (length == 1) {
             // found element
             return arr[0];
         } else if (length == 2) {
             // decide between left and right
-            int left = arr[0], right = arr[1];
+            final int left = arr[0];
+            final int right = arr[1];
             if ((k - left) < (right - k)) {
                 return left;
             } else {
@@ -47,8 +48,8 @@ public class FindFloorValueInSortedArray {
     // If TRUE then consider Second Half
     // If FALSE then consider First Half.
     private static boolean calculateNearest(final int[] arr, final int midPoint, final int k) {
-        int leftToMid = arr[midPoint - 1];
-        int rightToMid = arr[midPoint + 1];
+        final int leftToMid = arr[midPoint - 1];
+        final int rightToMid = arr[midPoint + 1];
         if (k - leftToMid > rightToMid - k) {
             return false;
         } else {

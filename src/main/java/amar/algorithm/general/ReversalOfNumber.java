@@ -5,18 +5,18 @@ package amar.algorithm.general;
  */
 public class ReversalOfNumber {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int i = 123456;
-        int reverse = reverse(i);
+        final int i = 123456;
+        final int reverse = reverse(i);
         System.out.println(reverse);
     }
 
     private static int reverse(int num) {
         int reversed = 0;
         while (num != 0) {
-            int leftNumber = num / 10;
-            int rightMost = num % 10;
+            final int leftNumber = num / 10;
+            final int rightMost = num % 10;
             reversed = reversed * 10 + rightMost;
             num = leftNumber;
         }

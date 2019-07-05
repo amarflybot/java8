@@ -9,21 +9,21 @@ import java.util.PriorityQueue;
  */
 public class QuickSelectTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int[] arr = {7, 2, 1, 6, 8, 5, 3, 4};
-        int k = 4;
+        final int[] arr = {7, 2, 1, 6, 8, 5, 3, 4};
+        final int k = 4;
         System.out.println("Select Element number: " + k);
-        int kthSmallest = findKthSmallest(arr, k);
-        int kthLargest = findKthLargest(arr, k);
+        final int kthSmallest = findKthSmallest(arr, k);
+        final int kthLargest = findKthLargest(arr, k);
         System.out.println("kth smallest : " + kthSmallest);
         System.out.println("kth largest : " + kthLargest);
 
     }
 
-    public static int findKthLargest(int[] nums, int k) {
-        PriorityQueue<Integer> q = new PriorityQueue<>(k);
-        for (int i : nums) {
+    public static int findKthLargest(final int[] nums, final int k) {
+        final PriorityQueue<Integer> q = new PriorityQueue<>(k);
+        for (final int i : nums) {
             q.offer(i);
 
             if (q.size() > k) {
@@ -34,9 +34,9 @@ public class QuickSelectTest {
         return q.peek();
     }
 
-    public static int findKthSmallest(int[] nums, int k) {
-        PriorityQueue<Integer> q = new PriorityQueue<>(k, Comparator.reverseOrder());
-        for (int i : nums) {
+    public static int findKthSmallest(final int[] nums, final int k) {
+        final PriorityQueue<Integer> q = new PriorityQueue<>(k, Comparator.reverseOrder());
+        for (final int i : nums) {
             q.offer(i);
 
             if (q.size() > k) {
@@ -47,11 +47,11 @@ public class QuickSelectTest {
         return q.peek();
     }
 
-    private static int quickSelect(int[] arr, int startIndex, int endIndex, final int k) {
+    private static int quickSelect(final int[] arr, final int startIndex, final int endIndex, final int k) {
 
         if (startIndex < endIndex) {
 
-            int pIndex = partition(arr, startIndex, endIndex);
+            final int pIndex = partition(arr, startIndex, endIndex);
 
             if (k == pIndex) {
                 return arr[k];
@@ -74,13 +74,13 @@ public class QuickSelectTest {
      * @param endIndex
      * @return the partition index of array
      */
-    private static int partition(int[] arr, int startIndex, int endIndex) {
-        int pivot = arr[endIndex];
+    private static int partition(final int[] arr, final int startIndex, final int endIndex) {
+        final int pivot = arr[endIndex];
         int pIndex = startIndex;
         for (int i = startIndex; i < endIndex; i++) {
             if (arr[i] <= pivot) {
                 // Swap arr[i] and arr[pIndex] AND increase pIndex++
-                int temp = arr[i];
+                final int temp = arr[i];
                 arr[i] = arr[pIndex];
                 arr[pIndex] = temp;
                 pIndex++;

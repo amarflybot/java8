@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class HighestFrequencyWord {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(final String[] args) throws IOException {
 
         final long time = getTotalTimeOfRun();
         final long time1 = getTotalTimeOfRun();
@@ -30,11 +30,11 @@ public class HighestFrequencyWord {
     }
 
     public static long getTotalTimeOfRun() throws IOException {
-        Date start = new Date();
+        final Date start = new Date();
 
-        Map<String, Integer> map = new HashMap<>();
+        final Map<String, Integer> map = new HashMap<>();
 
-        BufferedReader reader = new BufferedReader(new FileReader(new File("/Users/amarendra/IdeaProjects/java8/src/main/res/sampleSentence.txt")));
+        final BufferedReader reader = new BufferedReader(new FileReader(new File("/Users/amarendra/IdeaProjects/java8/src/main/res/sampleSentence.txt")));
 
         while (true) {
             final String line = reader.readLine();
@@ -62,7 +62,7 @@ public class HighestFrequencyWord {
         final Map.Entry<String, Integer> entry = entries.get(0);
         System.out.println(entry);
 
-        Date end = new Date();
+        final Date end = new Date();
 
         return end.getTime() - start.getTime();
     }

@@ -20,13 +20,13 @@ public class ThreadManagement {
      * @return
      */
     public static String detectDeadlocks() {
-        ThreadMXBean threadBean = getThreadMXBean();
-        long[] tids;
+        final ThreadMXBean threadBean = getThreadMXBean();
+        final long[] tids;
         if ((tids = threadBean.findDeadlockedThreads()) != null) {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            PrintStream ps = new PrintStream(baos, true);
+            final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            final PrintStream ps = new PrintStream(baos, true);
             ps.print("DEADLOCK DETECTED! threads are ");
-            for (long tid : tids) {
+            for (final long tid : tids) {
                 ps.print(tid);
                 ps.print(", ");
             }
@@ -39,37 +39,37 @@ public class ThreadManagement {
         return null;
     }
 
-    public static void dumpThreadInfoWithLocks(ThreadMXBean threadBean, PrintStream out) {
+    public static void dumpThreadInfoWithLocks(final ThreadMXBean threadBean, final PrintStream out) {
         out.println("Full Java thread dump with locks info");
-        ThreadInfo[] tinfos = threadBean.dumpAllThreads(true, true);
-        for (ThreadInfo ti : tinfos) {
+        final ThreadInfo[] tinfos = threadBean.dumpAllThreads(true, true);
+        for (final ThreadInfo ti : tinfos) {
             printThreadInfo(ti, out);
         }
         out.println();
     }
 
-    public static void printThreadInfo(ThreadInfo ti, PrintStream out) {
+    public static void printThreadInfo(final ThreadInfo ti, final PrintStream out) {
         // print thread information
         printThread(ti, out);
         // print stack trace with locks
-        StackTraceElement[] stacktrace = ti.getStackTrace();
-        MonitorInfo[] monitors = ti.getLockedMonitors();
+        final StackTraceElement[] stacktrace = ti.getStackTrace();
+        final MonitorInfo[] monitors = ti.getLockedMonitors();
         for (int i = 0; i < stacktrace.length; i++) {
-            StackTraceElement ste = stacktrace[i];
+            final StackTraceElement ste = stacktrace[i];
             out.println(INDENT + "at " + ste.toString());
-            for (MonitorInfo mi : monitors) {
+            for (final MonitorInfo mi : monitors) {
                 if (mi.getLockedStackDepth() == i) {
                     out.println(INDENT + "  - locked " + mi);
                 }
             }
         }
-        LockInfo[] syncs = ti.getLockedSynchronizers();
+        final LockInfo[] syncs = ti.getLockedSynchronizers();
         printLockInfo(syncs, out);
         out.println();
     }
 
-    private static void printThread(ThreadInfo ti, PrintStream out) {
-        StringBuilder sb = new StringBuilder("\"" + ti.getThreadName() + "\"" + " ID="
+    private static void printThread(final ThreadInfo ti, final PrintStream out) {
+        final StringBuilder sb = new StringBuilder("\"" + ti.getThreadName() + "\"" + " ID="
                 + ti.getThreadId() + " in " + ti.getThreadState());
         if (ti.getLockName() != null) sb.append(" on lock=").append(ti.getLockName());
         if (ti.isSuspended()) sb.append(" (suspended)");
@@ -80,10 +80,10 @@ public class ThreadManagement {
         out.println(sb.toString());
     }
 
-    private static void printLockInfo(LockInfo[] locks, PrintStream out) {
+    private static void printLockInfo(final LockInfo[] locks, final PrintStream out) {
         if (locks.length == 0) return;
         out.println(INDENT + "Locked synchronizers: count = " + locks.length);
-        for (LockInfo li : locks) {
+        for (final LockInfo li : locks) {
             out.println(INDENT + "  - " + li);
         }
         out.println();

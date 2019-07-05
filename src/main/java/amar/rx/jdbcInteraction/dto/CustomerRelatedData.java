@@ -10,7 +10,7 @@ public class CustomerRelatedData {
     public CustomerRelatedData() {
     }
 
-    public CustomerRelatedData(long customerId) {
+    public CustomerRelatedData(final long customerId) {
         this.customerId = customerId;
     }
 

@@ -7,7 +7,7 @@ public class EmployeeClient {
 
     Map<String, Employee> employeeMap = new HashMap<>();
 
-    public void addEmployee(Employee employee) {
+    public void addEmployee(final Employee employee) {
         if (employeeMap.get(employee).getID() == null) {
             employeeMap.put(employee.getID(), employee);
         } else {
@@ -15,7 +15,7 @@ public class EmployeeClient {
         }
     }
 
-    public Employee getEmployeeById(String id) {
+    public Employee getEmployeeById(final String id) {
         return employeeMap.get(id);
     }
 }

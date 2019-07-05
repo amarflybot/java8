@@ -10,11 +10,11 @@ import java.util.List;
  */
 public class TestArrayVsLinkedList {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
 
-        List<Person> personArrayList = new ArrayList<>();
-        List<Person> personLinkedList = new LinkedList<>();
+        final List<Person> personArrayList = new ArrayList<>();
+        final List<Person> personLinkedList = new LinkedList<>();
 
         Date startDate = new Date();
         for (int i = 0; i < 100000; i++) {

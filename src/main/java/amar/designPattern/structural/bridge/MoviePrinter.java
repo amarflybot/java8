@@ -7,7 +7,7 @@ public class MoviePrinter extends Printer {
 
     private Movie movie;
 
-    public MoviePrinter(Movie movie) {
+    public MoviePrinter(final Movie movie) {
         this.movie = movie;
     }
 
@@ -18,7 +18,7 @@ public class MoviePrinter extends Printer {
 
     @Override
     protected List<Detail> getdetails() {
-        List<Detail> list = new ArrayList<>();
+        final List<Detail> list = new ArrayList<>();
         list.add(new Detail("Classification", movie.getClassification()));
         list.add(new Detail("Runtime", movie.getRuntime()));
         list.add(new Detail("Title", movie.getTitle()));

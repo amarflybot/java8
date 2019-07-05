@@ -5,7 +5,7 @@ package amar.algorithm.general;
  */
 public class TestFor {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         for (int i = 0; i < 10; i++) {
 

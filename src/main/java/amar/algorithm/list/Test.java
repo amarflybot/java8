@@ -7,9 +7,9 @@ import java.util.Stack;
  */
 public class Test {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        char[] chars = new char[7];
+        final char[] chars = new char[7];
         chars[0] = '5';
         chars[1] = '6';
         chars[2] = '7';
@@ -18,22 +18,22 @@ public class Test {
         chars[5] = '1';
         chars[6] = '-';
 
-        Stack<Integer> stack = new Stack<>();
+        final Stack<Integer> stack = new Stack<>();
 
         for (int i = 0; i < chars.length; i++) {
             int anInt = 0;
             try {
-                char aChar = chars[i];
+                final char aChar = chars[i];
                 anInt = Integer.parseInt(String.valueOf(aChar));
                 // This is an Integer
                 // push to stack
                 stack.push(anInt);
-            } catch (NumberFormatException e) {
+            } catch (final NumberFormatException e) {
                 // This is an operator
-                char right = Character.forDigit(stack.pop(), 10);
-                char left = Character.forDigit(stack.pop(), 10);
-                char operator = chars[i];
-                int operated = operate(operator, left, right);
+                final char right = Character.forDigit(stack.pop(), 10);
+                final char left = Character.forDigit(stack.pop(), 10);
+                final char operator = chars[i];
+                final int operated = operate(operator, left, right);
                 stack.push(operated);
             }
 
@@ -43,7 +43,7 @@ public class Test {
 
     }
 
-    public static int operate(char operator, char left, char right) {
+    public static int operate(final char operator, final char left, final char right) {
 
         switch (operator) {
             case '+':

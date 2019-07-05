@@ -7,11 +7,11 @@ import java.util.Date;
  */
 public class StrategyDemo {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        ValidationStrategy validationStrategy = new AmexStrategy();
+        final ValidationStrategy validationStrategy = new AmexStrategy();
 
-        CreditCard creditCard = new CreditCard(validationStrategy);
+        final CreditCard creditCard = new CreditCard(validationStrategy);
         creditCard.setNumber("4242424242424242");
         creditCard.setCvv("123");
         creditCard.setDate(new Date().toString());

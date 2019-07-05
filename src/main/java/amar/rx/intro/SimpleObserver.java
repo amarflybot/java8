@@ -12,12 +12,12 @@ public class SimpleObserver implements Observer<String> {
     }
 
     @Override
-    public void onError(Throwable throwable) {
+    public void onError(final Throwable throwable) {
         System.out.println("onError");
     }
 
     @Override
-    public void onNext(String string) {
+    public void onNext(final String string) {
         System.out.println("onNext " + string);
     }
 }

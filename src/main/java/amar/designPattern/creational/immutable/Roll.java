@@ -3,7 +3,7 @@ package amar.designPattern.creational.immutable;
 class Roll {
     private Integer integer;
 
-    public Roll(Integer integer) {
+    public Roll(final Integer integer) {
         this.integer = integer;
     }
 
@@ -11,7 +11,7 @@ class Roll {
         return integer;
     }
 
-    public void setInteger(Integer integer) {
+    public void setInteger(final Integer integer) {
         this.integer = integer;
     }
 

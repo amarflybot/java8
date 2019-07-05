@@ -6,12 +6,12 @@ package amar.scjp;
  */
 public class Binding {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        A a1 = new A();
+        final A a1 = new A();
         A.method();
 
-        A b1 = new B();
+        final A b1 = new B();
         A.method();
 
     }

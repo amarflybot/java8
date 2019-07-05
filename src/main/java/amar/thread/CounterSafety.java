@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class CounterSafety {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
         for (int i = 0; i < 10; i++) {
 
@@ -19,25 +19,25 @@ public class CounterSafety {
     }
 
     public static void getItRunning() throws InterruptedException {
-        Runner runner = new Runner();
+        final Runner runner = new Runner();
 
-        Thread t1 = new Thread(new Runnable() {
+        final Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     runner.firstThread();
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         });
 
-        Thread t2 = new Thread(new Runnable() {
+        final Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     runner.secondThread();
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }

@@ -9,11 +9,11 @@ public class BinaryTreeTestStringSort {
 
     public final static String QUIT = "quit";
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        BinaryTree<String> strings = new BinaryTree<>();
+        final BinaryTree<String> strings = new BinaryTree<>();
 
-        Scanner scanner = new Scanner(System.in);
+        final Scanner scanner = new Scanner(System.in);
 
         while (true) {
             String input = "";

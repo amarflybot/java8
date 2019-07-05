@@ -7,7 +7,7 @@ public class FibTest {
 
     static int n1 = 0, n2 = 1, n3 = 0;
 
-    private static void printFib(int count) {
+    private static void printFib(final int count) {
         if (count > 0) {
             n3 = n1 + n2;
             n1 = n2;
@@ -18,7 +18,7 @@ public class FibTest {
         }
     }
 
-    private static int fact(int n) {
+    private static int fact(final int n) {
 
         if (n == 1) {
             return 1;
@@ -28,12 +28,12 @@ public class FibTest {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int count = 10;
+        final int count = 10;
         //System.out.print(n1+ " "+ n2);
         //printFib(count-2);
-        int result = fact(4);
+        final int result = fact(4);
         System.out.println(result);
 
     }

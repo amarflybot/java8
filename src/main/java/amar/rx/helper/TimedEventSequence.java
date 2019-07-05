@@ -18,7 +18,7 @@ public class TimedEventSequence<T> {
     private Thread eventThread;
     private long lastTick;
 
-    public TimedEventSequence(List<T> list, long interval) {
+    public TimedEventSequence(final List<T> list, final long interval) {
         eventThread = null;
         lastTick = System.currentTimeMillis();
 
@@ -43,11 +43,11 @@ public class TimedEventSequence<T> {
                 while (eventThread.isInterrupted() == false) {
                     try {
                         Thread.sleep(5);
-                    } catch (InterruptedException e) {
+                    } catch (final InterruptedException e) {
                         break;
                     }
 
-                    long currentTime = System.currentTimeMillis();
+                    final long currentTime = System.currentTimeMillis();
                     if (currentTime - lastTick > interval) {
                         lastTick = currentTime;
                         if (list.hasNext()) {
@@ -55,7 +55,7 @@ public class TimedEventSequence<T> {
                         }
                     }
                 }
-            } catch (Throwable e) {
+            } catch (final Throwable e) {
                 eventSubject.onError(e);
             }
 
@@ -72,7 +72,7 @@ public class TimedEventSequence<T> {
         eventThread.interrupt();
         try {
             eventThread.join();
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
 
         }
     }

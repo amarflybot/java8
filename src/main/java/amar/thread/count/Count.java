@@ -16,7 +16,7 @@ public class Count {
 
     static void process() {
         final Set<String> stringSet = counterMap.keySet();
-        for (String str : stringSet) {
+        for (final String str : stringSet) {
             for (int i = 0; i < 50; i++) {
                 final Counter counter = counterMap.get(str);
                 counter.incrementI();
@@ -25,11 +25,11 @@ public class Count {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
         counterMap.put("c1", new Counter(0));
 
-        ExecutorService service = Executors.newFixedThreadPool(3);
+        final ExecutorService service = Executors.newFixedThreadPool(3);
         service.submit(Count::process);
         service.submit(Count::process);
         service.submit(Count::process);

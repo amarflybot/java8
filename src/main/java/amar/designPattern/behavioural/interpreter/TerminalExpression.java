@@ -16,9 +16,9 @@ public class TerminalExpression implements Expression {
     @Override
     public boolean interpret(final String str) {
 
-        StringTokenizer stringTokenizer = new StringTokenizer(str);
+        final StringTokenizer stringTokenizer = new StringTokenizer(str);
         while (stringTokenizer.hasMoreTokens()) {
-            String test = stringTokenizer.nextToken();
+            final String test = stringTokenizer.nextToken();
             if (test.equals(this.str)) {
                 return true;
             }

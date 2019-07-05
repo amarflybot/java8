@@ -9,9 +9,9 @@ import rx.subjects.AsyncSubject;
  */
 public class AsyncSubjectExample {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        AsyncSubject<String> subject = AsyncSubject.create();
+        final AsyncSubject<String> subject = AsyncSubject.create();
 
         subject.subscribe((letter) -> {
             System.out.println("Subscribe 1: " + letter);

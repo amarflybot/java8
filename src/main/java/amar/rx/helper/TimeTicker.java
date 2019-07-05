@@ -15,7 +15,7 @@ public class TimeTicker {
     private long lastTick;
     private Thread tickerThread;
 
-    public TimeTicker(long interval) {
+    public TimeTicker(final long interval) {
         this.lastTick = System.currentTimeMillis();
         this.tickerSubject = BehaviorSubject.create(lastTick);
         this.tickerThread = null;
@@ -42,7 +42,7 @@ public class TimeTicker {
 
                     try {
                         Thread.sleep(5);
-                    } catch (InterruptedException e) {
+                    } catch (final InterruptedException e) {
                         //e.printStackTrace();
                         break;
                     }
@@ -50,13 +50,13 @@ public class TimeTicker {
                         continue;
                     }
 
-                    long currentTime = System.currentTimeMillis();
+                    final long currentTime = System.currentTimeMillis();
                     if (currentTime - lastTick > interval) {
                         lastTick = currentTime;
                         tickerSubject.onNext(lastTick);
                     }
                 }
-            } catch (Throwable e) {
+            } catch (final Throwable e) {
                 tickerSubject.onError(e);
             }
 
@@ -73,7 +73,7 @@ public class TimeTicker {
 
         try {
             tickerThread.join();
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             //e.printStackTrace();
         }
     }

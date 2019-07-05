@@ -8,16 +8,16 @@ import java.util.concurrent.CyclicBarrier;
  */
 public class CyclicBarrierExample {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
-        CounterSync counterSync = new CounterSync();
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(500, new Runnable() {
+        final CounterSync counterSync = new CounterSync();
+        final CyclicBarrier cyclicBarrier = new CyclicBarrier(500, new Runnable() {
             @Override
             public void run() {
                 try {
                     System.out.println("Waiting for 5 secs..");
                     Thread.sleep(5000);
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
                 System.out.println("Since all threads are good now, Let's start");
@@ -27,7 +27,7 @@ public class CyclicBarrierExample {
         for (int i = 0; i < 500; i++) {
 
 
-            Thread t1 = new Thread(new CyclicWorker(cyclicBarrier, counterSync));
+            final Thread t1 = new Thread(new CyclicWorker(cyclicBarrier, counterSync));
             t1.start();
 
         }
@@ -54,7 +54,7 @@ class CyclicWorker implements Runnable {
         try {
             System.out.println(" cyclic Barrier.get Number Waiting " + cyclicBarrier.getNumberWaiting());
             cyclicBarrier.await();
-        } catch (InterruptedException | BrokenBarrierException e) {
+        } catch (final InterruptedException | BrokenBarrierException e) {
             e.printStackTrace();
         }
         counterSync.incrementI();

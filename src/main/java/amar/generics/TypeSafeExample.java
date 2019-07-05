@@ -8,9 +8,9 @@ import java.util.Map;
  */
 public class TypeSafeExample {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Concatanate<Person> personConcatanate = new Concatanate<>(new Person(1L, "One"), 1L);
+        final Concatanate<Person> personConcatanate = new Concatanate<>(new Person(1L, "One"), 1L);
         final Person person = personConcatanate.get();
         final Long id = personConcatanate.getId();
         System.out.println("Person -> " + person);
@@ -37,11 +37,11 @@ class Concatanate<T> {
         this.map.put(id, t);
     }
 
-    public T getById(Long id) {
+    public T getById(final Long id) {
         return map.get(id);
     }
 
-    public void addToMap(Long id, T t) {
+    public void addToMap(final Long id, final T t) {
         map.put(id, t);
     }
 

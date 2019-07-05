@@ -5,12 +5,12 @@ package amar.designPattern.creational.builder;
  */
 public class BuilderTest {
 
-    public static void main(String[] args) {
-        Person.PersonBuilder personBuilder = new Person.PersonBuilder();
+    public static void main(final String[] args) {
+        final Person.PersonBuilder personBuilder = new Person.PersonBuilder();
         personBuilder.id(1).name("Amar").address("Kadma").height(2);
 
-        Person person = personBuilder.build();
-        Person person1 = personBuilder.build();
+        final Person person = personBuilder.build();
+        final Person person1 = personBuilder.build();
 
         System.out.println(System.identityHashCode(person));
         System.out.println(System.identityHashCode(person1));

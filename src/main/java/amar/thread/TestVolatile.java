@@ -11,13 +11,13 @@ import java.util.concurrent.Executors;
  */
 public class TestVolatile {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
-        Test.Counter counter = new Test.Counter();
-        ExecutorService executorService = Executors.newFixedThreadPool(100);
-        Collection<TestRun> callableList = new ArrayList<>();
+        final Test.Counter counter = new Test.Counter();
+        final ExecutorService executorService = Executors.newFixedThreadPool(100);
+        final Collection<TestRun> callableList = new ArrayList<>();
         for (int i = 0; i < 1000; i++) {
-            Thread thread = new Thread(new Runnable() {
+            final Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     System.out.println("Run");
@@ -36,13 +36,13 @@ class TestRun implements Callable<Integer> {
 
     Test.Counter test;
 
-    public TestRun(Test.Counter test) {
+    public TestRun(final Test.Counter test) {
         this.test = test;
     }
 
     @Override
     public Integer call() {
-        int increment = test.increment();
+        final int increment = test.increment();
         System.out.println(increment);
         return increment;
     }

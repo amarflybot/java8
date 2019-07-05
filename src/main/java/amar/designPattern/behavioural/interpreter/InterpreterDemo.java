@@ -5,11 +5,11 @@ package amar.designPattern.behavioural.interpreter;
  */
 public class InterpreterDemo {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        String context = "Lions bears and giraffe in forest";
+        final String context = "Lions bears and giraffe in forest";
 
-        Expression define = buildInterpreterTree();
+        final Expression define = buildInterpreterTree();
 
         System.out.println(context + " is " + define.interpret(context));
 
@@ -17,13 +17,13 @@ public class InterpreterDemo {
 
     private static Expression buildInterpreterTree() {
 
-        Expression expression = new TerminalExpression("Lions");
-        Expression expression1 = new TerminalExpression("bears");
-        Expression expression2 = new TerminalExpression("giraffe");
+        final Expression expression = new TerminalExpression("Lions");
+        final Expression expression1 = new TerminalExpression("bears");
+        final Expression expression2 = new TerminalExpression("giraffe");
 
-        Expression expressionAnd = new AndExpression(expression, expression1);
-        Expression alteration1 = new AndExpression(expressionAnd, expression2);
-        Expression expressionOr = new AndExpression(expression, expression1);
+        final Expression expressionAnd = new AndExpression(expression, expression1);
+        final Expression alteration1 = new AndExpression(expressionAnd, expression2);
+        final Expression expressionOr = new AndExpression(expression, expression1);
 
         return alteration1;
     }

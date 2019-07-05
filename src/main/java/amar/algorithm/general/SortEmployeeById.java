@@ -11,9 +11,9 @@ import java.util.stream.Collectors;
 public class SortEmployeeById {
 
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        List<Employee> employeeList = Arrays.asList("1,Amar", "2,Vicky", "3,Alka")
+        final List<Employee> employeeList = Arrays.asList("1,Amar", "2,Vicky", "3,Alka")
                 .stream()
                 .map(string -> string.split(","))
                 .map(strings -> new Employee(Long.parseLong(strings[0]), strings[1]))

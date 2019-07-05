@@ -9,9 +9,9 @@ import java.util.Map;
  */
 public class Test {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(final String[] args) throws IOException {
 
-        Map<Integer, String> map = new HashMap<>();
+        final Map<Integer, String> map = new HashMap<>();
 
         for (int i = 0; i < 13; i++) {
             map.put(i, String.valueOf(i));

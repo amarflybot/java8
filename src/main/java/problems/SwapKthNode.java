@@ -13,9 +13,9 @@ package problems;
  */
 public class SwapKthNode {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        SinglyLinkedList<Integer> linkedList = new SinglyLinkedList<>();
+        final SinglyLinkedList<Integer> linkedList = new SinglyLinkedList<>();
         linkedList.addLast(1);
         linkedList.addLast(2);
         linkedList.addLast(3);
@@ -35,7 +35,7 @@ class SinglyLinkedList<T> {
     Node<T> head;
     int count;
 
-    public void addLast(T data) {
+    public void addLast(final T data) {
         if (head == null) {
             head = new Node(data);
         } else {
@@ -61,8 +61,8 @@ class SinglyLinkedList<T> {
         count--;
     }
 
-    public Node<T>[] elementFromStart(int k) {
-        Node<T>[] arr = new Node[2];
+    public Node<T>[] elementFromStart(final int k) {
+        final Node<T>[] arr = new Node[2];
         if (head == null) {
             throw new IllegalArgumentException("The List is null");
         } else {
@@ -76,8 +76,8 @@ class SinglyLinkedList<T> {
         }
     }
 
-    public Node<T>[] elementFromEnd(int k) {
-        Node<T>[] arr = new Node[2];
+    public Node<T>[] elementFromEnd(final int k) {
+        final Node<T>[] arr = new Node[2];
         if (head == null) {
             throw new IllegalArgumentException("The List is null");
         } else {
@@ -99,7 +99,7 @@ class SinglyLinkedList<T> {
         }
     }
 
-    public void swap(int k) {
+    public void swap(final int k) {
         // Find the kth node from beginning of linked list.
         // We also find previous of kth node because we need
         // to update next pointer of the previous.
@@ -135,7 +135,7 @@ class SinglyLinkedList<T> {
         // Swap next pointers of x and y. These statements
         // also break self loop if x->next is y or y->next
         // is x
-        Node temp = x.next;
+        final Node temp = x.next;
         x.next = y.next;
         y.next = temp;
 

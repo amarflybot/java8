@@ -8,9 +8,9 @@ import rx.Observable;
  */
 public class PositionalExampleFirstAndLastEithPredicate {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Observable<String> observable = Observable.from(DataGenerator.generateGreekAlphabet());
+        final Observable<String> observable = Observable.from(DataGenerator.generateGreekAlphabet());
 
         observable.first((letter) -> {
             return letter.equals("beta");

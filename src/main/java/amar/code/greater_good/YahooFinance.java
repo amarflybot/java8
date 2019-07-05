@@ -41,10 +41,10 @@ public class YahooFinance {
                     new BufferedReader(new InputStreamReader(url.openStream()));
             final String data = reader.lines().skip(1).limit(1).findFirst().get();
             final String[] dataItems = data.split(",");
-            double price = Double.parseDouble(dataItems[dataItems.length - 1]);
+            final double price = Double.parseDouble(dataItems[dataItems.length - 1]);
             //System.out.println("put(\"" + ticker + "\", " + price + ");");
             return price;
-        } catch (Exception ex) {
+        } catch (final Exception ex) {
             throw new RuntimeException(ex);
         }
     }
@@ -53,10 +53,10 @@ public class YahooFinance {
         return prices.get(ticker);
     }
 
-    public static double getPrice(final String ticker, boolean useMock) {
+    public static double getPrice(final String ticker, final boolean useMock) {
         try {
             Thread.sleep(1000);
-        } catch (Exception ex) {
+        } catch (final Exception ex) {
         }
         return useMock ? getPriceMock(ticker) : getPriceOrig(ticker);
     }

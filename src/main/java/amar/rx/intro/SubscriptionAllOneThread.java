@@ -11,16 +11,16 @@ import java.util.List;
  */
 public class SubscriptionAllOneThread {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
 
         System.out.println("Current Thread 1 " + Thread.currentThread().getName());
 
 
-        List<Integer> integerList = DataGenerator.generateArrayList();
+        final List<Integer> integerList = DataGenerator.generateArrayList();
 
-        Observable<Integer> integerObservable = Observable.from(integerList);
-        Object waitMonitor = new Object();
+        final Observable<Integer> integerObservable = Observable.from(integerList);
+        final Object waitMonitor = new Object();
         synchronized (waitMonitor) {
             integerObservable
                     .flatMap(integer -> Observable.just(integer)

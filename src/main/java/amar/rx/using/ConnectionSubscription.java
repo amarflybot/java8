@@ -17,7 +17,7 @@ public class ConnectionSubscription implements Subscription {
     private final HashSet<Statement> statements = new HashSet<>();
     private final HashSet<ResultSet> resultSets = new HashSet<>();
 
-    public ConnectionSubscription(Connection connection) {
+    public ConnectionSubscription(final Connection connection) {
         this.connection = connection;
     }
 
@@ -25,19 +25,19 @@ public class ConnectionSubscription implements Subscription {
     public void unsubscribe() {
         System.out.println("Unsubscribe called!");
 
-        for (ResultSet rs : resultSets) {
+        for (final ResultSet rs : resultSets) {
             System.out.println(" Closing ResultSet -> " + rs.toString());
             try {
                 rs.close();
-            } catch (SQLException t) {
+            } catch (final SQLException t) {
             }
         }
 
-        for (Statement s : statements) {
+        for (final Statement s : statements) {
             System.out.println(" Closing Statement -> " + s.toString());
             try {
                 s.close();
-            } catch (SQLException t) {
+            } catch (final SQLException t) {
             }
         }
 
@@ -45,7 +45,7 @@ public class ConnectionSubscription implements Subscription {
             System.out.println(" Closing Connection -> " + connection.toString());
             try {
                 connection.close();
-            } catch (SQLException e) {
+            } catch (final SQLException e) {
             }
         }
 
@@ -54,7 +54,7 @@ public class ConnectionSubscription implements Subscription {
     @Override
     public boolean isUnsubscribed() {
 
-        boolean result1 = statements.stream().filter(s -> {
+        final boolean result1 = statements.stream().filter(s -> {
             try {
                 return !s.isClosed();
             } catch (SQLException e) {
@@ -63,7 +63,7 @@ public class ConnectionSubscription implements Subscription {
             return false;
         }).findFirst().isPresent();
 
-        boolean result2 = resultSets.stream().filter(s -> {
+        final boolean result2 = resultSets.stream().filter(s -> {
             try {
                 return !s.isClosed();
             } catch (SQLException e) {
@@ -75,7 +75,7 @@ public class ConnectionSubscription implements Subscription {
         boolean result3 = false;
         try {
             result3 = connection.isClosed();
-        } catch (SQLException e) {
+        } catch (final SQLException e) {
             e.printStackTrace();
         }
 
@@ -86,11 +86,11 @@ public class ConnectionSubscription implements Subscription {
         return connection;
     }
 
-    public void registerResourceForClose(Statement s) {
+    public void registerResourceForClose(final Statement s) {
         statements.add(s);
     }
 
-    public void registerResourceForClose(ResultSet rs) {
+    public void registerResourceForClose(final ResultSet rs) {
         resultSets.add(rs);
     }
 }

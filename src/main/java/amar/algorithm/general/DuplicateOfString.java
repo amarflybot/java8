@@ -10,12 +10,12 @@ import java.util.Stack;
  */
 public class DuplicateOfString {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
 
         // Duplicate for whole
-        String str = "asddfgghjrettyiasdaaa";
-        Map<Character, Integer> map = new HashMap<>();
+        final String str = "asddfgghjrettyiasdaaa";
+        final Map<Character, Integer> map = new HashMap<>();
         for (final char ch : str.toCharArray()) {
             if (map.containsKey(ch)) {
                 map.put(ch, (map.get(ch) + 1));
@@ -28,13 +28,13 @@ public class DuplicateOfString {
         System.out.println(" Duplicate for whole: " + map);
 
         // Duplicate in Order
-        Stack<Node> stack = new Stack<>();
+        final Stack<Node> stack = new Stack<>();
         for (final char ch : str.toCharArray()) {
             if (!stack.isEmpty()) {
                 final Node node = stack.peek();
                 if (node != null && node.getCharacter().charValue() == ch) {
                     final Node polledNode = stack.pop();
-                    Node nodeToBeOffered = polledNode.IncreaseOccurences();
+                    final Node nodeToBeOffered = polledNode.IncreaseOccurences();
                     stack.push(nodeToBeOffered);
                 } else {
                     stack.push(new Node(ch));

@@ -10,11 +10,11 @@ import java.io.IOException;
  */
 public class FileWriter {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(final String[] args) throws IOException {
 
         final java.io.FileWriter writer = new java.io.FileWriter("/Users/amarendra/IdeaProjects/java8/src/main/res/sampleSentence.txt");
-        BufferedWriter bufferedWriter = new BufferedWriter(writer);
-        DataFactory factory = new DataFactory();
+        final BufferedWriter bufferedWriter = new BufferedWriter(writer);
+        final DataFactory factory = new DataFactory();
 
         for (int i = 0; i < 1000; i++) {
             for (int j = 0; j < 10; j++) {

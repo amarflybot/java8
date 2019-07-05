@@ -6,7 +6,7 @@ public class EmployeeDB implements Employee {
     private String name;
     private String roll;
 
-    public EmployeeDB(String id, String name, String roll) {
+    public EmployeeDB(final String id, final String name, final String roll) {
         super();
         this.id = id;
         this.name = name;

@@ -11,25 +11,25 @@ public class ProdCons {
 
     private static BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue(10);
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
-        Thread t1 = new Thread(new Runnable() {
+        final Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     producer();
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         });
 
-        Thread t2 = new Thread(new Runnable() {
+        final Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     consumer();
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -43,18 +43,18 @@ public class ProdCons {
     }
 
     private static void producer() throws InterruptedException {
-        Random random = new Random(100);
+        final Random random = new Random(100);
         while (true) {
             blockingQueue.put(random.nextInt(10));
         }
     }
 
     private static void consumer() throws InterruptedException {
-        Random random = new Random(10);
+        final Random random = new Random(10);
         while (true) {
             Thread.sleep(100);
             if (random.nextInt(10) == 0) {
-                Integer taken = blockingQueue.take();
+                final Integer taken = blockingQueue.take();
                 System.out.println("Taken out " + taken + " Queue Size " + blockingQueue.size());
             }
         }

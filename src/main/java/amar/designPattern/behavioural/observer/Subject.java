@@ -14,11 +14,11 @@ public abstract class Subject {
 
     abstract void setState(String state);
 
-    public void attach(Observer observer) {
+    public void attach(final Observer observer) {
         observers.add(observer);
     }
 
-    public void detach(Observer observer) {
+    public void detach(final Observer observer) {
         observers.remove(observer);
     }
 

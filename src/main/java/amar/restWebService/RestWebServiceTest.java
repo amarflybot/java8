@@ -14,17 +14,17 @@ import java.util.Map;
  */
 public class RestWebServiceTest {
 
-    public static void main(String[] args) throws IOException {
-        String uri =
+    public static void main(final String[] args) throws IOException {
+        final String uri =
                 "http://jsonplaceholder.typicode.com/posts";
-        URL url = new URL(uri);
-        HttpURLConnection connection =
+        final URL url = new URL(uri);
+        final HttpURLConnection connection =
                 (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         //connection.setRequestProperty("Accept", MediaType.APPLICATION_JSON);
-        InputStream inputStream = connection.getInputStream();
-        ObjectMapper objectMapper = new ObjectMapper();
-        Object readValue = objectMapper.readValue(inputStream, Object.class);
+        final InputStream inputStream = connection.getInputStream();
+        final ObjectMapper objectMapper = new ObjectMapper();
+        final Object readValue = objectMapper.readValue(inputStream, Object.class);
         //System.out.println(readValue);
         readObject(readValue);
 
@@ -32,12 +32,12 @@ public class RestWebServiceTest {
 
     private static void readObject(final Object object) {
         if (object instanceof List) {
-            List list = (List) object;
+            final List list = (List) object;
             list.forEach(o -> {
                 readObject(o);
             });
         } else if (object instanceof Map) {
-            Map map = (Map) object;
+            final Map map = (Map) object;
             map.forEach((k, v) -> {
                 System.out.println("Key -> " + k + " || Value -> " + v);
             });

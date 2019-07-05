@@ -8,13 +8,13 @@ import java.util.Arrays;
  */
 public class SimpleDiff {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int[] array = {1, 19, -4, 31, 38, 25, 100};
+        final int[] array = {1, 19, -4, 31, 38, 25, 100};
 
         Arrays.sort(array);
 
-        int[] pair = new int[2];
+        final int[] pair = new int[2];
 
         int diffRes = array[1] - array[0];
 

@@ -9,9 +9,9 @@ import rx.Subscription;
  */
 public class PredicateExample {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Subscription subscribe = Observable.from(DataGenerator.generateBigIntegerList())
+        final Subscription subscribe = Observable.from(DataGenerator.generateBigIntegerList())
                 .filter((i) -> {
                     return ((i % 3) == 0 && (i < 20));
                 })

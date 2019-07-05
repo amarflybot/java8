@@ -5,11 +5,11 @@ package amar.designPattern.behavioural.chainOfResponsibility;
  */
 public class ChainOfResponsibilityClient {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Director bryan = new Director();
-        VP crystal = new VP();
-        CEO jeff = new CEO();
+        final Director bryan = new Director();
+        final VP crystal = new VP();
+        final CEO jeff = new CEO();
 
         bryan.setSuccessor(crystal);
         crystal.setSuccessor(jeff);

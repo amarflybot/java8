@@ -88,7 +88,7 @@ abstract class Factory {
 
 class ShapeFactory extends Factory {
 
-    Shape getShape(ShapeType shape) {
+    Shape getShape(final ShapeType shape) {
         switch (shape) {
             case CIRCLE:
                 return new Circle();
@@ -100,7 +100,7 @@ class ShapeFactory extends Factory {
     }
 
     @Override
-    Color getColor(ColorType color) {
+    Color getColor(final ColorType color) {
         return null;
     }
 }
@@ -108,11 +108,11 @@ class ShapeFactory extends Factory {
 class ColorFactory extends Factory {
 
     @Override
-    Shape getShape(ShapeType shape) {
+    Shape getShape(final ShapeType shape) {
         return null;
     }
 
-    Color getColor(ColorType color) {
+    Color getColor(final ColorType color) {
         switch (color) {
             case RED:
                 return new Red();
@@ -128,20 +128,20 @@ class FactoryImpl {
     Factory colorFactory = new ColorFactory();
     Factory shapeFactory = new ShapeFactory();
 
-    public void drawShape(ShapeType shape, ColorType color) {
+    public void drawShape(final ShapeType shape, final ColorType color) {
         try {
             //colorFactory.getColor(color).draw();
             //shapeFactory.getShape(shape).draw();
             shape.draw();
             color.draw();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             System.out.println("Shape or Color Not found");
         }
     }
 }
 
 public class FactoryPattern {
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         new FactoryImpl().drawShape(ShapeType.CIRCLE, ColorType.GREEN);
     }
 }

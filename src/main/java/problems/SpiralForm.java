@@ -24,8 +24,8 @@ package problems;
  */
 public class SpiralForm {
 
-    public static void main(String[] args) {
-        int arr[][] = {{1, 2, 3, 4},
+    public static void main(final String[] args) {
+        final int[][] arr = {{1, 2, 3, 4},
                 {5, 6, 7, 8},
                 {9, 10, 11, 12},
                 {13, 14, 15, 16}
@@ -34,9 +34,11 @@ public class SpiralForm {
         printSpiral(arr, 4, 4);
     }
 
-    private static void printSpiral(int[][] arr, int m, int n) {
+    private static void printSpiral(final int[][] arr, final int m, final int n) {
 
-        int i = 0, k = 0, l = 0;
+        int i = 0;
+        int k = 0;
+        final int l = 0;
 
         while (k < m && l < n) {
 

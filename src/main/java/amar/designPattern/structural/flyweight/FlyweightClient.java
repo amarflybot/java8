@@ -9,9 +9,9 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class FlyweightClient {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        InventorySystem inventorySystem = new InventorySystem();
+        final InventorySystem inventorySystem = new InventorySystem();
 
         final List<String> list = Arrays.asList("Roomba", "Samsung TV", "Bose Headphones");
         for (int i = 0; i < 100; i++) {

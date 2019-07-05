@@ -5,7 +5,7 @@ package amar.test;
  */
 public class Test2 {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
         /*Mammal mammal = new Mammal(4);
         System.out.println(mammal);

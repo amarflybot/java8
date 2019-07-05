@@ -4,7 +4,7 @@ public class EmployeeAdapterLDAP implements Employee {
 
     private EmployeeLDAP employeeLDAP;
 
-    public EmployeeAdapterLDAP(EmployeeLDAP employeeLdap) {
+    public EmployeeAdapterLDAP(final EmployeeLDAP employeeLdap) {
         this.employeeLDAP = employeeLdap;
     }
 

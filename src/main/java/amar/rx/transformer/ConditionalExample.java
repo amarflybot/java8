@@ -8,9 +8,9 @@ import rx.Observable;
  */
 public class ConditionalExample {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        Observable<Integer> integerObservable = Observable.from(DataGenerator.generatorFibonacciList(20));
+        final Observable<Integer> integerObservable = Observable.from(DataGenerator.generatorFibonacciList(20));
 
         Observable.empty()
                 .defaultIfEmpty("Hello World")

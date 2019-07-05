@@ -15,14 +15,14 @@ public class Sample {
 //    return false;
 //  }
 
-    public static boolean isPrime(int number) {
-        IntPredicate indexDividesNumber = i -> number % i == 0;
+    public static boolean isPrime(final int number) {
+        final IntPredicate indexDividesNumber = i -> number % i == 0;
 
         return number > 1 &&
                 IntStream.range(2, number).noneMatch(indexDividesNumber);
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         for (int i = 1; i <= 10; i++) {
             System.out.printf("%d is prime? %b\n", i, isPrime(i));
         }

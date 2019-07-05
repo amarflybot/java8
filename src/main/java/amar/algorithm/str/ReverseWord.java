@@ -9,16 +9,16 @@ package amar.algorithm.str;
  */
 public class ReverseWord {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        String str = "i like this program very much";
+        final String str = "i like this program very much";
 
-        String[] strings = new String[6];
+        final String[] strings = new String[6];
         int j = 0;
         int k = 0;
         for (int i = 0; i < str.length() - 1; i++) {
 
-            String substring = str.substring(i, i + 1);
+            final String substring = str.substring(i, i + 1);
             if (substring.equals(" ")) {
                 strings[k] = str.substring(j, i);
                 k++;

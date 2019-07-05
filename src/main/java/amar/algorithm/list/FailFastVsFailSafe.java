@@ -11,7 +11,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class FailFastVsFailSafe {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         final List<String> stringList = new ArrayList<>();
         Arrays.asList("Amar", "Vicky")
@@ -23,11 +23,11 @@ public class FailFastVsFailSafe {
                 System.out.println(iterator.next());
                 stringList.add("Diff");
             }
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
 
-        List<String> strings = new CopyOnWriteArrayList<>();
+        final List<String> strings = new CopyOnWriteArrayList<>();
         Arrays.asList("Amar1", "Vicky1")
                 .forEach(name -> strings.add(name));
 

@@ -6,14 +6,14 @@ package problems;
  */
 public class NQueenProblem {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int n = 4;
+        final int n = 4;
         System.out.println("For n = " + n);
         final Position[] positions = solveNQueenOneSolution(n);
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                for (Position position : positions) {
+                for (final Position position : positions) {
                     if (position.row == i && position.col == j) {
                         System.out.print("Q ");
                         break;
@@ -27,9 +27,9 @@ public class NQueenProblem {
 
     }
 
-    public static Position[] solveNQueenOneSolution(int n) {
-        Position[] positions = new Position[n];
-        boolean hasSolution = solveNQueenOneSolution(n, 0, positions);
+    public static Position[] solveNQueenOneSolution(final int n) {
+        final Position[] positions = new Position[n];
+        final boolean hasSolution = solveNQueenOneSolution(n, 0, positions);
         if (hasSolution) {
             return positions;
         } else {

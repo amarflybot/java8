@@ -8,15 +8,15 @@ import java.util.List;
  */
 public class GenericsTest {
 
-    public static void main(String[] args) {
-        GenericsTest genericsTest = new GenericsTest();
-        Stud object = new Stud();
-        List<Stud> studList = new ArrayList<>();
+    public static void main(final String[] args) {
+        final GenericsTest genericsTest = new GenericsTest();
+        final Stud object = new Stud();
+        final List<Stud> studList = new ArrayList<>();
         studList.add(object);
         //genericsTest.meth1(studList);
     }
 
-    private void meth1(List<Object> object) {
+    private void meth1(final List<Object> object) {
         System.out.println("In Meth1 " + object);
     }
 }

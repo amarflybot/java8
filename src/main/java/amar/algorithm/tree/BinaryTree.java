@@ -15,7 +15,7 @@ public class BinaryTree<T extends Comparable<T>> implements Collection<T> {
     public BinaryTree() {
     }
 
-    public BinaryTree(T val) {
+    public BinaryTree(final T val) {
         this.head = new BinaryNode<>(val);
         count++;
     }
@@ -58,9 +58,9 @@ public class BinaryTree<T extends Comparable<T>> implements Collection<T> {
 
     @Override
     public boolean containsAll(final Collection<?> collection) {
-        Iterator<?> iterator = collection.iterator();
+        final Iterator<?> iterator = collection.iterator();
         while (iterator.hasNext()) {
-            Object next = iterator.next();
+            final Object next = iterator.next();
             return contains(next);
         }
 
@@ -141,12 +141,12 @@ public class BinaryTree<T extends Comparable<T>> implements Collection<T> {
         return false;
     }
 
-    public boolean contains(T val) {
+    public boolean contains(final T val) {
         return find(this.head, val) != null;
     }
 
-    private BinaryNode<T> find(BinaryNode<T> binaryNode, T val) {
-        BinaryNode<T> ret;
+    private BinaryNode<T> find(final BinaryNode<T> binaryNode, final T val) {
+        final BinaryNode<T> ret;
 
         if (binaryNode == null) {
             return null;
@@ -165,12 +165,12 @@ public class BinaryTree<T extends Comparable<T>> implements Collection<T> {
         return ret;
     }
 
-    public BinaryNode<T> findWithParent(T val) {
+    public BinaryNode<T> findWithParent(final T val) {
         return findWithParent(this.head, val, this.head);
     }
 
-    private BinaryNode<T> findWithParent(BinaryNode<T> binaryNode, T val, BinaryNode<T> parent) {
-        BinaryNode<T> ret;
+    private BinaryNode<T> findWithParent(final BinaryNode<T> binaryNode, final T val, final BinaryNode<T> parent) {
+        final BinaryNode<T> ret;
 
         if (binaryNode == null) {
             return null;
@@ -189,11 +189,11 @@ public class BinaryTree<T extends Comparable<T>> implements Collection<T> {
         return ret;
     }
 
-    public boolean remove(T val) {
+    public boolean remove(final T val) {
 
-        BinaryNode<T> current = find(this.head, val);
+        final BinaryNode<T> current = find(this.head, val);
 
-        BinaryNode<T> parent = findWithParent(val);
+        final BinaryNode<T> parent = findWithParent(val);
 
         if (current == null) {
             // Nothing was found, so return false.
@@ -209,7 +209,7 @@ public class BinaryTree<T extends Comparable<T>> implements Collection<T> {
             if (parent == null) {
                 head = current.getLeft();
             } else {
-                int compareTo = parent.compareTo(current);
+                final int compareTo = parent.compareTo(current);
 
                 if (compareTo > 0) {
                     parent.setLeft(current.getLeft());
@@ -224,7 +224,7 @@ public class BinaryTree<T extends Comparable<T>> implements Collection<T> {
             if (parent == null) {
                 head = current.getRight();
             } else {
-                int compareTo = parent.compareTo(current);
+                final int compareTo = parent.compareTo(current);
                 if (compareTo > 0) {
                     parent.setLeft(current.getRight());
                 } else {
@@ -257,7 +257,7 @@ public class BinaryTree<T extends Comparable<T>> implements Collection<T> {
             if (parent == null) {
                 head = leftMost;
             } else {
-                int compareTo = parent.compareTo(current);
+                final int compareTo = parent.compareTo(current);
                 if (compareTo > 0) {
                     parent.setLeft(leftMost);
                 } else {
@@ -282,7 +282,7 @@ public class BinaryTree<T extends Comparable<T>> implements Collection<T> {
         preOrderTraversal(head);
     }
 
-    private <T extends Comparable<T>> void postOrderTraversal(BinaryNode<T> node) {
+    private <T extends Comparable<T>> void postOrderTraversal(final BinaryNode<T> node) {
         if (node == null) {
             return;
         }
@@ -294,7 +294,7 @@ public class BinaryTree<T extends Comparable<T>> implements Collection<T> {
         process(node);
     }
 
-    private <T extends Comparable<T>> void inOrderTraversal(BinaryNode<T> node) {
+    private <T extends Comparable<T>> void inOrderTraversal(final BinaryNode<T> node) {
         if (node == null) {
             return;
         }
@@ -306,7 +306,7 @@ public class BinaryTree<T extends Comparable<T>> implements Collection<T> {
         inOrderTraversal(node.getRight());
     }
 
-    private <T extends Comparable<T>> void preOrderTraversal(BinaryNode<T> node) {
+    private <T extends Comparable<T>> void preOrderTraversal(final BinaryNode<T> node) {
         if (node == null) {
             return;
         }

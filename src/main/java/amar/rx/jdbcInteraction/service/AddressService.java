@@ -11,7 +11,7 @@ public class AddressService {
 
     private final TestDatabaseProcedures testDatabaseProcedures = new TestDatabaseProcedures();
 
-    public Observable<Address> fetchCustomerAddress(long customerId) {
+    public Observable<Address> fetchCustomerAddress(final long customerId) {
         return testDatabaseProcedures.toSelectAddressObservable(customerId);
     }
 }

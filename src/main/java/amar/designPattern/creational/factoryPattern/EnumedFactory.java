@@ -22,7 +22,7 @@ enum ShapeFactoryE {
         return INSTANCE;
     }
 
-    public ShapeE getShape(ShapeTypeE shapeTypeE, Integer size) {
+    public ShapeE getShape(final ShapeTypeE shapeTypeE, final Integer size) {
         return shapeTypeE.getInstance(size);
     }
 
@@ -32,12 +32,12 @@ enum ShapeTypeE {
 
     CIRCLE {
         @Override
-        public ShapeE getInstance(Integer size) {
+        public ShapeE getInstance(final Integer size) {
             return new CircleE(size);
         }
     }, SQUARE {
         @Override
-        public ShapeE getInstance(Integer size) {
+        public ShapeE getInstance(final Integer size) {
             return new SquareE(size);
         }
     }, TRIANGLE {
@@ -66,16 +66,16 @@ enum ShapeTypeE {
  */
 public class EnumedFactory {
 
-    public static void main(String[] args) {
-        ShapeE circle = ShapeFactoryE.INSTANCE.getShape(ShapeTypeE.CIRCLE, 12);
+    public static void main(final String[] args) {
+        final ShapeE circle = ShapeFactoryE.INSTANCE.getShape(ShapeTypeE.CIRCLE, 12);
         circle.setColor("red");
         circle.draw();
         //System.out.println(circle.area());
 
-        ShapeE square = ShapeFactoryE.INSTANCE.getShape(ShapeTypeE.SQUARE, 10);
+        final ShapeE square = ShapeFactoryE.INSTANCE.getShape(ShapeTypeE.SQUARE, 10);
         square.draw();
 
-        ShapeE triangle = ShapeFactoryE.INSTANCE.getShape(ShapeTypeE.TRIANGLE, 10);
+        final ShapeE triangle = ShapeFactoryE.INSTANCE.getShape(ShapeTypeE.TRIANGLE, 10);
         triangle.draw();
         //System.out.println(square.area());
     }

@@ -20,7 +20,7 @@ public class BMHStringSearchAlgo implements StringSearchAlgo {
         final int toFindLength = toFind.length();
         final int searchLength = search.length();
         int rounds = 0;
-        List<SearchMatch> matchList = new ArrayList<>();
+        final List<SearchMatch> matchList = new ArrayList<>();
         for (int i = searchLength - 1; i < toFindLength; i++) {
             int k = 0;
             for (int j = searchLength - 1; j >= 0; j--) {
@@ -33,7 +33,7 @@ public class BMHStringSearchAlgo implements StringSearchAlgo {
                     i--;
                     if (j == 0) {
                         // complete match
-                        SearchMatch searchMatch = new SearchMatchImpl(i + 1, searchLength);
+                        final SearchMatch searchMatch = new SearchMatchImpl(i + 1, searchLength);
                         matchList.add(searchMatch);
                         if (i < 0) {
                             i = toFindLength;
@@ -49,19 +49,19 @@ public class BMHStringSearchAlgo implements StringSearchAlgo {
     }
 
     public int getAndShift(final String toFind, int i, final int k) {
-        Integer integer = bad_match.get(toFind.charAt(i));
-        int numberToShift = integer == null ? bad_match.get('?') : integer;
+        final Integer integer = bad_match.get(toFind.charAt(i));
+        final int numberToShift = integer == null ? bad_match.get('?') : integer;
         i = i + numberToShift - 1 + k;
         return i;
     }
 
-    private void generateBadMatch(String search) {
+    private void generateBadMatch(final String search) {
 
         final int length = search.length();
         if (length > 0) {
             bad_match.put('?', length);
             for (int i = 0; i < length - 1; i++) {
-                int distance = length - i - 1;
+                final int distance = length - i - 1;
                 bad_match.put(search.charAt(i), distance);
             }
 

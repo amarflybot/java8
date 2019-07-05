@@ -11,7 +11,7 @@ public class Movie {
         return classification;
     }
 
-    public void setClassification(String classification) {
+    public void setClassification(final String classification) {
         this.classification = classification;
     }
 
@@ -19,7 +19,7 @@ public class Movie {
         return runtime;
     }
 
-    public void setRuntime(String runtime) {
+    public void setRuntime(final String runtime) {
         this.runtime = runtime;
     }
 
@@ -27,7 +27,7 @@ public class Movie {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(final String title) {
         this.title = title;
     }
 
@@ -35,7 +35,7 @@ public class Movie {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(final String year) {
         this.year = year;
     }
 

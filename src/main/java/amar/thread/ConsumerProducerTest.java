@@ -5,10 +5,10 @@ package amar.thread;
  */
 public class ConsumerProducerTest {
 
-    public static void main(String[] args) throws InterruptedException {
-        int[] array = new int[2];
-        Thread even = new Thread(new EvenRunner(array), "EvenThread");
-        Thread odd = new Thread(new OddRunner(array), "OddThread");
+    public static void main(final String[] args) throws InterruptedException {
+        final int[] array = new int[2];
+        final Thread even = new Thread(new EvenRunner(array), "EvenThread");
+        final Thread odd = new Thread(new OddRunner(array), "OddThread");
         even.start();
         odd.start();
         even.join();
@@ -38,7 +38,7 @@ class EvenRunner implements Runnable {
                 array.notify();
                 try {
                     array.wait(1000);
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
@@ -66,13 +66,13 @@ class OddRunner implements Runnable {
                 array[1] = 0;
                 try {
                     Thread.sleep(1000);
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
                 array.notify();
                 try {
                     array.wait(1000);
-                } catch (InterruptedException e) {
+                } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }

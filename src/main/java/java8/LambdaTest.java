@@ -15,17 +15,17 @@ import java.util.stream.Collectors;
  */
 public class LambdaTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        FileFilter fileFilter = pathname -> pathname.getName().endsWith(".java");
-        Thread thread = new Thread(() -> {
+        final FileFilter fileFilter = pathname -> pathname.getName().endsWith(".java");
+        final Thread thread = new Thread(() -> {
             for (int i = 0; i < 100; i++) {
                 System.out.println("i -> " + i);
             }
         });
 
-        List<String> list = Arrays.asList("Vicky", "Amar", "Alka", "Aammen");
-        List<Person> personList = list.stream()
+        final List<String> list = Arrays.asList("Vicky", "Amar", "Alka", "Aammen");
+        final List<Person> personList = list.stream()
                 .map(name -> new Person(Long.parseLong(String.valueOf(name.length())), name, name.length() + 10))
                 .collect(Collectors.toList());
 
@@ -33,7 +33,7 @@ public class LambdaTest {
 
         Collections.sort(list, Comparator.naturalOrder());
 
-        Map<String, Person> personMap = personList.stream()
+        final Map<String, Person> personMap = personList.stream()
                 .collect(Collectors.toMap(person -> person.getName(), person -> person));
 
         System.out.println("PersonMap -> " + personMap);
@@ -47,13 +47,13 @@ public class LambdaTest {
 
         System.out.println("Values -> " + values);
 
-        Consumer<String> s1 = System.out::println;
+        final Consumer<String> s1 = System.out::println;
 
         list.forEach(s1);
 
-        Map<Person, String> hashMap = new HashMap<>();
+        final Map<Person, String> hashMap = new HashMap<>();
 
-        Person person = new Person(1L, "Amar", 28);
+        final Person person = new Person(1L, "Amar", 28);
         hashMap.put(person, "String1");
         System.out.println(hashMap.get(person));
     }

@@ -19,7 +19,7 @@ public abstract class Shape implements Cloneable {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 
@@ -29,7 +29,7 @@ public abstract class Shape implements Cloneable {
         try {
             clone = (Shape) super.clone();
 
-        } catch (CloneNotSupportedException e) {
+        } catch (final CloneNotSupportedException e) {
             e.printStackTrace();
         }
 

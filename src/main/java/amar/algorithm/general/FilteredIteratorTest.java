@@ -21,7 +21,7 @@ interface Filter<T> {
  */
 public class FilteredIteratorTest {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         final List<Person> personList = Stream.of("1,Amar", "3,Vicky", "4,Papa", "4,Mom", "2,Alka")
                 .map(string -> string.split(","))
@@ -31,8 +31,8 @@ public class FilteredIteratorTest {
         personList.add(new Manager(12, "Merlin"));
         personList.add(new Manager(13, "Deepesh"));
 
-        Filter<Person> personFilter = new PersonCondition();
-        Iterator<Person> personIterator = new FilteredIterator(personList.iterator(), personFilter);
+        final Filter<Person> personFilter = new PersonCondition();
+        final Iterator<Person> personIterator = new FilteredIterator(personList.iterator(), personFilter);
 
         while (personIterator.hasNext()) {
             System.out.println(personIterator.next());
@@ -120,9 +120,9 @@ class FilteredIterator<T> implements Iterator<T> {
     }
 
     private T nextMatchingElement() {
-        T oldElement = nextElement;
+        final T oldElement = nextElement;
         while (iterator.hasNext()) {
-            T t = iterator.next();
+            final T t = iterator.next();
             if (filter.matches(t)) {
                 nextElement = t;
                 hasNext = true;

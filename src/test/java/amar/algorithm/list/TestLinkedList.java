@@ -15,7 +15,7 @@ public class TestLinkedList {
     @Test
     public void listTest() {
 
-        List<Person> personList = new LinkedList<>();
+        final List<Person> personList = new LinkedList<>();
         personList.add(new Person(1L, "One"));
         personList.add(new Person(2L, "Two"));
         personList.add(new Person(3L, "Three"));
@@ -31,7 +31,7 @@ public class TestLinkedList {
 
         System.out.println(personList);
 
-        boolean contains = personList.contains(new Person(4L, "Four"));
+        final boolean contains = personList.contains(new Person(4L, "Four"));
 
         assertEquals(true, contains);
 
@@ -41,17 +41,17 @@ public class TestLinkedList {
     @Test
     public void listTest1(){
 
-        List<Person> personList = new LinkedList<>();
+        final List<Person> personList = new LinkedList<>();
         personList.add(new Person(1L,"One"));
         personList.add(new Person(2L,"Two"));
         personList.add(new Person(3L,"Three"));
 
-        List<Person> personList2 = new LinkedList<>();
+        final List<Person> personList2 = new LinkedList<>();
         personList2.add(new Person(4L,"Four"));
         personList2.add(new Person(5L,"Five"));
         personList2.add(new Person(6L,"Six"));
 
-        LinkedList list = (LinkedList) personList;
+        final LinkedList list = (LinkedList) personList;
         list.addLast(personList2);
 
         System.out.println(list);

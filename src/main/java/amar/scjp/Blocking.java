@@ -7,8 +7,8 @@ import java.util.concurrent.LinkedBlockingDeque;
 class Blocking {
     Deque<String> gangOfFour = new LinkedBlockingDeque<String>();
 
-    public static void main(String[] args) {
-        Blocking blocking = new Blocking();
+    public static void main(final String[] args) {
+        final Blocking blocking = new Blocking();
         blocking.new Consumer().start();
         blocking.new Producer().start();
 
@@ -18,13 +18,13 @@ class Blocking {
         String[] authors = {"E Gamma", "R Johnson", "R Helm", "J Vlissides"};
 
         public void run() {
-            for (String author : authors) {
+            for (final String author : authors) {
                 gangOfFour.add(author);
 
                 try {
                     // take time to add
                     Thread.sleep(1000);
-                } catch (InterruptedException ie) {
+                } catch (final InterruptedException ie) {
                 }
             }
         }

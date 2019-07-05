@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class TimeBasedExampleTimeout {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         TimeTicker timeTicker = null;
         try {
@@ -38,7 +38,7 @@ public class TimeBasedExampleTimeout {
             // Wait for another 5 seconds when 3 seconds are there for timeout.
             Thread.sleep(5000);
 
-        } catch (InterruptedException e) {
+        } catch (final InterruptedException e) {
             //Do nothing
         } finally {
             timeTicker.stop();

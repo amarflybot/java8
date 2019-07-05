@@ -9,14 +9,14 @@ package problems;
  */
 public class CountNumbersFrom1toN {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int c = count(328);
+        final int c = count(328);
         System.out.println(c);
 
     }
 
-    private static int count(int n) {
+    private static int count(final int n) {
 
         int numbers = 0;
 
@@ -32,7 +32,7 @@ public class CountNumbersFrom1toN {
     private static boolean hasNum(int num) {
 
         while (num > 0) {
-            int res = num % 10;
+            final int res = num % 10;
             if (res == 4) {
                 return true;
             }

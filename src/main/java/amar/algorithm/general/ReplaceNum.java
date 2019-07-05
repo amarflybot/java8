@@ -8,11 +8,11 @@ package amar.algorithm.general;
  */
 public class ReplaceNum {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int num = 152;
+        final int num = 152;
 
-        int replaced = findReplace(num);
+        final int replaced = findReplace(num);
 
         System.out.println(replaced);
     }

@@ -5,11 +5,11 @@ package amar.rx.EventDrivenPattern;
  */
 public class EventDrivenExample {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
-        EmailService emailService = new EmailServiceImpl();
+        final EmailService emailService = new EmailServiceImpl();
 
-        UserService userService = new UserServiceImpl();
+        final UserService userService = new UserServiceImpl();
 
         new EmailMonitor(emailService, userService);
 

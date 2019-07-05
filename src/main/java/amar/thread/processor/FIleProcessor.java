@@ -13,21 +13,21 @@ import java.util.List;
  */
 public class FIleProcessor {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(final String[] args) throws InterruptedException {
 
-        List<String> list = new ArrayList<>();
+        final List<String> list = new ArrayList<>();
 
-        LineProcessor lineProcessor = new LineProcessor(list);
-        LineReader lineReader = new LineReader(list);
+        final LineProcessor lineProcessor = new LineProcessor(list);
+        final LineReader lineReader = new LineReader(list);
 
-        Thread lineProcessorThread = new Thread(lineProcessor, "LineProcessor-1");
+        final Thread lineProcessorThread = new Thread(lineProcessor, "LineProcessor-1");
         //Thread lineProcessorThread2 = new Thread(lineProcessor, "LineProcessor-2");
         //Thread lineProcessorThread3 = new Thread(lineProcessor, "LineProcessor-3");
         //final ExecutorService executorService = Executors.newFixedThreadPool(10);
-        Thread lineReaderThread = new Thread(lineReader, "LineReader-1");
-        Thread lineReaderThread1 = new Thread(lineReader, "LineReader-2");
-        Thread lineReaderThread2 = new Thread(lineReader, "LineReader-3");
-        Thread lineReaderThread3 = new Thread(lineReader, "LineReader-4");
+        final Thread lineReaderThread = new Thread(lineReader, "LineReader-1");
+        final Thread lineReaderThread1 = new Thread(lineReader, "LineReader-2");
+        final Thread lineReaderThread2 = new Thread(lineReader, "LineReader-3");
+        final Thread lineReaderThread3 = new Thread(lineReader, "LineReader-4");
 
         lineReaderThread.start();
         lineReaderThread1.start();
@@ -71,7 +71,7 @@ class LineProcessor implements Runnable {
                     list.notify();
                     try {
                         list.wait();
-                    } catch (InterruptedException e) {
+                    } catch (final InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -94,29 +94,29 @@ class LineReader implements Runnable {
         BufferedReader bufferedReader = null;
         try {
             bufferedReader = new BufferedReader(new java.io.FileReader(new File("/Users/amarendra/IdeaProjects/java8/src/main/res/amar.txt")));
-        } catch (FileNotFoundException e) {
+        } catch (final FileNotFoundException e) {
             e.printStackTrace();
         }
         while (true) {
             synchronized (list) {
                 if (list.size() > 3) {
-                    String line;
+                    final String line;
                     try {
                         assert bufferedReader != null;
                         line = bufferedReader.readLine();
                         System.out.println("Line Read: " + line + " by thread " + Thread.currentThread().getName());
-                    } catch (IOException e) {
+                    } catch (final IOException e) {
                         break;
                     }
                     list.notify();
                     try {
                         list.wait();
-                    } catch (InterruptedException e) {
+                    } catch (final InterruptedException e) {
                         e.printStackTrace();
                     }
                     try {
                         Thread.sleep(10);
-                    } catch (InterruptedException e) {
+                    } catch (final InterruptedException e) {
                         e.printStackTrace();
                     }
                     list.add(line);

@@ -9,12 +9,12 @@ public class FindNumberInSortedArray {
 
     static int noOfRounds;
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int k = 0;
+        final int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        final int k = 0;
 
-        boolean bool = find(arr, k);
+        final boolean bool = find(arr, k);
         System.out.println("Found ? : " + bool);
         System.out.println("Total Iterrations -> " + noOfRounds);
 
@@ -28,7 +28,7 @@ public class FindNumberInSortedArray {
             return false;
         }
 
-        int midPoint = length / 2;
+        final int midPoint = length / 2;
         if (k == arr[midPoint]) {
             return true;
         } else if (k > arr[midPoint]) {

@@ -7,15 +7,15 @@ import java.util.Arrays;
  */
 public class FibonacciTest {
 
-    public static void main(String[] args) {
-        int[] integerStack = new int[7];
+    public static void main(final String[] args) {
+        final int[] integerStack = new int[7];
         integerStack[0] = 0;
         integerStack[1] = 1;
-        int[] fibonacci = findFibonacci(integerStack, 8, 1);
+        final int[] fibonacci = findFibonacci(integerStack, 8, 1);
         System.out.println(Arrays.toString(fibonacci));
     }
 
-    private static int[] findFibonacci(int[] result, int i, int j) {
+    private static int[] findFibonacci(final int[] result, final int i, int j) {
 
         if (result[j] >= i) {
             return null;
