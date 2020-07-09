@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by kumarao on 27-01-2016.
+ * Created by kumarao on 27-01-2016. PECS
+ * https://howtodoinjava.com/core-java/generics/java-generics-what-is-pecs-producer-extends-consumer-super/
  */
 public class GenericsTest {
 
