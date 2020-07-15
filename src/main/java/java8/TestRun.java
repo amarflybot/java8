@@ -8,6 +8,7 @@ public class TestRun {
     public static void main(final String[] args) {
 
         final Test test = new Test();
+        System.out.println(test.run(123));
 
     }
 }

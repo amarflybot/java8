@@ -5,7 +5,7 @@ package java8;
  */
 public class Test implements ITest1, ITest2 {
 
-    public Double run() {
-        return null;
+    public Integer run(final Integer i) {
+        return 7891;
     }
 }
