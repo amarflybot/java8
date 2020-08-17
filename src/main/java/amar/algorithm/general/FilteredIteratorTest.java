@@ -1,6 +1,5 @@
 package amar.algorithm.general;
 
-import com.sun.tools.javac.util.Assert;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -99,8 +98,6 @@ class FilteredIterator<T> implements Iterator<T> {
     private T nextElement;
 
     public FilteredIterator(final Iterator<? extends T> iterator, final Filter<T> filter) {
-        Assert.checkNonNull(iterator);
-        Assert.checkNonNull(filter);
         this.iterator = iterator;
         this.filter = filter;
         nextMatchingElement();
